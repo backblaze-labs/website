@@ -32,6 +32,18 @@ const fontBold = loadFontMaybe(
   "@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff",
 );
 
+// Embed the actual brand flame as a base64 data URL — Satori's <img> can load it
+// without a network round-trip and without depending on a public asset URL.
+const flameSvgPath = path.resolve(here, "../../public/brand/flame-red.svg");
+const flameDataUrl = (() => {
+  try {
+    const svg = fs.readFileSync(flameSvgPath);
+    return `data:image/svg+xml;base64,${svg.toString("base64")}`;
+  } catch {
+    return null;
+  }
+})();
+
 export const GET: APIRoute = async () => {
   const fonts: Parameters<typeof satori>[1]["fonts"] = [];
   if (fontRegular) fonts.push({ name: "Body", data: fontRegular, weight: 400, style: "normal" });
@@ -59,17 +71,20 @@ export const GET: APIRoute = async () => {
           props: {
             style: { display: "flex", alignItems: "center", gap: "16px" },
             children: [
-              {
-                type: "div",
-                props: {
-                  style: {
-                    width: "44px",
-                    height: "70px",
-                    background: "#E20626",
-                    clipPath: "polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 60%)",
+              flameDataUrl
+                ? {
+                    type: "img",
+                    props: {
+                      src: flameDataUrl,
+                      width: 44,
+                      height: 72,
+                      style: { display: "block" },
+                    },
+                  }
+                : {
+                    type: "div",
+                    props: { style: { width: "44px", height: "72px" } },
                   },
-                },
-              },
               {
                 type: "div",
                 props: {
