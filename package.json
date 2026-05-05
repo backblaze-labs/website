@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.0",
-    "@types/node": "^22.10.0",
+    "@types/node": "^25.6.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "simple-git-hooks": "^2.11.1"
