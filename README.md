@@ -84,7 +84,7 @@ npm run fix      # auto-fix lint + format, then typecheck + validate
 
 ## Brand
 
-Colors and fonts come from the official [Backblaze Brand Guidelines](https://www.backblaze.com/company/brand.html). Token names mirror the brand kit's tint scale (Red 50 = `#E20626`, Navy 50 = `#000033`, etc.).
+Colors and fonts come from the official Backblaze brand kit. Token names mirror the brand kit's tint scale (Red 50 = `#E20626`, Navy 50 = `#000033`, etc.).
 
 | Token | Hex | Usage |
 | --- | --- | --- |
