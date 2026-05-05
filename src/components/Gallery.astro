@@ -196,6 +196,15 @@ const sorted = [...catalog.integrations].sort((a, b) => {
   const PAGE_SIZE = 12;
   let pageLimit = PAGE_SIZE;
 
+  // Pre-populate search from `?q=` so the Schema.org SearchAction template
+  // (configured in BaseLayout to point at `?q={search_term_string}`) actually
+  // works when Google or another consumer hits the URL.
+  if (search) {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
+    if (q) search.value = q;
+  }
+
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
     filtersToggle.addEventListener("click", () => {

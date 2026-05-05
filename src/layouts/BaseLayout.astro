@@ -3,7 +3,8 @@ import "~/styles/global.css";
 import Nav from "~/components/Nav.astro";
 import Footer from "~/components/Footer.astro";
 import Analytics from "~/components/Analytics.astro";
-import { catalog } from "~/lib/labs";
+import { catalog, type Integration } from "~/lib/labs";
+import { organizationSchema, websiteSchema, itemListSchema } from "~/lib/schema";
 
 // Preload the two fonts that text on first paint actually uses:
 //   - DM Sans 400 (body)
@@ -16,12 +17,15 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** When set, an ItemList JSON-LD document is emitted for SEO. */
+  itemList?: { name: string; items: Integration[] };
 }
 
 const {
   title = catalog.meta.title,
   description = catalog.meta.description,
   ogImage,
+  itemList,
 } = Astro.props;
 
 const fullTitle = title === catalog.meta.title ? title : `${title} · ${catalog.meta.title}`;
@@ -31,6 +35,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblaze-l
 // Single site-wide OG image. We don't generate per-page variants — the site is a
 // single gallery and detail pages were dropped in favor of direct upstream links.
 const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backblaze-labs.github.io").toString();
+
+// Site root for schema docs (always includes the base path). e.g.
+//   https://backblaze-labs.github.io/website
+const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblaze-labs.github.io")
+  .toString()
+  .replace(/\/$/, "");
+const pageUrl = canonical;
+
+const ldSite = [organizationSchema(siteUrl), websiteSchema(siteUrl)];
+const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items, pageUrl) : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -65,6 +79,14 @@ const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backbl
 
     <!-- JSON Feed for syndication -->
     <link rel="alternate" type="application/feed+json" title="Backblaze Labs" href={`${base}/feed.json`} />
+
+    <!-- Schema.org JSON-LD: WebSite + Organization site-wide; ItemList per page. -->
+    {ldSite.map((doc) => (
+      <script type="application/ld+json" set:html={JSON.stringify(doc)} />
+    ))}
+    {ldList && (
+      <script type="application/ld+json" set:html={JSON.stringify(ldList)} />
+    )}
 
     <!-- Preload critical fonts so they download in parallel with the CSS — without
          this they're discovered late in the chain and add ~300ms to LCP. -->

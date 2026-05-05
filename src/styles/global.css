@@ -429,12 +429,15 @@
   mix-blend-mode: overlay;
 }
 
-/* Hero brand wordmark — solid Backblaze Red. Matches the brand's "defining color"
- * treatment (per Brand Guidelines page 6) and echoes the red "Labs" in the nav.
- * No gradient: the brand kit doesn't do red→blue on the wordmark. */
+/* Hero wordmark — same color as the rest of the headline (so the line reads
+ * cleanly against the red/purple ambient gradient), with a subtle red drop-
+ * shadow that hints at the brand. backblaze.com itself uses white headlines
+ * + red only on CTAs / flame, which is what we mirror here. The red emphasis
+ * stays on small wordmarks (e.g. "Labs" in the nav) where the contrast works. */
 @utility hero-mark {
-  color: var(--color-red-50);
-  filter: drop-shadow(0 0 28px rgba(226, 6, 38, 0.25));
+  white-space: nowrap;
+  color: inherit;
+  filter: drop-shadow(0 0 16px rgba(226, 6, 38, 0.45));
 }
 
 @utility grid-fade {

@@ -26,6 +26,10 @@ const sorted = [...items].sort((a, b) => {
 <BaseLayout
   title={`${category.label} integrations`}
   description={`${items.length} open source ${category.label} integrations from Backblaze Labs.`}
+  itemList={{
+    name: `${category.label} integrations on Backblaze Labs`,
+    items: sorted,
+  }}
 >
   <section class="container-page py-10 md:py-14">
     <a
