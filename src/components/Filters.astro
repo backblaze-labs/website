@@ -1,0 +1,106 @@
+---
+import {
+  catalog,
+  countByCategory,
+  countByType,
+  countByLanguage,
+} from "~/lib/labs";
+import Icon from "~/components/Icon.astro";
+
+const cCounts = countByCategory();
+const tCounts = countByType();
+const lCounts = countByLanguage();
+---
+<aside class="filters-panel" data-filters>
+  <div class="flex items-center justify-between md:hidden mb-3">
+    <h3 class="font-display text-base font-semibold inline-flex items-center gap-2">
+      <Icon name="filter" size={16} /> Filters
+    </h3>
+    <button type="button" data-filter-clear class="text-xs" style="color: var(--fg-dim);">Clear all</button>
+  </div>
+  <div class="hidden md:flex items-center justify-between mb-4">
+    <h3 class="font-display text-sm font-semibold uppercase tracking-wider" style="color: var(--fg-muted);">
+      Filters
+    </h3>
+    <button type="button" data-filter-clear class="text-xs underline-offset-2 hover:underline" style="color: var(--fg-dim);">Clear all</button>
+  </div>
+
+  <fieldset class="filter-group">
+    <legend class="filter-legend">Use Case</legend>
+    {catalog.categories.map((c) => (
+      <label class="filter-row" data-filter-row>
+        <input type="checkbox" data-filter="category" value={c.id} />
+        <span class="filter-row-label">{c.label}</span>
+        <span class="filter-row-count">{cCounts[c.id] ?? 0}</span>
+      </label>
+    ))}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend class="filter-legend">Type</legend>
+    {catalog.types.map((t) => (
+      <label class="filter-row" data-filter-row>
+        <input type="checkbox" data-filter="type" value={t.id} />
+        <span class="filter-row-label">{t.label}</span>
+        <span class="filter-row-count">{tCounts[t.id] ?? 0}</span>
+      </label>
+    ))}
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend class="filter-legend">Language</legend>
+    {catalog.languages.map((l) => (
+      <label class="filter-row" data-filter-row>
+        <input type="checkbox" data-filter="language" value={l.id} />
+        <span class="filter-row-label">{l.label}</span>
+        <span class="filter-row-count">{lCounts[l.id] ?? 0}</span>
+      </label>
+    ))}
+  </fieldset>
+</aside>
+
+<style>
+  .filters-panel {
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 1.25rem;
+  }
+  .filter-group {
+    border: 0;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+  }
+  .filter-group:last-child { margin-bottom: 0; }
+  .filter-legend {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-dim);
+    margin-bottom: 0.5rem;
+  }
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.5rem;
+    margin: 0 -0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+  .filter-row:hover { background: var(--bg-elevated); }
+  .filter-row input { accent-color: var(--color-red-50); width: 14px; height: 14px; }
+  .filter-row-label {
+    flex: 1;
+    font-size: 0.88rem;
+    color: var(--fg);
+  }
+  .filter-row-count {
+    font-size: 0.74rem;
+    color: var(--fg-dim);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

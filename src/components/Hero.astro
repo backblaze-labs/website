@@ -1,0 +1,77 @@
+---
+import Icon from "~/components/Icon.astro";
+import { catalog } from "~/lib/labs";
+
+const stats = {
+  integrations: catalog.integrations.length,
+  categories: catalog.categories.length,
+  languages: catalog.languages.length,
+};
+---
+<section class="relative overflow-hidden">
+  <!-- Heatmap-style ambient layer + sparks. Per brand: red + orange + purple over navy. -->
+  <div class="orb-bg" aria-hidden="true">
+    <!-- Slowly rotating conic mesh — the "blaze" -->
+    <div class="blaze-mesh"></div>
+
+    <!-- Punchy color blobs with screen blending -->
+    <div class="orb" style="width:640px;height:640px;background:radial-gradient(circle,var(--color-red-50),transparent 60%);left:-12%;top:-22%;"></div>
+    <div class="orb" style="width:520px;height:520px;background:radial-gradient(circle,var(--color-purple-70),transparent 60%);right:-10%;top:-8%;animation:var(--animate-orb-slow);animation-delay:-6s;"></div>
+    <div class="orb" style="width:420px;height:420px;background:radial-gradient(circle,var(--color-orange-50),transparent 60%);left:32%;top:-30%;animation-delay:-12s;opacity:0.55;"></div>
+    <div class="orb" style="width:360px;height:360px;background:radial-gradient(circle,var(--color-red-40),transparent 60%);right:25%;top:55%;animation:var(--animate-orb-fast);animation-delay:-3s;opacity:0.45;"></div>
+    <div class="orb" style="width:300px;height:300px;background:radial-gradient(circle,var(--color-purple-50),transparent 60%);left:55%;top:35%;animation:var(--animate-orb-slow);animation-delay:-9s;opacity:0.4;"></div>
+    <div class="orb" style="width:240px;height:240px;background:radial-gradient(circle,var(--color-orange-40),transparent 60%);left:8%;top:68%;animation:var(--animate-orb-fast);animation-delay:-15s;opacity:0.35;"></div>
+
+    <!-- Faint dot grid mask -->
+    <div class="absolute inset-0 grid-fade opacity-40"></div>
+
+    <!-- Painterly noise -->
+    <div class="noise"></div>
+
+    <!-- Twinkling sparks -->
+    <div class="spark" style="left:18%;top:62%;"></div>
+    <div class="spark" style="left:74%;top:38%;animation-delay:-1.5s;background:var(--color-red-30);box-shadow:0 0 12px 3px var(--color-red-30);"></div>
+    <div class="spark" style="left:42%;top:78%;animation-delay:-2.8s;"></div>
+    <div class="spark" style="left:88%;top:70%;animation-delay:-3.4s;background:var(--color-orange-40);box-shadow:0 0 12px 3px var(--color-orange-40);"></div>
+    <div class="spark" style="left:62%;top:18%;animation-delay:-2s;background:var(--color-red-50);box-shadow:0 0 12px 3px var(--color-red-50);"></div>
+    <div class="spark" style="left:8%;top:30%;animation-delay:-3.7s;"></div>
+  </div>
+
+  <div class="container-page relative pt-14 pb-10 md:pt-24 md:pb-16">
+    <div class="max-w-3xl">
+      <span class="chip mb-5">
+        <span class="inline-block size-1.5 rounded-full" style="background: var(--color-red-50); box-shadow: 0 0 8px var(--color-red-50);"></span>
+        Open source · built on B2
+      </span>
+      <h1 class="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+        Build with <span class="hero-mark">Backblaze B2</span>
+      </h1>
+      <p class="mt-5 max-w-2xl text-base md:text-lg" style="color: var(--fg-muted);">
+        {catalog.meta.tagline} Find SDKs, agent skills, IDE extensions, notebooks, and reference pipelines — all open source, all built on Backblaze B2.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#integrations" class="btn-primary" data-track="cta_click" data-track-cta="browse">
+          Browse integrations
+          <Icon name="arrow-right" size={14} />
+        </a>
+        <a href={catalog.meta.github} target="_blank" rel="noopener" class="btn-alt" data-track="cta_click" data-track-cta="hero_github">
+          <Icon name="github" size={16} /> View on GitHub
+        </a>
+      </div>
+      <dl class="mt-10 grid max-w-md grid-cols-3 gap-4">
+        <div class="stat">
+          <dt class="text-xs uppercase tracking-wider" style="color: var(--fg-dim);">Projects</dt>
+          <dd class="font-display text-2xl font-semibold md:text-3xl">{stats.integrations}</dd>
+        </div>
+        <div class="stat">
+          <dt class="text-xs uppercase tracking-wider" style="color: var(--fg-dim);">Categories</dt>
+          <dd class="font-display text-2xl font-semibold md:text-3xl">{stats.categories}</dd>
+        </div>
+        <div class="stat">
+          <dt class="text-xs uppercase tracking-wider" style="color: var(--fg-dim);">Languages</dt>
+          <dd class="font-display text-2xl font-semibold md:text-3xl">{stats.languages}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

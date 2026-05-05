@@ -1,0 +1,770 @@
+#!/usr/bin/env node
+/**
+ * Discovers candidate integrations from three sources:
+ *   1. Public, non-archived repos in `backblaze-labs` carrying the `b2-labs` topic
+ *   2. Public, non-archived repos in `backblaze-b2-samples` carrying the `b2-labs` topic
+ *   3. Closed sub-issues / `[x]` task-list items in tier-1 tracker issues
+ *      (currently just backblaze-labs/demand-side-ai#5)
+ *
+ * Tracker sub-issue labels control where the implementation lives:
+ *   B2 Documentation  → upstream entry (someone else's docs)
+ *   B2 Tool/Plugin    → matching repo in backblaze-labs/* (handled by source 1)
+ *   B2 Example        → matching repo in backblaze-b2-samples/* (handled by source 2)
+ *
+ * Each candidate is drafted with a `_complete` flag indicating whether every
+ * field came from explicit upstream metadata. Both complete and incomplete
+ * entries are merged by `merge-discovered`; the weekly PR surfaces TODOs so
+ * the maintainer can either polish them or fix the upstream first.
+ *
+ * Outputs src/data/labs.discovered.json — consumed by `merge-discovered.mjs`.
+ *
+ * Conventions: see ../CONVENTIONS.md for the full contract.
+ *
+ * Auth: uses the `gh` CLI. CI: set GH_TOKEN / GITHUB_TOKEN.
+ */
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import url from "node:url";
+
+const here = path.dirname(url.fileURLToPath(import.meta.url));
+const root = path.resolve(here, "..");
+const labsPath = path.join(root, "src/data/labs.json");
+const discoveredPath = path.join(root, "src/data/labs.discovered.json");
+
+const ORGS = ["backblaze-labs", "backblaze-b2-samples"];
+// Tier-1 tracker issues — issues that list upstream projects with shipped B2
+// integrations. Add more entries as new tier-1 trackers are created. Each is
+// processed identically; closed sub-issues / `[x]` items become catalog cards.
+const TRACKERS = [{ repo: "backblaze-labs/demand-side-ai", number: 5 }];
+const SKIP_REPOS = new Set(["backblaze-labs/website", "backblaze-labs/demand-side-ai"]);
+
+// Single opt-in topic. A repo is included in the catalog if and only if it has
+// this topic set on GitHub. Everything else is inferred from description, primary
+// language, and other topics.
+const INCLUDE_TOPIC = "b2-labs";
+
+// === Topic vocabulary ===
+
+// Inferred categories from common open-source topics.
+const TOPIC_TO_CATEGORY = {
+  "ai-pipeline": "ai-ml",
+  "ai-pipelines": "ai-ml",
+  "machine-learning": "ai-ml",
+  ml: "ai-ml",
+  mlops: "ai-ml",
+  "ai-infrastructure": "ai-ml",
+  "generative-ai": "ai-ml",
+  ai: "ai-ml",
+  "image-generation": "ai-ml",
+  "video-generation": "ai-ml",
+  "audio-generation": "ai-ml",
+  "data-pipeline": "data-pipelines",
+  "data-pipelines": "data-pipelines",
+  etl: "data-pipelines",
+  jupyter: "notebooks",
+  jupyterlab: "notebooks",
+  ipython: "notebooks",
+  notebook: "notebooks",
+  vscode: "ide-extensions",
+  "vscode-extension": "ide-extensions",
+  intellij: "ide-extensions",
+  ide: "ide-extensions",
+  claude: "agent-skills",
+  agent: "agent-skills",
+  "agent-skill": "agent-skills",
+  skill: "agent-skills",
+  mcp: "agent-skills",
+  infrastructure: "infra",
+  infra: "infra",
+  cli: "developer-tools",
+  devtools: "developer-tools",
+  "developer-tools": "developer-tools",
+  sdk: "developer-tools",
+};
+
+const LANGUAGE_MAP = {
+  Python: "python",
+  TypeScript: "typescript",
+  JavaScript: "javascript",
+  Go: "go",
+};
+
+// === gh CLI ===
+
+function gh(args) {
+  const r = spawnSync("gh", args, { encoding: "utf8" });
+  if (r.status !== 0) {
+    const e = new Error(`gh ${args.join(" ")} failed: ${r.stderr.trim() || "non-zero exit"}`);
+    e.stderr = r.stderr;
+    throw e;
+  }
+  return r.stdout;
+}
+const ghJSON = (args) => JSON.parse(gh(args));
+
+// === Source 1+2: org repo listings ===
+
+// Returns ALL public, non-archived repos in the org (no topic filter applied).
+// The caller separately partitions by `b2-labs` topic — we need the full list to
+// distinguish "repo deleted from org" from "topic accidentally removed".
+function listOrgRepos(org) {
+  const out = ghJSON([
+    "repo",
+    "list",
+    org,
+    "--limit",
+    "200",
+    "--json",
+    "name,nameWithOwner,description,repositoryTopics,primaryLanguage,isArchived,visibility",
+  ]);
+  return out
+    .filter((r) => r.visibility === "PUBLIC" && !r.isArchived)
+    .filter((r) => !SKIP_REPOS.has(r.nameWithOwner))
+    .map((r) => ({
+      repo: r.nameWithOwner,
+      name: r.name,
+      description: (r.description ?? "").trim(),
+      topics: (r.repositoryTopics ?? []).map((t) => (typeof t === "string" ? t : t.name)),
+      language: r.primaryLanguage?.name ?? null,
+    }));
+}
+
+function hasIncludeTopic(r) {
+  return r.topics.map((t) => t.toLowerCase()).includes(INCLUDE_TOPIC);
+}
+
+// === Source 3: tracker sub-issues ===
+
+// Parses a structured metadata block from a sub-issue body. Two formats supported,
+// YAML preferred (renders nicely on GitHub):
+//
+//   ```yaml
+//   # backblaze-integration
+//   url: https://docs.cvat.ai/docs/workspace/cloud-storages/
+//   source: CVAT
+//   categories: ai-ml, data-pipelines
+//   ...
+//   ```
+//
+// Or the legacy HTML-comment form:
+//
+//   <!-- backblaze-integration
+//   url: ...
+//   source: ...
+//   -->
+//
+// Both formats use the same flat `key: value` shape — comma-separated values for
+// `categories`/`tags`. The marker (`# backblaze-integration` for YAML, the comment
+// tag for HTML) is required so we don't false-positive on unrelated YAML blocks.
+const YAML_BLOCK_RE = /```ya?ml\s*\n([\s\S]*?)\n```/gi;
+const HTML_BLOCK_RE = /<!--\s*backblaze-integration\s*\n([\s\S]*?)\n\s*-->/i;
+const YAML_MARKER_RE = /^\s*#\s*backblaze-integration\b/im;
+
+function parseFlatBlock(content) {
+  const meta = {};
+  for (const raw of content.split("\n")) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#")) continue; // skip blanks + comments
+    const sep = line.indexOf(":");
+    if (sep === -1) continue;
+    const k = line.slice(0, sep).trim();
+    let v = line.slice(sep + 1).trim();
+    // Strip surrounding quotes; tolerate YAML inline arrays like `[a, b]`.
+    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
+      v = v.slice(1, -1);
+    } else if (v.startsWith("[") && v.endsWith("]")) {
+      v = v
+        .slice(1, -1)
+        .split(",")
+        .map((s) => s.trim().replace(/^['"]|['"]$/g, ""))
+        .join(", ");
+    }
+    if (!k) continue;
+    meta[k] = v;
+  }
+  return meta;
+}
+
+function parseMetaBlock(body) {
+  if (!body) return null;
+  // Prefer a YAML fenced code block carrying the `# backblaze-integration` marker.
+  for (const m of body.matchAll(YAML_BLOCK_RE)) {
+    const content = m[1];
+    if (YAML_MARKER_RE.test(content)) return parseFlatBlock(content);
+  }
+  // Fall back to the legacy HTML-comment form.
+  const html = body.match(HTML_BLOCK_RE);
+  if (html) return parseFlatBlock(html[1]);
+  return null;
+}
+
+// Extract the most-likely "destination" URL from free-form issue body text.
+//
+// We score every URL the body mentions and pick the highest. GitHub issue / PR
+// URLs are explicitly disqualified — those are metadata pointers, not user
+// destinations. If only github.com URLs exist, returns null so the caller can
+// flag `url` as missing rather than silently sending users to a tracker issue.
+function extractDestUrlFromBody(body) {
+  if (!body) return null;
+  const all = [...body.matchAll(/https?:\/\/[^\s)>\]"']+/g)].map((m) =>
+    m[0].replace(/[.,;:]+$/, ""),
+  );
+  if (all.length === 0) return null;
+
+  function score(u) {
+    let host;
+    let path;
+    try {
+      const url = new URL(u);
+      host = url.host.toLowerCase();
+      path = url.pathname;
+    } catch {
+      return -1;
+    }
+    // Hard exclude GitHub issues / pulls / discussions / commits. They're metadata,
+    // not destinations.
+    if (
+      /^(www\.)?github\.com$/i.test(host) &&
+      /^\/[^/]+\/[^/]+\/(issues|pull|pulls|discussions|commit|commits)\b/i.test(path)
+    ) {
+      return -100;
+    }
+    let s = 0;
+    if (/^docs\./i.test(host)) s += 30; // docs.cvat.ai etc.
+    if (host === "pypi.org") s += 20; // pypi.org/project/...
+    if (host === "www.npmjs.com" || host === "npmjs.com") s += 20;
+    if (/^(www\.)?github\.com$/i.test(host)) s -= 10; // tolerated only as last resort
+    s += Math.min(path.split("/").filter(Boolean).length, 5) * 2; // depth
+    return s;
+  }
+
+  const ranked = all
+    .map((u) => ({ u, s: score(u) }))
+    .filter((x) => x.s >= 0)
+    .sort((a, b) => b.s - a.s);
+  return ranked[0]?.u ?? null;
+}
+
+// Fetch HTML metadata from a URL (title, description, og:image). Bounded —
+// 5s timeout, 256KB cap. Returns null on any failure (network, non-HTML, etc.).
+async function fetchUrlMetadata(targetUrl) {
+  if (!targetUrl) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 5000);
+  try {
+    const res = await fetch(targetUrl, {
+      signal: controller.signal,
+      redirect: "follow",
+      headers: {
+        "user-agent": "BackblazeLabsDiscovery/1.0 (+https://github.com/backblaze-labs/website)",
+        accept: "text/html,application/xhtml+xml",
+      },
+    });
+    if (!res.ok) return null;
+    const ct = res.headers.get("content-type") ?? "";
+    if (!ct.includes("html")) return null;
+    // Read up to 256KB — meta tags are always near the top.
+    const reader = res.body?.getReader();
+    if (!reader) return null;
+    let bytes = 0;
+    let html = "";
+    const dec = new TextDecoder();
+    while (bytes < 256 * 1024) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      bytes += value.byteLength;
+      html += dec.decode(value, { stream: true });
+      // Once we've seen </head>, no point continuing.
+      if (html.includes("</head>") || html.includes("</HEAD>")) break;
+    }
+    try {
+      reader.cancel();
+    } catch {}
+
+    const pick = (re) => html.match(re)?.[1]?.trim();
+    const title = pick(/<title[^>]*>([^<]+)<\/title>/i);
+    const ogTitle = pick(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
+    const description =
+      pick(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i) ??
+      pick(/<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["']/i);
+    const ogImage = pick(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+    return { title: ogTitle || title || null, description: description || null, ogImage };
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function fetchTrackerItems(tracker) {
+  const ref = `${tracker.repo}#${tracker.number}`;
+  const out = [];
+  // Try GitHub Sub-issues API first.
+  try {
+    const subs = ghJSON(["api", `repos/${tracker.repo}/issues/${tracker.number}/sub_issues`]);
+    for (const s of subs) {
+      if (s.state !== "closed") continue;
+      out.push({
+        title: s.title,
+        url: s.html_url,
+        body: s.body ?? "",
+        labels: (s.labels ?? []).map((l) => (typeof l === "string" ? l : l.name)),
+        source: `${ref} (sub-issue)`,
+      });
+    }
+  } catch {
+    /* fall through to body-tasklist parsing */
+  }
+
+  // Body-tasklist fallback — works without the Sub-issues feature.
+  try {
+    const issue = ghJSON([
+      "issue",
+      "view",
+      String(tracker.number),
+      "--repo",
+      tracker.repo,
+      "--json",
+      "body",
+    ]);
+    const taskRe = /^[\t ]*[-*]\s+\[x\]\s+(.+)$/gim;
+    for (const m of (issue.body ?? "").matchAll(taskRe)) {
+      const text = m[1].trim();
+      const linkMatch = text.match(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/);
+      const urlMatch = text.match(/\bhttps?:\/\/\S+/);
+      const title =
+        linkMatch?.[1] ??
+        text
+          .split(/\s+(?=https?:)/)[0]
+          .replace(/[#`*_]/g, "")
+          .trim();
+      const u = linkMatch?.[2] ?? urlMatch?.[0] ?? null;
+      if (title && u) {
+        out.push({ title, url: u, body: "", labels: [], source: `${ref} (tasklist)` });
+      }
+    }
+  } catch (e) {
+    console.warn(`  ! tracker ${ref} not accessible: ${e.message.split("\n")[0]}`);
+    return [];
+  }
+
+  // Dedupe by URL within this tracker.
+  const seen = new Set();
+  return out.filter((x) => {
+    if (!x.url || seen.has(x.url)) return false;
+    seen.add(x.url);
+    return true;
+  });
+}
+
+function fetchAllTrackerDoneItems() {
+  const all = [];
+  const seen = new Set();
+  for (const t of TRACKERS) {
+    const items = fetchTrackerItems(t);
+    console.log(`  ${t.repo}#${t.number}: ${items.length} done items`);
+    for (const it of items) {
+      if (seen.has(it.url)) continue;
+      seen.add(it.url);
+      all.push(it);
+    }
+  }
+  return all;
+}
+
+// === Heuristics ===
+
+function prettifyTitle(name) {
+  return name
+    .replace(/^(backblaze|b2)-/, "")
+    .split(/[-_]/)
+    .map((p) => (/^[A-Z0-9]+$/.test(p) ? p : (p[0]?.toUpperCase() ?? "") + p.slice(1)))
+    .join(" ");
+}
+
+function slugFromRepoName(name) {
+  return name
+    .toLowerCase()
+    .replace(/^(backblaze|b2)-/, "")
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function slugFromUrl(u) {
+  try {
+    const host = new URL(u).host;
+    // Useless host slugs — github.com sub-issue URLs would otherwise produce id "github".
+    if (/^(www\.)?github\.com$/i.test(host)) return null;
+    return host
+      .replace(/^docs?\./, "")
+      .replace(/\.\w+$/, "")
+      .replace(/[^a-z0-9-]+/gi, "-")
+      .toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function slugFromTitle(title) {
+  return (title || "")
+    .toLowerCase()
+    .replace(/\s+integration$/i, "") // "CVAT Integration" → "cvat"
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+// Normalize an id for dedup matching. Strips dashes and underscores so
+// "ml-flow", "mlflow", and "ml_flow" all collide to the same key. Used ONLY
+// for "is this a duplicate?" checks — the visible id keeps its dashes.
+function normalizeId(id) {
+  return (id || "").toLowerCase().replace(/[-_]+/g, "");
+}
+
+// Resolve where a card should link to, based on conventions:
+//   - topic `pypi` → https://pypi.org/project/<repoName>/
+//   - topic `npm`  → https://www.npmjs.com/package/<repoName>
+//   - default     → the GitHub repo
+function resolveUrl(repo, name, topics) {
+  if (topics.includes("pypi")) return `https://pypi.org/project/${name}/`;
+  if (topics.includes("npm")) return `https://www.npmjs.com/package/${name}`;
+  return `https://github.com/${repo}`;
+}
+
+// === Drafting ===
+
+/**
+ * Returns { entry, missing[] }. `missing` is non-empty only for things we
+ * fundamentally can't infer (right now: just the repo description). Every other
+ * field has a deterministic inference path.
+ *
+ * The repo has already been filtered to `b2-labs`-tagged ones; this is the
+ * sole opt-in mechanism. From here, we infer categories from standard topics,
+ * type from name + topic patterns, language from GitHub, etc.
+ */
+function draftRepoEntry(r) {
+  const topics = (r.topics ?? []).map((t) => t.toLowerCase());
+  const missing = [];
+
+  // Categories — inferred from standard open-source topics. Falls back to a
+  // single sensible default ("developer-tools") rather than warning, since the
+  // user explicitly accepted "infer as much as possible".
+  const cats = new Set();
+  for (const t of topics) {
+    if (TOPIC_TO_CATEGORY[t]) cats.add(TOPIC_TO_CATEGORY[t]);
+  }
+  if (r.name.startsWith("awesome-")) cats.add("awesome-lists");
+  if (cats.size === 0) cats.add("developer-tools");
+
+  // Type — inferred from name patterns + standard topics.
+  let type;
+  if (r.name.startsWith("awesome-")) type = "list";
+  else if (topics.includes("vscode-extension") || r.name.endsWith("-vscode")) type = "extension";
+  else if (r.name.includes("skill") || topics.includes("agent-skill")) type = "skill";
+  else if (
+    topics.includes("sample") ||
+    r.name.startsWith("sample-") ||
+    r.name.includes("-sample") ||
+    r.name.includes("-samples")
+  ) {
+    type = "sample";
+  } else if (topics.includes("sdk") || r.name.includes("-sdk-") || r.name.endsWith("-sdk")) {
+    type = "sdk";
+  } else type = "tool";
+
+  // Language — primary GitHub language → catalog id; falls back to markdown
+  // for awesome-lists or where the language is unknown.
+  let language;
+  if (r.language && LANGUAGE_MAP[r.language]) language = LANGUAGE_MAP[r.language];
+  else if (r.name.startsWith("awesome-")) language = "markdown";
+  else language = "markdown";
+
+  // Icon — derived from inferred categories.
+  const icon =
+    type === "list"
+      ? "star"
+      : cats.has("notebooks")
+        ? "notebook"
+        : cats.has("ide-extensions")
+          ? "code"
+          : cats.has("agent-skills")
+            ? "bot"
+            : cats.has("infra")
+              ? "server"
+              : cats.has("data-pipelines")
+                ? "flow"
+                : cats.has("ai-ml")
+                  ? "sparkle"
+                  : "wrench";
+
+  // Accent: always brand red. featured: never inferred — defaults to false.
+  // Maintainer can hand-flip `featured: true` in labs.json after merge for the
+  // few entries that warrant top-of-gallery placement.
+  const accent = "red";
+  const featured = false;
+
+  // The only field we genuinely can't infer is the description. If it's empty,
+  // we still produce an entry but flag it so the PR body shows what's missing.
+  if (!r.description) {
+    missing.push("description (set the repo description on GitHub)");
+  }
+  const desc = r.description || `TODO: write a description for ${r.name}.`;
+  const tagline = (
+    r.description ? r.description.split(/(?<=[.!?])\s/)[0] : `TODO: ${r.name}`
+  ).slice(0, 80);
+
+  const entry = {
+    id: slugFromRepoName(r.name),
+    title: prettifyTitle(r.name),
+    tagline,
+    description: desc,
+    categories: [...cats],
+    type,
+    language,
+    // Strip the control topic from user-facing tags. Cap at 6.
+    tags: (r.topics ?? []).filter((t) => t.toLowerCase() !== INCLUDE_TOPIC).slice(0, 6),
+    repo: r.repo,
+    url: resolveUrl(r.repo, r.name, topics),
+    icon,
+    accent,
+    featured,
+  };
+
+  return { entry, missing };
+}
+
+async function draftUpstreamEntry(item) {
+  const meta = parseMetaBlock(item.body) ?? {};
+  const missing = [];
+
+  // URL: meta block first, otherwise extract from issue body.
+  const url = meta.url || extractDestUrlFromBody(item.body) || null;
+  if (!url) {
+    missing.push(
+      "url (no URL found in body — add the integration's docs URL to the sub-issue or meta block)",
+    );
+  }
+
+  // One HTTP per sub-issue to grab page title + meta description for free.
+  const fetched = await fetchUrlMetadata(url);
+
+  const source = meta.source || item.title.replace(/\s+(integration|support|tool)s?$/i, "");
+  const tagline = (meta.tagline ?? fetched?.title ?? `Backblaze B2 with ${source}.`).slice(0, 80);
+  const description =
+    meta.description ??
+    fetched?.description ??
+    `TODO: describe how ${source} integrates with Backblaze B2.`;
+  if (!meta.tagline && !fetched?.title)
+    missing.push("tagline (couldn't fetch page title — set `tagline:` in the meta block)");
+  if (!meta.description && !fetched?.description)
+    missing.push(
+      "description (couldn't fetch page description — set `description:` in the meta block)",
+    );
+
+  // Categories — the only field with no good auto-source. `ai-ml` is a sensible
+  // default for upstream B2 integrations (most are AI tooling); curator can
+  // refine in labs.json after merge.
+  const cats =
+    meta.categories
+      ?.split(",")
+      .map((s) => s.trim())
+      .filter(Boolean) ?? [];
+  if (cats.length === 0) cats.push("ai-ml");
+
+  const language = meta.language || "python";
+
+  // Tags: meta first, else heuristic (URL host word + source slug + s3-compatible).
+  let tags = meta.tags
+    ?.split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (!tags || tags.length === 0) {
+    const host = (() => {
+      try {
+        return new URL(url).host.replace(/^(www|docs)\./, "").split(".")[0];
+      } catch {
+        return null;
+      }
+    })();
+    tags = [host, source.toLowerCase().replace(/\s+/g, "-"), "s3-compatible"]
+      .filter(Boolean)
+      .filter((v, i, arr) => arr.indexOf(v) === i);
+  }
+
+  const icon = meta.icon || "flow";
+  const featured = String(meta.featured ?? "").toLowerCase() === "true";
+
+  // Slug: explicit `id` in meta → title slug → URL host slug → fallback.
+  const id = meta.id || slugFromTitle(meta.title || item.title) || slugFromUrl(url) || "untitled";
+
+  const entry = {
+    id,
+    title: meta.title || item.title.replace(/\s+integration$/i, ""),
+    tagline,
+    description,
+    categories: cats,
+    type: "integration",
+    language,
+    tags,
+    repo: null,
+    source,
+    url,
+    icon,
+    accent: meta.accent || "red",
+    featured,
+  };
+  return { entry, missing };
+}
+
+// === Reconcile ===
+
+const labs = JSON.parse(fs.readFileSync(labsPath, "utf8"));
+const existingByRepo = new Map(labs.integrations.filter((i) => i.repo).map((i) => [i.repo, i]));
+const existingByUrlHost = new Map();
+for (const i of labs.integrations) {
+  if (i.repo) continue;
+  try {
+    existingByUrlHost.set(new URL(i.url).host, i);
+  } catch {}
+}
+const existingIds = new Set(labs.integrations.map((i) => i.id));
+// Normalized-id index for dedup. Catches "mlflow" vs "ml-flow" vs "ml_flow" —
+// they all collapse to "mlflow" so we skip the proposal instead of creating a
+// duplicate card with a `-upstream` suffix.
+const existingNormalizedIds = new Set(labs.integrations.map((i) => normalizeId(i.id)));
+
+console.log("Discovering candidates ...");
+const allRepos = []; // all public, non-archived repos in our orgs
+const taggedRepos = []; // subset that carry the `b2-labs` topic
+for (const org of ORGS) {
+  try {
+    const found = listOrgRepos(org);
+    const tagged = found.filter(hasIncludeTopic);
+    console.log(
+      `  ${org}: ${found.length} public, non-archived (${tagged.length} tagged \`${INCLUDE_TOPIC}\`)`,
+    );
+    allRepos.push(...found);
+    taggedRepos.push(...tagged);
+  } catch (e) {
+    console.warn(`  ! ${org}: ${e.message.split("\n")[0]}`);
+  }
+}
+const reposByName = new Map(allRepos.map((r) => [r.repo, r]));
+const upstream = fetchAllTrackerDoneItems();
+
+const proposed = [];
+const seenRepos = new Set();
+const seenUpstreamHosts = new Set();
+
+for (const r of taggedRepos) {
+  seenRepos.add(r.repo);
+  if (existingByRepo.has(r.repo)) continue;
+  const { entry, missing } = draftRepoEntry(r);
+  // Skip if the normalized id matches something already in the catalog —
+  // e.g. avoids re-proposing a repo as a new card when an upstream entry with
+  // a near-equivalent slug already exists.
+  if (existingNormalizedIds.has(normalizeId(entry.id))) continue;
+  if (existingIds.has(entry.id)) entry.id = `${entry.id}-${r.repo.split("/")[0]}`;
+  proposed.push({ ...entry, _complete: missing.length === 0, _missing: missing, _source: r.repo });
+}
+
+// Upstream items: draft in parallel — each does an HTTP fetch for page metadata.
+//
+// Labels on the tracker sub-issue tell us where the implementation lives:
+//   B2 Documentation  → upstream docs change  → create an upstream entry (repo: null)
+//   B2 Tool/Plugin    → repo in backblaze-labs/*       → SKIP (repo discovery handles it)
+//   B2 Example        → repo in backblaze-b2-samples/* → SKIP (repo discovery handles it)
+// "B2 Integration" alone is ambiguous; default to upstream entry.
+const upstreamDrafts = await Promise.all(
+  upstream.map(async (item) => {
+    const labels = (item.labels ?? []).map((l) => l.toLowerCase());
+    const livesInOurOrgs = labels.includes("b2 tool/plugin") || labels.includes("b2 example");
+    if (livesInOurOrgs) return null; // repo discovery has it
+
+    let host = null;
+    try {
+      host = new URL(item.url).host;
+    } catch {}
+    if (host) {
+      seenUpstreamHosts.add(host);
+      if (existingByUrlHost.has(host)) return null;
+    }
+    const drafted = await draftUpstreamEntry(item);
+    // Skip if normalized id matches an existing entry — catches "ml-flow"
+    // (slugged from sub-issue title) vs "mlflow" already in labs.json.
+    if (existingNormalizedIds.has(normalizeId(drafted.entry.id))) return null;
+    return { item, ...drafted };
+  }),
+);
+for (const d of upstreamDrafts) {
+  if (!d) continue;
+  const { entry, missing, item } = d;
+  if (existingIds.has(entry.id)) entry.id = `${entry.id}-upstream`;
+  proposed.push({
+    ...entry,
+    _complete: missing.length === 0,
+    _missing: missing,
+    _source: `${item.source}: ${item.title}`,
+  });
+}
+
+// Stale audit. We NEVER auto-remove entries — these are reported for manual
+// maintainer review only. Two distinct cases:
+//   1. Repo no longer exists in either org (deleted, transferred, made private).
+//   2. Repo exists in an org but lost the `b2-labs` topic — likely accidental,
+//      flagged loudly so the maintainer can re-tag.
+const stale = [];
+for (const i of labs.integrations) {
+  if (!i.repo) continue;
+  const liveRepo = reposByName.get(i.repo);
+  if (!liveRepo) {
+    stale.push({
+      id: i.id,
+      repo: i.repo,
+      reason: "repo no longer found in source orgs (deleted? transferred? made private?)",
+      severity: "removed",
+    });
+  } else if (!hasIncludeTopic(liveRepo)) {
+    stale.push({
+      id: i.id,
+      repo: i.repo,
+      reason: `repo exists but \`${INCLUDE_TOPIC}\` topic is missing — possibly accidental. Re-add the topic on GitHub to keep auto-discovery working.`,
+      severity: "topic-missing",
+    });
+  }
+}
+
+const complete = proposed.filter((p) => p._complete);
+const incomplete = proposed.filter((p) => !p._complete);
+
+console.log(`\nProposed:`);
+console.log(`  ${complete.length} COMPLETE  (auto-mergeable)`);
+console.log(`  ${incomplete.length} NEEDS-METADATA  (require upstream fix)`);
+console.log(`  ${stale.length} STALE  (manual review)`);
+
+if (complete.length === 0 && incomplete.length === 0 && stale.length === 0) {
+  if (fs.existsSync(discoveredPath)) fs.unlinkSync(discoveredPath);
+  console.log("\n✔ Catalog in sync — nothing to do.");
+  process.exit(0);
+}
+
+if (incomplete.length) {
+  console.log(`\nNeeds-metadata details:`);
+  for (const p of incomplete) {
+    console.log(`  - ${p._source}`);
+    for (const m of p._missing) console.log(`      missing: ${m}`);
+  }
+}
+
+const out = {
+  generatedAt: new Date().toISOString(),
+  sources: { orgs: ORGS, trackers: TRACKERS.map((t) => `${t.repo}#${t.number}`) },
+  complete,
+  incomplete,
+  stale,
+};
+fs.writeFileSync(discoveredPath, `${JSON.stringify(out, null, 2)}\n`);
+console.log(`\nWrote ${path.relative(root, discoveredPath)}`);
+console.log(`Review or run: npm run merge-discovered  (or merge-discovered -- --auto for CI)`);

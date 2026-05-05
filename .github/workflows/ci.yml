@@ -1,0 +1,36 @@
+name: CI
+
+# Runs on every pull request and push (except main, which is covered by deploy.yml).
+# Single job: lint + format + typecheck + JSON-schema validate + build smoke.
+# Catches regressions before they hit main.
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run checks (lint + format + typecheck + validate)
+        run: npm run checks
+
+      - name: Build smoke
+        run: npm run build

@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Backblaze Labs Catalog",
+  "type": "object",
+  "required": ["version", "meta", "categories", "types", "languages", "integrations"],
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "meta": {
+      "type": "object",
+      "required": ["title", "tagline", "description", "github"],
+      "properties": {
+        "title": { "type": "string" },
+        "tagline": { "type": "string" },
+        "description": { "type": "string" },
+        "github": { "type": "string", "format": "uri" },
+        "homepage": { "type": "string", "format": "uri" },
+        "b2": { "type": "string", "format": "uri" }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "icon": { "type": "string" }
+        }
+      }
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "tagline",
+          "description",
+          "categories",
+          "type",
+          "language",
+          "url"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "tagline": { "type": "string", "maxLength": 80 },
+          "description": { "type": "string" },
+          "categories": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "type": { "type": "string" },
+          "language": { "type": "string" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "repo": { "type": ["string", "null"], "pattern": "^[\\w.-]+/[\\w.-]+$" },
+          "source": { "type": ["string", "null"] },
+          "url": { "type": "string", "format": "uri" },
+          "docs": { "type": ["string", "null"], "format": "uri" },
+          "demo": { "type": ["string", "null"], "format": "uri" },
+          "preview": { "type": ["string", "null"] },
+          "icon": { "type": "string" },
+          "accent": { "type": "string", "enum": ["red", "navy", "cream"] },
+          "featured": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

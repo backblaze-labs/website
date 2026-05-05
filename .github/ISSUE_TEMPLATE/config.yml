@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Backblaze Labs GitHub org
+    url: https://github.com/backblaze-labs
+    about: Browse all Backblaze Labs repositories.
+  - name: Backblaze B2 Cloud Storage
+    url: https://www.backblaze.com/b2/cloud-storage.html
+    about: Learn about Backblaze B2 — the storage backend behind every Labs project.
+  - name: Backblaze Support
+    url: https://www.backblaze.com/help.html
+    about: Questions about your Backblaze account or B2 itself? Start here.

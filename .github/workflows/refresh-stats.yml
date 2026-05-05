@@ -1,0 +1,56 @@
+name: Refresh GitHub stats
+
+# Pulls fresh stars / forks / last-push for every catalog entry once a day and
+# commits the result directly to main. No PR — stats are low-risk numeric data
+# that nobody needs to review.
+#
+# When a dedicated bot account exists (e.g. backblaze-b2-bot), set the secrets
+# GIT_AUTHOR_NAME / GIT_AUTHOR_EMAIL / LABS_DISCOVERY_PAT and the workflow uses
+# them. Otherwise it commits as github-actions[bot] using the default token.
+
+on:
+  schedule:
+    - cron: "0 7 * * *" # 07:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.LABS_DISCOVERY_PAT || secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Sync GitHub stats
+        env:
+          GH_TOKEN: ${{ secrets.LABS_DISCOVERY_PAT || secrets.GITHUB_TOKEN }}
+        run: npm run sync-stats
+
+      - name: Commit and push if changed
+        env:
+          GIT_AUTHOR_NAME: ${{ vars.BOT_NAME || 'github-actions[bot]' }}
+          GIT_AUTHOR_EMAIL: ${{ vars.BOT_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
+        run: |
+          if [[ -z "$(git status --porcelain src/data/github-stats.json)" ]]; then
+            echo "No changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add src/data/github-stats.json
+          git commit -m "chore(stats): refresh github-stats.json"
+          git push

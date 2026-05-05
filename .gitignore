@@ -1,0 +1,31 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment
+.env
+.env.local
+.env.production
+.env.*.local
+!.env.example
+
+# Discovery staging — produced by `npm run discover`, consumed by `merge-discovered`.
+# Not committed; the merge step is the canonical mutation of labs.json.
+src/data/labs.discovered.json
+
+# editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

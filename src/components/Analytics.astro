@@ -1,0 +1,91 @@
+---
+// Analytics: GA4 (direct) and/or Google Tag Manager. Both are opt-in via env var.
+//
+//   PUBLIC_GA_ID    — GA4 measurement ID (e.g. "G-XXXXXXXXXX"). Loads gtag.js.
+//   PUBLIC_GTM_ID   — Tag Manager container ID (e.g. "GTM-XXXXXXX"). Loads gtm.js.
+//   PUBLIC_GA_DEBUG — set to "true" to enable GA4 debug_mode in non-prod.
+//
+// You can set either (or both). With nothing set, this component renders nothing.
+//
+// Why a delegation-based event tracker (`window.bbTrack`):
+//   Adding a new tracked interaction is just `data-track="event_name"
+//   data-track-foo="bar"` on the element — no per-component wiring. The handler
+//   lives in this single file. Outbound link clicks and `data-track` attributes
+//   are picked up automatically.
+
+const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
+const gtmId = import.meta.env.PUBLIC_GTM_ID as string | undefined;
+const debug = String(import.meta.env.PUBLIC_GA_DEBUG ?? "").toLowerCase() === "true";
+
+const gaEnabled = !!gaId && /^G-[A-Z0-9]+$/i.test(gaId);
+const gtmEnabled = !!gtmId && /^GTM-[A-Z0-9]+$/i.test(gtmId);
+const anyEnabled = gaEnabled || gtmEnabled;
+---
+{gaEnabled && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId, debug }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', gaId, Object.assign({ anonymize_ip: true }, debug ? { debug_mode: true } : {}));
+    </script>
+  </>
+)}
+{gtmEnabled && (
+  <>
+    <script is:inline define:vars={{ gtmId }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtmId);
+    </script>
+  </>
+)}
+{anyEnabled && (
+  <script is:inline>
+    {`
+      // window.bbTrack(name, params) — forwards to GA4 (gtag) and pushes onto dataLayer
+      // for GTM consumers. No-ops if neither is configured.
+      window.bbTrack = function (name, params) {
+        params = params || {};
+        try {
+          if (typeof window.gtag === 'function') window.gtag('event', name, params);
+          if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, params));
+        } catch (e) { /* never break the page over telemetry */ }
+      };
+
+      // === Delegated click handler ===
+      // Tracks two flavours:
+      //   1. Any element carrying \`data-track="<event_name>"\` — extra params come
+      //      from \`data-track-*\` attributes (data-track-foo → "foo").
+      //   2. Outbound links (a[target="_blank"][href^="http"]) → "outbound_click"
+      //      with { host, url, text }.
+      function paramsFrom(el) {
+        var p = {};
+        for (var k in el.dataset) {
+          if (k === 'track' || !k.startsWith('track')) continue;
+          var key = k.slice(5).replace(/[A-Z]/g, function (m) { return '_' + m.toLowerCase(); });
+          p[key.replace(/^_/, '')] = el.dataset[k];
+        }
+        return p;
+      }
+      document.addEventListener('click', function (e) {
+        var el = e.target instanceof Element ? e.target.closest('[data-track], a[target="_blank"][href^="http"]') : null;
+        if (!el) return;
+        var name = el.getAttribute('data-track');
+        if (name) {
+          window.bbTrack(name, paramsFrom(el));
+        } else {
+          // Outbound link auto-track.
+          try {
+            var u = new URL(el.href);
+            window.bbTrack('outbound_click', {
+              host: u.host,
+              url: el.href,
+              text: (el.textContent || '').trim().slice(0, 80),
+            });
+          } catch (_) { /* ignore non-URL hrefs */ }
+        }
+      }, { capture: true });
+    `}
+  </script>
+)}

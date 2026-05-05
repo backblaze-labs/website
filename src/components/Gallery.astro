@@ -1,0 +1,316 @@
+---
+import Filters from "~/components/Filters.astro";
+import IntegrationCard from "~/components/IntegrationCard.astro";
+import Icon from "~/components/Icon.astro";
+import { catalog } from "~/lib/labs";
+
+// Featured items go first — Vercel-templates pattern.
+const sorted = [...catalog.integrations].sort((a, b) => {
+  const af = a.featured ? 1 : 0;
+  const bf = b.featured ? 1 : 0;
+  if (af !== bf) return bf - af;
+  return a.title.localeCompare(b.title);
+});
+---
+<section id="integrations" class="container-page mt-12 md:mt-16">
+  <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <h2 class="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+        Find your integration
+      </h2>
+      <p class="mt-1 text-sm md:text-base" style="color: var(--fg-muted);">
+        {catalog.integrations.length} open source projects from Backblaze Labs.
+      </p>
+    </div>
+
+    <div class="search-shell">
+      <span class="search-icon" aria-hidden="true"><Icon name="search" size={16} /></span>
+      <input
+        type="search"
+        data-search
+        placeholder="Search by name, language, tag…"
+        aria-label="Search integrations"
+        autocomplete="off"
+      />
+      <kbd class="hidden sm:inline-flex" aria-hidden="true">/</kbd>
+    </div>
+  </div>
+
+  <!-- mobile filters toggle -->
+  <button
+    type="button"
+    data-filters-toggle
+    class="md:hidden btn-secondary mb-4 w-full justify-center"
+  >
+    <Icon name="filter" size={16} /> <span data-filters-toggle-label>Show filters</span>
+  </button>
+
+  <div class="gallery-grid">
+    <div class="gallery-filters" data-filters-wrap>
+      <Filters />
+    </div>
+    <div>
+      <div class="mb-3 flex items-center justify-between text-sm" style="color: var(--fg-muted);">
+        <span><span data-result-count>{catalog.integrations.length}</span> shown</span>
+        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then alphabetical</span>
+      </div>
+      <div class="mb-3 hidden flex-wrap gap-1.5 sm:flex">
+        <span class="text-xs" style="color: var(--fg-dim);">Quick filters:</span>
+        {catalog.categories.slice(0, 4).map((c) => (
+          <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/category/${c.id}`} class="chip text-xs transition hover:border-[var(--border-strong)]">
+            {c.label}
+          </a>
+        ))}
+      </div>
+      <div class="cards-grid" data-cards>
+        {sorted.map((item, i) => (
+          <IntegrationCard item={item} index={i} />
+        ))}
+      </div>
+      <div data-empty class="empty-state hidden">
+        <p class="font-display text-lg font-semibold">No matches</p>
+        <p class="mt-1 text-sm" style="color: var(--fg-muted);">Try clearing a filter or adjusting your search.</p>
+        <button type="button" data-filter-clear class="btn-secondary mt-4">Clear filters</button>
+      </div>
+      <div data-pager class="mt-8 hidden flex-col items-center gap-2">
+        <button type="button" data-show-more class="btn-secondary" data-track="show_more">
+          Show more
+        </button>
+        <p class="text-xs" style="color: var(--fg-dim);">
+          Showing <span data-pager-shown>0</span> of <span data-pager-total>0</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 240px 1fr;
+      gap: 2rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .gallery-grid {
+      grid-template-columns: 260px 1fr;
+    }
+  }
+  .gallery-filters {
+    display: none;
+  }
+  .gallery-filters.is-open {
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .gallery-filters {
+      display: block;
+    }
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  @media (min-width: 640px)  { .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; } }
+
+  .search-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+  }
+  .search-shell .search-icon {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    color: var(--fg-dim);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .search-shell input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--fg);
+    border-radius: 999px;
+    padding: 0.65rem 2.6rem 0.65rem 2.4rem;
+    font-size: 0.92rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .search-shell input::placeholder { color: var(--fg-dim); }
+  .search-shell input:focus {
+    outline: none;
+    border-color: var(--color-red-50);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-red-50) 25%, transparent);
+  }
+  .search-shell kbd {
+    position: absolute;
+    right: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--fg-dim);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.05rem 0.4rem;
+    background: var(--bg-elevated);
+  }
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-card);
+  }
+</style>
+
+<script is:inline>
+(() => {
+  const root = document.querySelector("[data-cards]");
+  if (!root) return;
+  const cards = Array.from(root.querySelectorAll("[data-card]"));
+  const search = document.querySelector("[data-search]");
+  const checkboxes = Array.from(document.querySelectorAll("input[data-filter]"));
+  const countEl = document.querySelector("[data-result-count]");
+  const empty = document.querySelector("[data-empty]");
+  const grid = root;
+  const filtersWrap = document.querySelector("[data-filters-wrap]");
+  const filtersToggle = document.querySelector("[data-filters-toggle]");
+  const filtersToggleLabel = document.querySelector("[data-filters-toggle-label]");
+  const pager = document.querySelector("[data-pager]");
+  const showMoreBtn = document.querySelector("[data-show-more]");
+  const pagerShown = document.querySelector("[data-pager-shown]");
+  const pagerTotal = document.querySelector("[data-pager-total]");
+
+  // How many filtered-matching cards to render at once. Filter + search apply
+  // across the FULL set; only the slice that's actually visible is rendered.
+  const PAGE_SIZE = 12;
+  let pageLimit = PAGE_SIZE;
+
+  // Mobile show/hide filters.
+  if (filtersToggle && filtersWrap) {
+    filtersToggle.addEventListener("click", () => {
+      const open = filtersWrap.classList.toggle("is-open");
+      if (filtersToggleLabel) filtersToggleLabel.textContent = open ? "Hide filters" : "Show filters";
+    });
+  }
+
+  function getActive() {
+    const sets = { category: new Set(), type: new Set(), language: new Set() };
+    for (const cb of checkboxes) {
+      if (cb.checked) sets[cb.dataset.filter].add(cb.value);
+    }
+    return sets;
+  }
+
+  // Pure filter test — no DOM mutation. Lets us count the FULL set of matches
+  // before deciding the visible slice.
+  function matches(card) {
+    const q = (search?.value || "").trim().toLowerCase();
+    const { category, type, language } = getActive();
+    const cats = (card.dataset.categories || "").split(" ");
+    const t = card.dataset.type || "";
+    const l = card.dataset.language || "";
+    const text = card.dataset.search || "";
+    const okCat = category.size === 0 || cats.some((c) => category.has(c));
+    const okType = type.size === 0 || type.has(t);
+    const okLang = language.size === 0 || language.has(l);
+    const okSearch = q === "" || text.includes(q);
+    return okCat && okType && okLang && okSearch;
+  }
+
+  function apply() {
+    let totalMatching = 0;
+    let shown = 0;
+    for (const card of cards) {
+      if (!matches(card)) {
+        card.style.display = "none";
+        continue;
+      }
+      totalMatching++;
+      // Show the first `pageLimit` matches; hide the rest until "Show more".
+      if (shown < pageLimit) {
+        card.style.display = "";
+        shown++;
+      } else {
+        card.style.display = "none";
+      }
+    }
+    if (countEl) countEl.textContent = String(totalMatching);
+    if (empty) empty.classList.toggle("hidden", totalMatching !== 0);
+    grid.classList.toggle("hidden", totalMatching === 0);
+    // Pager: show "Show more" only when there are more matches than rendered.
+    if (pager) {
+      const hasMore = totalMatching > shown;
+      pager.classList.toggle("hidden", !hasMore);
+      pager.classList.toggle("flex", hasMore);
+      if (pagerShown) pagerShown.textContent = String(shown);
+      if (pagerTotal) pagerTotal.textContent = String(totalMatching);
+    }
+  }
+
+  function clearAll() {
+    for (const cb of checkboxes) cb.checked = false;
+    if (search) search.value = "";
+    pageLimit = PAGE_SIZE;
+    apply();
+  }
+
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener("click", () => {
+      pageLimit += PAGE_SIZE;
+      apply();
+    });
+  }
+
+  // When filters or search change, reset to the first page — otherwise "Show more"
+  // state from a previous filter would leak through.
+  for (const cb of checkboxes) {
+    cb.addEventListener("change", () => {
+      pageLimit = PAGE_SIZE;
+      apply();
+      if (window.bbTrack && cb.checked) {
+        window.bbTrack("filter_change", { filter: cb.dataset.filter, value: cb.value });
+      }
+    });
+  }
+  let searchTimer = 0;
+  if (search) {
+    search.addEventListener("input", () => {
+      pageLimit = PAGE_SIZE;
+      apply();
+      // Debounce search-term events so we don't fire on every keystroke.
+      clearTimeout(searchTimer);
+      searchTimer = window.setTimeout(() => {
+        const q = (search.value || "").trim();
+        if (q.length >= 2 && window.bbTrack) {
+          window.bbTrack("search", { search_term: q.slice(0, 80) });
+        }
+      }, 700);
+    });
+  }
+  document.querySelectorAll("[data-filter-clear]").forEach((b) => b.addEventListener("click", clearAll));
+
+  // First paint: render the initial page slice.
+  apply();
+
+  // "/" focuses search.
+  document.addEventListener("keydown", (e) => {
+    const target = e.target;
+    const isInput = target instanceof HTMLElement && (target.tagName === "INPUT" || target.tagName === "TEXTAREA");
+    if (e.key === "/" && !isInput) {
+      e.preventDefault();
+      search?.focus();
+    }
+  });
+})();
+</script>

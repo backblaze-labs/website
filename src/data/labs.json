@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "$schema": "./labs.schema.json",
+  "meta": {
+    "title": "Backblaze Labs",
+    "tagline": "Open source experiments, integrations, and tools built on Backblaze B2.",
+    "description": "Curated open source projects from Backblaze Labs — SDKs, agent skills, IDE extensions, awesome lists, and reference pipelines for Backblaze B2 Cloud Storage.",
+    "github": "https://github.com/backblaze-labs",
+    "homepage": "https://www.backblaze.com",
+    "b2": "https://www.backblaze.com/b2/cloud-storage.html"
+  },
+  "categories": [
+    {
+      "id": "ai-ml",
+      "label": "AI / ML",
+      "icon": "sparkle"
+    },
+    {
+      "id": "data-pipelines",
+      "label": "Data Pipelines",
+      "icon": "flow"
+    },
+    {
+      "id": "developer-tools",
+      "label": "Developer Tools",
+      "icon": "wrench"
+    },
+    {
+      "id": "notebooks",
+      "label": "Notebooks",
+      "icon": "notebook"
+    },
+    {
+      "id": "ide-extensions",
+      "label": "IDE Extensions",
+      "icon": "code"
+    },
+    {
+      "id": "agent-skills",
+      "label": "Agent Skills",
+      "icon": "bot"
+    },
+    {
+      "id": "awesome-lists",
+      "label": "Awesome Lists",
+      "icon": "star"
+    },
+    {
+      "id": "infra",
+      "label": "Infrastructure",
+      "icon": "server"
+    }
+  ],
+  "types": [
+    {
+      "id": "sdk",
+      "label": "SDK"
+    },
+    {
+      "id": "tool",
+      "label": "Tool"
+    },
+    {
+      "id": "extension",
+      "label": "Extension"
+    },
+    {
+      "id": "skill",
+      "label": "Skill"
+    },
+    {
+      "id": "sample",
+      "label": "Sample"
+    },
+    {
+      "id": "list",
+      "label": "Awesome List"
+    },
+    {
+      "id": "integration",
+      "label": "Integration"
+    }
+  ],
+  "languages": [
+    {
+      "id": "python",
+      "label": "Python"
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript"
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript"
+    },
+    {
+      "id": "markdown",
+      "label": "Markdown"
+    },
+    {
+      "id": "go",
+      "label": "Go"
+    }
+  ],
+  "integrations": [
+    {
+      "id": "mlflow",
+      "title": "MLflow",
+      "tagline": "Backblaze B2 as the MLflow artifact store.",
+      "description": "MLflow's tracking server supports Backblaze B2 directly via the S3-compatible API. Configure `MLFLOW_S3_ENDPOINT_URL` and your B2 credentials, and your runs, models, and artifacts persist to B2 — no extra plugin, fully documented upstream.",
+      "categories": ["ai-ml", "data-pipelines", "infra"],
+      "type": "integration",
+      "language": "python",
+      "tags": ["mlflow", "mlops", "artifact-store", "tracking", "s3-compatible"],
+      "repo": null,
+      "source": "MLflow",
+      "url": "https://mlflow.org/docs/latest/self-hosting/architecture/artifact-store/#backblaze-b2",
+      "icon": "flow",
+      "accent": "red",
+      "featured": true
+    },
+    {
+      "id": "cvat",
+      "title": "CVAT",
+      "tagline": "Backblaze B2 as a cloud storage backend for CVAT.",
+      "description": "CVAT — the open source computer vision annotation tool — supports Backblaze B2 as an S3-compatible cloud storage. Attach B2 buckets to your projects to store annotation source data and exported results without paying egress fees.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "integration",
+      "language": "python",
+      "tags": ["cvat", "annotation", "computer-vision", "data-labeling", "s3-compatible"],
+      "repo": null,
+      "source": "CVAT",
+      "url": "https://docs.cvat.ai/docs/workspace/cloud-storages/",
+      "icon": "flow",
+      "accent": "red",
+      "featured": false
+    },
+    {
+      "id": "genblaze",
+      "title": "Genblaze",
+      "tagline": "Generative AI media pipelines, with provenance.",
+      "description": "Open source Python SDK that orchestrates generative AI media pipelines across video, audio, and image providers — with built-in provenance for every output, persisted to Backblaze B2.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sdk",
+      "language": "python",
+      "tags": ["python", "sdk", "ai", "video", "audio", "image", "openai", "gemini"],
+      "repo": "backblaze-labs/genblaze",
+      "url": "https://github.com/backblaze-labs/genblaze",
+      "icon": "flame",
+      "accent": "red",
+      "featured": true
+    },
+    {
+      "id": "claude-skill-b2",
+      "title": "B2 Cloud Storage Skill",
+      "tagline": "Manage B2 from Claude in natural language.",
+      "description": "Claude Skill for Backblaze B2 Cloud Storage management from the terminal. Manage buckets, list and search files, audit storage usage, detect stale or large objects, review security posture, and safely clean up data using natural language.",
+      "categories": ["agent-skills", "developer-tools"],
+      "type": "skill",
+      "language": "markdown",
+      "tags": ["claude", "agent-skill", "cli", "natural-language"],
+      "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
+      "url": "https://github.com/backblaze-labs/claude-skill-b2-cloud-storage",
+      "icon": "bot",
+      "accent": "red",
+      "featured": true
+    },
+    {
+      "id": "hf-cache-sync",
+      "title": "HF Cache Sync",
+      "tagline": "Shared Hugging Face cache for teams.",
+      "description": "Sync local Hugging Face cache to Backblaze B2 or S3, eliminate repeated downloads, and enable fast, consistent model access across machines and CI runners.",
+      "categories": ["ai-ml", "infra"],
+      "type": "tool",
+      "language": "python",
+      "tags": ["python", "huggingface", "mlops", "cache", "ci"],
+      "repo": "backblaze-labs/hf-cache-sync",
+      "url": "https://github.com/backblaze-labs/hf-cache-sync",
+      "icon": "server",
+      "accent": "red",
+      "featured": false
+    },
+    {
+      "id": "jupyter-b2",
+      "title": "jupyter-b2",
+      "tagline": "%b2 magic and fsspec backend for Jupyter.",
+      "description": "Jupyter/IPython magic commands and fsspec backend for Backblaze B2. Load datasets, save models, and manage cloud storage — all from your notebook with simple %b2 commands. No boilerplate, no SDK ceremony.",
+      "categories": ["notebooks", "ai-ml"],
+      "type": "tool",
+      "language": "python",
+      "tags": ["python", "jupyter", "ipython", "fsspec", "magic"],
+      "repo": "backblaze-labs/jupyter-b2",
+      "url": "https://pypi.org/project/jupyter-b2/",
+      "icon": "notebook",
+      "accent": "red"
+    },
+    {
+      "id": "jupyterlab-b2",
+      "title": "jupyterlab-b2",
+      "tagline": "Native B2 file browser inside JupyterLab.",
+      "description": "JupyterLab extension that registers Backblaze B2 as a native drive — same look, same breadcrumbs, drag-and-drop upload, click-to-open, and full bucket management from the sidebar.",
+      "categories": ["notebooks", "developer-tools"],
+      "type": "extension",
+      "language": "typescript",
+      "tags": ["typescript", "jupyterlab", "extension", "file-browser"],
+      "repo": "backblaze-labs/jupyterlab-b2",
+      "url": "https://pypi.org/project/jupyterlab-b2/",
+      "icon": "notebook",
+      "accent": "red"
+    },
+    {
+      "id": "b2-vscode",
+      "title": "B2 for VS Code",
+      "tagline": "Browse and manage B2 inside your editor.",
+      "description": "Bucket explorer, auto-detected credentials, file open/download/rename/delete, Copilot tools for B2 operations, and SARIF-compatible structured logging for CI/CD — all without leaving VS Code.",
+      "categories": ["ide-extensions", "developer-tools"],
+      "type": "extension",
+      "language": "typescript",
+      "tags": ["typescript", "vscode", "extension", "copilot"],
+      "repo": "backblaze-labs/b2-vscode",
+      "url": "https://github.com/backblaze-labs/b2-vscode",
+      "icon": "code",
+      "accent": "red"
+    },
+    {
+      "id": "genblaze-gmicloud",
+      "title": "Genblaze × GMICloud",
+      "tagline": "Image-to-video pipeline in ~100 lines.",
+      "description": "Sample app that composes GMICloud image and video models with Genblaze and persists every artifact to B2 with a SHA-256-verified manifest. One prompt becomes an anchor image, then fans out concurrently to three video models.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "language": "python",
+      "tags": ["python", "genblaze", "gmicloud", "video", "image-to-video"],
+      "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
+      "url": "https://github.com/backblaze-labs/genblaze-gmicloud-pipeline",
+      "icon": "flow",
+      "accent": "red"
+    },
+    {
+      "id": "nemotron-genblaze-b2",
+      "title": "NVIDIA Nemotron × Genblaze",
+      "tagline": "Reference pipeline with Nemotron + B2.",
+      "description": "Reference pipeline showing how to use NVIDIA Nemotron models with Genblaze and persist artifacts to Backblaze B2.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "language": "python",
+      "tags": ["python", "nvidia", "nemotron", "genblaze"],
+      "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
+      "url": "https://github.com/backblaze-labs/nvidia-nemotron-genblaze-b2",
+      "icon": "flow",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-agent-infrastructure",
+      "title": "Awesome Agent Infrastructure",
+      "tagline": "Memory, sandboxes, MCP, and more.",
+      "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
+      "categories": ["awesome-lists", "ai-ml"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["agents", "mcp", "vector-db", "sandbox", "memory"],
+      "repo": "backblaze-labs/awesome-agent-infrastructure",
+      "url": "https://github.com/backblaze-labs/awesome-agent-infrastructure",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-ml-data-pipelines",
+      "title": "Awesome ML Data Pipelines",
+      "tagline": "Versioning, labeling, feature stores.",
+      "description": "A curated list of ML data pipeline tools: dataset versioning, labeling, feature stores, workflow orchestration, data loaders, and storage infrastructure for training and inference.",
+      "categories": ["awesome-lists", "data-pipelines"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["mlops", "feature-store", "labeling", "versioning"],
+      "repo": "backblaze-labs/awesome-ml-data-pipelines",
+      "url": "https://github.com/backblaze-labs/awesome-ml-data-pipelines",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-multimodal-data",
+      "title": "Awesome Multimodal Data",
+      "tagline": "Video, image, audio, 3D, robotics.",
+      "description": "A curated list of multimodal AI datasets and data infrastructure: video, image, audio, 3D, and robotics data, with formats, loaders, versioning, and labeling tools for large-scale training.",
+      "categories": ["awesome-lists", "ai-ml"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["datasets", "multimodal", "video", "audio", "3d"],
+      "repo": "backblaze-labs/awesome-multimodal-data",
+      "url": "https://github.com/backblaze-labs/awesome-multimodal-data",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-image-generation",
+      "title": "Awesome Image Generation",
+      "tagline": "Text-to-image APIs, SDKs, and tools.",
+      "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms.",
+      "categories": ["awesome-lists", "ai-ml"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["image", "diffusion", "generative-ai", "text-to-image"],
+      "repo": "backblaze-labs/awesome-image-generation",
+      "url": "https://github.com/backblaze-labs/awesome-image-generation",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-video-generation",
+      "title": "Awesome Video Generation",
+      "tagline": "Text-to-video, editing, multimodal.",
+      "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms.",
+      "categories": ["awesome-lists", "ai-ml"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["video", "text-to-video", "diffusion", "generative-ai"],
+      "repo": "backblaze-labs/awesome-video-generation",
+      "url": "https://github.com/backblaze-labs/awesome-video-generation",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-audio-generation",
+      "title": "Awesome Audio Generation",
+      "tagline": "TTS, speech synthesis, music, voice cloning.",
+      "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms.",
+      "categories": ["awesome-lists", "ai-ml"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["audio", "tts", "voice", "music", "generative-ai"],
+      "repo": "backblaze-labs/awesome-audio-generation",
+      "url": "https://github.com/backblaze-labs/awesome-audio-generation",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "awesome-physical-ai",
+      "title": "Awesome Physical AI",
+      "tagline": "Robotics, world models, sim-to-real.",
+      "description": "A curated list of physical AI tools: robotics foundation models, world models, simulators, teleoperation, sim-to-real, and embodied AI datasets for robot learning and autonomous systems.",
+      "categories": ["awesome-lists", "ai-ml"],
+      "type": "list",
+      "language": "markdown",
+      "tags": ["robotics", "world-models", "sim2real", "embodied-ai"],
+      "repo": "backblaze-labs/awesome-physical-ai",
+      "url": "https://github.com/backblaze-labs/awesome-physical-ai",
+      "icon": "star",
+      "accent": "red"
+    },
+    {
+      "id": "comfyui-cloud-storage",
+      "title": "Comfyui Cloud Storage",
+      "tagline": "TODO: comfyui-cloud-storage",
+      "description": "TODO: write a description for comfyui-cloud-storage.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "python",
+      "tags": [],
+      "repo": "backblaze-labs/comfyui-cloud-storage",
+      "url": "https://github.com/backblaze-labs/comfyui-cloud-storage",
+      "icon": "wrench",
+      "accent": "red",
+      "featured": false
+    }
+  ]
+}

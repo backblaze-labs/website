@@ -1,0 +1,466 @@
+@import "tailwindcss";
+
+/* Backblaze brand palette — sourced from official Brand Guidelines PDF (page 6–8).
+ * Defining color: Backblaze Red. Complemented by navy and purple. Beige + orange used sparingly.
+ *
+ *   Red 50      #E20626   defining color, primary CTAs
+ *   Navy 50     #000033   deep navy surface
+ *   Purple 70   #3430FF   modern accent (links, focus, decorative)
+ *   Purple 20   #E6E3FF   light icons / decorative on dark
+ *   Beige 50    #E5E0DD   warm light surface
+ */
+@theme {
+  /* Reds (per brand grid) */
+  --color-red-80: #590310;
+  --color-red-70: #87061b;
+  --color-red-60: #b40a23;
+  --color-red-50: #e20626; /* primary brand red */
+  --color-red-40: #e02945;
+  --color-red-30: #ec766d;
+  --color-red-20: #f2a19b;
+  --color-red-10: #f7cfcb;
+
+  /* Navies (per brand grid) */
+  --color-navy-60: #180802;
+  --color-navy-50: #000033; /* primary navy */
+  --color-navy-45: #33335c;
+  --color-navy-40: #4c4c6e;
+  --color-navy-30: #5f5f82;
+  --color-navy-20: #b2b2c1;
+  --color-navy-10: #e5e5eb;
+
+  /* Purples (per brand grid) */
+  --color-purple-70: #3430ff; /* primary purple accent */
+  --color-purple-60: #4d30ff;
+  --color-purple-50: #5c44ff;
+  --color-purple-40: #7b6be2;
+  --color-purple-30: #9e92ef;
+  --color-purple-20: #e6e3ff;
+  --color-purple-10: #f5f4ff;
+
+  /* Oranges — used sparingly in gradients. */
+  --color-orange-50: #ed560d;
+  --color-orange-40: #f9733a;
+  --color-orange-30: #fa8c5e;
+
+  /* Beiges */
+  --color-beige-100: #686563;
+  --color-beige-80: #b7b3b1;
+  --color-beige-50: #e5e0dd;
+  --color-beige-30: #efeceb;
+  --color-beige-10: #faf9f8;
+
+  --font-display: "Space Grotesk", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-card: 18px;
+
+  --animate-orb: orb 18s ease-in-out infinite;
+  --animate-orb-slow: orb 28s ease-in-out infinite;
+  --animate-orb-fast: orb 12s ease-in-out infinite;
+  --animate-blaze: blaze 22s linear infinite;
+  --animate-fade-up: fadeUp 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-spark: spark 4s ease-in-out infinite;
+}
+
+@keyframes orb {
+  0%, 100% { transform: translate3d(-6%, -3%, 0) scale(1); }
+  33%      { transform: translate3d(8%, -2%, 0) scale(1.12); }
+  66%      { transform: translate3d(-2%, 6%, 0) scale(0.95); }
+}
+@keyframes blaze {
+  0%   { transform: rotate(0deg)   scale(1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spark {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.3); }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUxhO9zZuvbHFCsB.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZaIGDWCBl0O8Q.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* THEME TOKENS — dark default, light override, system fallback. */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:            #000033;            /* Navy 50 */
+  --bg-deep:       #000020;            /* deeper than Navy 50 for ambient depth */
+  --bg-elevated:   rgba(255, 255, 255, 0.04);
+  --bg-card:       rgba(255, 255, 255, 0.035);
+  --bg-input:      rgba(255, 255, 255, 0.06);
+  --fg:            #ffffff;
+  --fg-muted:      rgba(255, 255, 255, 0.74);
+  --fg-dim:        rgba(255, 255, 255, 0.55);
+  --border:        rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.20);
+  --grid-line:     rgba(255, 255, 255, 0.05);
+  --link:          #ec766d;            /* Red 30 — readable on navy */
+  --icon-on-surface: #e6e3ff;          /* per brand: icons in dark mode */
+  /* Heatmap gradient layers — per "Level 1" gradient on page 9 */
+  --hero-glow-red:    rgba(226, 6, 38, 0.28);
+  --hero-glow-orange: rgba(237, 86, 13, 0.18);
+  --hero-glow-purple: rgba(52, 48, 255, 0.22);
+  --hero-glow-deep:   rgba(0, 0, 51, 0.6);
+  /* Card preview placeholder — heavy saturation works on dark navy. */
+  --placeholder-bg:        var(--bg-deep);
+  --placeholder-red-op:    0.85;
+  --placeholder-orange-op: 0.7;
+  --placeholder-purple-op: 0.85;
+  --placeholder-vig-color: #000020;
+  --placeholder-vig-op:    0.85;
+  --placeholder-grid:      rgba(255, 255, 255, 0.05);
+  /* CTA tokens */
+  --cta-bg:        var(--color-red-50);
+  --cta-fg:        #ffffff;
+  --cta-bg-hover:  var(--color-red-60);
+  --cta-alt-bg:    #ffffff;
+  --cta-alt-fg:    var(--color-red-50);
+  --cta-alt-bg-hover: var(--color-beige-30);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg:            #faf9f8;            /* Beige 10 */
+  --bg-deep:       #f5f3f1;            /* Beige 20 */
+  --bg-elevated:   #ffffff;
+  --bg-card:       #ffffff;
+  --bg-input:      #ffffff;
+  --fg:            #000033;            /* Navy 50 */
+  --fg-muted:      rgba(0, 0, 51, 0.72);
+  --fg-dim:        rgba(0, 0, 51, 0.55);
+  --border:        rgba(0, 0, 51, 0.10);
+  --border-strong: rgba(0, 0, 51, 0.22);
+  --grid-line:     rgba(0, 0, 51, 0.06);
+  --link:          #2b27d9;            /* per brand: icons #2B27D9 on light */
+  --icon-on-surface: #2b27d9;
+  --hero-glow-red:    rgba(226, 6, 38, 0.16);
+  --hero-glow-orange: rgba(237, 86, 13, 0.10);
+  --hero-glow-purple: rgba(52, 48, 255, 0.10);
+  --hero-glow-deep:   rgba(0, 0, 51, 0.04);
+  /* Light-theme placeholder — softer saturation so the gradient doesn't burn out. */
+  --placeholder-bg:        #faf9f8;
+  --placeholder-red-op:    0.40;
+  --placeholder-orange-op: 0.30;
+  --placeholder-purple-op: 0.40;
+  --placeholder-vig-color: #faf9f8;
+  --placeholder-vig-op:    0.6;
+  --placeholder-grid:      rgba(0, 0, 51, 0.06);
+  --cta-bg:        var(--color-red-50);
+  --cta-fg:        #ffffff;
+  --cta-bg-hover:  var(--color-red-60);
+  --cta-alt-bg:    var(--color-navy-50);
+  --cta-alt-fg:    #ffffff;
+  --cta-alt-bg-hover: var(--color-navy-45);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] {
+    color-scheme: light;
+    --bg:            #faf9f8;
+    --bg-deep:       #f5f3f1;
+    --bg-elevated:   #ffffff;
+    --bg-card:       #ffffff;
+    --bg-input:      #ffffff;
+    --fg:            #000033;
+    --fg-muted:      rgba(0, 0, 51, 0.72);
+    --fg-dim:        rgba(0, 0, 51, 0.55);
+    --border:        rgba(0, 0, 51, 0.10);
+    --border-strong: rgba(0, 0, 51, 0.22);
+    --grid-line:     rgba(0, 0, 51, 0.06);
+    --link:          #2b27d9;
+    --icon-on-surface: #2b27d9;
+    --hero-glow-red:    rgba(226, 6, 38, 0.16);
+    --hero-glow-orange: rgba(237, 86, 13, 0.10);
+    --hero-glow-purple: rgba(52, 48, 255, 0.10);
+    --hero-glow-deep:   rgba(0, 0, 51, 0.04);
+    --placeholder-bg:        #faf9f8;
+    --placeholder-red-op:    0.40;
+    --placeholder-orange-op: 0.30;
+    --placeholder-purple-op: 0.40;
+    --placeholder-vig-color: #faf9f8;
+    --placeholder-vig-op:    0.6;
+    --placeholder-grid:      rgba(0, 0, 51, 0.06);
+    --cta-bg:        var(--color-red-50);
+    --cta-fg:        #ffffff;
+    --cta-bg-hover:  var(--color-red-60);
+    --cta-alt-bg:    var(--color-navy-50);
+    --cta-alt-fg:    #ffffff;
+    --cta-alt-bg-hover: var(--color-navy-45);
+  }
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Heatmap gradient layered on the navy surface — evokes the "blaze" per brand notes. */
+  body {
+    background:
+      radial-gradient(ellipse 70% 50% at 78% 12%, var(--hero-glow-purple), transparent 65%),
+      radial-gradient(ellipse 55% 35% at 22% 8%,  var(--hero-glow-red),    transparent 60%),
+      radial-gradient(ellipse 40% 30% at 50% 0%,  var(--hero-glow-orange), transparent 65%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, var(--hero-glow-deep),  transparent 60%),
+      var(--bg);
+    min-height: 100dvh;
+  }
+
+  ::selection { background: var(--color-red-50); color: white; }
+  a { color: inherit; }
+  h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  *:focus-visible {
+    outline: 2px solid var(--color-red-50);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@utility container-page {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+  @media (min-width: 1280px) { padding-inline: 3rem; }
+}
+
+@utility card-glow {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, rgba(226, 6, 38, 0) 60%, rgba(226, 6, 38, 0) 100%);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    transition: background 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+    box-shadow: 0 16px 40px -16px rgba(226, 6, 38, 0.45);
+  }
+
+  &:hover::before {
+    background: linear-gradient(135deg, rgba(226, 6, 38, 0.7) 0%, rgba(52, 48, 255, 0.35) 50%, transparent 90%);
+  }
+}
+
+/* PRIMARY CTA — solid Backblaze Red pill with white text. Matches `Start Free` on backblaze.com. */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: var(--cta-bg-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px -10px rgba(226, 6, 38, 0.6);
+  }
+}
+
+/* SECONDARY CTA — white pill with red text on dark, navy pill on light. Matches `Get Started`. */
+@utility btn-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  background: var(--cta-alt-bg);
+  color: var(--cta-alt-fg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: var(--cta-alt-bg-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  color: var(--fg);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: var(--bg-card);
+    border-color: var(--border-strong);
+  }
+}
+
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+/* Stat callout with red vertical bar — matches brand testimonial on page 14. */
+@utility stat {
+  border-left: 3px solid var(--color-red-50);
+  padding-left: 0.75rem;
+}
+
+@utility orb-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+@utility orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  animation: var(--animate-orb);
+}
+
+[data-theme="light"] .orb {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] .orb {
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+  }
+}
+
+/* The "blaze" — a slowly-rotating multi-stop conic gradient that creates
+ * heatmap-style color mixing reminiscent of the brand "Level 1" gradients. */
+@utility blaze-mesh {
+  position: absolute;
+  inset: -25%;
+  background:
+    conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(226, 6, 38, 0.55) 40deg,
+      rgba(237, 86, 13, 0.45) 80deg,
+      transparent 130deg,
+      rgba(52, 48, 255, 0.55) 200deg,
+      rgba(123, 107, 226, 0.45) 250deg,
+      transparent 300deg,
+      transparent 360deg
+    );
+  filter: blur(70px);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  animation: var(--animate-blaze);
+  pointer-events: none;
+}
+
+[data-theme="light"] .blaze-mesh {
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+}
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] .blaze-mesh {
+    mix-blend-mode: multiply;
+    opacity: 0.22;
+  }
+}
+
+/* Subtle film-grain noise — gives the gradient a painterly quality (per brand). */
+@utility noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+  mix-blend-mode: overlay;
+}
+
+/* Hero brand wordmark — solid Backblaze Red. Matches the brand's "defining color"
+ * treatment (per Brand Guidelines page 6) and echoes the red "Labs" in the nav.
+ * No gradient: the brand kit doesn't do red→blue on the wordmark. */
+@utility hero-mark {
+  color: var(--color-red-50);
+  filter: drop-shadow(0 0 28px rgba(226, 6, 38, 0.25));
+}
+
+@utility grid-fade {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent 80%);
+}
+
+@utility spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-purple-30);
+  box-shadow: 0 0 10px 2px var(--color-purple-30);
+  animation: var(--animate-spark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}

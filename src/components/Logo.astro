@@ -1,0 +1,35 @@
+---
+interface Props {
+  variant?: "horizontal" | "flame";
+  class?: string;
+}
+const { variant = "horizontal", class: className = "" } = Astro.props;
+import { catalog } from "~/lib/labs";
+
+// Resolve asset path against base — works in dev (`/`) and on GitHub Pages (`/website`).
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const flameSrc = `${base}/brand/flame-red.svg`;
+---
+<a
+  href={base || "/"}
+  class:list={["flex items-center gap-2.5 group", className]}
+  aria-label={`${catalog.meta.title} home`}
+>
+  {variant === "horizontal" ? (
+    <>
+      <img
+        src={flameSrc}
+        alt=""
+        width="22"
+        height="36"
+        class="transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-110"
+        loading="eager"
+      />
+      <span class="font-display text-[17px] font-medium tracking-tight" style="color: var(--fg);">
+        Backblaze<span class="text-[var(--color-red-50)]"> Labs</span>
+      </span>
+    </>
+  ) : (
+    <img src={flameSrc} alt={`${catalog.meta.title}`} width="40" height="65" loading="eager" />
+  )}
+</a>

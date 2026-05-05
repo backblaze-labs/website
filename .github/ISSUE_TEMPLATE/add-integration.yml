@@ -1,0 +1,99 @@
+name: "Suggest an integration"
+description: "Propose an integration that doesn't fit auto-discovery."
+title: "[Integration] <name>"
+labels: ["integration", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Most integrations don't need a website issue.** Auto-discovery handles them — see [CONVENTIONS.md](../../blob/main/CONVENTIONS.md).
+
+        - **First-party project** (lives in `backblaze-labs/*` or `backblaze-b2-samples/*`)? Add the `b2-labs` topic on the repo + a good description. Done.
+        - **Upstream integration** (in someone else's project, e.g. MLflow / CVAT)? Open or update a sub-issue under [`backblaze-labs/demand-side-ai#5`](https://github.com/backblaze-labs/demand-side-ai/issues/5).
+
+        Use this form only if neither path fits — for example, a hosted-service integration with no public repo. A maintainer will translate it into a hand-curated `labs.json` entry.
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Short, human-readable name. Goes on the card.
+      placeholder: "Genblaze"
+    validations:
+      required: true
+  - type: input
+    id: tagline
+    attributes:
+      label: Tagline
+      description: One-line pitch, under 80 characters.
+      placeholder: "Generative AI media pipelines, with provenance."
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Two or three sentences. What does it do, who is it for, why should they care?
+      placeholder: "Open source Python SDK that orchestrates ..."
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      description: GitHub `owner/name`. Used to auto-fetch a preview image and stats.
+      placeholder: "backblaze-labs/my-project"
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - SDK
+        - Tool
+        - Extension
+        - Skill
+        - Sample
+        - Awesome List
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Primary language
+      options:
+        - Python
+        - TypeScript
+        - JavaScript
+        - Markdown
+        - Go
+        - Other (mention in description)
+    validations:
+      required: true
+  - type: checkboxes
+    id: categories
+    attributes:
+      label: Categories
+      description: Pick all that apply.
+      options:
+        - label: AI / ML
+        - label: Data Pipelines
+        - label: Developer Tools
+        - label: Notebooks
+        - label: IDE Extensions
+        - label: Agent Skills
+        - label: Awesome Lists
+        - label: Infrastructure
+    validations:
+      required: true
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated. Free-form. Used in cards and search.
+      placeholder: "python, sdk, video, openai"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Optional. Demo URL, docs URL, custom preview image, special handling.

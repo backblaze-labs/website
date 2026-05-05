@@ -1,0 +1,105 @@
+---
+import "~/styles/global.css";
+import Nav from "~/components/Nav.astro";
+import Footer from "~/components/Footer.astro";
+import Analytics from "~/components/Analytics.astro";
+import { catalog } from "~/lib/labs";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = catalog.meta.title,
+  description = catalog.meta.description,
+  ogImage,
+} = Astro.props;
+
+const fullTitle = title === catalog.meta.title ? title : `${title} · ${catalog.meta.title}`;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblaze-labs.github.io").toString();
+
+// Single site-wide OG image. We don't generate per-page variants — the site is a
+// single gallery and detail pages were dropped in favor of direct upstream links.
+const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backblaze-labs.github.io").toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#04050f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="mask-icon" href={`${base}/favicon.svg`} color="#E20626" />
+    <link rel="apple-touch-icon" href={`${base}/favicon.svg`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Backblaze Labs" />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
+
+    <!-- JSON Feed for syndication -->
+    <link rel="alternate" type="application/feed+json" title="Backblaze Labs" href={`${base}/feed.json`} />
+
+    <!-- Preconnect to Google Fonts CDN for the font files we @font-face. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <Analytics />
+
+    <!-- Pre-paint theme: avoids FOUC when user has saved a non-default theme.
+         Defaults to "system" if nothing is stored. -->
+    <script is:inline>
+      (function () {
+        try {
+          const saved = localStorage.getItem("bb-theme");
+          const theme = saved === "light" || saved === "dark" || saved === "system" ? saved : "system";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (_) {
+          document.documentElement.setAttribute("data-theme", "system");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        padding: 0.5rem 0.85rem;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        transform: translateY(-150%);
+        transition: transform 0.2s ease;
+        z-index: 100;
+      }
+      .skip-link:focus { transform: translateY(0); }
+    </style>
+  </body>
+</html>

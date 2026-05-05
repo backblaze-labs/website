@@ -1,0 +1,115 @@
+name: Discover new integrations
+
+# Runs the discovery script every Monday and opens a PR with proposed catalog
+# entries — never auto-merged. Catalog changes deserve a quick human eyeball;
+# stats refreshes (which DO auto-commit) live in refresh-stats.yml.
+#
+# The PR body breaks down which entries are "ready" (all metadata sourced from
+# upstream) vs "needs upstream fix" so the maintainer can either merge as-is
+# or close the PR after fixing the upstream — whichever is cleaner.
+#
+# Sources:
+#   - github.com/backblaze-labs/* (public, non-archived repos)
+#   - github.com/backblaze-b2-samples/* (public, non-archived repos)
+#   - github.com/backblaze-labs/demand-side-ai#5 (upstream-integration tracker)
+#
+# The tracker repo is private. To access it on CI, add a `LABS_DISCOVERY_PAT`
+# secret (fine-grained PAT with read access to demand-side-ai). Without it,
+# public-org listings still work; the tracker is silently skipped.
+#
+# Conventions for upstream metadata: see ../../CONVENTIONS.md
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # 08:00 UTC every Monday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run discovery
+        env:
+          GH_TOKEN: ${{ secrets.LABS_DISCOVERY_PAT || secrets.GITHUB_TOKEN }}
+        run: npm run discover
+
+      - name: Compose PR body
+        id: body
+        run: |
+          if [[ ! -f src/data/labs.discovered.json ]]; then
+            echo "has_proposals=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          echo "has_proposals=true" >> $GITHUB_OUTPUT
+          node -e '
+            const d = JSON.parse(require("fs").readFileSync("src/data/labs.discovered.json", "utf8"));
+            const lines = ["Automated weekly discovery from `backblaze-labs/*`, `backblaze-b2-samples/*`, and the upstream tracker.", ""];
+            const c = d.complete ?? [], i = d.incomplete ?? [], s = d.stale ?? [];
+            lines.push(`**${c.length} ready** · **${i.length} need upstream fix** · **${s.length} stale**`, "");
+            if (c.length) {
+              lines.push("### Ready (all metadata sourced from upstream)", "");
+              for (const e of c) lines.push(`- \`${e.id}\` — ${e._source}`);
+              lines.push("");
+            }
+            if (i.length) {
+              lines.push("### Need upstream fix", "");
+              lines.push("These entries have placeholders. Fix the upstream — repo description, repo topics, or sub-issue meta block — per [CONVENTIONS.md](../blob/main/CONVENTIONS.md), then **close this PR** and let next Mondays run pick them up.", "");
+              for (const e of i) {
+                lines.push(`- \`${e.id}\` — ${e._source}`);
+                for (const m of e._missing) lines.push(`  - missing: ${m}`);
+              }
+              lines.push("");
+            }
+            if (s.length) {
+              const topicMissing = s.filter((x) => x.severity === "topic-missing");
+              const removed = s.filter((x) => x.severity !== "topic-missing");
+              if (topicMissing.length) {
+                lines.push("### `b2-labs` topic missing (likely accidental)", "");
+                for (const e of topicMissing) lines.push(`- \`${e.id}\` (\`${e.repo}\`) — re-add the topic on GitHub.`);
+                lines.push("", "These entries remain in `labs.json`. No action needed unless removal was intentional.", "");
+              }
+              if (removed.length) {
+                lines.push("### Repos no longer in source orgs", "");
+                for (const e of removed) lines.push(`- \`${e.id}\` (\`${e.repo}\`) — ${e.reason}`);
+                lines.push("", "Manual review: keep, edit, or hand-remove from `labs.json`.");
+              }
+            }
+            require("fs").writeFileSync("/tmp/pr-body.md", lines.join("\n"));
+          '
+          {
+            echo "body<<EOF_PR_BODY"
+            cat /tmp/pr-body.md
+            echo "EOF_PR_BODY"
+          } >> $GITHUB_OUTPUT
+
+      - name: Merge proposals into labs.json
+        if: steps.body.outputs.has_proposals == 'true'
+        run: npm run merge-discovered
+
+      - name: Open PR
+        if: steps.body.outputs.has_proposals == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.LABS_DISCOVERY_PAT || secrets.GITHUB_TOKEN }}
+          commit-message: "chore(catalog): weekly discovery"
+          author: "${{ vars.BOT_NAME || 'github-actions[bot]' }} <${{ vars.BOT_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}>"
+          branch: chore/discover
+          title: "chore(catalog): weekly discovery"
+          body: ${{ steps.body.outputs.body }}
+          labels: |
+            discovery
+            automated
+          delete-branch: true

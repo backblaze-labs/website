@@ -1,0 +1,8 @@
+# Default reviewers for any change.
+*       @backblaze-labs/maintainers
+
+# Catalog edits — touch the JSON, get reviewed by the curators.
+/src/data/labs.json   @backblaze-labs/maintainers @backblaze-labs/curators
+
+# Brand assets — only the design team should touch these.
+/public/brand/        @backblaze-labs/design

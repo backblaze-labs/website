@@ -1,0 +1,43 @@
+---
+import Logo from "~/components/Logo.astro";
+import ThemeSwitcher from "~/components/ThemeSwitcher.astro";
+import Icon from "~/components/Icon.astro";
+import { catalog } from "~/lib/labs";
+---
+<header class="nav-shell sticky top-0 z-50">
+  <div class="nav-inner container-page flex h-14 items-center gap-4 md:h-16">
+    <Logo />
+    <nav class="ml-auto flex items-center gap-1.5 md:gap-2">
+      <a
+        href={catalog.meta.github}
+        target="_blank"
+        rel="noopener"
+        class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-full hover:bg-[var(--bg-elevated)] transition text-sm"
+        style="color: var(--fg-muted);"
+      >
+        <Icon name="github" size={16} /> GitHub
+      </a>
+      <ThemeSwitcher />
+      <a
+        href={catalog.meta.b2 ?? "https://www.backblaze.com/b2/cloud-storage.html"}
+        target="_blank"
+        rel="noopener"
+        class="btn-primary text-sm hidden sm:inline-flex"
+        data-track="cta_click"
+        data-track-cta="try_b2"
+      >
+        Try B2
+        <Icon name="arrow-right" size={14} />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-shell {
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    background: color-mix(in oklab, var(--bg) 75%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+</style>
