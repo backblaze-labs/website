@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
-/* Self-hosted via @fontsource — bundled by Astro's asset pipeline. No external
- * CDN dependency, no risk of upstream URL rot, and the woff2 files ship from
- * the same origin (faster + privacy-friendly + no third-party 404s). */
-@import "@fontsource/dm-sans/400.css";
-@import "@fontsource/dm-sans/500.css";
-@import "@fontsource/dm-sans/600.css";
-@import "@fontsource/space-grotesk/500.css";
-@import "@fontsource/space-grotesk/600.css";
-@import "@fontsource/space-grotesk/700.css";
+/* Self-hosted via @fontsource — Latin subset only. Without `latin-` we'd ship
+ * latin-ext + vietnamese subsets too, doubling the font payload for content
+ * that's English-only.
+ *
+ * Bundled by Astro's asset pipeline → fingerprinted, served same-origin,
+ * cache-busts on file change. */
+@import "@fontsource/dm-sans/latin-400.css";
+@import "@fontsource/dm-sans/latin-500.css";
+@import "@fontsource/dm-sans/latin-600.css";
+@import "@fontsource/space-grotesk/latin-500.css";
+@import "@fontsource/space-grotesk/latin-600.css";
+@import "@fontsource/space-grotesk/latin-700.css";
 
 /* Backblaze brand palette — sourced from official Brand Guidelines PDF (page 6–8).
  * Defining color: Backblaze Red. Complemented by navy and purple. Beige + orange used sparingly.

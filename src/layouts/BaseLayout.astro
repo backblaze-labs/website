@@ -5,6 +5,13 @@ import Footer from "~/components/Footer.astro";
 import Analytics from "~/components/Analytics.astro";
 import { catalog } from "~/lib/labs";
 
+// Preload the two fonts that text on first paint actually uses:
+//   - DM Sans 400 (body)
+//   - Space Grotesk 600 (hero h1, all display headings)
+// Astro fingerprints these — `?url` gives us the immutable hashed path.
+import dmSansBodyUrl from "@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url";
+import spaceGroteskDisplayUrl from "@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2?url";
+
 interface Props {
   title?: string;
   description?: string;
@@ -59,8 +66,10 @@ const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backbl
     <!-- JSON Feed for syndication -->
     <link rel="alternate" type="application/feed+json" title="Backblaze Labs" href={`${base}/feed.json`} />
 
-    <!-- Preconnect to Google Fonts CDN for the font files we @font-face. -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical fonts so they download in parallel with the CSS — without
+         this they're discovered late in the chain and add ~300ms to LCP. -->
+    <link rel="preload" as="font" type="font/woff2" href={dmSansBodyUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={spaceGroteskDisplayUrl} crossorigin />
 
     <Analytics />
 

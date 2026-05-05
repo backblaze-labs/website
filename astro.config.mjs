@@ -22,5 +22,8 @@ export default defineConfig({
   },
   build: {
     assets: "_assets",
+    // Inline small stylesheets so they don't render-block. Per Lighthouse
+    // (~580ms savings on first paint).
+    inlineStylesheets: "auto",
   },
 });
