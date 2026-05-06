@@ -22,8 +22,9 @@ export default defineConfig({
   },
   build: {
     assets: "_assets",
-    // Inline small stylesheets so they don't render-block. Per Lighthouse
-    // (~580ms savings on first paint).
-    inlineStylesheets: "auto",
+    // Always inline our stylesheets — the bundle is small (~7-10KB) and a
+    // network round-trip costs more than the inlined bytes. Eliminates the
+    // render-blocking CSS request Lighthouse flags on desktop.
+    inlineStylesheets: "always",
   },
 });

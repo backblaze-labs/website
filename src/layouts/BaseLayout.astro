@@ -82,10 +82,10 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
 
     <!-- Schema.org JSON-LD: WebSite + Organization site-wide; ItemList per page. -->
     {ldSite.map((doc) => (
-      <script type="application/ld+json" set:html={JSON.stringify(doc)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(doc)} />
     ))}
     {ldList && (
-      <script type="application/ld+json" set:html={JSON.stringify(ldList)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(ldList)} />
     )}
 
     <!-- Preload critical fonts so they download in parallel with the CSS — without

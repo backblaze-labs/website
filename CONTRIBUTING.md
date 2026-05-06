@@ -131,8 +131,8 @@ src/
   components/    Astro components (Logo, Nav, Hero, Filters, Card, etc.)
   layouts/       BaseLayout.astro — head/meta, theme bootstrap, GA, Nav, Footer
   data/          labs.json (catalog) + labs.schema.json + github-stats.json
-  lib/           labs.ts — typed loader for the catalog
-  pages/         index, 404, integrations/[id], category/[id], feed.json
+  lib/           labs.ts (typed loader) + schema.ts (JSON-LD generators)
+  pages/         index, 404, category/[id], feed.json, og.png, sitemap.xml, robots.txt
   styles/        global.css — Tailwind v4 @theme tokens + utilities
 public/
   brand/         official Backblaze logo SVGs
@@ -140,7 +140,7 @@ public/
   favicon.svg
 .github/
   ISSUE_TEMPLATE/  structured forms for new integrations / bugs
-  workflows/       deploy.yml — GitHub Pages
+  workflows/       ci.yml, deploy.yml, refresh-stats.yml, discover.yml
 ```
 
 ### Design tokens

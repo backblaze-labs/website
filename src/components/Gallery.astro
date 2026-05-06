@@ -309,8 +309,14 @@ const sorted = [...catalog.integrations].sort((a, b) => {
   }
   document.querySelectorAll("[data-filter-clear]").forEach((b) => b.addEventListener("click", clearAll));
 
-  // First paint: render the initial page slice.
-  apply();
+  // First paint: render the initial page slice. Defer until idle so the
+  // initial filter pass doesn't compete with the browser's first paint —
+  // significant TBT win on slower CPUs (~50–100ms).
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(apply, { timeout: 200 });
+  } else {
+    setTimeout(apply, 0);
+  }
 
   // "/" focuses search.
   document.addEventListener("keydown", (e) => {

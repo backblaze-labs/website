@@ -128,22 +128,22 @@ src/
 ├── layouts/
 │   └── BaseLayout.astro    head/meta, theme bootstrap, GA, Nav, Footer
 ├── data/
-│   ├── labs.json           the catalog (15 integrations, edit this to add more)
+│   ├── labs.json           the catalog
 │   ├── labs.schema.json    JSON Schema for labs.json — wire into your editor
 │   └── github-stats.json   stars/forks/last-push, refreshed by `npm run sync-stats`
 ├── lib/
-│   └── labs.ts         typed loader: catalog, statsFor(id), previewUrl(item)
+│   ├── labs.ts            typed loader: catalog, statsFor(id), previewUrl(item)
+│   └── schema.ts          Schema.org JSON-LD generators (Organization / WebSite / ItemList)
 ├── pages/
-│   ├── index.astro             landing page (Hero + Gallery)
+│   ├── index.astro            landing page (Hero + Gallery)
 │   ├── 404.astro
-│   ├── integrations/[id].astro detail pages — generated for every catalog entry
-│   ├── category/[id].astro     category landing pages
-│   ├── og/[id].png.ts          per-page OG image, generated at build time
-│   ├── feed.json.ts            JSON Feed 1.1 syndication endpoint
-│   ├── sitemap.xml.ts          single-file sitemap
+│   ├── category/[id].astro    category landing pages
+│   ├── og.png.ts              site-wide Open Graph image (Satori → resvg → PNG)
+│   ├── feed.json.ts           JSON Feed 1.1 syndication endpoint
+│   ├── sitemap.xml.ts         single-file sitemap
 │   └── robots.txt.ts
 └── styles/
-    └── global.css      Tailwind v4 @theme tokens + utilities + theme branches
+    └── global.css         Tailwind v4 @theme tokens + utilities + theme branches
 
 public/
 ├── brand/              official Backblaze logo SVGs (do not edit)
@@ -151,8 +151,12 @@ public/
 └── favicon.svg
 
 scripts/
-├── validate.mjs        JSON-schema-validates labs.json + cross-field rules
-└── sync-stats.mjs      fetches GitHub repo stats via the gh CLI
+├── validate.mjs           JSON-schema-validates labs.json + cross-field rules
+├── sync-stats.mjs         fetches GitHub repo stats via the gh CLI
+├── discover.mjs           scans source orgs + tracker for new integrations
+├── merge-discovered.mjs   folds the discovery proposal into labs.json
+├── tag-repos.mjs          one-time bootstrap: adds `b2-labs` topic to every org repo
+└── seed-tracker.mjs       seeds tier-1 tracker sub-issues from a CSV
 
 .github/
 ├── ISSUE_TEMPLATE/     structured forms (add-integration.yml, bug.yml, config.yml)
@@ -203,7 +207,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 
 ## OG images
 
-[`src/pages/og/[id].png.ts`](src/pages/og/[id].png.ts) generates a 1200×630 PNG per integration plus an `index.png` for the landing page. Used as `og:image` / `twitter:image` in `BaseLayout.astro`.
+[`src/pages/og.png.ts`](src/pages/og.png.ts) generates a single 1200×630 PNG used as the site-wide `og:image` / `twitter:image` (set in `BaseLayout.astro`). One image for the whole site — we don't generate per-page variants since cards link straight to upstream and there are no per-integration pages.
 
 To customize:
 - Brand colors and the layout are inline in the route handler.
