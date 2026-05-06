@@ -7,9 +7,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 8,
-    "updated": "2026-05-05T00:34:03Z",
+    "updated": "2026-05-06T00:08:45Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-05T01:02:53.051Z"
+    "fetchedAt": "2026-05-06T09:20:17.273Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -21,7 +21,7 @@
     "stars": 33,
     "updated": "2026-05-04T17:06:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-05-05T01:02:53.598Z"
+    "fetchedAt": "2026-05-06T09:20:17.597Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -30,10 +30,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 3,
     "updated": "2026-05-04T18:38:14Z",
     "repo": "backblaze-labs/hf-cache-sync",
-    "fetchedAt": "2026-05-05T01:02:54.123Z"
+    "fetchedAt": "2026-05-06T09:20:17.916Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -45,7 +45,7 @@
     "stars": 2,
     "updated": "2026-03-26T00:20:36Z",
     "repo": "backblaze-labs/jupyter-b2",
-    "fetchedAt": "2026-05-05T01:02:54.665Z"
+    "fetchedAt": "2026-05-06T09:20:18.242Z"
   },
   "jupyterlab-b2": {
     "archived": false,
@@ -57,7 +57,7 @@
     "stars": 2,
     "updated": "2026-03-25T18:15:11Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-05-05T01:02:55.229Z"
+    "fetchedAt": "2026-05-06T09:20:18.611Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -69,7 +69,7 @@
     "stars": 3,
     "updated": "2026-03-26T02:42:27Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-05-05T01:02:55.757Z"
+    "fetchedAt": "2026-05-06T09:20:18.971Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -81,7 +81,7 @@
     "stars": 0,
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
-    "fetchedAt": "2026-05-05T01:02:56.271Z"
+    "fetchedAt": "2026-05-06T09:20:19.280Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -93,7 +93,7 @@
     "stars": 0,
     "updated": "2026-04-30T18:57:33Z",
     "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
-    "fetchedAt": "2026-05-05T01:02:56.802Z"
+    "fetchedAt": "2026-05-06T09:20:19.630Z"
   },
   "awesome-agent-infrastructure": {
     "archived": false,
@@ -103,9 +103,9 @@
     "license": "CC0-1.0",
     "openIssues": 1,
     "stars": 0,
-    "updated": "2026-05-05T00:38:22Z",
+    "updated": "2026-05-05T13:59:20Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-05-05T01:02:57.333Z"
+    "fetchedAt": "2026-05-06T09:20:19.967Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -115,9 +115,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-05-05T00:38:05Z",
+    "updated": "2026-05-05T13:59:33Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-05-05T01:02:57.871Z"
+    "fetchedAt": "2026-05-06T09:20:20.345Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -127,9 +127,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-05-05T00:38:25Z",
+    "updated": "2026-05-05T13:59:18Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-05-05T01:02:58.429Z"
+    "fetchedAt": "2026-05-06T09:20:20.688Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -139,9 +139,9 @@
     "license": "CC0-1.0",
     "openIssues": 1,
     "stars": 1,
-    "updated": "2026-05-05T00:41:06Z",
+    "updated": "2026-05-05T14:03:08Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-05-05T01:02:58.952Z"
+    "fetchedAt": "2026-05-06T09:20:21.067Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -151,9 +151,9 @@
     "license": "CC0-1.0",
     "openIssues": 1,
     "stars": 6,
-    "updated": "2026-05-05T00:37:38Z",
+    "updated": "2026-05-05T14:00:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-05-05T01:02:59.513Z"
+    "fetchedAt": "2026-05-06T09:20:21.407Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -163,9 +163,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-05-05T00:38:23Z",
+    "updated": "2026-05-05T14:00:43Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-05-05T01:03:00.075Z"
+    "fetchedAt": "2026-05-06T09:20:21.703Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -175,8 +175,20 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-05-05T00:37:37Z",
+    "updated": "2026-05-05T13:59:42Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-05-05T01:03:00.646Z"
+    "fetchedAt": "2026-05-06T09:20:22.008Z"
+  },
+  "comfyui-cloud-storage": {
+    "archived": false,
+    "description": "ComfyUI cloud storage nodes with Backblaze B2 and S3-compatible support. Upload images, video, and audio, and manage AI models across machines with a unified workflow.",
+    "forks": 1,
+    "lang": "Python",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-06T00:03:00Z",
+    "repo": "backblaze-labs/comfyui-cloud-storage",
+    "fetchedAt": "2026-05-06T09:20:22.323Z"
   }
 }
