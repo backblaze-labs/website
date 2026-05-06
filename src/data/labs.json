@@ -4,7 +4,7 @@
   "meta": {
     "title": "Backblaze Labs",
     "tagline": "Open source experiments, integrations, and tools built on Backblaze B2.",
-    "description": "Curated open source projects from Backblaze Labs — SDKs, agent skills, IDE extensions, awesome lists, and reference pipelines for Backblaze B2 Cloud Storage.",
+    "description": "Curated open source projects working with Backblaze B2 — SDKs, agent skills, IDE extensions, awesome lists, reference pipelines, and upstream integrations. Maintained by Backblaze Labs and the community.",
     "github": "https://github.com/backblaze-labs",
     "homepage": "https://www.backblaze.com",
     "b2": "https://www.backblaze.com/b2/cloud-storage.html"
