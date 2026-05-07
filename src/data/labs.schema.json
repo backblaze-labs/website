@@ -84,6 +84,7 @@
           "repo": { "type": ["string", "null"], "pattern": "^[\\w.-]+/[\\w.-]+$" },
           "source": { "type": ["string", "null"] },
           "url": { "type": "string", "format": "uri" },
+          "site": { "type": ["string", "null"], "format": "uri" },
           "docs": { "type": ["string", "null"], "format": "uri" },
           "demo": { "type": ["string", "null"], "format": "uri" },
           "preview": { "type": ["string", "null"] },

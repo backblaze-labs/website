@@ -38,10 +38,15 @@ npm run preview      # serve the production build locally
 npm run checks       # lint + format + typecheck + validate (what CI runs)
 npm run fix          # auto-fix lint + format, then typecheck
 npm run validate     # JSON schema check on labs.json only
+npm run sync         # sync-stats + sync-links + sync-previews (one shot)
 npm run sync-stats   # refresh src/data/github-stats.json from the GitHub API
+npm run sync-previews # refresh src/data/previews.json (README + upstream og:image)
+npm run sync-links   # refresh src/data/links.json (auto-derived site/docs/repo)
 npm run discover     # scan source orgs + tracker for new integrations
 npm run merge-discovered  # fold the discovery proposal into labs.json
 ```
+
+`npm run sync` is a manual maintainer command. It's not wired into `dev`, `build`, or pre-commit — running it on every commit/dev-start is too noisy and depends on `gh` auth + network. The CI workflows ([`refresh-stats.yml`](.github/workflows/refresh-stats.yml), [`discover.yml`](.github/workflows/discover.yml)) keep `main` fresh; run `sync` locally when you want the latest data on your branch.
 
 ### Discovery workflow
 

@@ -89,11 +89,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 3,
     "updated": "2026-03-26T02:42:27Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-05-06T09:20:18.971Z"
+    "fetchedAt": "2026-05-06T22:22:33.120Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -114,10 +114,22 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-05-06T00:03:00Z",
     "repo": "backblaze-labs/comfyui-cloud-storage",
-    "fetchedAt": "2026-05-06T09:20:22.323Z"
+    "fetchedAt": "2026-05-06T22:22:39.350Z"
+  },
+  "cvat": {
+    "archived": false,
+    "description": "Annotate better with CVAT, the industry-leading data engine for machine learning. Used and trusted by teams at any scale, for data of any scale.",
+    "forks": 3667,
+    "lang": "Python",
+    "license": "MIT",
+    "openIssues": 605,
+    "stars": 15778,
+    "updated": "2026-05-06T20:24:07Z",
+    "repo": "cvat-ai/cvat",
+    "fetchedAt": "2026-05-06T22:22:29.811Z"
   },
   "genblaze": {
     "archived": false,
@@ -178,6 +190,18 @@
     "updated": "2026-03-25T18:15:11Z",
     "repo": "backblaze-labs/jupyterlab-b2",
     "fetchedAt": "2026-05-06T09:20:18.611Z"
+  },
+  "mlflow": {
+    "archived": false,
+    "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
+    "forks": 5687,
+    "lang": "Python",
+    "license": "Apache-2.0",
+    "openIssues": 2060,
+    "stars": 25772,
+    "updated": "2026-05-06T13:36:42Z",
+    "repo": "mlflow/mlflow",
+    "fetchedAt": "2026-05-06T22:38:05.475Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,

@@ -1,7 +1,7 @@
 ---
 import Icon from "~/components/Icon.astro";
 import PreviewPlaceholder from "~/components/PreviewPlaceholder.astro";
-import { catalog, statsFor, type Integration } from "~/lib/labs";
+import { catalog, previewUrl, statsFor, type Integration } from "~/lib/labs";
 
 interface Props {
   item: Integration;
@@ -13,11 +13,13 @@ const typeLabel = catalog.types.find((t) => t.id === item.type)?.label ?? item.t
 const langLabel = catalog.languages.find((l) => l.id === item.language)?.label ?? item.language;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const customPreview = item.preview
-  ? item.preview.startsWith("http")
-    ? item.preview
-    : `${base}${item.preview.startsWith("/") ? "" : "/"}${item.preview}`
-  : null;
+// previewUrl: explicit override → README-extracted image → upstream body
+// image/video → og:image → null. `null` ⇒ render the placeholder gradient.
+const customPreview = previewUrl(item, base);
+// Detect video previews so we render a <video> tag instead of <img>. Catches
+// both extension-only URLs (.mp4) and Webflow-style URLs that have query
+// strings or fragments after the extension.
+const isVideo = customPreview ? /\.(mp4|webm|mov|m4v)(?:[?#]|$)/i.test(customPreview) : false;
 
 // Stats are first-party only — upstream integrations don't have a `repo`.
 const stats = item.repo ? statsFor(item.id) : undefined;
@@ -45,7 +47,18 @@ const delay = `${Math.min(index, 7) * 60}ms`;
 >
   <div class="card-preview" aria-hidden="true">
     {customPreview ? (
-      <img src={customPreview} alt="" loading="lazy" decoding="async" />
+      isVideo ? (
+        <video
+          src={customPreview}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+        />
+      ) : (
+        <img src={customPreview} alt="" loading="lazy" decoding="async" />
+      )
     ) : (
       <PreviewPlaceholder />
     )}
@@ -79,29 +92,31 @@ const delay = `${Math.min(index, 7) * 60}ms`;
 </a>
 
 <style>
+  /* Solid theme-aware background — transparent PNGs (like MLflow's logo) get
+     a clean, predictable backdrop instead of the previous red/purple gradient
+     bleeding through. Opaque images (CVAT card, README screenshots) cover it. */
   .card-preview {
     position: relative;
     aspect-ratio: 16 / 6;
     width: 100%;
     overflow: hidden;
-    perspective: 1400px;
-    perspective-origin: 50% 50%;
-    background: linear-gradient(135deg, color-mix(in oklab, var(--color-red-50) 14%, var(--bg-deep)), color-mix(in oklab, var(--color-purple-70) 14%, var(--bg-deep)));
+    background: var(--preview-bg);
   }
-  /* Targets <img> (custom previews) AND the .placeholder div (default).
-     We don't transform the placeholder — flat is cheaper and looks fine. */
-  .card-preview :global(img) {
+  .card-preview :global(img),
+  .card-preview :global(video),
+  .card-preview :global(.placeholder) {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 50% 0%;
     display: block;
-    transform: rotateX(5deg) scale(1.04);
-    transform-origin: 50% 100%;
     transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   a:hover .card-preview :global(img),
-  a:focus-visible .card-preview :global(img) {
-    transform: rotateX(0deg) scale(1.06);
+  a:hover .card-preview :global(video),
+  a:focus-visible .card-preview :global(img),
+  a:focus-visible .card-preview :global(video) {
+    transform: scale(1.04);
   }
   .card-badge {
     position: absolute;

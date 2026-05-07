@@ -1,5 +1,6 @@
 import statsRaw from "~/data/github-stats.json";
 import labsRaw from "~/data/labs.json";
+import previewsRaw from "~/data/previews.json";
 
 export interface Category {
   id: string;
@@ -37,6 +38,7 @@ export interface Integration {
    */
   source?: string | null;
   url: string;
+  site?: string | null;
   docs?: string | null;
   demo?: string | null;
   preview?: string | null;
@@ -86,24 +88,24 @@ export function statsFor(id: string): GitHubStats | undefined {
 
 export const featured = labs.integrations.filter((i) => i.featured);
 
+const previews = previewsRaw as Record<string, string>;
+
 /**
  * Resolve the preview image URL for an integration.
  *
  * Order:
- *  1. Explicit `preview` field — custom image (committed to public/previews/<id>.png,
- *     or hosted elsewhere). Use this when you have an actual app screenshot.
- *  2. Brand-gradient placeholder at /previews/placeholder.svg.
- *
- * We deliberately don't fall back to /og/<id>.png — the OG image carries the title and
- * tagline as text, which would be redundant inside a card that already shows them.
- * Reserved for og:image meta tags only.
+ *  1. Explicit `preview` field in labs.json (manual override).
+ *  2. Auto-discovered URL in previews.json — populated by `npm run sync-previews`,
+ *     which scans the repo's README for the first non-badge image and falls back
+ *     to GitHub's social preview if none is found.
+ *  3. `null` — caller renders the brand-gradient placeholder.
  */
-export function previewUrl(item: Integration, base = ""): string {
+export function previewUrl(item: Integration, base = ""): string | null {
   if (item.preview) {
     if (item.preview.startsWith("http")) return item.preview;
     return `${base}${item.preview.startsWith("/") ? "" : "/"}${item.preview}`;
   }
-  return `${base}/previews/placeholder.svg`;
+  return previews[item.id] ?? null;
 }
 
 /**

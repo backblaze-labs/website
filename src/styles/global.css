@@ -125,6 +125,9 @@
   --placeholder-vig-color: #000020;
   --placeholder-vig-op:    0.85;
   --placeholder-grid:      rgba(255, 255, 255, 0.05);
+  /* Solid backdrop behind card preview images. Cleaner than a gradient when
+   * a transparent PNG (e.g. logo-only og:image) is layered on top. */
+  --preview-bg:            #060818;
   /* CTA tokens */
   --cta-bg:        var(--color-red-50);
   --cta-fg:        #ffffff;
@@ -161,6 +164,7 @@
   --placeholder-vig-color: #faf9f8;
   --placeholder-vig-op:    0.6;
   --placeholder-grid:      rgba(0, 0, 51, 0.06);
+  --preview-bg:            #ffffff;
   --cta-bg:        var(--color-red-50);
   --cta-fg:        #ffffff;
   --cta-bg-hover:  var(--color-red-60);
@@ -196,6 +200,7 @@
     --placeholder-vig-color: #faf9f8;
     --placeholder-vig-op:    0.6;
     --placeholder-grid:      rgba(0, 0, 51, 0.06);
+    --preview-bg:            #ffffff;
     --cta-bg:        var(--color-red-50);
     --cta-fg:        #ffffff;
     --cta-bg-hover:  var(--color-red-60);

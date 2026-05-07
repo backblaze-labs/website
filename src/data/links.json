@@ -1,0 +1,8 @@
+{
+  "cvat": {
+    "site": "https://cvat.ai"
+  },
+  "mlflow": {
+    "site": "https://mlflow.org"
+  }
+}

@@ -1,4 +1,4 @@
-import { type Integration, catalog } from "~/lib/labs";
+import { catalog, type Integration } from "~/lib/labs";
 
 /**
  * Schema.org JSON-LD generators. Output is consumed by `BaseLayout.astro`

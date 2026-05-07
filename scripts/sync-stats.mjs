@@ -12,12 +12,11 @@
  * refresh-stats workflow's `git status --porcelain` check sees a clean tree
  * and no commit is created.
  *
- * Auth: uses the `gh` CLI (already authenticated for maintainers). On CI, set
- *   GH_TOKEN / GITHUB_TOKEN — `gh` picks them up automatically.
+ * Auth: uses the `gh` CLI. CI: GH_TOKEN / GITHUB_TOKEN.
  *
  * Run:  npm run sync-stats
  */
-import { spawnSync } from "node:child_process";
+import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
@@ -28,7 +27,6 @@ const dataPath = path.join(root, "src/data/labs.json");
 const outPath = path.join(root, "src/data/github-stats.json");
 
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
-
 const existing = (() => {
   try {
     return JSON.parse(fs.readFileSync(outPath, "utf8"));
@@ -37,16 +35,33 @@ const existing = (() => {
   }
 })();
 
+// Async wrapper around `gh` so calls can run in parallel via Promise.all.
 function ghJSON(args) {
-  const r = spawnSync("gh", args, { encoding: "utf8" });
-  if (r.status !== 0) {
-    throw new Error(`gh ${args.join(" ")} → ${r.stderr.trim() || "non-zero exit"}`);
-  }
-  return JSON.parse(r.stdout);
+  return new Promise((resolve, reject) => {
+    const proc = spawn("gh", args, { stdio: ["ignore", "pipe", "pipe"] });
+    let stdout = "";
+    let stderr = "";
+    proc.stdout.on("data", (d) => {
+      stdout += d;
+    });
+    proc.stderr.on("data", (d) => {
+      stderr += d;
+    });
+    proc.on("error", reject);
+    proc.on("close", (code) => {
+      if (code !== 0)
+        reject(new Error(`gh ${args.join(" ")} → ${stderr.trim() || `exit ${code}`}`));
+      else {
+        try {
+          resolve(JSON.parse(stdout));
+        } catch (e) {
+          reject(new Error(`gh ${args.join(" ")} → bad JSON: ${e.message}`));
+        }
+      }
+    });
+  });
 }
 
-// Fields whose changes warrant bumping `fetchedAt`. Order matters for stable
-// JSON output — keep alphabetised.
 const TRACKED_FIELDS = [
   "archived",
   "description",
@@ -72,21 +87,12 @@ function isUnchanged(prev, next) {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
-const out = {};
-let ok = 0;
-let fail = 0;
-let bumped = 0;
-let unchanged = 0;
-
-for (const i of data.integrations) {
-  // Upstream integrations don't have a backblaze-labs repo — skip.
+async function processOne(i) {
   if (!i.repo) {
-    process.stdout.write(`  ${i.id} ... skipped (upstream integration)\n`);
-    continue;
+    return { id: i.id, status: "upstream", line: `  ${i.id} ... skipped (upstream integration)` };
   }
-  process.stdout.write(`  ${i.repo} ... `);
   try {
-    const r = ghJSON([
+    const r = await ghJSON([
       "api",
       `repos/${i.repo}`,
       "--jq",
@@ -94,27 +100,54 @@ for (const i of data.integrations) {
     ]);
     const prev = existing[i.id];
     if (prev && isUnchanged(prev, r)) {
-      // Nothing changed — preserve the existing record verbatim, including its
-      // old `fetchedAt`. This is what stops the file churning on every run.
-      out[i.id] = prev;
-      unchanged++;
-      process.stdout.write(`★ ${r.stars}, no change\n`);
-    } else {
-      out[i.id] = { ...r, repo: i.repo, fetchedAt: new Date().toISOString() };
-      bumped++;
-      process.stdout.write(`★ ${r.stars}, updated ${r.updated.slice(0, 10)}  (changed)\n`);
+      return {
+        id: i.id,
+        status: "unchanged",
+        entry: prev,
+        line: `  ${i.repo} ... ★ ${r.stars}, no change`,
+      };
     }
-    ok++;
+    return {
+      id: i.id,
+      status: "changed",
+      entry: { ...r, repo: i.repo, fetchedAt: new Date().toISOString() },
+      line: `  ${i.repo} ... ★ ${r.stars}, updated ${r.updated.slice(0, 10)}  (changed)`,
+    };
   } catch (err) {
-    process.stdout.write(`failed (${err.message.split("\n")[0]})\n`);
-    fail++;
-    // On API failure, preserve the existing entry rather than dropping it.
-    if (existing[i.id]) out[i.id] = existing[i.id];
+    return {
+      id: i.id,
+      status: "failed",
+      entry: existing[i.id],
+      line: `  ${i.repo} ... failed (${err.message.split("\n")[0]})`,
+    };
   }
 }
 
-// Stable, sorted-by-key serialization. Keeps diffs minimal even if the order
-// of entries in labs.json changes.
+const results = await Promise.all(data.integrations.map(processOne));
+
+// Print in catalog order regardless of completion order.
+const orderById = new Map(data.integrations.map((i, idx) => [i.id, idx]));
+results.sort((a, b) => (orderById.get(a.id) ?? 0) - (orderById.get(b.id) ?? 0));
+for (const r of results) console.log(r.line);
+
+const out = {};
+let ok = 0;
+let fail = 0;
+let bumped = 0;
+let unchanged = 0;
+for (const r of results) {
+  if (r.status === "upstream") continue;
+  if (r.status === "failed") {
+    fail++;
+    if (r.entry) out[r.id] = r.entry;
+    continue;
+  }
+  ok++;
+  if (r.status === "changed") bumped++;
+  else if (r.status === "unchanged") unchanged++;
+  if (r.entry) out[r.id] = r.entry;
+}
+
 const sorted = Object.fromEntries(
   Object.keys(out)
     .sort()
@@ -131,9 +164,12 @@ const prevJson = (() => {
 
 if (nextJson !== prevJson) {
   fs.writeFileSync(outPath, nextJson);
-  console.log(`\n✔ Wrote ${path.relative(root, outPath)} — ${ok} ok, ${fail} failed, ${bumped} changed, ${unchanged} unchanged.`);
+  console.log(
+    `\n✔ Wrote ${path.relative(root, outPath)} — ${ok} ok, ${fail} failed, ${bumped} changed, ${unchanged} unchanged.`,
+  );
 } else {
-  console.log(`\n✔ No changes — ${ok} ok, ${fail} failed, ${unchanged} unchanged. (file untouched)`);
+  console.log(
+    `\n✔ No changes — ${ok} ok, ${fail} failed, ${unchanged} unchanged. (file untouched)`,
+  );
 }
-
 if (fail > 0) process.exitCode = 1;

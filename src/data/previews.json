@@ -1,0 +1,6 @@
+{
+  "comfyui-cloud-storage": "https://raw.githubusercontent.com/backblaze-labs/comfyui-cloud-storage/main/saveimagecloud.png",
+  "cvat": "https://cdn.prod.website-files.com/62bebfb83044de7f13ae257e%2F6780e48fff3d49ef664ada8c_Main%20Video-H265%20LOW-HEVC-1-transcode.mp4",
+  "genblaze-gmicloud": "https://raw.githubusercontent.com/backblaze-labs/genblaze-gmicloud-pipeline/main/docs/images/GMICloud-Genblaze-pipeline.png",
+  "mlflow": "https://mlflow.org/img/mlflow-card.png"
+}
