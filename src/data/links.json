@@ -2,7 +2,16 @@
   "cvat": {
     "site": "https://cvat.ai"
   },
+  "meltano": {
+    "site": "https://meltano.com/",
+    "docs": "https://docs.meltano.com/",
+    "repo": "meltano/meltano"
+  },
   "mlflow": {
     "site": "https://mlflow.org"
+  },
+  "pixeltable": {
+    "site": "https://pixeltable.com/",
+    "docs": "https://docs.pixeltable.com/"
   }
 }

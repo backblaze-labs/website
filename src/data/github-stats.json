@@ -1,15 +1,27 @@
 {
+  "agentic-rag-vector-starter-kit": {
+    "archived": false,
+    "description": "Agentic RAG vector starter kit with AI coding agent architecture, Langchain, LanceDB, and Backblaze B2 for document upload, semantic search, grounded chat, and document citations.",
+    "forks": 1,
+    "lang": "Python",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 1,
+    "updated": "2026-03-25T16:50:24Z",
+    "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
+    "fetchedAt": "2026-05-07T22:38:46.809Z"
+  },
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 2,
+    "forks": 3,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 1,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-05-05T13:59:20Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-05-06T09:20:19.967Z"
+    "fetchedAt": "2026-05-07T22:38:46.555Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -18,10 +30,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-05-05T14:00:43Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-05-06T09:20:21.703Z"
+    "fetchedAt": "2026-05-07T22:38:46.768Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -30,10 +42,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 1,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-05-05T14:03:08Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-05-06T09:20:21.067Z"
+    "fetchedAt": "2026-05-07T22:38:46.649Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -42,10 +54,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-05-05T13:59:33Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-05-06T09:20:20.345Z"
+    "fetchedAt": "2026-05-07T22:38:46.739Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -54,10 +66,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-05-05T13:59:18Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-05-06T09:20:20.688Z"
+    "fetchedAt": "2026-05-07T22:38:46.643Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -66,10 +78,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-05-05T13:59:42Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-05-06T09:20:22.008Z"
+    "fetchedAt": "2026-05-07T22:38:46.785Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -78,10 +90,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 1,
-    "stars": 6,
+    "stars": 7,
     "updated": "2026-05-05T14:00:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-05-06T09:20:21.407Z"
+    "fetchedAt": "2026-05-07T22:38:46.633Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -93,7 +105,7 @@
     "stars": 3,
     "updated": "2026-03-26T02:42:27Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-05-06T22:22:33.120Z"
+    "fetchedAt": "2026-05-07T22:38:46.570Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -102,10 +114,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 33,
+    "stars": 34,
     "updated": "2026-05-04T17:06:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-05-06T09:20:17.597Z"
+    "fetchedAt": "2026-05-07T22:38:46.914Z"
   },
   "comfyui-cloud-storage": {
     "archived": false,
@@ -117,19 +129,19 @@
     "stars": 1,
     "updated": "2026-05-06T00:03:00Z",
     "repo": "backblaze-labs/comfyui-cloud-storage",
-    "fetchedAt": "2026-05-06T22:22:39.350Z"
+    "fetchedAt": "2026-05-07T22:38:46.755Z"
   },
   "cvat": {
     "archived": false,
     "description": "Annotate better with CVAT, the industry-leading data engine for machine learning. Used and trusted by teams at any scale, for data of any scale.",
-    "forks": 3667,
+    "forks": 3668,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 605,
-    "stars": 15782,
-    "updated": "2026-05-07T07:50:02Z",
+    "openIssues": 604,
+    "stars": 15786,
+    "updated": "2026-05-07T15:30:27Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-07T09:28:33.701Z"
+    "fetchedAt": "2026-05-07T22:38:46.539Z"
   },
   "genblaze": {
     "archived": false,
@@ -138,10 +150,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 8,
+    "stars": 9,
     "updated": "2026-05-07T05:47:51Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-07T09:28:33.696Z"
+    "fetchedAt": "2026-05-07T22:38:46.851Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -150,10 +162,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
-    "fetchedAt": "2026-05-06T09:20:19.280Z"
+    "fetchedAt": "2026-05-07T22:38:46.661Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -162,10 +174,22 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 3,
+    "stars": 4,
     "updated": "2026-05-04T18:38:14Z",
     "repo": "backblaze-labs/hf-cache-sync",
-    "fetchedAt": "2026-05-06T09:20:17.916Z"
+    "fetchedAt": "2026-05-07T22:38:46.543Z"
+  },
+  "image-generation-prompt-flow": {
+    "archived": false,
+    "description": "AI image generation prompt flow example app focused on prompt engineering and prompt optimization, comparing models GPT Image, DALL-E, Gemini Nano Banana, and Google Imagen. Shows how image prompts are structured, refined, and evolved from input to final output, with clear prompt lineage for learning and experimentation.",
+    "forks": 1,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 1,
+    "updated": "2026-02-09T18:12:49Z",
+    "repo": "backblaze-b2-samples/image-generation-prompt-flow",
+    "fetchedAt": "2026-05-07T22:38:47.020Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -177,7 +201,7 @@
     "stars": 2,
     "updated": "2026-03-26T00:20:36Z",
     "repo": "backblaze-labs/jupyter-b2",
-    "fetchedAt": "2026-05-06T09:20:18.242Z"
+    "fetchedAt": "2026-05-07T22:38:46.914Z"
   },
   "jupyterlab-b2": {
     "archived": false,
@@ -189,19 +213,19 @@
     "stars": 2,
     "updated": "2026-03-25T18:15:11Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-05-06T09:20:18.611Z"
+    "fetchedAt": "2026-05-07T22:38:46.640Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5692,
+    "forks": 5696,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2060,
-    "stars": 25791,
-    "updated": "2026-05-07T09:07:44Z",
+    "openIssues": 2056,
+    "stars": 25809,
+    "updated": "2026-05-07T17:52:27Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-07T09:28:33.657Z"
+    "fetchedAt": "2026-05-07T22:38:46.577Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -213,6 +237,90 @@
     "stars": 0,
     "updated": "2026-04-30T18:57:33Z",
     "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
-    "fetchedAt": "2026-05-06T09:20:19.630Z"
+    "fetchedAt": "2026-05-07T22:38:46.570Z"
+  },
+  "openclaw-b2-sync-backup": {
+    "archived": false,
+    "description": "OpenClaw automatic backup and sync to Backblaze B2. Keep state durable across machines, restore instantly on new hardware, and roll back to previous snapshots if configs break or memory becomes corrupted.",
+    "forks": 1,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 1,
+    "updated": "2026-02-26T22:23:45Z",
+    "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
+    "fetchedAt": "2026-05-07T22:38:47.020Z"
+  },
+  "pixeltable-multimodal-data": {
+    "archived": false,
+    "description": "Example notebooks showing how to use Pixeltable with Backblaze B2 for managing and querying multimodal datasets.",
+    "forks": 1,
+    "lang": "Jupyter Notebook",
+    "license": null,
+    "openIssues": 0,
+    "stars": 1,
+    "updated": "2025-12-02T19:04:46Z",
+    "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
+    "fetchedAt": "2026-05-07T22:38:47.952Z"
+  },
+  "transformerjs-background-removal": {
+    "archived": false,
+    "description": "Browser-based AI image background removal app using Transformers.js and the RMBG-1.4 model, storing original and cutout images in Backblaze B2 Cloud Storage — no GPU or backend required.",
+    "forks": 1,
+    "lang": "HTML",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 2,
+    "updated": "2026-03-03T18:07:22Z",
+    "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
+    "fetchedAt": "2026-05-07T22:38:48.072Z"
+  },
+  "transformers-video-object-detection": {
+    "archived": false,
+    "description": "Real-time video object detection monitoring demo using Transformers.js and Backblaze B2 Cloud Storage. Runs YOLOv9 fully in the browser with automatic capture intervals, no server or GPU required. Detected snapshots and metadata are stored in low cost, scalable B2 storage for analysis and retention.",
+    "forks": 1,
+    "lang": "HTML",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-03-03T18:07:53Z",
+    "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
+    "fetchedAt": "2026-05-07T22:38:47.391Z"
+  },
+  "vibe-coding-starter-kit": {
+    "archived": false,
+    "description": "Starter kit for vibe coders building apps with file uploads and object storage. This full-stack dashboard template integrates with Backblaze B2 Cloud Storage and includes secure upload flows, file browsing, and basic storage management.",
+    "forks": 2,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 4,
+    "updated": "2026-05-05T18:47:05Z",
+    "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
+    "fetchedAt": "2026-05-07T22:38:46.766Z"
+  },
+  "whisper-transformersjs-transcriber": {
+    "archived": false,
+    "description": "Browser-based audio transcription using Whisper and Transformers.js, storing results in Backblaze B2 Cloud Storage.",
+    "forks": 1,
+    "lang": "HTML",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 2,
+    "updated": "2026-03-03T21:33:16Z",
+    "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
+    "fetchedAt": "2026-05-07T22:38:46.867Z"
+  },
+  "zeroshot-image-classifier": {
+    "archived": false,
+    "description": "Browser-based image classification example application using OpenAI CLIP and Transformers.js. Upload images, run zero-shot classification with custom labels directly in the browser, and store images plus results in S3-compatible Backblaze B2 cloud object storage using pre-signed uploads.",
+    "forks": 1,
+    "lang": "HTML",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-03-03T22:07:32Z",
+    "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
+    "fetchedAt": "2026-05-07T22:38:46.809Z"
   }
 }

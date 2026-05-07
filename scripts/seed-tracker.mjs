@@ -150,20 +150,6 @@ function primaryLanguage(s) {
   return "python";
 }
 
-function tagsForTool(name, languages) {
-  const slug = name
-    .toLowerCase()
-    .replace(/[()]/g, "")
-    .replace(/[^a-z0-9-]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-  const langs = parseLanguages(languages).map((l) => l.toLowerCase());
-  return [slug, ...langs.slice(0, 3), "s3-compatible"]
-    .filter(Boolean)
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .slice(0, 6);
-}
-
 function toolsFromCsv(rows) {
   const header = rows[0];
   const idx = (name) => header.indexOf(name);
@@ -241,8 +227,27 @@ function isAlreadyTracked(toolName, existing) {
 }
 
 // === Issue body composer (PUBLIC-FACING ONLY) ===
-
-function composeIssueBody(tool, categories, language) {
+//
+// Body format matches what the closed sub-issues actually use today: bare flat
+// `key: value` lines, no fence, no marker. Discovery (scripts/discover.mjs)
+// reads these on close and projects them into the catalog.
+//
+// Fields the template seeds (all start as `null`, get filled in upstream when
+// the integration ships):
+//
+//   issue                  upstream issue URL — informational
+//   pull_request           upstream PR URL — fallback card destination
+//   pull_request_rejected  superseded PR (only if applicable; line elided when null)
+//   docs                   upstream docs URL — preferred card destination
+//   plugin                 backblaze-labs/* repo URL — set this if the
+//                          integration ends up living in our orgs (then repo
+//                          discovery handles it and this card is skipped)
+//   user_agent_extra       stable identifier for User-Agent header / slug
+//
+// Catalog override fields (`source`, `categories`, `language`, `tagline`,
+// `description`, `tags`, `icon`) are also accepted but not seeded here —
+// discovery falls back to sensible defaults when they're absent.
+function composeIssueBody(tool, _categories, _language) {
   const lines = [];
   lines.push(`**Project:** ${tool.repo ? `[${tool.name}](${tool.repo})` : tool.name}`);
   if (tool.section) lines.push(`**Category:** ${tool.section}`);
@@ -255,24 +260,26 @@ function composeIssueBody(tool, categories, language) {
   }
   lines.push("---");
   lines.push("");
-  lines.push("When this integration ships, fill in the YAML block below and close this issue.");
+  lines.push(
+    "When this integration ships, fill in the URLs below (replace `null`) and close this issue.",
+  );
   lines.push("The Backblaze Labs website will pick it up automatically on the next discovery run.");
   lines.push(
     "See [CONVENTIONS.md](https://github.com/backblaze-labs/website/blob/main/CONVENTIONS.md).",
   );
   lines.push("");
-  lines.push("```yaml");
-  lines.push("# backblaze-integration");
-  lines.push("url: # docs URL where users see the B2 instructions");
-  lines.push(`source: ${tool.name}`);
-  lines.push(`categories: ${categories.join(", ")}`);
-  lines.push(`language: ${language}`);
-  lines.push("tagline: # one-line pitch (<= 80 chars)");
-  lines.push("description: # 2-3 sentence public-facing description");
-  lines.push(`tags: ${tagsForTool(tool.name, tool.languages).join(", ")}`);
-  lines.push("icon: flow");
-  lines.push("```");
+  lines.push("issue: null");
+  lines.push("pull_request: null");
+  lines.push("docs: null");
+  lines.push(`user_agent_extra: ${slugFromName(tool.name)}`);
   return lines.join("\n");
+}
+
+function slugFromName(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function composeTitle(tool) {

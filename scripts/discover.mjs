@@ -136,30 +136,63 @@ function hasIncludeTopic(r) {
 
 // === Source 3: tracker sub-issues ===
 
-// Parses a structured metadata block from a sub-issue body. Two formats supported,
-// YAML preferred (renders nicely on GitHub):
+// Parses a tracker sub-issue body. The format is plain flat `key: value` lines
+// with no fence and no marker — matching what the closed sub-issues under the
+// tier-1 tracker (backblaze-labs/demand-side-ai#5) actually use. Example:
 //
-//   ```yaml
-//   # backblaze-integration
-//   url: https://docs.cvat.ai/docs/workspace/cloud-storages/
-//   source: CVAT
-//   categories: ai-ml, data-pipelines
-//   ...
-//   ```
+//   issue: https://github.com/meltano/meltano/issues/9988
+//   pull_request: https://github.com/meltano/meltano/pull/9990
+//   docs: https://docs.meltano.com/concepts/state_backends/#backblaze-b2-example
+//   user_agent_extra: meltano
 //
-// Or the legacy HTML-comment form:
+// Recognised structural keys (the rest are passed through for catalog overrides):
+//   issue                  upstream issue URL — informational
+//   pull_request           upstream PR URL — used as fallback destination
+//   pull_request_rejected  rejected/superseded PR URL — last-resort destination
+//   docs                   upstream docs URL — preferred destination
+//   plugin                 backblaze-labs/* or backblaze-b2-samples/* repo URL.
+//                          When present, repo discovery handles it — we skip the
+//                          tracker entry to avoid duplicate cards.
+//   user_agent_extra       stable identifier (e.g. "meltano", "pixeltable") —
+//                          used as a slug fallback when URL host doesn't help.
 //
-//   <!-- backblaze-integration
-//   url: ...
-//   source: ...
-//   -->
+// Catalog override keys (all optional, override auto-inference):
+//   url, source, tagline, description, categories, language, tags,
+//   icon, accent, featured, id, title.
 //
-// Both formats use the same flat `key: value` shape — comma-separated values for
-// `categories`/`tags`. The marker (`# backblaze-integration` for YAML, the comment
-// tag for HTML) is required so we don't false-positive on unrelated YAML blocks.
-const YAML_BLOCK_RE = /```ya?ml\s*\n([\s\S]*?)\n```/gi;
-const HTML_BLOCK_RE = /<!--\s*backblaze-integration\s*\n([\s\S]*?)\n\s*-->/i;
-const YAML_MARKER_RE = /^\s*#\s*backblaze-integration\b/im;
+// Literal "null", "none", "n/a", "tbd", and empty strings are coerced to
+// undefined so callers can use simple `meta.docs || meta.pull_request` chains.
+
+// Keys we recognise as a "this body is a tracker meta block" signal. Without
+// at least one of these, we fall back to URL extraction over the raw body.
+const TRACKER_SENTINEL_KEYS = new Set([
+  "issue",
+  "pull_request",
+  "pull_request_rejected",
+  "docs",
+  "plugin",
+  "user_agent_extra",
+  "url",
+  "source",
+  "tagline",
+  "description",
+  "categories",
+  "language",
+  "tags",
+  "icon",
+  "accent",
+  "featured",
+  "id",
+  "title",
+]);
+
+const NULLISH_VALUES = new Set(["null", "none", "n/a", "tbd", "todo", ""]);
+function cleanValue(v) {
+  if (v == null) return undefined;
+  const s = String(v).trim();
+  if (NULLISH_VALUES.has(s.toLowerCase())) return undefined;
+  return s;
+}
 
 function parseFlatBlock(content) {
   const meta = {};
@@ -186,17 +219,19 @@ function parseFlatBlock(content) {
   return meta;
 }
 
-function parseMetaBlock(body) {
+// Parse a closed sub-issue body into a normalized meta object. Returns null
+// if no recognised tracker keys appear (so unrelated content doesn't get
+// mistaken for metadata).
+function parseTrackerBody(body) {
   if (!body) return null;
-  // Prefer a YAML fenced code block carrying the `# backblaze-integration` marker.
-  for (const m of body.matchAll(YAML_BLOCK_RE)) {
-    const content = m[1];
-    if (YAML_MARKER_RE.test(content)) return parseFlatBlock(content);
+  const raw = parseFlatBlock(body);
+  const meta = {};
+  for (const [k, v] of Object.entries(raw)) {
+    const cleaned = cleanValue(v);
+    if (cleaned !== undefined) meta[k.toLowerCase()] = cleaned;
   }
-  // Fall back to the legacy HTML-comment form.
-  const html = body.match(HTML_BLOCK_RE);
-  if (html) return parseFlatBlock(html[1]);
-  return null;
+  const hasSentinel = Object.keys(meta).some((k) => TRACKER_SENTINEL_KEYS.has(k));
+  return hasSentinel ? meta : null;
 }
 
 // Extract the most-likely "destination" URL from free-form issue body text.
@@ -536,14 +571,27 @@ function draftRepoEntry(r) {
 }
 
 async function draftUpstreamEntry(item) {
-  const meta = parseMetaBlock(item.body) ?? {};
+  const meta = parseTrackerBody(item.body) ?? {};
   const missing = [];
 
-  // URL: meta block first, otherwise extract from issue body.
-  const url = meta.url || extractDestUrlFromBody(item.body) || null;
+  // Card destination URL — preferred order:
+  //   1. meta.url             explicit override
+  //   2. meta.docs            published upstream docs page (best UX)
+  //   3. meta.pull_request    merged PR (browsable while docs are still TBD)
+  //   4. meta.pull_request_rejected   superseded PR — last-resort context
+  //   5. meta.issue           upstream issue
+  //   6. extractDestUrlFromBody  freeform-text fallback for legacy bodies
+  const url =
+    meta.url ||
+    meta.docs ||
+    meta.pull_request ||
+    meta.pull_request_rejected ||
+    meta.issue ||
+    extractDestUrlFromBody(item.body) ||
+    null;
   if (!url) {
     missing.push(
-      "url (no URL found in body — add the integration's docs URL to the sub-issue or meta block)",
+      "url (closed sub-issue has no docs:/pull_request:/issue: URL — fill one in upstream)",
     );
   }
 
@@ -596,8 +644,23 @@ async function draftUpstreamEntry(item) {
   const icon = meta.icon || "flow";
   const featured = String(meta.featured ?? "").toLowerCase() === "true";
 
-  // Slug: explicit `id` in meta → title slug → URL host slug → fallback.
-  const id = meta.id || slugFromTitle(meta.title || item.title) || slugFromUrl(url) || "untitled";
+  // Slug priority: explicit `id` → URL host (e.g. docs.meltano.com → "meltano")
+  // → user_agent_extra (sanitised — strips internal `b2ai-` prefix and
+  // normalises) → title slug → fallback. Putting host before title means
+  // canonical brand domains win over slightly-off issue titles.
+  const userAgentSlug = meta.user_agent_extra
+    ? meta.user_agent_extra
+        .toLowerCase()
+        .replace(/^b2ai-/, "")
+        .replace(/[^a-z0-9-]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+    : null;
+  const id =
+    meta.id ||
+    slugFromUrl(url) ||
+    userAgentSlug ||
+    slugFromTitle(meta.title || item.title) ||
+    "untitled";
 
   const entry = {
     id,
@@ -672,16 +735,28 @@ for (const r of taggedRepos) {
 
 // Upstream items: draft in parallel — each does an HTTP fetch for page metadata.
 //
-// Labels on the tracker sub-issue tell us where the implementation lives:
-//   B2 Documentation  → upstream docs change  → create an upstream entry (repo: null)
-//   B2 Tool/Plugin    → repo in backblaze-labs/*       → SKIP (repo discovery handles it)
-//   B2 Example        → repo in backblaze-b2-samples/* → SKIP (repo discovery handles it)
-// "B2 Integration" alone is ambiguous; default to upstream entry.
+// Two ways a tracker entry can resolve to "implementation lives in our orgs":
+//
+//   1. Labels — `B2 Tool/Plugin` or `B2 Example` mean a backblaze-labs/* or
+//      backblaze-b2-samples/* repo owns the integration; repo discovery handles
+//      the card.
+//   2. `plugin:` field in the body — defense in depth when labels are missing
+//      but the body explicitly points at one of our repos.
+//
+// "B2 Integration" / "B2 Documentation" labels (with no plugin: field) produce
+// upstream entries (repo: null, source: "<Project>").
+const PLUGIN_OUR_ORGS_RE =
+  /^https?:\/\/(www\.)?github\.com\/(backblaze-labs|backblaze-b2-samples)\//i;
 const upstreamDrafts = await Promise.all(
   upstream.map(async (item) => {
     const labels = (item.labels ?? []).map((l) => l.toLowerCase());
     const livesInOurOrgs = labels.includes("b2 tool/plugin") || labels.includes("b2 example");
     if (livesInOurOrgs) return null; // repo discovery has it
+
+    // Body-driven skip — handles cases where the label is missing but the
+    // sub-issue body has a `plugin:` URL pointing at one of our repos.
+    const meta = parseTrackerBody(item.body);
+    if (meta?.plugin && PLUGIN_OUR_ORGS_RE.test(meta.plugin)) return null;
 
     let host = null;
     try {

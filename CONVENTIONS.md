@@ -111,55 +111,64 @@ So for `B2 Tool/Plugin` and `B2 Example` items: the closed sub-issue is the *tra
 
 Each closed sub-issue (or `[x]` task-list item) becomes a card unless its label says the implementation already lives in one of our org repos.
 
-### How much do I actually need to write?
+### Sub-issue body format
 
-The discovery script does most of the work for you:
+The sub-issue body is plain flat `key: value` lines — **no fence, no marker, no YAML codeblock.** When you close the sub-issue, discovery parses these directly:
 
-| Field | Where it comes from |
+```
+issue: https://github.com/meltano/meltano/issues/9988
+pull_request: https://github.com/meltano/meltano/pull/9990
+docs: https://docs.meltano.com/concepts/state_backends/#backblaze-b2-example
+user_agent_extra: meltano
+```
+
+#### Structural fields (the ones you actually fill in)
+
+| Field | Purpose |
 | --- | --- |
-| `url` | If absent in the meta block, the **first non-github URL** found in the issue body. |
-| `source` | If absent, derived from the sub-issue title (suffixes like " Integration"/" tool" stripped). |
-| `tagline` | If absent, the page's `<meta property="og:title">` or `<title>`, capped at 80 chars. |
-| `description` | If absent, the page's `<meta name="description">` or `og:description`. |
-| `tags` | If absent, derived from URL host + source name + `s3-compatible`. |
-| `language` | If absent, defaults to `python` (most upstream B2 integrations are). |
-| `icon` | If absent, defaults to `flow`. |
-| `categories` | If absent, defaults to `[ai-ml]`. **The one field you'll usually want to set explicitly** — refine after merge if needed. |
-| `featured` | Always defaults to `false`. Curator hand-flips in `labs.json`. |
+| `issue` | Upstream issue URL. Informational; not used as the card destination. |
+| `pull_request` | Upstream PR URL. Used as fallback destination if `docs:` is null. |
+| `pull_request_rejected` | Superseded / closed PR. Last-resort destination, useful for context. |
+| `docs` | Upstream docs page. **Preferred card destination** when present. |
+| `plugin` | Repo URL in `backblaze-labs/*` or `backblaze-b2-samples/*`. When present, repo discovery handles the card and the tracker entry is skipped. |
+| `user_agent_extra` | Stable identifier (e.g. `meltano`, `pixeltable`, `b2ai-mlflow`). Used as the slug fallback when URL host doesn't help. The `b2ai-` prefix is stripped automatically. |
 
-**The minimum upstream config is just the docs URL in the issue body.** Everything else gets inferred. Adding a meta block lets you override the auto-derived values when they aren't quite right.
+Card destination URL is resolved as: `docs` → `pull_request` → `pull_request_rejected` → `issue`.
 
-### Optional meta block
+Literal `null`, `none`, `n/a`, `tbd`, `todo`, and empty strings all mean "not set" — `meta.docs || meta.pull_request` works as you'd expect.
 
-For full control, add a meta block at the top of the sub-issue. **YAML code block (preferred)** — renders nicely on GitHub:
+#### Catalog override fields (optional)
 
-````markdown
-```yaml
-# backblaze-integration
-url: https://docs.cvat.ai/docs/workspace/cloud-storages/
-source: CVAT
+If discovery's auto-inference produces something off, override per-key in the same flat format:
+
+| Key | Default behavior |
+| --- | --- |
+| `source` | Sub-issue title with suffixes like " Integration"/" tool" stripped. |
+| `tagline` | The destination page's `<meta og:title>` / `<title>`, capped at 80 chars. |
+| `description` | The page's `<meta name="description">` / `og:description`. |
+| `categories` (comma-sep) | Defaults to `ai-ml`. **The one field you'll often want to set.** |
+| `language` | Defaults to `python`. |
+| `tags` (comma-sep) | Heuristic from URL host + source name + `s3-compatible`. |
+| `icon` | Defaults to `flow`. |
+| `id` | URL host slug → `user_agent_extra` → title slug. |
+| `title` | Sub-issue title with " Integration" suffix stripped. |
+| `accent`, `featured` | `accent: red`, `featured: false`. |
+
+So a fully overridden body looks like:
+
+```
+docs: https://docs.example.com/storage/backblaze-b2
+pull_request: https://github.com/example/example/pull/123
+user_agent_extra: example
+source: Example
+tagline: Backblaze B2 as a cloud storage backend for Example.
+description: Example supports B2 via the S3-compatible API. Configure your B2 endpoint and credentials and Example persists data to B2 — same path as the S3 backend.
 categories: ai-ml, data-pipelines
-language: python
-tagline: Backblaze B2 as a cloud storage backend for CVAT.
-description: CVAT — the open source computer vision annotation tool — supports Backblaze B2 as an S3-compatible cloud storage. Attach B2 buckets to your projects to store annotation source data and exported results without paying egress fees.
-tags: cvat, annotation, computer-vision, data-labeling, s3-compatible
+tags: example, s3-compatible
 icon: flow
-featured: false
-```
-````
-
-The `# backblaze-integration` marker line is required so the script doesn't false-positive on unrelated YAML blocks in the issue.
-
-The legacy HTML-comment form is still supported for issues that already use it:
-
-```html
-<!-- backblaze-integration
-url: ...
-source: ...
--->
 ```
 
-Recognised keys: `url`, `source`, `tagline`, `description`, `categories` (comma-sep), `language`, `tags` (comma-sep), `icon`, `accent`, `featured` (`true`/`false`), `id`, `title`. All optional.
+**The minimum needed to ship a card is just `docs:` (or `pull_request:`).** Everything else is inferred from the destination page's meta tags.
 
 ---
 

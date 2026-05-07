@@ -160,8 +160,71 @@ async function fetchHtml(targetUrl, maxBytes = 1024 * 1024) {
   }
 }
 
+// Confirm a discovered preview URL actually serves a usable image/video before
+// we commit it to previews.json — some sites point their og:image at internal
+// optimisation endpoints (e.g. Mintlify's Next.js `_next/image?url=...`) that
+// return 400 when hit cross-origin. Shipping those silently embeds a broken
+// `<img>` icon in every card. We send a HEAD first; if the host doesn't honor
+// HEAD (some CDNs return 405) we follow up with a tiny ranged GET. Returns
+// true only on a 2xx with an `image/*` or `video/*` content-type.
+async function verifyMediaUrl(targetUrl) {
+  if (!targetUrl) return false;
+  const ctl = new AbortController();
+  const t = setTimeout(() => ctl.abort(), 6000);
+  const looksOk = (res) => {
+    if (!res.ok) return false;
+    const ct = (res.headers.get("content-type") ?? "").toLowerCase();
+    return ct.startsWith("image/") || ct.startsWith("video/");
+  };
+  try {
+    const head = await fetch(targetUrl, {
+      method: "HEAD",
+      signal: ctl.signal,
+      redirect: "follow",
+      headers: { "user-agent": FETCH_UA, accept: "image/*,video/*;q=0.9,*/*;q=0.5" },
+    });
+    if (looksOk(head)) return true;
+    // 405 / 501 / etc. — fall back to a ranged GET that streams ~1KB.
+    if (head.status >= 400 && head.status < 500 && head.status !== 405) return false;
+    const get = await fetch(targetUrl, {
+      method: "GET",
+      signal: ctl.signal,
+      redirect: "follow",
+      headers: {
+        "user-agent": FETCH_UA,
+        accept: "image/*,video/*;q=0.9,*/*;q=0.5",
+        range: "bytes=0-1023",
+      },
+    });
+    try {
+      get.body?.cancel?.();
+    } catch {}
+    return looksOk(get);
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+// HTML attribute values keep their entity-escaping (e.g. `&amp;`, `&#x2F;`).
+// URLs that flow back into our JSON / src attributes need the raw form, or
+// they get double-encoded when Astro re-escapes for HTML output (e.g.
+// `?a=1&amp;b=2` → `?a=1&amp;amp;b=2` and the query breaks).
+function decodeHtmlEntities(s) {
+  if (!s) return s;
+  return s
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(Number.parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number.parseInt(d, 10)));
+}
+
 function absoluteUrl(maybeRelative, basePageUrl) {
-  const img = (maybeRelative ?? "").trim();
+  const img = decodeHtmlEntities((maybeRelative ?? "").trim());
   if (!img) return null;
   if (img.startsWith("//")) return `https:${img}`;
   if (/^https?:\/\//.test(img)) return img;
@@ -173,6 +236,16 @@ function absoluteUrl(maybeRelative, basePageUrl) {
     return new URL(img, basePageUrl).toString();
   } catch {
     return null;
+  }
+}
+
+// Best-effort host extraction for filtering — `src` may still be relative
+// (e.g. `/icons/foo.svg`); resolve against the page URL before checking.
+function srcHost(src, basePageUrl) {
+  try {
+    return new URL(src, basePageUrl).host.toLowerCase();
+  } catch {
+    return "";
   }
 }
 
@@ -206,6 +279,24 @@ function extractFirstBodyImage(html, basePageUrl) {
     if (/\b(favicon|apple-touch|sprite)\b/i.test(src)) continue;
     // Skip arrows/chevrons/expand-icons/etc. that often appear before content.
     if (/\b(arrow|chevron|caret|hamburger|menu-icon)\b/i.test(src)) continue;
+    // Skip nav/branding artwork — site logos and wordmarks are usually small
+    // transparent SVGs that look bad stretched to fill a 16:6 card. The brand
+    // gradient placeholder reads better in their absence.
+    if (/\b(logo|wordmark|brand-?mark)\b/i.test(`${alt} ${src}`)) continue;
+    // Skip generic decorative iconography — tiny icons used inline for
+    // "run in colab", "view on github", etc. They're not page heroes.
+    if (/[_-]icon\b|[_-]pic\b|\bicon[_-]/i.test(src)) continue;
+    if (/\bicon\b/i.test(alt)) continue;
+    // Hosts whose images are never the page's hero artwork — encyclopaedia
+    // illustrations, video-platform thumbnails, third-party badge mirrors.
+    // Skipping these lets the upstream walk fall through to the apex domain
+    // (e.g. project marketing site) which usually does have real hero art.
+    if (
+      /(?:^|\.)(?:wikimedia\.org|wikipedia\.org|img\.youtube\.com|i\.ytimg\.com|i\.vimeocdn\.com)$/i.test(
+        srcHost(src, basePageUrl),
+      )
+    )
+      continue;
     if (src.startsWith("data:")) continue;
 
     const abs = absoluteUrl(src, basePageUrl);
@@ -252,12 +343,26 @@ function extractFirstBodyVideo(html, basePageUrl) {
   return null;
 }
 
+// Hosts whose og:image we deliberately reject. GitHub's auto-generated
+// social-preview cards ship with a fixed white background and read poorly in
+// the dark gallery — better to fall back to the placeholder than embed a
+// card-within-a-card with the wrong colour scheme.
+const REJECTED_OG_HOSTS = /(?:^|\.)opengraph\.githubassets\.com$/i;
+
 function extractOgImage(html, basePageUrl) {
   if (!html) return null;
   const m =
     html.match(/<meta[^>]+property=["']?og:image["']?[^>]+content=["']?([^"'\s>]+)/i) ||
     html.match(/<meta[^>]+content=["']?([^"'\s>]+)[^>]+property=["']?og:image["']?/i);
-  return m ? absoluteUrl(m[1], basePageUrl) : null;
+  if (!m) return null;
+  const abs = absoluteUrl(m[1], basePageUrl);
+  if (!abs) return null;
+  try {
+    if (REJECTED_OG_HOSTS.test(new URL(abs).host)) return null;
+  } catch {
+    return null;
+  }
+  return abs;
 }
 
 // Resolve a "real" preview from one or more upstream URLs. Strategy:
@@ -271,6 +376,26 @@ function extractOgImage(html, basePageUrl) {
 // `seeds` is a list of starting URLs in priority order — typically [site, url]
 // so the marketing site (which usually has a hero <video>) is tried before the
 // docs URL (which usually doesn't).
+//
+// Hosts whose pages we never extract previews from. github.com only ever
+// yields UI chrome (avatars, sprites like `particles.png`) when scanned for
+// images — better to fall through to the placeholder than ship a card with a
+// 1px GitHub decoration as the hero.
+const SKIP_PREVIEW_HOSTS =
+  /(?:^|\.)(?:github\.com|github\.githubassets\.com|opengraph\.githubassets\.com)$/i;
+
+// True when a previously-stored URL is on a host we no longer accept (GitHub
+// chrome/sprite images, auto-generated OG cards). Used to discard stale
+// `previews.json` entries instead of "kept previous"-ing them.
+function isUnacceptablePreview(u) {
+  if (!u) return true;
+  try {
+    return SKIP_PREVIEW_HOSTS.test(new URL(u).host);
+  } catch {
+    return true;
+  }
+}
+
 async function fetchUpstreamPreview(seeds) {
   const list = Array.isArray(seeds) ? seeds.filter(Boolean) : [seeds].filter(Boolean);
   if (list.length === 0) return null;
@@ -279,6 +404,11 @@ async function fetchUpstreamPreview(seeds) {
   const seen = new Set();
   const push = (u) => {
     if (!u) return;
+    try {
+      if (SKIP_PREVIEW_HOSTS.test(new URL(u).host)) return;
+    } catch {
+      return;
+    }
     const norm = u.replace(/\/+$/, "/");
     if (seen.has(norm)) return;
     seen.add(norm);
@@ -298,11 +428,11 @@ async function fetchUpstreamPreview(seeds) {
     const html = await fetchHtml(url);
     if (!html) continue;
     const video = extractFirstBodyVideo(html, url);
-    if (video) return { url: video, source: "video" };
+    if (video && (await verifyMediaUrl(video))) return { url: video, source: "video" };
     const body = extractFirstBodyImage(html, url);
-    if (body) return { url: body, source: "body" };
+    if (body && (await verifyMediaUrl(body))) return { url: body, source: "body" };
     const og = extractOgImage(html, url);
-    if (og) return { url: og, source: "og" };
+    if (og && (await verifyMediaUrl(og))) return { url: og, source: "og" };
   }
   return null;
 }
@@ -339,10 +469,7 @@ async function processOne(i) {
           line: `  ${i.id} (upstream → ${new URL(i.url).host}) ... ${label} (${new URL(found.url).host})`,
         };
       }
-      const prev =
-        existing[i.id] && !/opengraph\.githubassets\.com/i.test(existing[i.id])
-          ? existing[i.id]
-          : null;
+      const prev = isUnacceptablePreview(existing[i.id]) ? null : existing[i.id];
       return {
         id: i.id,
         status: "ok",
@@ -351,11 +478,13 @@ async function processOne(i) {
         line: `  ${i.id} (upstream → ${new URL(i.url).host}) ... no image → ${prev ? "kept previous" : "placeholder"}`,
       };
     } catch (err) {
+      const prev = isUnacceptablePreview(existing[i.id]) ? null : existing[i.id];
       return {
         id: i.id,
         status: "failed",
-        url: null,
-        line: `  ${i.id} (upstream) ... failed (${err.message.split("\n")[0]})`,
+        url: prev,
+        source: prev ? "kept" : "placeholder",
+        line: `  ${i.id} (upstream) ... failed (${err.message.split("\n")[0]}) → ${prev ? "kept previous" : "placeholder"}`,
       };
     }
   }
@@ -368,7 +497,9 @@ async function processOne(i) {
     const branch = repoMeta.default_branch || "HEAD";
     const images = extractImagesFromReadme(md, i.repo, branch);
     const picked = pickPreview(images);
-    if (picked) {
+    // Verify the README image actually loads. raw.githubusercontent.com paths
+    // can break silently when a README references a moved/renamed asset.
+    if (picked && (await verifyMediaUrl(picked))) {
       return {
         id: i.id,
         status: "ok",

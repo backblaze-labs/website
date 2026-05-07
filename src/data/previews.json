@@ -1,6 +1,12 @@
 {
+  "agentic-rag-vector-starter-kit": "https://raw.githubusercontent.com/backblaze-b2-samples/agentic-rag-vector-starter-kit/main/Agentic-RAG-Dashboard.png",
   "comfyui-cloud-storage": "https://raw.githubusercontent.com/backblaze-labs/comfyui-cloud-storage/main/saveimagecloud.png",
   "cvat": "https://cdn.prod.website-files.com/62bebfb83044de7f13ae257e%2F6780e48fff3d49ef664ada8c_Main%20Video-H265%20LOW-HEVC-1-transcode.mp4",
   "genblaze-gmicloud": "https://raw.githubusercontent.com/backblaze-labs/genblaze-gmicloud-pipeline/main/docs/images/GMICloud-Genblaze-pipeline.png",
-  "mlflow": "https://mlflow.org/img/mlflow-card.png"
+  "image-generation-prompt-flow": "https://raw.githubusercontent.com/backblaze-b2-samples/image-generation-prompt-flow/main/image-generation-prompt-flow.jpg",
+  "meltano": "https://docs.meltano.com/assets/images/floating-e5ca299ea701367e8a194d07fb4a792c.png",
+  "mlflow": "https://mlflow.org/img/mlflow-card.png",
+  "pixeltable": "https://pixeltable.com/images/pixeltable-banner.png",
+  "transformerjs-background-removal": "https://raw.githubusercontent.com/backblaze-b2-samples/b2-transformerjs-background-removal/main/remove-background-ui.png",
+  "vibe-coding-starter-kit": "https://raw.githubusercontent.com/backblaze-b2-samples/vibe-coding-starter-kit/main/docs/images/b2-starterkit-dashboard1.png"
 }
