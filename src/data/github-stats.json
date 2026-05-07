@@ -126,10 +126,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 605,
-    "stars": 15778,
-    "updated": "2026-05-06T20:24:07Z",
+    "stars": 15782,
+    "updated": "2026-05-07T07:50:02Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-06T22:22:29.811Z"
+    "fetchedAt": "2026-05-07T09:28:33.701Z"
   },
   "genblaze": {
     "archived": false,
@@ -139,9 +139,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 8,
-    "updated": "2026-05-06T00:08:45Z",
+    "updated": "2026-05-07T05:47:51Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-06T09:20:17.273Z"
+    "fetchedAt": "2026-05-07T09:28:33.696Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -194,14 +194,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5687,
+    "forks": 5692,
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 2060,
-    "stars": 25772,
-    "updated": "2026-05-06T13:36:42Z",
+    "stars": 25791,
+    "updated": "2026-05-07T09:07:44Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-06T22:38:05.475Z"
+    "fetchedAt": "2026-05-07T09:28:33.657Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
