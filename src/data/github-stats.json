@@ -134,14 +134,14 @@
   "cvat": {
     "archived": false,
     "description": "Annotate better with CVAT, the industry-leading data engine for machine learning. Used and trusted by teams at any scale, for data of any scale.",
-    "forks": 3668,
+    "forks": 3667,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 604,
-    "stars": 15786,
+    "openIssues": 605,
+    "stars": 15793,
     "updated": "2026-05-07T15:30:27Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-07T22:38:46.539Z"
+    "fetchedAt": "2026-05-08T08:19:22.766Z"
   },
   "genblaze": {
     "archived": false,
@@ -218,14 +218,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5696,
+    "forks": 5697,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2056,
-    "stars": 25809,
-    "updated": "2026-05-07T17:52:27Z",
+    "openIssues": 2052,
+    "stars": 25816,
+    "updated": "2026-05-08T07:36:49Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-07T22:38:46.577Z"
+    "fetchedAt": "2026-05-08T08:19:22.737Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -242,14 +242,14 @@
   "openclaw-b2-sync-backup": {
     "archived": false,
     "description": "OpenClaw automatic backup and sync to Backblaze B2. Keep state durable across machines, restore instantly on new hardware, and roll back to previous snapshots if configs break or memory becomes corrupted.",
-    "forks": 1,
+    "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 6,
     "stars": 1,
     "updated": "2026-02-26T22:23:45Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-05-07T22:38:47.020Z"
+    "fetchedAt": "2026-05-08T08:19:22.888Z"
   },
   "pixeltable-multimodal-data": {
     "archived": false,
