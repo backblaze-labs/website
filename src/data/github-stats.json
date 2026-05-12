@@ -134,14 +134,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3668,
+    "forks": 3673,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 605,
-    "stars": 15806,
-    "updated": "2026-05-11T10:08:17Z",
+    "openIssues": 604,
+    "stars": 15816,
+    "updated": "2026-05-12T07:38:50Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-11T10:33:35.910Z"
+    "fetchedAt": "2026-05-12T09:32:30.106Z"
   },
   "genblaze": {
     "archived": false,
@@ -151,9 +151,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 9,
-    "updated": "2026-05-08T14:11:03Z",
+    "updated": "2026-05-11T18:18:28Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-09T08:25:07.177Z"
+    "fetchedAt": "2026-05-12T09:32:30.085Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -218,14 +218,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5714,
+    "forks": 5718,
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 2065,
-    "stars": 25865,
-    "updated": "2026-05-11T09:25:04Z",
+    "stars": 25883,
+    "updated": "2026-05-12T08:21:33Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-11T10:33:35.834Z"
+    "fetchedAt": "2026-05-12T09:32:30.151Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -270,10 +270,10 @@
     "lang": "HTML",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 2,
-    "updated": "2026-03-03T18:07:22Z",
+    "stars": 3,
+    "updated": "2026-05-12T01:10:49Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-05-07T22:38:48.072Z"
+    "fetchedAt": "2026-05-12T09:32:29.995Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
@@ -282,10 +282,10 @@
     "lang": "HTML",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-03-03T18:07:53Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-05-07T22:38:47.391Z"
+    "fetchedAt": "2026-05-12T09:32:30.089Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -306,10 +306,10 @@
     "lang": "HTML",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 2,
+    "stars": 3,
     "updated": "2026-03-03T21:33:16Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-05-07T22:38:46.867Z"
+    "fetchedAt": "2026-05-12T09:32:30.123Z"
   },
   "zeroshot-image-classifier": {
     "archived": false,
@@ -317,10 +317,10 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 0,
-    "updated": "2026-03-03T22:07:32Z",
+    "updated": "2026-05-11T16:43:56Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-05-07T22:38:46.809Z"
+    "fetchedAt": "2026-05-12T09:32:30.107Z"
   }
 }
