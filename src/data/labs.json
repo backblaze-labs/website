@@ -599,6 +599,21 @@
       "icon": "flow",
       "accent": "red",
       "featured": false
+    },
+    {
+      "id": "b2-action",
+      "title": "B2 Action",
+      "tagline": "The Backblaze B2 GitHub Action",
+      "description": "The Backblaze B2 GitHub Action",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": ["b2", "github-actions"],
+      "repo": "backblaze-labs/b2-action",
+      "url": "https://github.com/backblaze-labs/b2-action",
+      "icon": "wrench",
+      "accent": "red",
+      "featured": false
     }
   ]
 }

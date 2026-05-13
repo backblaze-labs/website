@@ -9,7 +9,7 @@
     "stars": 1,
     "updated": "2026-03-25T16:50:24Z",
     "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
-    "fetchedAt": "2026-05-07T22:38:46.809Z"
+    "fetchedAt": "2026-05-13T21:15:28.680Z"
   },
   "awesome-agent-infrastructure": {
     "archived": false,
@@ -21,7 +21,7 @@
     "stars": 1,
     "updated": "2026-05-05T13:59:20Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-05-13T02:57:48.293Z"
+    "fetchedAt": "2026-05-13T21:15:28.999Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -33,7 +33,7 @@
     "stars": 2,
     "updated": "2026-05-05T14:00:43Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-05-07T22:38:46.768Z"
+    "fetchedAt": "2026-05-13T21:15:28.669Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -45,7 +45,7 @@
     "stars": 2,
     "updated": "2026-05-05T14:03:08Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-05-13T02:57:47.257Z"
+    "fetchedAt": "2026-05-13T21:15:28.878Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -57,7 +57,7 @@
     "stars": 1,
     "updated": "2026-05-05T13:59:33Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-05-07T22:38:46.739Z"
+    "fetchedAt": "2026-05-13T21:15:28.608Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -69,7 +69,7 @@
     "stars": 1,
     "updated": "2026-05-05T13:59:18Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-05-07T22:38:46.643Z"
+    "fetchedAt": "2026-05-13T21:15:28.922Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -81,7 +81,7 @@
     "stars": 1,
     "updated": "2026-05-05T13:59:42Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-05-07T22:38:46.785Z"
+    "fetchedAt": "2026-05-13T21:15:28.583Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -93,7 +93,19 @@
     "stars": 7,
     "updated": "2026-05-05T14:00:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-05-07T22:38:46.633Z"
+    "fetchedAt": "2026-05-13T21:15:28.749Z"
+  },
+  "b2-action": {
+    "archived": false,
+    "description": "The Backblaze B2 GitHub Action",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 1,
+    "updated": "2026-05-13T20:36:27Z",
+    "repo": "backblaze-labs/b2-action",
+    "fetchedAt": "2026-05-13T21:15:28.683Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -105,7 +117,7 @@
     "stars": 3,
     "updated": "2026-03-26T02:42:27Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-05-07T22:38:46.570Z"
+    "fetchedAt": "2026-05-13T21:15:29.627Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -117,7 +129,7 @@
     "stars": 34,
     "updated": "2026-05-04T17:06:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-05-07T22:38:46.914Z"
+    "fetchedAt": "2026-05-13T21:15:28.584Z"
   },
   "comfyui-cloud-storage": {
     "archived": false,
@@ -129,7 +141,7 @@
     "stars": 1,
     "updated": "2026-05-06T00:03:00Z",
     "repo": "backblaze-labs/comfyui-cloud-storage",
-    "fetchedAt": "2026-05-07T22:38:46.755Z"
+    "fetchedAt": "2026-05-13T21:15:28.657Z"
   },
   "cvat": {
     "archived": false,
@@ -137,11 +149,11 @@
     "forks": 3674,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 607,
-    "stars": 15823,
-    "updated": "2026-05-13T09:39:41Z",
+    "openIssues": 604,
+    "stars": 15835,
+    "updated": "2026-05-13T21:01:19Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-13T09:40:02.555Z"
+    "fetchedAt": "2026-05-13T21:15:28.584Z"
   },
   "genblaze": {
     "archived": false,
@@ -153,7 +165,7 @@
     "stars": 10,
     "updated": "2026-05-11T18:18:28Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-13T02:57:48.512Z"
+    "fetchedAt": "2026-05-13T21:15:28.616Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -165,7 +177,7 @@
     "stars": 1,
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
-    "fetchedAt": "2026-05-07T22:38:46.661Z"
+    "fetchedAt": "2026-05-13T21:15:29.102Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -177,7 +189,7 @@
     "stars": 4,
     "updated": "2026-05-04T18:38:14Z",
     "repo": "backblaze-labs/hf-cache-sync",
-    "fetchedAt": "2026-05-07T22:38:46.543Z"
+    "fetchedAt": "2026-05-13T21:15:28.599Z"
   },
   "image-generation-prompt-flow": {
     "archived": false,
@@ -189,7 +201,7 @@
     "stars": 1,
     "updated": "2026-02-09T18:12:49Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-05-07T22:38:47.020Z"
+    "fetchedAt": "2026-05-13T21:15:28.763Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -201,7 +213,7 @@
     "stars": 2,
     "updated": "2026-03-26T00:20:36Z",
     "repo": "backblaze-labs/jupyter-b2",
-    "fetchedAt": "2026-05-07T22:38:46.914Z"
+    "fetchedAt": "2026-05-13T21:15:29.317Z"
   },
   "jupyterlab-b2": {
     "archived": false,
@@ -213,7 +225,7 @@
     "stars": 2,
     "updated": "2026-03-25T18:15:11Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-05-07T22:38:46.640Z"
+    "fetchedAt": "2026-05-13T21:15:28.599Z"
   },
   "mlflow": {
     "archived": false,
@@ -221,11 +233,11 @@
     "forks": 5724,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2071,
-    "stars": 25902,
-    "updated": "2026-05-13T09:38:19Z",
+    "openIssues": 2083,
+    "stars": 25916,
+    "updated": "2026-05-13T20:32:07Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-13T09:40:02.564Z"
+    "fetchedAt": "2026-05-13T21:15:28.805Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -237,7 +249,7 @@
     "stars": 0,
     "updated": "2026-04-30T18:57:33Z",
     "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
-    "fetchedAt": "2026-05-07T22:38:46.570Z"
+    "fetchedAt": "2026-05-13T21:15:28.680Z"
   },
   "openclaw-b2-sync-backup": {
     "archived": false,
@@ -249,7 +261,7 @@
     "stars": 2,
     "updated": "2026-02-26T22:23:45Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-05-13T02:57:47.410Z"
+    "fetchedAt": "2026-05-13T21:15:28.671Z"
   },
   "pixeltable-multimodal-data": {
     "archived": false,
@@ -261,7 +273,7 @@
     "stars": 1,
     "updated": "2025-12-02T19:04:46Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
-    "fetchedAt": "2026-05-07T22:38:47.952Z"
+    "fetchedAt": "2026-05-13T21:15:28.639Z"
   },
   "transformerjs-background-removal": {
     "archived": false,
@@ -271,9 +283,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 3,
-    "updated": "2026-05-12T01:10:49Z",
+    "updated": "2026-05-13T12:41:50Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-05-12T09:32:29.995Z"
+    "fetchedAt": "2026-05-13T21:15:28.641Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
@@ -281,11 +293,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 1,
-    "updated": "2026-05-12T12:21:49Z",
+    "updated": "2026-05-13T12:41:33Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-05-13T02:57:47.385Z"
+    "fetchedAt": "2026-05-13T21:15:28.687Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -297,7 +309,7 @@
     "stars": 5,
     "updated": "2026-05-05T18:47:05Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-05-11T10:33:35.930Z"
+    "fetchedAt": "2026-05-13T21:15:28.656Z"
   },
   "whisper-transformersjs-transcriber": {
     "archived": false,
@@ -305,11 +317,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 3,
-    "updated": "2026-05-12T13:01:56Z",
+    "updated": "2026-05-13T12:41:24Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-05-13T02:57:47.750Z"
+    "fetchedAt": "2026-05-13T21:15:28.634Z"
   },
   "zeroshot-image-classifier": {
     "archived": false,
@@ -319,8 +331,8 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-05-12T14:24:31Z",
+    "updated": "2026-05-13T12:41:58Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-05-13T02:57:47.414Z"
+    "fetchedAt": "2026-05-13T21:15:28.666Z"
   }
 }

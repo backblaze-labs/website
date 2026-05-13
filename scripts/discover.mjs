@@ -410,18 +410,34 @@ function fetchAllTrackerDoneItems() {
 
 // === Heuristics ===
 
+// Stripping the `b2-`/`backblaze-` prefix produces a better catalog id when
+// the remainder is still descriptive (e.g. `b2-zeroshot-image-classifier` →
+// `zeroshot-image-classifier`). But for short repo names like `b2-action` or
+// `b2-vscode` it collapses to a single generic word ("action", "vscode") that
+// loses the project identity. So: only strip when the result is multi-token.
+function stripBrandPrefix(name) {
+  const stripped = name.replace(/^(backblaze|b2)-/, "");
+  if (stripped === name) return name;
+  // Multi-token (contains a separator) → stripping is safe.
+  if (/[-_]/.test(stripped)) return stripped;
+  // Single token → keep the prefix so id/title stays distinct from generic
+  // English words. e.g. `b2-action` → `b2-action`, `b2-vscode` → `b2-vscode`.
+  return name;
+}
+
 function prettifyTitle(name) {
-  return name
-    .replace(/^(backblaze|b2)-/, "")
+  return stripBrandPrefix(name)
     .split(/[-_]/)
-    .map((p) => (/^[A-Z0-9]+$/.test(p) ? p : (p[0]?.toUpperCase() ?? "") + p.slice(1)))
+    .map((p) => {
+      if (/^b2$/i.test(p)) return "B2"; // Always uppercase the brand acronym.
+      return /^[A-Z0-9]+$/.test(p) ? p : (p[0]?.toUpperCase() ?? "") + p.slice(1);
+    })
     .join(" ");
 }
 
 function slugFromRepoName(name) {
-  return name
+  return stripBrandPrefix(name)
     .toLowerCase()
-    .replace(/^(backblaze|b2)-/, "")
     .replace(/[^a-z0-9-]+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
