@@ -2,15 +2,12 @@
 import Filters from "~/components/Filters.astro";
 import IntegrationCard from "~/components/IntegrationCard.astro";
 import Icon from "~/components/Icon.astro";
-import { catalog } from "~/lib/labs";
+import { catalog, sortIntegrations } from "~/lib/labs";
 
-// Featured items go first — Vercel-templates pattern.
-const sorted = [...catalog.integrations].sort((a, b) => {
-  const af = a.featured ? 1 : 0;
-  const bf = b.featured ? 1 : 0;
-  if (af !== bf) return bf - af;
-  return a.title.localeCompare(b.title);
-});
+// Sort order: featured → has-real-image → alphabetical. The "image first"
+// tier means a wall of branded preview artwork loads in the visible region
+// before the placeholder-gradient cards drop in below.
+const sorted = sortIntegrations(catalog.integrations);
 ---
 <section id="integrations" class="container-page mt-12 md:mt-16">
   <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -53,7 +50,7 @@ const sorted = [...catalog.integrations].sort((a, b) => {
     <div>
       <div class="mb-3 flex items-center justify-between text-sm" style="color: var(--fg-muted);">
         <span><span data-result-count>{catalog.integrations.length}</span> shown</span>
-        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then alphabetical</span>
+        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then with previews · then alphabetical</span>
       </div>
       <div class="mb-3 hidden flex-wrap gap-1.5 sm:flex">
         <span class="text-xs" style="color: var(--fg-dim);">Quick filters:</span>

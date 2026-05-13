@@ -109,6 +109,40 @@ export function previewUrl(item: Integration, base = ""): string | null {
 }
 
 /**
+ * True when the catalog has a real preview image for this integration (manual
+ * override or auto-discovered from README/upstream walk). False means the card
+ * will fall back to the brand-gradient placeholder.
+ *
+ * Used by `sortIntegrations` to surface visually-richer cards first.
+ */
+export function hasPreview(item: Integration): boolean {
+  return Boolean(item.preview) || Boolean(previews[item.id]);
+}
+
+/**
+ * Canonical display order for the gallery and category pages:
+ *
+ *   1. `featured: true` items first.
+ *   2. Then items with a real preview image (manual or auto-discovered) —
+ *      a wall of branded artwork reads better than a wall of placeholder
+ *      gradients.
+ *   3. Alphabetical by title within each tier.
+ *
+ * Returns a new array; never mutates the input.
+ */
+export function sortIntegrations(items: Integration[]): Integration[] {
+  return [...items].sort((a, b) => {
+    const af = a.featured ? 1 : 0;
+    const bf = b.featured ? 1 : 0;
+    if (af !== bf) return bf - af;
+    const ap = hasPreview(a) ? 1 : 0;
+    const bp = hasPreview(b) ? 1 : 0;
+    if (ap !== bp) return bp - ap;
+    return a.title.localeCompare(b.title);
+  });
+}
+
+/**
  * GitHub social preview URL — useful as a fallback or for the "View on GitHub" preview.
  * Not used as the default card image (see `previewUrl`).
  */

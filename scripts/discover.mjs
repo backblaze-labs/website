@@ -642,7 +642,13 @@ async function draftUpstreamEntry(item) {
   }
 
   const icon = meta.icon || "flow";
-  const featured = String(meta.featured ?? "").toLowerCase() === "true";
+  // Featured-on-website is curator intent expressed as a tracker label —
+  // attaching `B2 Feature on website` to the sub-issue surfaces the card in
+  // the featured tier on the gallery. Body `featured: true` still works as an
+  // explicit override (legacy / power-user path).
+  const labels = (item.labels ?? []).map((l) => (typeof l === "string" ? l.toLowerCase() : ""));
+  const featuredByLabel = labels.includes("b2 feature on website");
+  const featured = featuredByLabel || String(meta.featured ?? "").toLowerCase() === "true";
 
   // Slug priority: explicit `id` → URL host (e.g. docs.meltano.com → "meltano")
   // → user_agent_extra (sanitised — strips internal `b2ai-` prefix and
@@ -747,16 +753,43 @@ for (const r of taggedRepos) {
 // upstream entries (repo: null, source: "<Project>").
 const PLUGIN_OUR_ORGS_RE =
   /^https?:\/\/(www\.)?github\.com\/(backblaze-labs|backblaze-b2-samples)\//i;
+const FEATURE_LABEL = "b2 feature on website";
+
+// Bidirectional reconciliation map for the `featured` flag. Built from tracker
+// labels regardless of whether the sub-issue produces an upstream card or a
+// repo-driven card. The value is "is `B2 Feature on website` currently on the
+// sub-issue?" — applied by merge-discovered.mjs which sets `featured` on the
+// matching catalog entry (true→true, false→false). This makes the label the
+// source of truth: removing the label flips the card off automatically.
+//
+// Match keys:
+//   - For upstream items: the drafted id (e.g. "cvat", "mlflow", "meltano")
+//   - For repo-driven items (`plugin:` field): the repo's basename
+//     (e.g. "comfyui-cloud-storage")
+const featuredReconciliation = {};
+
 const upstreamDrafts = await Promise.all(
   upstream.map(async (item) => {
     const labels = (item.labels ?? []).map((l) => l.toLowerCase());
-    const livesInOurOrgs = labels.includes("b2 tool/plugin") || labels.includes("b2 example");
-    if (livesInOurOrgs) return null; // repo discovery has it
-
-    // Body-driven skip — handles cases where the label is missing but the
-    // sub-issue body has a `plugin:` URL pointing at one of our repos.
+    const featuredIntent = labels.includes(FEATURE_LABEL);
     const meta = parseTrackerBody(item.body);
-    if (meta?.plugin && PLUGIN_OUR_ORGS_RE.test(meta.plugin)) return null;
+
+    const livesInOurOrgs = labels.includes("b2 tool/plugin") || labels.includes("b2 example");
+    const pluginInOurOrgs = meta?.plugin && PLUGIN_OUR_ORGS_RE.test(meta.plugin);
+
+    // Record featured intent for the repo-driven catalog entry. The plugin
+    // field is the strongest signal of "this tracker entry corresponds to
+    // <our-org>/<repo>". Falls back to nothing if the label/plugin disagree.
+    if ((livesInOurOrgs || pluginInOurOrgs) && meta?.plugin) {
+      const repoBasename = meta.plugin
+        .replace(/^https?:\/\/(www\.)?github\.com\//i, "")
+        .replace(/\/$/, "")
+        .split("/")
+        .pop();
+      if (repoBasename) featuredReconciliation[repoBasename] = featuredIntent;
+    }
+    if (livesInOurOrgs) return null; // repo discovery has it
+    if (pluginInOurOrgs) return null;
 
     let host = null;
     try {
@@ -764,9 +797,15 @@ const upstreamDrafts = await Promise.all(
     } catch {}
     if (host) {
       seenUpstreamHosts.add(host);
-      if (existingByUrlHost.has(host)) return null;
     }
     const drafted = await draftUpstreamEntry(item);
+
+    // Record featured intent for the upstream-driven catalog entry. Always
+    // record (even when we'll skip below for "already in catalog") — this is
+    // how the flip-off case works: existing CVAT entry whose label gets
+    // removed will see false here and merge-discovered will clear featured.
+    featuredReconciliation[drafted.entry.id] = featuredIntent;
+
     // Skip if normalized id matches an existing entry — catches "ml-flow"
     // (slugged from sub-issue title) vs "mlflow" already in labs.json.
     if (existingNormalizedIds.has(normalizeId(drafted.entry.id))) return null;
@@ -814,12 +853,36 @@ for (const i of labs.integrations) {
 const complete = proposed.filter((p) => p._complete);
 const incomplete = proposed.filter((p) => !p._complete);
 
+// Compute which existing catalog entries will see a featured-flag flip on the
+// next merge. Surfaces "label was added/removed since last sync" as a real
+// change even when there are no new proposals — otherwise the early-exit
+// below would drop the reconciliation on the floor.
+const featuredFlips = [];
+for (const e of labs.integrations) {
+  if (!(e.id in featuredReconciliation)) continue;
+  const desired = featuredReconciliation[e.id];
+  if (Boolean(e.featured) !== desired) {
+    featuredFlips.push({ id: e.id, from: Boolean(e.featured), to: desired });
+  }
+}
+
 console.log(`\nProposed:`);
 console.log(`  ${complete.length} COMPLETE  (auto-mergeable)`);
 console.log(`  ${incomplete.length} NEEDS-METADATA  (require upstream fix)`);
 console.log(`  ${stale.length} STALE  (manual review)`);
+if (featuredFlips.length) {
+  console.log(`  ${featuredFlips.length} FEATURED-FLIP  (label change reconciles existing entry)`);
+  for (const f of featuredFlips) {
+    console.log(`    - ${f.id}: featured ${f.from} → ${f.to}`);
+  }
+}
 
-if (complete.length === 0 && incomplete.length === 0 && stale.length === 0) {
+if (
+  complete.length === 0 &&
+  incomplete.length === 0 &&
+  stale.length === 0 &&
+  featuredFlips.length === 0
+) {
   if (fs.existsSync(discoveredPath)) fs.unlinkSync(discoveredPath);
   console.log("\n✔ Catalog in sync — nothing to do.");
   process.exit(0);
@@ -839,6 +902,9 @@ const out = {
   complete,
   incomplete,
   stale,
+  // Tracker labels are the source of truth for `featured`. merge-discovered
+  // applies this map to existing entries (set/clear, never just-set).
+  featuredReconciliation,
 };
 fs.writeFileSync(discoveredPath, `${JSON.stringify(out, null, 2)}\n`);
 console.log(`\nWrote ${path.relative(root, discoveredPath)}`);

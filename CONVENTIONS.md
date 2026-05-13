@@ -111,6 +111,19 @@ So for `B2 Tool/Plugin` and `B2 Example` items: the closed sub-issue is the *tra
 
 Each closed sub-issue (or `[x]` task-list item) becomes a card unless its label says the implementation already lives in one of our org repos.
 
+### Modifier labels (stack with the labels above)
+
+| Label | Effect |
+| --- | --- |
+| `B2 Feature on website` | Reconciles `featured` on the catalog entry to track the label's current state. **Bidirectional**: adding the label flips the entry to `featured: true` on the next sync; removing the label flips it back to `false`. The tracker is the source of truth — hand-edits to `labs.json` get overwritten on the next discovery run for entries with a tracker counterpart. |
+
+The reconciliation matches the catalog entry by id:
+
+- For sub-issues with `B2 Documentation` / `B2 Integration` labels (upstream cards), the id is the URL-host slug (e.g. `docs.cvat.ai` → `cvat`).
+- For sub-issues with `B2 Tool/Plugin` / `B2 Example` labels and a `plugin:` URL in the body, the id is the repo basename (e.g. `plugin: https://github.com/backblaze-labs/comfyui-cloud-storage` → `comfyui-cloud-storage`).
+
+Catalog entries without a tracker counterpart (purely curator-added via `labs.json`) keep their hand-set `featured` value untouched.
+
 ### Sub-issue body format
 
 The sub-issue body is plain flat `key: value` lines — **no fence, no marker, no YAML codeblock.** When you close the sub-issue, discovery parses these directly:

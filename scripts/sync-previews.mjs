@@ -531,6 +531,33 @@ async function processOne(i) {
 }
 
 const results = await Promise.all(data.integrations.map(processOne));
+
+// Final revalidation pass — re-HEAD every URL we're about to write. Catches
+// silent rot on entries that didn't change during this run (the README image
+// renamed and the redirect 404s, the CDN moved the asset, etc.). The pick
+// paths already validate freshly-extracted URLs, so this almost always passes;
+// when it doesn't, we drop the entry to placeholder rather than ship a broken
+// card. Runs in parallel — cost is bounded by the slowest single HEAD.
+const revalidationFailures = [];
+await Promise.all(
+  results.map(async (r) => {
+    if (!r.url) return;
+    const ok = await verifyMediaUrl(r.url);
+    if (ok) return;
+    revalidationFailures.push({ id: r.id, url: r.url, prevSource: r.source });
+    const hostFragment = (() => {
+      try {
+        return new URL(r.url).host;
+      } catch {
+        return "stale";
+      }
+    })();
+    r.url = null;
+    r.source = "placeholder";
+    r.line = `  ${r.id} ... revalidation failed (${hostFragment} no longer serves the image) → placeholder`;
+  }),
+);
+
 const orderById = new Map(data.integrations.map((i, idx) => [i.id, idx]));
 results.sort((a, b) => (orderById.get(a.id) ?? 0) - (orderById.get(b.id) ?? 0));
 for (const r of results) if (r.line) console.log(r.line);
@@ -568,7 +595,10 @@ const prevJson = (() => {
   }
 })();
 
-const summary = `${ok} ok, ${fail} failed · ${fromReadme} README · ${fromUpstreamVideo} upstream video · ${fromUpstreamBody} upstream body · ${fromUpstreamOg} upstream og · ${placeholders} placeholder`;
+const revalidationSummary = revalidationFailures.length
+  ? ` · ${revalidationFailures.length} stale (dropped)`
+  : "";
+const summary = `${ok} ok, ${fail} failed · ${fromReadme} README · ${fromUpstreamVideo} upstream video · ${fromUpstreamBody} upstream body · ${fromUpstreamOg} upstream og · ${placeholders} placeholder${revalidationSummary}`;
 if (nextJson !== prevJson) {
   fs.writeFileSync(outPath, nextJson);
   console.log(`\n✔ Wrote ${path.relative(root, outPath)} — ${summary}.`);

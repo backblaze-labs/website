@@ -14,14 +14,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 2,
+    "forks": 5,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 3,
     "stars": 1,
     "updated": "2026-05-05T13:59:20Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-05-09T08:25:07.023Z"
+    "fetchedAt": "2026-05-13T02:57:48.293Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -38,14 +38,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 3,
+    "forks": 4,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 2,
     "updated": "2026-05-05T14:03:08Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-05-07T22:38:46.649Z"
+    "fetchedAt": "2026-05-13T02:57:47.257Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -134,14 +134,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3673,
+    "forks": 3675,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 604,
-    "stars": 15816,
-    "updated": "2026-05-12T07:38:50Z",
+    "openIssues": 607,
+    "stars": 15822,
+    "updated": "2026-05-12T21:15:02Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-12T09:32:30.106Z"
+    "fetchedAt": "2026-05-13T02:57:48.433Z"
   },
   "genblaze": {
     "archived": false,
@@ -150,10 +150,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 9,
+    "stars": 10,
     "updated": "2026-05-11T18:18:28Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-12T09:32:30.085Z"
+    "fetchedAt": "2026-05-13T02:57:48.512Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -218,14 +218,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5718,
+    "forks": 5724,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2065,
-    "stars": 25883,
-    "updated": "2026-05-12T08:21:33Z",
+    "openIssues": 2074,
+    "stars": 25895,
+    "updated": "2026-05-13T01:45:57Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-12T09:32:30.151Z"
+    "fetchedAt": "2026-05-13T02:57:47.188Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -246,10 +246,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 7,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-02-26T22:23:45Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-05-11T10:33:35.965Z"
+    "fetchedAt": "2026-05-13T02:57:47.410Z"
   },
   "pixeltable-multimodal-data": {
     "archived": false,
@@ -281,11 +281,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 1,
-    "updated": "2026-03-03T18:07:53Z",
+    "updated": "2026-05-12T12:21:49Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-05-12T09:32:30.089Z"
+    "fetchedAt": "2026-05-13T02:57:47.385Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -305,11 +305,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 3,
-    "updated": "2026-03-03T21:33:16Z",
+    "updated": "2026-05-12T13:01:56Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-05-12T09:32:30.123Z"
+    "fetchedAt": "2026-05-13T02:57:47.750Z"
   },
   "zeroshot-image-classifier": {
     "archived": false,
@@ -317,10 +317,10 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-05-11T16:43:56Z",
+    "updated": "2026-05-12T14:24:31Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-05-12T09:32:30.107Z"
+    "fetchedAt": "2026-05-13T02:57:47.414Z"
   }
 }

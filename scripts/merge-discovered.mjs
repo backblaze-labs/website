@@ -48,10 +48,37 @@ for (const e of all) {
   added.push(e.id);
 }
 
-if (added.length > 0) {
+// Featured-flag reconciliation: the tracker label `B2 Feature on website` is
+// the source of truth. For every entry id in the reconciliation map (built by
+// discover.mjs from closed sub-issue labels), force the catalog entry's
+// `featured` to match. Adds the flag when the label is present, clears it when
+// the label is removed. The map intentionally only includes ids that came from
+// the tracker — entries with no tracker counterpart keep their current
+// `featured` value (curators can still hand-flip those).
+const reconciliation = discovered.featuredReconciliation ?? {};
+const featuredFlips = [];
+for (const e of labs.integrations) {
+  if (!(e.id in reconciliation)) continue;
+  const desired = Boolean(reconciliation[e.id]);
+  if (Boolean(e.featured) === desired) continue;
+  featuredFlips.push({ id: e.id, from: Boolean(e.featured), to: desired });
+  e.featured = desired;
+}
+
+if (added.length > 0 || featuredFlips.length > 0) {
   fs.writeFileSync(labsPath, `${JSON.stringify(labs, null, 2)}\n`);
-  console.log(`✔ Appended ${added.length} entries to labs.json:`);
-  for (const id of added) console.log(`    + ${id}`);
+  if (added.length > 0) {
+    console.log(`✔ Appended ${added.length} entries to labs.json:`);
+    for (const id of added) console.log(`    + ${id}`);
+  }
+  if (featuredFlips.length > 0) {
+    console.log(
+      `${added.length > 0 ? "\n" : "✔ "}Reconciled featured flag on ${featuredFlips.length} entries (tracker label is source of truth):`,
+    );
+    for (const f of featuredFlips) {
+      console.log(`    ${f.id}: featured ${f.from} → ${f.to}`);
+    }
+  }
 } else {
   console.log("No new entries to merge.");
 }
@@ -87,7 +114,7 @@ if (stale.length > 0) {
 
 fs.unlinkSync(discoveredPath);
 
-if (added.length === 0 && stale.length === 0) {
+if (added.length === 0 && stale.length === 0 && featuredFlips.length === 0) {
   console.log("\nNothing to do.");
 } else {
   console.log(
