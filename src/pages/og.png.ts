@@ -114,8 +114,12 @@ export const GET: APIRoute = async () => {
                 type: "div",
                 props: {
                   style: {
+                    // Weight 600 matches the loaded Space Grotesk file
+                    // (`fontDisplay` above). Satori synthesises bolder
+                    // weights when requested but the visual is identical and
+                    // the explicit value is honest.
                     fontSize: "76px",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     lineHeight: 1.05,
                     letterSpacing: "-0.025em",
                     maxWidth: "1000px",

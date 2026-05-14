@@ -35,8 +35,8 @@ npm run dev          # http://localhost:4321/website/
 npm run build        # → ./dist/
 npm run preview      # serve the production build locally
 
-npm run checks       # lint + format + typecheck + validate (what CI runs)
-npm run fix          # auto-fix lint + format, then typecheck
+npm run checks       # lint + format:check + typecheck + validate + docs:lint + spellcheck (what CI + the pre-commit hook run)
+npm run fix          # auto-fix lint + format, then typecheck + validate
 npm run validate     # JSON schema check on labs.json only
 npm run sync         # sync-stats + sync-links + sync-previews (one shot)
 npm run sync-stats   # refresh src/data/github-stats.json from the GitHub API
@@ -174,7 +174,7 @@ scripts/
 ├── CODEOWNERS
 ├── dependabot.yml
 └── workflows/
-    ├── ci.yml             lint + format + typecheck + validate on every PR
+    ├── ci.yml             full `npm run checks` (lint/format/typecheck/validate/docs/spellcheck) + build smoke-test on every PR
     ├── deploy.yml         deploys to GitHub Pages on push to main
     ├── discover.yml       weekly cron — opens a PR with new discovery proposals
     └── refresh-stats.yml  nightly cron — refreshes github-stats.json
@@ -239,7 +239,7 @@ To customize:
 
 ## Deploy
 
-Push to `main` → [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `npm ci`, then `npm run checks`, then `astro build`, then deploys `dist/` to GitHub Pages.
+Push to `main` → [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `npm ci`, then `astro build`, then deploys `dist/` to GitHub Pages. Pre-merge gating (lint/format/typecheck/validate/docs:lint/spellcheck) lives in [`ci.yml`](.github/workflows/ci.yml) and runs on every PR before merge.
 
 In repo **Settings → Pages**, source must be **GitHub Actions**.
 

@@ -43,7 +43,6 @@ export interface Integration {
   demo?: string | null;
   preview?: string | null;
   icon?: string;
-  accent?: "red" | "navy" | "cream";
   featured?: boolean;
 }
 

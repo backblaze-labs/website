@@ -2,12 +2,18 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Hero from "~/components/Hero.astro";
 import Gallery from "~/components/Gallery.astro";
-import { catalog } from "~/lib/labs";
+import { catalog, sortIntegrations } from "~/lib/labs";
+
+// Schema.org ItemList positions need to match what users see in the gallery —
+// otherwise Google's sitelinks may surface integrations in a different order
+// than the rendered DOM. Pre-sort with the same comparator the gallery uses
+// (featured → has-preview → alphabetical).
+const orderedItems = sortIntegrations(catalog.integrations);
 ---
 <BaseLayout
   itemList={{
     name: "Backblaze Labs Integrations",
-    items: catalog.integrations,
+    items: orderedItems,
   }}
 >
   <Hero />

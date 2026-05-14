@@ -119,7 +119,6 @@
       "site": "https://mlflow.org/",
       "docs": "https://mlflow.org/docs/latest/",
       "icon": "flow",
-      "accent": "red",
       "featured": true
     },
     {
@@ -139,7 +138,6 @@
       "demo": "https://app.cvat.ai/",
       "preview": "https://cdn.prod.website-files.com/62bebfb83044de7f13ae257e/685e448d192137f9375afc38_Use%20Case%202K-H265%20Low-Hevc-3-transcode.mp4",
       "icon": "flow",
-      "accent": "red",
       "featured": true
     },
     {
@@ -154,7 +152,6 @@
       "repo": "backblaze-labs/genblaze",
       "url": "https://github.com/backblaze-labs/genblaze",
       "icon": "flame",
-      "accent": "red",
       "featured": true
     },
     {
@@ -169,7 +166,6 @@
       "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
       "url": "https://github.com/backblaze-labs/claude-skill-b2-cloud-storage",
       "icon": "bot",
-      "accent": "red",
       "featured": true
     },
     {
@@ -184,7 +180,6 @@
       "repo": "backblaze-labs/hf-cache-sync",
       "url": "https://github.com/backblaze-labs/hf-cache-sync",
       "icon": "server",
-      "accent": "red",
       "featured": false
     },
     {
@@ -198,8 +193,7 @@
       "tags": ["python", "jupyter", "ipython", "fsspec", "magic"],
       "repo": "backblaze-labs/jupyter-b2",
       "url": "https://pypi.org/project/jupyter-b2/",
-      "icon": "notebook",
-      "accent": "red"
+      "icon": "notebook"
     },
     {
       "id": "jupyterlab-b2",
@@ -212,8 +206,7 @@
       "tags": ["typescript", "jupyterlab", "extension", "file-browser"],
       "repo": "backblaze-labs/jupyterlab-b2",
       "url": "https://pypi.org/project/jupyterlab-b2/",
-      "icon": "notebook",
-      "accent": "red"
+      "icon": "notebook"
     },
     {
       "id": "b2-vscode",
@@ -226,8 +219,7 @@
       "tags": ["typescript", "vscode", "extension", "copilot"],
       "repo": "backblaze-labs/b2-vscode",
       "url": "https://github.com/backblaze-labs/b2-vscode",
-      "icon": "code",
-      "accent": "red"
+      "icon": "code"
     },
     {
       "id": "genblaze-gmicloud",
@@ -240,8 +232,7 @@
       "tags": ["python", "genblaze", "gmicloud", "video", "image-to-video"],
       "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
       "url": "https://github.com/backblaze-labs/genblaze-gmicloud-pipeline",
-      "icon": "flow",
-      "accent": "red"
+      "icon": "flow"
     },
     {
       "id": "nemotron-genblaze-b2",
@@ -254,8 +245,7 @@
       "tags": ["python", "nvidia", "nemotron", "genblaze"],
       "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
       "url": "https://github.com/backblaze-labs/nvidia-nemotron-genblaze-b2",
-      "icon": "flow",
-      "accent": "red"
+      "icon": "flow"
     },
     {
       "id": "awesome-agent-infrastructure",
@@ -268,8 +258,7 @@
       "tags": ["agents", "mcp", "vector-db", "sandbox", "memory"],
       "repo": "backblaze-labs/awesome-agent-infrastructure",
       "url": "https://github.com/backblaze-labs/awesome-agent-infrastructure",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "awesome-ml-data-pipelines",
@@ -282,8 +271,7 @@
       "tags": ["mlops", "feature-store", "labeling", "versioning"],
       "repo": "backblaze-labs/awesome-ml-data-pipelines",
       "url": "https://github.com/backblaze-labs/awesome-ml-data-pipelines",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "awesome-multimodal-data",
@@ -296,8 +284,7 @@
       "tags": ["datasets", "multimodal", "video", "audio", "3d"],
       "repo": "backblaze-labs/awesome-multimodal-data",
       "url": "https://github.com/backblaze-labs/awesome-multimodal-data",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "awesome-image-generation",
@@ -310,8 +297,7 @@
       "tags": ["image", "diffusion", "generative-ai", "text-to-image"],
       "repo": "backblaze-labs/awesome-image-generation",
       "url": "https://github.com/backblaze-labs/awesome-image-generation",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "awesome-video-generation",
@@ -324,8 +310,7 @@
       "tags": ["video", "text-to-video", "diffusion", "generative-ai"],
       "repo": "backblaze-labs/awesome-video-generation",
       "url": "https://github.com/backblaze-labs/awesome-video-generation",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "awesome-audio-generation",
@@ -338,8 +323,7 @@
       "tags": ["audio", "tts", "voice", "music", "generative-ai"],
       "repo": "backblaze-labs/awesome-audio-generation",
       "url": "https://github.com/backblaze-labs/awesome-audio-generation",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "awesome-physical-ai",
@@ -352,8 +336,7 @@
       "tags": ["robotics", "world-models", "sim2real", "embodied-ai"],
       "repo": "backblaze-labs/awesome-physical-ai",
       "url": "https://github.com/backblaze-labs/awesome-physical-ai",
-      "icon": "star",
-      "accent": "red"
+      "icon": "star"
     },
     {
       "id": "comfyui-cloud-storage",
@@ -367,7 +350,6 @@
       "repo": "backblaze-labs/comfyui-cloud-storage",
       "url": "https://github.com/backblaze-labs/comfyui-cloud-storage",
       "icon": "sparkle",
-      "accent": "red",
       "featured": false
     },
     {
@@ -389,13 +371,12 @@
       "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
       "url": "https://github.com/backblaze-b2-samples/vibe-coding-starter-kit",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "agentic-rag-vector-starter-kit",
-      "title": "Agentic Rag Vector Starter Kit",
-      "tagline": "Agentic RAG vector starter kit with AI coding agent architecture, Langchain, Lan",
+      "title": "Agentic RAG Starter Kit",
+      "tagline": "Agentic RAG starter kit with Langchain, LanceDB, and Backblaze B2.",
       "description": "Agentic RAG vector starter kit with AI coding agent architecture, Langchain, LanceDB, and Backblaze B2 for document upload, semantic search, grounded chat, and document citations.",
       "categories": ["developer-tools"],
       "type": "tool",
@@ -411,13 +392,12 @@
       "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
       "url": "https://github.com/backblaze-b2-samples/agentic-rag-vector-starter-kit",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "zeroshot-image-classifier",
-      "title": "Zeroshot Image Classifier",
-      "tagline": "Browser-based image classification example application using OpenAI CLIP and Tra",
+      "title": "Zero-shot Image Classifier",
+      "tagline": "Browser image classification with OpenAI CLIP and Transformers.js.",
       "description": "Browser-based image classification example application using OpenAI CLIP and Transformers.js. Upload images, run zero-shot classification with custom labels directly in the browser, and store images plus results in S3-compatible Backblaze B2 cloud object storage using pre-signed uploads.",
       "categories": ["developer-tools"],
       "type": "tool",
@@ -433,13 +413,12 @@
       "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
       "url": "https://github.com/backblaze-b2-samples/b2-zeroshot-image-classifier",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "whisper-transformersjs-transcriber",
-      "title": "Whisper Transformersjs Transcriber",
-      "tagline": "Browser-based audio transcription using Whisper and Transformers.js, storing res",
+      "title": "Whisper Transcriber",
+      "tagline": "Browser-based audio transcription with Whisper and Transformers.js.",
       "description": "Browser-based audio transcription using Whisper and Transformers.js, storing results in Backblaze B2 Cloud Storage.",
       "categories": ["developer-tools"],
       "type": "tool",
@@ -455,13 +434,12 @@
       "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
       "url": "https://github.com/backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "transformers-video-object-detection",
-      "title": "Transformers Video Object Detection",
-      "tagline": "Real-time video object detection monitoring demo using Transformers.js and Backb",
+      "title": "Video Object Detection",
+      "tagline": "Real-time browser video object detection with Transformers.js + YOLOv9.",
       "description": "Real-time video object detection monitoring demo using Transformers.js and Backblaze B2 Cloud Storage. Runs YOLOv9 fully in the browser with automatic capture intervals, no server or GPU required. Detected snapshots and metadata are stored in low cost, scalable B2 storage for analysis and retention.",
       "categories": ["developer-tools"],
       "type": "tool",
@@ -477,13 +455,12 @@
       "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
       "url": "https://github.com/backblaze-b2-samples/b2-transformers-video-object-detection",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "transformerjs-background-removal",
-      "title": "Transformerjs Background Removal",
-      "tagline": "Browser-based AI image background removal app using Transformers.js and the RMBG",
+      "title": "Background Removal",
+      "tagline": "Browser AI image background removal with Transformers.js and RMBG-1.4.",
       "description": "Browser-based AI image background removal app using Transformers.js and the RMBG-1.4 model, storing original and cutout images in Backblaze B2 Cloud Storage — no GPU or backend required.",
       "categories": ["developer-tools"],
       "type": "tool",
@@ -499,7 +476,6 @@
       "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
       "url": "https://github.com/backblaze-b2-samples/b2-transformerjs-background-removal",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
@@ -521,13 +497,12 @@
       "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
       "url": "https://github.com/backblaze-b2-samples/openclaw-b2-sync-backup",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "image-generation-prompt-flow",
       "title": "Image Generation Prompt Flow",
-      "tagline": "AI image generation prompt flow example app focused on prompt engineering and pr",
+      "tagline": "Compare GPT Image, DALL-E, Gemini, and Google Imagen prompts side by side.",
       "description": "AI image generation prompt flow example app focused on prompt engineering and prompt optimization, comparing models GPT Image, DALL-E, Gemini Nano Banana, and Google Imagen. Shows how image prompts are structured, refined, and evolved from input to final output, with clear prompt lineage for learning and experimentation.",
       "categories": ["ai-ml"],
       "type": "tool",
@@ -543,13 +518,12 @@
       "repo": "backblaze-b2-samples/image-generation-prompt-flow",
       "url": "https://github.com/backblaze-b2-samples/image-generation-prompt-flow",
       "icon": "sparkle",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "pixeltable-multimodal-data",
       "title": "Pixeltable Multimodal Data",
-      "tagline": "Example notebooks showing how to use Pixeltable with Backblaze B2 for managing a",
+      "tagline": "Notebooks for managing multimodal datasets with Pixeltable and Backblaze B2.",
       "description": "Example notebooks showing how to use Pixeltable with Backblaze B2 for managing and querying multimodal datasets.",
       "categories": ["developer-tools"],
       "type": "tool",
@@ -565,14 +539,13 @@
       "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
       "url": "https://github.com/backblaze-b2-samples/b2-pixeltable-multimodal-data",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "meltano",
       "title": "Meltano",
-      "tagline": "State Backends | Meltano Documentation",
-      "description": "State backends are used for persisting state between pipeline runs.",
+      "tagline": "Backblaze B2 as a state backend for Meltano data pipelines.",
+      "description": "Meltano supports Backblaze B2 as a state backend via its S3-compatible API. Configure `state_backend.uri` with your B2 bucket and credentials and your pipeline state persists to B2 between runs — no extra plugin, fully documented upstream.",
       "categories": ["ai-ml"],
       "type": "integration",
       "language": "python",
@@ -581,14 +554,13 @@
       "source": "Meltano",
       "url": "https://docs.meltano.com/concepts/state_backends/#backblaze-b2-example",
       "icon": "flow",
-      "accent": "red",
       "featured": false
     },
     {
       "id": "pixeltable",
-      "title": "Pixel Table",
-      "tagline": "Cloud Storage - Pixeltable Documentation",
-      "description": "Store and manage media files in cloud storage providers like S3, GCS, Azure, and more",
+      "title": "Pixeltable",
+      "tagline": "Backblaze B2 as S3-compatible storage for Pixeltable's table stores.",
+      "description": "Pixeltable is a declarative table-based system for multimodal AI data. Configure your B2 endpoint and credentials and Pixeltable persists tables, media, and computed columns to B2 — same path as the S3 / GCS / R2 backends.",
       "categories": ["ai-ml"],
       "type": "integration",
       "language": "python",
@@ -597,7 +569,6 @@
       "source": "Pixel Table",
       "url": "https://docs.pixeltable.com/integrations/cloud-storage#backblaze-b2",
       "icon": "flow",
-      "accent": "red",
       "featured": false
     },
     {
@@ -612,7 +583,6 @@
       "repo": "backblaze-labs/b2-action",
       "url": "https://github.com/backblaze-labs/b2-action",
       "icon": "wrench",
-      "accent": "red",
       "featured": false
     }
   ]

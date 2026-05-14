@@ -212,5 +212,9 @@ Output covers four categories:
 
 - **Complete** — entries with all fields inferred from upstream metadata. Will land cleanly.
 - **Needs-metadata** — proposed entry has TODO placeholders (usually missing description). Fix the upstream and rerun.
+- **Featured flips** — existing catalog entry whose `B2 Feature on website` tracker label was added or removed since the last run. Bidirectional: adds and removes both flip.
+- **TODO refreshes** — existing catalog entry whose `TODO:`-prefixed tagline/description can be auto-filled from the upstream repo's now-non-empty description.
 - **Topic-missing (stale)** — existing entry's repo lost the `b2-labs` topic. Re-tag on GitHub.
 - **Removed (stale)** — existing entry's repo no longer in either org. Manual review.
+
+Upstream-typed entries (`type: "integration"`) and entries whose `repo` field points outside the source orgs (e.g. MLflow's `mlflow/mlflow`) are exempt from the stale audit — by design they live elsewhere.

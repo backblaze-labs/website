@@ -159,7 +159,7 @@ function hasIncludeTopic(r) {
 //
 // Catalog override keys (all optional, override auto-inference):
 //   url, source, tagline, description, categories, language, tags,
-//   icon, accent, featured, id, title.
+//   icon, featured, id, title.
 //
 // Literal "null", "none", "n/a", "tbd", and empty strings are coerced to
 // undefined so callers can use simple `meta.docs || meta.pull_request` chains.
@@ -181,7 +181,6 @@ const TRACKER_SENTINEL_KEYS = new Set([
   "language",
   "tags",
   "icon",
-  "accent",
   "featured",
   "id",
   "title",
@@ -450,6 +449,29 @@ function resolveUrl(repo, name, topics) {
   return `https://github.com/${repo}`;
 }
 
+// Clamp a tagline to the schema's 80-char cap WITHOUT cutting mid-word. If the
+// raw value fits, return it unchanged. Otherwise back up to the last word
+// boundary inside the budget and append `"…"`. Falls back to a hard slice if
+// no whitespace exists in the budgeted prefix (URLs, run-on identifiers).
+//
+// The naïve `.slice(0, 80)` we used previously produced cards ending in
+// strings like "background removal app using Tra" or "managing a" — readable
+// but obviously truncated. The ellipsis cue is universally recognised.
+const TAGLINE_MAX = 80;
+function clampTagline(raw) {
+  if (typeof raw !== "string") return "";
+  const s = raw.trim().replace(/\s+/g, " ");
+  if (s.length <= TAGLINE_MAX) return s;
+  // Reserve 1 char for the ellipsis (`…` is a single codepoint).
+  const budget = TAGLINE_MAX - 1;
+  const clipped = s.slice(0, budget);
+  const lastSpace = clipped.lastIndexOf(" ");
+  // Only honour the word boundary when it's not laughably early — otherwise
+  // we'd return "Backblaze…" for "BackblazeB2-with-no-spaces-..." style input.
+  if (lastSpace >= 40) return `${clipped.slice(0, lastSpace).trimEnd()}…`;
+  return `${clipped.trimEnd()}…`;
+}
+
 // === Drafting ===
 
 /**
@@ -516,10 +538,9 @@ function draftRepoEntry(r) {
                   ? "sparkle"
                   : "wrench";
 
-  // Accent: always brand red. featured: never inferred — defaults to false.
-  // Maintainer can hand-flip `featured: true` in labs.json after merge for the
-  // few entries that warrant top-of-gallery placement.
-  const accent = "red";
+  // `featured` is never inferred — it's a curator decision (or, for tracker
+  // entries, the `B2 Feature on website` label drives it via the
+  // bidirectional reconciliation in merge-discovered).
   const featured = false;
 
   // The only field we genuinely can't infer is the description. If it's empty,
@@ -528,9 +549,9 @@ function draftRepoEntry(r) {
     missing.push("description (set the repo description on GitHub)");
   }
   const desc = r.description || `TODO: write a description for ${r.name}.`;
-  const tagline = (
-    r.description ? r.description.split(/(?<=[.!?])\s/)[0] : `TODO: ${r.name}`
-  ).slice(0, 80);
+  const tagline = clampTagline(
+    r.description ? r.description.split(/(?<=[.!?])\s/)[0] : `TODO: ${r.name}`,
+  );
 
   const entry = {
     id: slugFromRepoName(r.name),
@@ -545,7 +566,6 @@ function draftRepoEntry(r) {
     repo: r.repo,
     url: resolveUrl(r.repo, r.name, topics),
     icon,
-    accent,
     featured,
   };
 
@@ -581,7 +601,7 @@ async function draftUpstreamEntry(item) {
   const fetched = await fetchUrlMetadata(url);
 
   const source = meta.source || item.title.replace(/\s+(integration|support|tool)s?$/i, "");
-  const tagline = (meta.tagline ?? fetched?.title ?? `Backblaze B2 with ${source}.`).slice(0, 80);
+  const tagline = clampTagline(meta.tagline ?? fetched?.title ?? `Backblaze B2 with ${source}.`);
   const description =
     meta.description ??
     fetched?.description ??
@@ -663,7 +683,6 @@ async function draftUpstreamEntry(item) {
     source,
     url,
     icon,
-    accent: meta.accent || "red",
     featured,
   };
   return { entry, missing };
@@ -689,6 +708,7 @@ const existingNormalizedIds = new Set(labs.integrations.map((i) => normalizeId(i
 console.log("Discovering candidates ...");
 const allRepos = []; // all public, non-archived repos in our orgs
 const taggedRepos = []; // subset that carry the `b2-labs` topic
+const orgFailures = [];
 for (const org of ORGS) {
   try {
     const found = listOrgRepos(org);
@@ -699,9 +719,27 @@ for (const org of ORGS) {
     allRepos.push(...found);
     taggedRepos.push(...tagged);
   } catch (e) {
+    orgFailures.push({ org, message: e.message.split("\n")[0] });
     console.warn(`  ! ${org}: ${e.message.split("\n")[0]}`);
   }
 }
+
+// Fail loudly if both org listings collapsed — that's a `gh`-not-on-PATH or
+// network-outage signal, not "the orgs are empty". Without this guard the
+// stale audit later would scream "every catalog entry is missing!" and merge
+// would happily wipe the world. The tracker fetch can fail silently because
+// repo discovery alone is enough to keep the catalog populated.
+if (orgFailures.length === ORGS.length) {
+  console.error(
+    `\n✘ All ${ORGS.length} source-org listings failed. Aborting before stale audit could fire false-positives.`,
+  );
+  for (const f of orgFailures) console.error(`  - ${f.org}: ${f.message}`);
+  console.error(
+    "  Common causes: `gh` not on PATH; missing GH_TOKEN/GITHUB_TOKEN; rate limit; network outage.",
+  );
+  process.exit(2);
+}
+
 const reposByName = new Map(allRepos.map((r) => [r.repo, r]));
 const upstream = fetchAllTrackerDoneItems();
 
@@ -833,9 +871,20 @@ for (const d of upstreamDrafts) {
 //   1. Repo no longer exists in either org (deleted, transferred, made private).
 //   2. Repo exists in an org but lost the `b2-labs` topic — likely accidental,
 //      flagged loudly so the maintainer can re-tag.
+//
+// Skip upstream-integration entries (type: "integration"). They carry a `repo`
+// pointing at the UPSTREAM project (e.g. `mlflow/mlflow`) so `sync-stats` can
+// fetch star counts — that repo will never appear in our source orgs, so the
+// "no longer in source orgs" check would false-positive on every run. Same
+// goes for entries whose repo isn't in one of our two orgs at all.
+const SOURCE_ORG_RE = new RegExp(
+  `^(${ORGS.map((o) => o.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")).join("|")})/`,
+);
 const stale = [];
 for (const i of labs.integrations) {
   if (!i.repo) continue;
+  if (i.type === "integration") continue;
+  if (!SOURCE_ORG_RE.test(i.repo)) continue;
   const liveRepo = reposByName.get(i.repo);
   if (!liveRepo) {
     stale.push({

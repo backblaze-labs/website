@@ -64,27 +64,28 @@ npm run preview  # serve the production build locally
 A single command runs everything CI runs:
 
 ```bash
-npm run checks   # lint + format + typecheck + JSON-schema validate
-npm run fix      # auto-fix lint + format, then typecheck + validate
+npm run checks   # lint + format-check + typecheck + validate + docs:lint + spellcheck
+npm run fix      # biome check --write (lint+format autofix) + typecheck + validate
 ```
 
 | Script | What it does |
 | --- | --- |
-| `npm run lint`     | Biome lint (no fixes). |
-| `npm run lint:fix` | Biome lint with `--write`. |
-| `npm run format`         | Biome format check. |
-| `npm run format:fix`     | Biome format with `--write`. |
-| `npm run typecheck`      | `astro check` (TS + Astro diagnostics). |
-| `npm run validate`       | JSON-schema-validates `labs.json`. |
-| `npm run docs:lint`      | markdownlint over every `.md` outside `node_modules` / `dist`. |
-| `npm run checks`         | All of the above, fail-fast. Also the pre-commit hook. |
-| `npm run fix`            | `biome check --write` + typecheck + validate. |
-| `npm run discover`       | Scan source orgs + tracker for new integrations (writes a staging file). |
+| `npm run lint`             | Biome lint with `--error-on-warnings`. |
+| `npm run lint:fix`         | Biome lint with `--write`. |
+| `npm run format`           | Biome format with `--write`. |
+| `npm run format:check`     | Biome format check (no writes). |
+| `npm run typecheck`        | `astro check` (TS + Astro diagnostics under the stricter tsconfig). |
+| `npm run validate`         | JSON-schema-validates `labs.json` (ajv) + cross-field rules. |
+| `npm run docs:lint`        | markdownlint over every `.md` outside `node_modules` / `dist`. |
+| `npm run spellcheck`       | cspell over source files; project dictionary lives in `.cspell/`. |
+| `npm run checks`           | All six gates above, fail-fast. Also the pre-commit hook. |
+| `npm run fix`              | `biome check --write` + typecheck + validate. |
+| `npm run discover`         | Scan source orgs + tracker for new integrations (writes a staging file). |
 | `npm run merge-discovered` | Fold the discovery proposal into `labs.json` and reconcile `featured` from tracker labels. |
-| `npm run sync-stats`     | Refresh `github-stats.json` from the GitHub API (diff-aware). |
-| `npm run sync-links`     | Refresh `links.json` with auto-discovered `site` / `docs` / `demo` URLs (diff-aware). |
-| `npm run sync-previews`  | Refresh `previews.json` with discovered hero images/videos (HEAD-verified, diff-aware). |
-| `npm run sync`           | Run `sync-stats`, `sync-links`, and `sync-previews` in parallel. |
+| `npm run sync-stats`       | Refresh `github-stats.json` from the GitHub API (diff-aware). |
+| `npm run sync-links`       | Refresh `links.json` with auto-discovered `site` / `docs` / `demo` URLs (diff-aware). |
+| `npm run sync-previews`    | Refresh `previews.json` with discovered hero images/videos (HEAD-verified, diff-aware). |
+| `npm run sync`             | Run `sync-stats`, `sync-links`, and `sync-previews` in parallel. |
 
 ## Brand
 

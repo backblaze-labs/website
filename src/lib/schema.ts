@@ -64,13 +64,29 @@ export function itemListSchema(
     name,
     url: pageUrl,
     numberOfItems: items.length,
-    itemListElement: items.map((item, idx) => ({
-      "@type": "ListItem",
-      position: idx + 1,
-      url: item.url,
-      name: item.title,
-      description: item.tagline,
-    })),
+    itemListElement: items.map((item, idx) => {
+      // Collect every public URL the integration points at — search engines
+      // use `sameAs` to canonicalize a single entity across multiple URLs
+      // (repo, docs, marketing site, demo). The card UI only links the
+      // primary `url`; the rest live in structured data so Google / Schema.org
+      // consumers can still discover them.
+      const sameAs = [
+        item.site,
+        item.docs,
+        item.demo,
+        item.repo ? `https://github.com/${item.repo}` : null,
+      ]
+        .filter((u): u is string => Boolean(u))
+        .filter((u) => u !== item.url);
+      return {
+        "@type": "ListItem",
+        position: idx + 1,
+        url: item.url,
+        name: item.title,
+        description: item.tagline,
+        ...(sameAs.length > 0 ? { sameAs } : {}),
+      };
+    }),
     // Pin the parent WebSite so Google groups items under our site.
     isPartOf: { "@type": "WebSite", url: siteUrl },
   };

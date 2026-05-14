@@ -89,7 +89,6 @@
           "demo": { "type": ["string", "null"], "format": "uri" },
           "preview": { "type": ["string", "null"] },
           "icon": { "type": "string" },
-          "accent": { "type": "string", "enum": ["red", "navy", "cream"] },
           "featured": { "type": "boolean" }
         }
       }

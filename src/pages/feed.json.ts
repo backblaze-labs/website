@@ -23,8 +23,19 @@ export const GET: APIRoute = ({ site }) => {
   // Each item points straight to the integration's destination (Marketplace / PyPI /
   // GitHub / etc.) — there's no detail page to route through. The id anchors back to
   // the gallery for clients that want to deep-link into the catalog UI.
+  //
+  // `_external_urls` is a JSON-Feed `_` extension (per the spec, any
+  // underscore-prefixed top-level key is treated as a custom extension and
+  // passed through to consumers untouched). We carry `site` / `docs` / `demo`
+  // here so feed readers / IDE plugins / dashboards can deep-link into the
+  // project's own pages — even though the website card UI itself only
+  // surfaces a single destination link.
   const items = sortIntegrations(catalog.integrations).map((i) => {
     const stats = statsFor(i.id);
+    const external: Record<string, string> = {};
+    if (i.site) external.site = i.site;
+    if (i.docs) external.docs = i.docs;
+    if (i.demo) external.demo = i.demo;
     return {
       id: `${baseUrl}${path}/#${i.id}`,
       url: i.url,
@@ -34,6 +45,7 @@ export const GET: APIRoute = ({ site }) => {
       image: previewUrl(i),
       tags: [...i.categories, ...i.tags, i.type, i.language],
       date_modified: stats?.updated ?? buildTime,
+      ...(Object.keys(external).length > 0 ? { _external_urls: external } : {}),
     };
   });
 

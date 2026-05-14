@@ -58,7 +58,31 @@ jobs:
             const d = JSON.parse(require("fs").readFileSync("src/data/labs.discovered.json", "utf8"));
             const lines = ["Automated weekly discovery from `backblaze-labs/*`, `backblaze-b2-samples/*`, and the upstream tracker.", ""];
             const c = d.complete ?? [], i = d.incomplete ?? [], s = d.stale ?? [];
-            lines.push(`**${c.length} ready** · **${i.length} need upstream fix** · **${s.length} stale**`, "");
+            const reconciliation = d.featuredReconciliation ?? {};
+            // Compute flips against the current labs.json so the PR body
+            // reflects what merge-discovered will actually change. Refresh
+            // candidates are pre-filtered by discover.mjs into refreshables{}
+            // but reported as "would change tagline/description on existing
+            // TODO-placeholder entries".
+            const labs = JSON.parse(require("fs").readFileSync("src/data/labs.json", "utf8"));
+            const flips = [];
+            for (const e of labs.integrations) {
+              if (!(e.id in reconciliation)) continue;
+              const desired = Boolean(reconciliation[e.id]);
+              if (Boolean(e.featured) !== desired) flips.push({ id: e.id, from: Boolean(e.featured), to: desired });
+            }
+            const refreshables = d.refreshables ?? {};
+            const isTodo = (v) => typeof v === "string" && /^TODO:\s/i.test(v);
+            const refreshes = [];
+            for (const e of labs.integrations) {
+              const r = refreshables[e.id];
+              if (!r) continue;
+              const fields = [];
+              if (isTodo(e.tagline) && r.tagline && !isTodo(r.tagline)) fields.push("tagline");
+              if (isTodo(e.description) && r.description && !isTodo(r.description)) fields.push("description");
+              if (fields.length) refreshes.push({ id: e.id, fields });
+            }
+            lines.push(`**${c.length} ready** · **${i.length} need upstream fix** · **${flips.length} featured flips** · **${refreshes.length} TODO refreshes** · **${s.length} stale**`, "");
             if (c.length) {
               lines.push("### Ready (all metadata sourced from upstream)", "");
               for (const e of c) lines.push(`- \`${e.id}\` — ${e._source}`);
@@ -71,6 +95,18 @@ jobs:
                 lines.push(`- \`${e.id}\` — ${e._source}`);
                 for (const m of e._missing) lines.push(`  - missing: ${m}`);
               }
+              lines.push("");
+            }
+            if (flips.length) {
+              lines.push("### `featured` flag reconciled from tracker labels", "");
+              lines.push("The `B2 Feature on website` label on a closed tier-1 sub-issue is the source of truth. These flips reflect label adds/removes since the last run:", "");
+              for (const f of flips) lines.push(`- \`${f.id}\`: featured ${f.from} → ${f.to}`);
+              lines.push("");
+            }
+            if (refreshes.length) {
+              lines.push("### TODO placeholders refreshed from upstream", "");
+              lines.push("These entries had `TODO:` placeholders that the upstream now answers. Conservative: only fields still matching `TODO:` get touched.", "");
+              for (const r of refreshes) lines.push(`- \`${r.id}\`: ${r.fields.join(", ")}`);
               lines.push("");
             }
             if (s.length) {

@@ -77,7 +77,7 @@ Upstream integration entries (with a `repo` field pointing at an external projec
 
 ```bash
 npm run validate    # JSON schema check
-npm run checks      # lint + format + typecheck + validate
+npm run checks      # lint + format:check + typecheck + validate + docs:lint + spellcheck
 ```
 
 Use the JSON schema in your editor for autocomplete:
@@ -155,10 +155,12 @@ Brand colors / fonts come from the official Backblaze brand kit. Don't introduce
 
 CI runs `npm run checks` on every PR. It fails on:
 
-- Lint errors (Biome).
+- Lint warnings or errors (Biome, `--error-on-warnings`).
 - Format diffs (Biome).
-- Type errors (`astro check`).
-- Schema-invalid `labs.json` (ajv).
+- Type errors (`astro check` under the stricter tsconfig — `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, etc.).
+- Schema-invalid `labs.json` (ajv) or duplicate IDs / unknown category/type/language references.
+- Markdownlint errors in any `.md` file.
+- cspell flagging an unknown word — add it to `.cspell/project-words.txt` if it's a deliberate domain term.
 
 Run `npm run fix` locally to auto-fix lint + format.
 
