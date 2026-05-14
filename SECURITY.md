@@ -5,7 +5,7 @@
 If you discover a security vulnerability **in this website**, please report it privately rather than opening a public issue.
 
 - **Preferred:** open a [GitHub security advisory](https://github.com/backblaze-labs/website/security/advisories/new) (only the maintainer team will see it).
-- **Or:** email **security@backblaze.com** with a clear description, reproduction steps, and any impact assessment.
+- **Or:** email <security@backblaze.com> with a clear description, reproduction steps, and any impact assessment.
 
 We'll acknowledge receipt within **2 business days** and aim to provide a remediation timeline within **7 business days**.
 

@@ -26,6 +26,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { decodeHtmlEntities, fetchHtml } from "./_http.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -281,55 +282,20 @@ function extractDestUrlFromBody(body) {
   return ranked[0]?.u ?? null;
 }
 
-// Fetch HTML metadata from a URL (title, description, og:image). Bounded —
-// 5s timeout, 256KB cap. Returns null on any failure (network, non-HTML, etc.).
+// Fetch HTML metadata from a URL (title, description, og:image). Streams up
+// to 256 KB and bails as soon as `</head>` is seen — meta tags are always
+// near the top. Returns null on any failure.
 async function fetchUrlMetadata(targetUrl) {
-  if (!targetUrl) return null;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 5000);
-  try {
-    const res = await fetch(targetUrl, {
-      signal: controller.signal,
-      redirect: "follow",
-      headers: {
-        "user-agent": "BackblazeLabsDiscovery/1.0 (+https://github.com/backblaze-labs/website)",
-        accept: "text/html,application/xhtml+xml",
-      },
-    });
-    if (!res.ok) return null;
-    const ct = res.headers.get("content-type") ?? "";
-    if (!ct.includes("html")) return null;
-    // Read up to 256KB — meta tags are always near the top.
-    const reader = res.body?.getReader();
-    if (!reader) return null;
-    let bytes = 0;
-    let html = "";
-    const dec = new TextDecoder();
-    while (bytes < 256 * 1024) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      bytes += value.byteLength;
-      html += dec.decode(value, { stream: true });
-      // Once we've seen </head>, no point continuing.
-      if (html.includes("</head>") || html.includes("</HEAD>")) break;
-    }
-    try {
-      reader.cancel();
-    } catch {}
-
-    const pick = (re) => html.match(re)?.[1]?.trim();
-    const title = pick(/<title[^>]*>([^<]+)<\/title>/i);
-    const ogTitle = pick(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
-    const description =
-      pick(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i) ??
-      pick(/<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["']/i);
-    const ogImage = pick(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
-    return { title: ogTitle || title || null, description: description || null, ogImage };
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timer);
-  }
+  const html = await fetchHtml(targetUrl, { maxBytes: 256 * 1024, stopAtHeadEnd: true });
+  if (!html) return null;
+  const pick = (re) => decodeHtmlEntities(html.match(re)?.[1]?.trim());
+  const title = pick(/<title[^>]*>([^<]+)<\/title>/i);
+  const ogTitle = pick(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
+  const description =
+    pick(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i) ??
+    pick(/<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["']/i);
+  const ogImage = pick(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+  return { title: ogTitle || title || null, description: description || null, ogImage };
 }
 
 function fetchTrackerItems(tracker) {
@@ -740,17 +706,27 @@ const reposByName = new Map(allRepos.map((r) => [r.repo, r]));
 const upstream = fetchAllTrackerDoneItems();
 
 const proposed = [];
+// `refreshables` holds drafted entries whose catalog counterpart already
+// exists — used by merge-discovered to swap out TODO placeholders when the
+// upstream description has since been filled in. Indexed by id.
+const refreshables = {};
 const seenRepos = new Set();
 const seenUpstreamHosts = new Set();
 
 for (const r of taggedRepos) {
   seenRepos.add(r.repo);
-  if (existingByRepo.has(r.repo)) continue;
+  // Draft every candidate (even ones already in labs.json) so we can refresh
+  // stale entries from upstream metadata.
   const { entry, missing } = draftRepoEntry(r);
-  // Skip if the normalized id matches something already in the catalog —
-  // e.g. avoids re-proposing a repo as a new card when an upstream entry with
-  // a near-equivalent slug already exists.
-  if (existingNormalizedIds.has(normalizeId(entry.id))) continue;
+  if (existingByRepo.has(r.repo) || existingNormalizedIds.has(normalizeId(entry.id))) {
+    // Already in catalog — emit as a refresh candidate keyed by the EXISTING
+    // catalog id (not the freshly-slugged one, since the curator may have
+    // renamed it). Look up the existing entry by repo to find its id.
+    const existing = existingByRepo.get(r.repo);
+    const id = existing?.id ?? entry.id;
+    refreshables[id] = { tagline: entry.tagline, description: entry.description };
+    continue;
+  }
   if (existingIds.has(entry.id)) entry.id = `${entry.id}-${r.repo.split("/")[0]}`;
   proposed.push({ ...entry, _complete: missing.length === 0, _missing: missing, _source: r.repo });
 }
@@ -795,14 +771,21 @@ const upstreamDrafts = await Promise.all(
 
     // Record featured intent for the repo-driven catalog entry. The plugin
     // field is the strongest signal of "this tracker entry corresponds to
-    // <our-org>/<repo>". Falls back to nothing if the label/plugin disagree.
+    // <our-org>/<repo>". The repo basename must be normalized through
+    // `slugFromRepoName` so it matches the catalog `id` — otherwise
+    // `b2-whisper-transformersjs-transcriber` (repo name) won't reconcile with
+    // `whisper-transformersjs-transcriber` (catalog id with the prefix
+    // stripped) and the flip silently no-ops.
     if ((livesInOurOrgs || pluginInOurOrgs) && meta?.plugin) {
       const repoBasename = meta.plugin
         .replace(/^https?:\/\/(www\.)?github\.com\//i, "")
         .replace(/\/$/, "")
         .split("/")
         .pop();
-      if (repoBasename) featuredReconciliation[repoBasename] = featuredIntent;
+      if (repoBasename) {
+        const catalogId = slugFromRepoName(repoBasename);
+        if (catalogId) featuredReconciliation[catalogId] = featuredIntent;
+      }
     }
     if (livesInOurOrgs) return null; // repo discovery has it
     if (pluginInOurOrgs) return null;
@@ -822,9 +805,14 @@ const upstreamDrafts = await Promise.all(
     // removed will see false here and merge-discovered will clear featured.
     featuredReconciliation[drafted.entry.id] = featuredIntent;
 
-    // Skip if normalized id matches an existing entry — catches "ml-flow"
-    // (slugged from sub-issue title) vs "mlflow" already in labs.json.
-    if (existingNormalizedIds.has(normalizeId(drafted.entry.id))) return null;
+    // Already in catalog → emit as a refresh candidate and skip the proposal.
+    if (existingNormalizedIds.has(normalizeId(drafted.entry.id))) {
+      refreshables[drafted.entry.id] = {
+        tagline: drafted.entry.tagline,
+        description: drafted.entry.description,
+      };
+      return null;
+    }
     return { item, ...drafted };
   }),
 );
@@ -882,6 +870,23 @@ for (const e of labs.integrations) {
   }
 }
 
+// TODO-placeholder refresh detection — surfaces existing catalog entries whose
+// stale "TODO:" tagline/description can be filled in from fresh upstream
+// metadata. Same purpose as featuredFlips: keep early-exit from dropping
+// useful work when there are no new proposals.
+const isTodoPlaceholder = (v) => typeof v === "string" && /^TODO:\s/i.test(v);
+const refreshCandidates = [];
+for (const e of labs.integrations) {
+  const r = refreshables[e.id];
+  if (!r) continue;
+  const fields = [];
+  if (isTodoPlaceholder(e.tagline) && r.tagline && !isTodoPlaceholder(r.tagline))
+    fields.push("tagline");
+  if (isTodoPlaceholder(e.description) && r.description && !isTodoPlaceholder(r.description))
+    fields.push("description");
+  if (fields.length > 0) refreshCandidates.push({ id: e.id, fields });
+}
+
 console.log(`\nProposed:`);
 console.log(`  ${complete.length} COMPLETE  (auto-mergeable)`);
 console.log(`  ${incomplete.length} NEEDS-METADATA  (require upstream fix)`);
@@ -892,12 +897,21 @@ if (featuredFlips.length) {
     console.log(`    - ${f.id}: featured ${f.from} → ${f.to}`);
   }
 }
+if (refreshCandidates.length) {
+  console.log(
+    `  ${refreshCandidates.length} REFRESH  (existing TODO placeholders fillable from upstream)`,
+  );
+  for (const r of refreshCandidates) {
+    console.log(`    - ${r.id}: ${r.fields.join(", ")}`);
+  }
+}
 
 if (
   complete.length === 0 &&
   incomplete.length === 0 &&
   stale.length === 0 &&
-  featuredFlips.length === 0
+  featuredFlips.length === 0 &&
+  refreshCandidates.length === 0
 ) {
   if (fs.existsSync(discoveredPath)) fs.unlinkSync(discoveredPath);
   console.log("\n✔ Catalog in sync — nothing to do.");
@@ -918,6 +932,10 @@ const out = {
   complete,
   incomplete,
   stale,
+  // Drafted entries that already have a catalog counterpart — used by
+  // merge-discovered.mjs to refresh TODO placeholders with fresh upstream
+  // text. Conservative: only TODO-prefixed fields get touched.
+  refreshables,
   // Tracker labels are the source of truth for `featured`. merge-discovered
   // applies this map to existing entries (set/clear, never just-set).
   featuredReconciliation,

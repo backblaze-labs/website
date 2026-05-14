@@ -65,7 +65,37 @@ for (const e of labs.integrations) {
   e.featured = desired;
 }
 
-if (added.length > 0 || featuredFlips.length > 0) {
+// TODO-placeholder auto-refresh: when an existing catalog entry's tagline or
+// description still reads `"TODO: …"` (because the repo description was empty
+// when the entry first landed) and the upstream repo description has since
+// been filled in, replace the placeholder with the fresh upstream value.
+//
+// Conservative on purpose — we ONLY touch fields that still match the
+// `TODO:` prefix, so any curator polish on real fields is preserved. Without
+// this pass, the only way to refresh a stale entry was to delete it from
+// labs.json and let discover re-propose it (losing manual overrides).
+//
+// The `refreshables` map is populated by discover.mjs with fresh upstream
+// metadata for every entry whose id is already in the catalog.
+const isTodoPlaceholder = (v) => typeof v === "string" && /^TODO:\s/i.test(v);
+const refreshSource = discovered.refreshables ?? {};
+const refreshes = [];
+for (const e of labs.integrations) {
+  const r = refreshSource[e.id];
+  if (!r) continue;
+  const changed = [];
+  if (isTodoPlaceholder(e.tagline) && r.tagline && !isTodoPlaceholder(r.tagline)) {
+    e.tagline = r.tagline;
+    changed.push("tagline");
+  }
+  if (isTodoPlaceholder(e.description) && r.description && !isTodoPlaceholder(r.description)) {
+    e.description = r.description;
+    changed.push("description");
+  }
+  if (changed.length > 0) refreshes.push({ id: e.id, fields: changed });
+}
+
+if (added.length > 0 || featuredFlips.length > 0 || refreshes.length > 0) {
   fs.writeFileSync(labsPath, `${JSON.stringify(labs, null, 2)}\n`);
   if (added.length > 0) {
     console.log(`✔ Appended ${added.length} entries to labs.json:`);
@@ -78,6 +108,12 @@ if (added.length > 0 || featuredFlips.length > 0) {
     for (const f of featuredFlips) {
       console.log(`    ${f.id}: featured ${f.from} → ${f.to}`);
     }
+  }
+  if (refreshes.length > 0) {
+    console.log(
+      `${added.length > 0 || featuredFlips.length > 0 ? "\n" : "✔ "}Refreshed TODO placeholders on ${refreshes.length} entries from upstream:`,
+    );
+    for (const r of refreshes) console.log(`    ${r.id}: ${r.fields.join(", ")}`);
   }
 } else {
   console.log("No new entries to merge.");
@@ -114,7 +150,12 @@ if (stale.length > 0) {
 
 fs.unlinkSync(discoveredPath);
 
-if (added.length === 0 && stale.length === 0 && featuredFlips.length === 0) {
+if (
+  added.length === 0 &&
+  stale.length === 0 &&
+  featuredFlips.length === 0 &&
+  refreshes.length === 0
+) {
   console.log("\nNothing to do.");
 } else {
   console.log(

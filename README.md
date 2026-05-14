@@ -72,15 +72,19 @@ npm run fix      # auto-fix lint + format, then typecheck + validate
 | --- | --- |
 | `npm run lint`     | Biome lint (no fixes). |
 | `npm run lint:fix` | Biome lint with `--write`. |
-| `npm run format`   | Biome format check. |
-| `npm run format:fix` | Biome format with `--write`. |
-| `npm run typecheck` | `astro check` (TS + Astro diagnostics). |
-| `npm run validate` | JSON-schema-validates `labs.json`. |
-| `npm run checks`   | All of the above, fail-fast. |
-| `npm run fix`      | `biome check --write` + typecheck + validate. |
-| `npm run discover` | Scan source orgs + tracker for new integrations (writes a staging file). |
-| `npm run merge-discovered` | Fold the discovery proposal into `labs.json`. |
-| `npm run sync-stats` | Refresh `github-stats.json` from the GitHub API. |
+| `npm run format`         | Biome format check. |
+| `npm run format:fix`     | Biome format with `--write`. |
+| `npm run typecheck`      | `astro check` (TS + Astro diagnostics). |
+| `npm run validate`       | JSON-schema-validates `labs.json`. |
+| `npm run docs:lint`      | markdownlint over every `.md` outside `node_modules` / `dist`. |
+| `npm run checks`         | All of the above, fail-fast. Also the pre-commit hook. |
+| `npm run fix`            | `biome check --write` + typecheck + validate. |
+| `npm run discover`       | Scan source orgs + tracker for new integrations (writes a staging file). |
+| `npm run merge-discovered` | Fold the discovery proposal into `labs.json` and reconcile `featured` from tracker labels. |
+| `npm run sync-stats`     | Refresh `github-stats.json` from the GitHub API (diff-aware). |
+| `npm run sync-links`     | Refresh `links.json` with auto-discovered `site` / `docs` / `demo` URLs (diff-aware). |
+| `npm run sync-previews`  | Refresh `previews.json` with discovered hero images/videos (HEAD-verified, diff-aware). |
+| `npm run sync`           | Run `sync-stats`, `sync-links`, and `sync-previews` in parallel. |
 
 ## Brand
 
@@ -154,4 +158,3 @@ If you wire a custom domain later (e.g. `labs.backblaze.com`):
 ## License
 
 Code: MIT. Brand assets: © Backblaze, Inc. Used per the brand kit guidelines.
-

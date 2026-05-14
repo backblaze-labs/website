@@ -33,6 +33,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { absoluteUrl, FETCH_UA, fetchHtml } from "./_http.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -114,52 +115,6 @@ function pickPreview(images) {
   return real[0]?.url ?? null;
 }
 
-// Hosts that occasionally serve HTML that triggers anti-bot interstitials when
-// hit with a non-browser user-agent. We use a realistic UA across the board so
-// we get the same HTML a normal visitor sees (matters for Webflow / Cloudflare
-// fronted sites like cvat.ai).
-const FETCH_UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";
-
-// Fetch a page's HTML up to a size cap. Larger cap than just-the-head so we
-// can also scan the body for visible <img>/<video> tags, not just meta tags.
-async function fetchHtml(targetUrl, maxBytes = 1024 * 1024) {
-  if (!targetUrl) return null;
-  const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), 8000);
-  try {
-    const res = await fetch(targetUrl, {
-      signal: ctl.signal,
-      redirect: "follow",
-      headers: {
-        "user-agent": FETCH_UA,
-        accept: "text/html,application/xhtml+xml",
-      },
-    });
-    if (!res.ok) return null;
-    if (!(res.headers.get("content-type") ?? "").includes("html")) return null;
-    const reader = res.body?.getReader();
-    if (!reader) return null;
-    let bytes = 0;
-    let html = "";
-    const dec = new TextDecoder();
-    while (bytes < maxBytes) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      bytes += value.byteLength;
-      html += dec.decode(value, { stream: true });
-    }
-    try {
-      reader.cancel();
-    } catch {}
-    return html;
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(t);
-  }
-}
-
 // Confirm a discovered preview URL actually serves a usable image/video before
 // we commit it to previews.json — some sites point their og:image at internal
 // optimisation endpoints (e.g. Mintlify's Next.js `_next/image?url=...`) that
@@ -204,38 +159,6 @@ async function verifyMediaUrl(targetUrl) {
     return false;
   } finally {
     clearTimeout(t);
-  }
-}
-
-// HTML attribute values keep their entity-escaping (e.g. `&amp;`, `&#x2F;`).
-// URLs that flow back into our JSON / src attributes need the raw form, or
-// they get double-encoded when Astro re-escapes for HTML output (e.g.
-// `?a=1&amp;b=2` → `?a=1&amp;amp;b=2` and the query breaks).
-function decodeHtmlEntities(s) {
-  if (!s) return s;
-  return s
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(Number.parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number.parseInt(d, 10)));
-}
-
-function absoluteUrl(maybeRelative, basePageUrl) {
-  const img = decodeHtmlEntities((maybeRelative ?? "").trim());
-  if (!img) return null;
-  if (img.startsWith("//")) return `https:${img}`;
-  if (/^https?:\/\//.test(img)) return img;
-  try {
-    if (img.startsWith("/")) {
-      const u = new URL(basePageUrl);
-      return `${u.protocol}//${u.host}${img}`;
-    }
-    return new URL(img, basePageUrl).toString();
-  } catch {
-    return null;
   }
 }
 

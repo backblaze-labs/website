@@ -53,6 +53,7 @@ npm run merge-discovered  # fold the discovery proposal into labs.json
 The catalog grows by **discovery from upstream metadata**, not hand-typing. The contract for what to put on each upstream source lives in [`CONVENTIONS.md`](./CONVENTIONS.md).
 
 **Sources:**
+
 - `backblaze-labs/*` — every public, non-archived repo
 - `backblaze-b2-samples/*` — every public, non-archived repo
 - Tier-1 tracking issues — currently just [`backblaze-labs/demand-side-ai#5`](https://github.com/backblaze-labs/demand-side-ai/issues/5) (closed sub-issues / `[x]` task-list items become cards). Add more by appending to `TRACKERS` in [`scripts/discover.mjs`](scripts/discover.mjs).
@@ -88,7 +89,7 @@ Discovery skips any tracker that gh can't read. To run locally without a PAT for
 
 The pipeline:
 
-```
+```text
 backblaze-labs/*                ┐
 backblaze-b2-samples/*          ├──► discover.mjs ──► labs.discovered.json
 demand-side-ai#5 (done items)   ┘                           │
@@ -123,11 +124,11 @@ To attribute auto-commits to a dedicated bot account (e.g. `backblaze-b2-bot`) i
 
 The discovery script never deletes — it only proposes additions and warns about stale entries.
 
-A pre-commit hook (`simple-git-hooks`) runs `npm run validate` before every commit so a malformed `labs.json` can't slip through.
+A pre-commit hook (`simple-git-hooks`) runs `npm run checks` before every commit so lint/format/typecheck/validate/docs regressions can't slip through.
 
 ## Project layout
 
-```
+```text
 src/
 ├── components/         Astro components — Logo, Nav, Hero, Filters, Card, Footer, Icon, ThemeSwitcher, PreviewPlaceholder, Analytics
 ├── layouts/
@@ -157,9 +158,13 @@ public/
 
 scripts/
 ├── validate.mjs           JSON-schema-validates labs.json + cross-field rules
-├── sync-stats.mjs         fetches GitHub repo stats via the gh CLI
+├── sync.mjs               runs sync-stats / sync-links / sync-previews in parallel
+├── sync-stats.mjs         fetches GitHub repo stats via the gh CLI (diff-aware)
+├── sync-links.mjs         auto-discovers site/docs/demo URLs per integration
+├── sync-previews.mjs      auto-discovers hero image/video URLs (HEAD-verified)
+├── _http.mjs              shared HTTP scraping primitives (UA, fetcher, entity decode)
 ├── discover.mjs           scans source orgs + tracker for new integrations
-├── merge-discovered.mjs   folds the discovery proposal into labs.json
+├── merge-discovered.mjs   folds the discovery proposal into labs.json + reconciles featured
 ├── tag-repos.mjs          one-time bootstrap: adds `b2-labs` topic to every org repo
 └── seed-tracker.mjs       seeds tier-1 tracker sub-issues from a CSV
 
@@ -169,8 +174,10 @@ scripts/
 ├── CODEOWNERS
 ├── dependabot.yml
 └── workflows/
-    ├── deploy.yml          deploys to GitHub Pages on push to main
-    └── refresh-stats.yml   nightly cron — refreshes github-stats.json
+    ├── ci.yml             lint + format + typecheck + validate on every PR
+    ├── deploy.yml         deploys to GitHub Pages on push to main
+    ├── discover.yml       weekly cron — opens a PR with new discovery proposals
+    └── refresh-stats.yml  nightly cron — refreshes github-stats.json
 ```
 
 ## Design tokens
@@ -191,6 +198,7 @@ All visual treatments are also driven by tokens (`--bg`, `--bg-card`, `--fg`, `-
 Tri-mode switcher (dark / system / light). State lives on `<html data-theme="…">`, persisted to `localStorage["bb-theme"]`. Default is `system`. A pre-paint inline script in [`BaseLayout.astro`](src/layouts/BaseLayout.astro) sets the attribute before first paint to avoid FOUC.
 
 To add a new theme-aware token:
+
 1. Define a default in `:root, [data-theme="dark"]`.
 2. Override in `[data-theme="light"]`.
 3. Mirror the override in the `@media (prefers-color-scheme: light) { [data-theme="system"] { … } }` block.
@@ -215,6 +223,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 [`src/pages/og.png.ts`](src/pages/og.png.ts) generates a single 1200×630 PNG used as the site-wide `og:image` / `twitter:image` (set in `BaseLayout.astro`). One image for the whole site — we don't generate per-page variants since cards link straight to upstream and there are no per-integration pages.
 
 To customize:
+
 - Brand colors and the layout are inline in the route handler.
 - Fonts are loaded from `@fontsource/space-grotesk` and `@fontsource/dm-sans`.
 - Re-run `npm run build` to regenerate.
@@ -224,6 +233,7 @@ To customize:
 `src/data/labs.schema.json` is referenced from `labs.json`'s `$schema` key, so editors with JSON Schema support get live autocomplete + diagnostics. The `.vscode/settings.json` in this repo binds it explicitly for VS Code.
 
 `scripts/validate.mjs` enforces:
+
 - Schema-level constraints from `labs.schema.json`.
 - Cross-field constraints not expressible in JSON Schema (every `categories[]` ID must exist in the top-level `categories`; same for `type` and `language`; `id` must be unique).
 
@@ -238,6 +248,7 @@ To set `PUBLIC_GA_ID` for production analytics, add it as a repo secret. The wor
 ### Custom domain
 
 When you wire a custom domain (e.g. `labs.backblaze.com`):
+
 1. Add a `public/CNAME` file with the domain.
 2. In `astro.config.mjs`, change `site` to the domain and remove `base`.
 3. Configure DNS (CNAME → `<org>.github.io`).

@@ -6,6 +6,19 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
-    }
+    },
+    // Mirror the strictness used in sibling Backblaze Labs TypeScript projects
+    // (`b2-action`, `b2-typescript-sdk`). Astro's `tsconfigs/strict` already
+    // turns on `strict: true`; these flags push the bar to "no implicit
+    // anything, no silent index access, no fallthroughs, no unused locals".
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true
   }
 }

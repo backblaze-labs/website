@@ -11,7 +11,9 @@
 @import "@fontsource/dm-sans/latin-600.css";
 @import "@fontsource/space-grotesk/latin-500.css";
 @import "@fontsource/space-grotesk/latin-600.css";
-@import "@fontsource/space-grotesk/latin-700.css";
+/* Space Grotesk 700 isn't referenced by any rule — hero display tops out at
+ * 600. Dropping the import saves ~30 KB of font payload (one woff + one woff2).
+ * If a heavier display weight is needed later, re-add this line. */
 
 /* Backblaze brand palette — sourced from official Brand Guidelines PDF (page 6–8).
  * Defining color: Backblaze Red. Complemented by navy and purple. Beige + orange used sparingly.

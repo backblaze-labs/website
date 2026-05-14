@@ -1,12 +1,14 @@
 # Backblaze B2 packages across registries
 
 Snapshot taken **2026-05-05**. Sources:
+
 - **npm** — `registry.npmjs.org/-/v1/search?text=backblaze+b2` (full JSON API)
 - **PyPI** — Warehouse JSON API, probed for known names (search HTML is bot-walled)
 - **crates.io** — `crates.io/api/v1/crates?q=backblaze` (full JSON API)
 - **Go** — `pkg.go.dev/search?q=backblaze+b2` (HTML scrape)
 
 Tag legend:
+
 - 🏛 **official** — published by Backblaze
 - 🧪 **labs** — under `backblaze-labs/*`
 - ⭐ **established** — community standard / canonical 3rd-party SDK

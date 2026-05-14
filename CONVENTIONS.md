@@ -120,7 +120,7 @@ Each closed sub-issue (or `[x]` task-list item) becomes a card unless its label 
 The reconciliation matches the catalog entry by id:
 
 - For sub-issues with `B2 Documentation` / `B2 Integration` labels (upstream cards), the id is the URL-host slug (e.g. `docs.cvat.ai` → `cvat`).
-- For sub-issues with `B2 Tool/Plugin` / `B2 Example` labels and a `plugin:` URL in the body, the id is the repo basename (e.g. `plugin: https://github.com/backblaze-labs/comfyui-cloud-storage` → `comfyui-cloud-storage`).
+- For sub-issues with `B2 Tool/Plugin` / `B2 Example` labels and a `plugin:` URL in the body, the id is the repo basename run through the same `b2-`/`backblaze-`-stripping rule that produces the catalog id (e.g. `plugin: https://github.com/backblaze-b2-samples/b2-whisper-transformersjs-transcriber` → `whisper-transformersjs-transcriber`; `plugin: https://github.com/backblaze-labs/b2-action` → `b2-action`, since stripping would leave a single token).
 
 Catalog entries without a tracker counterpart (purely curator-added via `labs.json`) keep their hand-set `featured` value untouched.
 
@@ -128,7 +128,7 @@ Catalog entries without a tracker counterpart (purely curator-added via `labs.js
 
 The sub-issue body is plain flat `key: value` lines — **no fence, no marker, no YAML codeblock.** When you close the sub-issue, discovery parses these directly:
 
-```
+```yaml
 issue: https://github.com/meltano/meltano/issues/9988
 pull_request: https://github.com/meltano/meltano/pull/9990
 docs: https://docs.meltano.com/concepts/state_backends/#backblaze-b2-example
@@ -169,7 +169,7 @@ If discovery's auto-inference produces something off, override per-key in the sa
 
 So a fully overridden body looks like:
 
-```
+```yaml
 docs: https://docs.example.com/storage/backblaze-b2
 pull_request: https://github.com/example/example/pull/123
 user_agent_extra: example

@@ -57,7 +57,7 @@ Example:
 }
 ```
 
-Cards for upstream integrations get a purple "Upstream" badge and skip GitHub-stats UI.
+Upstream integration entries (with a `repo` field pointing at an external project) still surface that repo's stars in the card's star badge — the badge isn't tagged "upstream" because nothing about a third-party project's popularity changes the meaning of the count. If you want an upstream entry hidden from the stats UI entirely, set `repo: null`.
 
 ## Rules (both kinds)
 
@@ -65,16 +65,13 @@ Cards for upstream integrations get a purple "Upstream" badge and skip GitHub-st
 - `categories`, `type`, and `language` must reference IDs already in the top-level `categories` / `types` / `languages` arrays. To introduce a new one, add it to that array first.
 - `repo` is `owner/name` for first-party Labs projects, `null` for upstream integrations.
 - `tagline` ≤ 80 chars. The card layout assumes it fits in two lines.
-- `repo` is `owner/name`. Used to fetch GitHub stars/forks/last-push and is shown in the card footer as the source.
 - `url` is **where users go when they click the card**. Default to the GitHub repo, but switch it to:
   - **VS Code Marketplace** for editor extensions once published (e.g. `https://marketplace.visualstudio.com/items?itemName=...`)
   - **PyPI** for Python packages (e.g. `https://pypi.org/project/jupyter-b2/`)
   - **npm** for JS packages
   - **The repo** for awesome-lists, samples, and anything else without a registry presence.
-
-  The card auto-detects the destination host and shows a contextual label ("Marketplace", "PyPI", "npm", "GitHub") next to the open arrow — no extra config needed.
-- `preview` is optional. Leave `null` to use the auto GitHub social preview, or point to `/previews/<id>.png` if you want a custom one.
-- `featured: true` pins the entry to the top of the gallery. Use sparingly — currently 3 featured items.
+- `preview` is optional. Leave it unset and `scripts/sync-previews.mjs` will pick a preview from the upstream destination (preferring `<video>` heroes, then `<img>`, then `og:image`) or from the repo README for first-party items. To pin a specific image or video, set it to a fully-qualified URL like `https://cdn.example.com/hero.mp4` (image OR video — the card swaps to a `<video autoplay muted loop>` element automatically for `.mp4`/`.webm`/`.mov`/`.m4v` files). GitHub-generated OG cards (`opengraph.githubassets.com`) are deliberately rejected — they don't render well on the dark gallery background.
+- `featured: true` pins the entry to the top of the gallery. Use sparingly. For tracker-managed entries, the `B2 Feature on website` label is the source of truth — adding/removing the label automatically toggles this on the next discovery run.
 
 ### Validate before pushing
 
@@ -126,7 +123,7 @@ npm run dev             # http://localhost:4321/website/
 
 ### Project layout
 
-```
+```text
 src/
   components/    Astro components (Logo, Nav, Hero, Filters, Card, etc.)
   layouts/       BaseLayout.astro — head/meta, theme bootstrap, GA, Nav, Footer

@@ -12,7 +12,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "biome lint .",
+    "lint": "biome lint --error-on-warnings .",
     "lint:fix": "biome lint --write .",
     "format": "biome format .",
     "format:fix": "biome format --write .",
@@ -21,15 +21,17 @@
     "sync-stats": "node scripts/sync-stats.mjs",
     "sync-previews": "node scripts/sync-previews.mjs",
     "sync-links": "node scripts/sync-links.mjs",
-    "sync": "node -e \"['sync-stats','sync-links','sync-previews'].forEach(s => require('node:child_process').spawn('npm',['run',s],{stdio:'inherit'}).on('exit',c=>{if(c)process.exit(c)}))\" && wait",
+    "sync": "node scripts/sync.mjs",
     "discover": "node scripts/discover.mjs",
     "merge-discovered": "node scripts/merge-discovered.mjs",
-    "checks": "npm run lint && npm run format && npm run typecheck && npm run validate",
+    "docs:lint": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#dist\" \"#.astro\"",
+    "spellcheck": "cspell --no-progress --no-must-find-files",
+    "checks": "npm run lint && npm run format && npm run typecheck && npm run validate && npm run docs:lint && npm run spellcheck",
     "fix": "biome check --write . && npm run typecheck && npm run validate",
     "prepare": "simple-git-hooks || true"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run validate"
+    "pre-commit": "npm run checks"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -48,6 +50,8 @@
     "@types/node": "^22.10.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
+    "cspell": "^9.4.1",
+    "markdownlint-cli2": "^0.18.1",
     "simple-git-hooks": "^2.11.1"
   }
 }

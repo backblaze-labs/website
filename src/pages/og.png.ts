@@ -28,7 +28,8 @@ function loadFontMaybe(...candidates: string[]): Buffer | null {
 }
 
 const fontRegular = loadFontMaybe("@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff");
-const fontBold = loadFontMaybe(
+// Display font is Space Grotesk 600 — name reflects weight, not "bold" alias.
+const fontDisplay = loadFontMaybe(
   "@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff",
 );
 
@@ -47,7 +48,7 @@ const flameDataUrl = (() => {
 export const GET: APIRoute = async () => {
   const fonts: Parameters<typeof satori>[1]["fonts"] = [];
   if (fontRegular) fonts.push({ name: "Body", data: fontRegular, weight: 400, style: "normal" });
-  if (fontBold) fonts.push({ name: "Display", data: fontBold, weight: 700, style: "normal" });
+  if (fontDisplay) fonts.push({ name: "Display", data: fontDisplay, weight: 600, style: "normal" });
 
   const tree = {
     type: "div",

@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /**
  * Auto-discovers `site` / `docs` / `demo` URLs for every integration and writes
- * them to src/data/links.json. The lib/labs.ts loader merges these with any
- * manual values in labs.json (manual wins; auto fills the gaps).
+ * them to src/data/links.json. The catalog (`labs.json`) carries its own
+ * `site`/`docs`/`demo` fields when curators want to override; `links.json`
+ * stays as a parallel auto-discovered companion file. The website does not
+ * currently render these links in the card UI — they're maintained as
+ * structured data for the feed/sitemap and future surfaces (e.g. detail pages).
  *
  * Heuristics:
  *
@@ -27,6 +30,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { fetchHtml } from "./_http.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -90,42 +94,11 @@ function apexHost(host) {
   return host.replace(/^(docs|www|api|developer|developers|blog)\./i, "");
 }
 
+// sync-links scrapes upstream destination pages for a github.com/<owner>/<name>
+// link in the `<head>` (canonical, og:url, etc.). Stream up to 256 KB and stop
+// at `</head>` — meta tags + nav links are always in the head, not the body.
 async function fetchPageHtml(targetUrl) {
-  if (!targetUrl) return null;
-  const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), 5000);
-  try {
-    const res = await fetch(targetUrl, {
-      signal: ctl.signal,
-      redirect: "follow",
-      headers: {
-        "user-agent": "BackblazeLabsDiscovery/1.0 (+https://github.com/backblaze-labs/website)",
-        accept: "text/html,application/xhtml+xml",
-      },
-    });
-    if (!res.ok) return null;
-    if (!(res.headers.get("content-type") ?? "").includes("html")) return null;
-    const reader = res.body?.getReader();
-    if (!reader) return null;
-    let bytes = 0;
-    let html = "";
-    const dec = new TextDecoder();
-    while (bytes < 256 * 1024) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      bytes += value.byteLength;
-      html += dec.decode(value, { stream: true });
-      if (html.includes("</head>") || html.includes("</HEAD>")) break;
-    }
-    try {
-      reader.cancel();
-    } catch {}
-    return html;
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(t);
-  }
+  return fetchHtml(targetUrl, { maxBytes: 256 * 1024, stopAtHeadEnd: true });
 }
 
 function inferRepoFromHtml(html, projectHint = "") {

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "files": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.astro",
+    "**/*.mjs",
+    "**/*.js",
+    "**/*.md",
+    "**/*.yml",
+    "**/*.yaml",
+    "**/*.json",
+    "**/*.jsonc",
+    "**/*.css"
+  ],
+  "ignorePaths": [
+    "dist/**",
+    "docs/**",
+    "node_modules/**",
+    "coverage/**",
+    ".astro/**",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "src/data/labs.json",
+    "src/data/github-stats.json",
+    "src/data/links.json",
+    "src/data/previews.json",
+    "src/data/labs.discovered.json",
+    "research/**",
+    "*.min.*",
+    "*.map",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": ".cspell/project-words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["project-words"],
+  "ignoreRegExpList": [
+    "/0x[0-9a-fA-F]+/",
+    "/[a-zA-Z0-9+/=]{32,}/",
+    "/[a-f0-9]{40,}/",
+    "/[A-Z]{2,}_[A-Z_0-9]+/",
+    "/#[0-9a-fA-F]{3,8}\\b/",
+    "/data:[^\"' )]+/",
+    "/https?:\\/\\/[^\\s\"'<>)]+/"
+  ]
+}

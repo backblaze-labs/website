@@ -80,13 +80,10 @@ const labs = labsRaw as unknown as LabsCatalog;
 const stats = statsRaw as unknown as Record<string, GitHubStats>;
 
 export const catalog: LabsCatalog = labs;
-export const githubStats = stats;
 
 export function statsFor(id: string): GitHubStats | undefined {
   return stats[id];
 }
-
-export const featured = labs.integrations.filter((i) => i.featured);
 
 const previews = previewsRaw as Record<string, string>;
 
@@ -94,10 +91,16 @@ const previews = previewsRaw as Record<string, string>;
  * Resolve the preview image URL for an integration.
  *
  * Order:
- *  1. Explicit `preview` field in labs.json (manual override).
- *  2. Auto-discovered URL in previews.json — populated by `npm run sync-previews`,
- *     which scans the repo's README for the first non-badge image and falls back
- *     to GitHub's social preview if none is found.
+ *  1. Explicit `preview` field in `labs.json` (manual override). When the value
+ *     starts with `http(s)://` it's returned as-is; relative paths get
+ *     prefixed with the site's `BASE_URL` so GitHub-Pages subpath deployments
+ *     resolve correctly.
+ *  2. Auto-discovered URL in `previews.json` — populated by `npm run sync-previews`,
+ *     which walks the upstream destination (preferring `<video>` heroes, then
+ *     `<img>`, then `og:image`) for upstream items and scans the repo's README
+ *     for first-party items. GitHub-hosted OG cards (`opengraph.githubassets.com`)
+ *     are deliberately rejected — they ship with a fixed white background and
+ *     clash with the dark gallery aesthetic.
  *  3. `null` — caller renders the brand-gradient placeholder.
  */
 export function previewUrl(item: Integration, base = ""): string | null {
@@ -140,14 +143,6 @@ export function sortIntegrations(items: Integration[]): Integration[] {
     if (ap !== bp) return bp - ap;
     return a.title.localeCompare(b.title);
   });
-}
-
-/**
- * GitHub social preview URL — useful as a fallback or for the "View on GitHub" preview.
- * Not used as the default card image (see `previewUrl`).
- */
-export function githubSocialUrl(repo: string): string {
-  return `https://opengraph.githubassets.com/1/${repo}`;
 }
 
 export function countByCategory(): Record<string, number> {
