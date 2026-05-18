@@ -146,14 +146,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3679,
+    "forks": 3684,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 603,
-    "stars": 15856,
-    "updated": "2026-05-16T09:49:37Z",
+    "stars": 15864,
+    "updated": "2026-05-18T10:49:59Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-17T09:01:12.974Z"
+    "fetchedAt": "2026-05-18T11:03:12.847Z"
   },
   "genblaze": {
     "archived": false,
@@ -230,14 +230,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5742,
+    "forks": 5741,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2088,
-    "stars": 25972,
-    "updated": "2026-05-17T04:21:21Z",
+    "openIssues": 2105,
+    "stars": 25990,
+    "updated": "2026-05-18T10:35:43Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-17T09:01:13.004Z"
+    "fetchedAt": "2026-05-18T11:03:12.787Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -306,10 +306,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 5,
+    "stars": 6,
     "updated": "2026-05-05T18:47:05Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-05-14T21:47:45.200Z"
+    "fetchedAt": "2026-05-18T11:03:12.846Z"
   },
   "whisper-transformersjs-transcriber": {
     "archived": false,
