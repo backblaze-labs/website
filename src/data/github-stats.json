@@ -38,14 +38,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 4,
+    "forks": 5,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 2,
     "updated": "2026-05-05T14:03:08Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-05-14T21:47:45.714Z"
+    "fetchedAt": "2026-05-27T10:52:57.836Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -86,14 +86,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 3,
+    "forks": 4,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 1,
-    "stars": 7,
+    "stars": 8,
     "updated": "2026-05-05T14:00:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-05-22T10:21:14.696Z"
+    "fetchedAt": "2026-05-27T10:52:57.982Z"
   },
   "b2-action": {
     "archived": false,
@@ -101,11 +101,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 5,
     "stars": 1,
-    "updated": "2026-05-19T09:48:12Z",
+    "updated": "2026-05-26T05:03:14Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-05-19T10:35:25.874Z"
+    "fetchedAt": "2026-05-27T10:52:57.990Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -146,14 +146,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3692,
+    "forks": 3693,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 594,
-    "stars": 15901,
-    "updated": "2026-05-25T11:00:57Z",
+    "openIssues": 598,
+    "stars": 15917,
+    "updated": "2026-05-27T10:34:13Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-25T11:06:41.889Z"
+    "fetchedAt": "2026-05-27T10:52:57.941Z"
   },
   "genblaze": {
     "archived": false,
@@ -163,9 +163,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 10,
-    "updated": "2026-05-21T05:50:47Z",
+    "updated": "2026-05-26T19:14:50Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-21T10:36:26.513Z"
+    "fetchedAt": "2026-05-27T10:52:57.953Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -230,26 +230,26 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5779,
+    "forks": 5787,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2064,
-    "stars": 26099,
-    "updated": "2026-05-25T08:24:36Z",
+    "openIssues": 2072,
+    "stars": 26139,
+    "updated": "2026-05-27T02:55:06Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-25T11:06:41.911Z"
+    "fetchedAt": "2026-05-27T10:52:57.993Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
-    "description": null,
+    "description": "AI-powered multimodal reference app using NVIDIA Nemotron 3 Nano Omni, Genblaze, and Backblaze B2 Cloud Storage. Upload images, audio, or video to generate AI-driven summaries, illustrations, narration, music, and optional video workflows with full provenance tracking and persistent B2 object storage.",
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-05-20T18:57:33Z",
+    "updated": "2026-05-26T20:09:40Z",
     "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
-    "fetchedAt": "2026-05-21T10:36:26.451Z"
+    "fetchedAt": "2026-05-27T10:52:57.928Z"
   },
   "openclaw-b2-sync-backup": {
     "archived": false,
@@ -307,9 +307,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 6,
-    "updated": "2026-05-22T20:10:15Z",
+    "updated": "2026-05-27T02:20:21Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-05-23T09:00:06.958Z"
+    "fetchedAt": "2026-05-27T10:52:57.976Z"
   },
   "whisper-transformersjs-transcriber": {
     "archived": false,
