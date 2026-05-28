@@ -4,8 +4,7 @@
   },
   "meltano": {
     "site": "https://meltano.com/",
-    "docs": "https://docs.meltano.com/",
-    "repo": "meltano/meltano"
+    "docs": "https://docs.meltano.com/"
   },
   "mlflow": {
     "site": "https://mlflow.org"

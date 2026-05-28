@@ -11,6 +11,42 @@
     "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
     "fetchedAt": "2026-05-14T21:47:45.238Z"
   },
+  "ai-meeting-notes": {
+    "archived": false,
+    "description": "AI meeting notes on Backblaze B2 — record or upload meetings, transcribe with speaker diarization, and auto-generate summaries, decisions, and action items. FastAPI + Next.js B2 sample app, searchable across every past meeting.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-27T18:48:36Z",
+    "repo": "backblaze-b2-samples/ai-meeting-notes",
+    "fetchedAt": "2026-05-28T23:06:05.867Z"
+  },
+  "ai-music-studio": {
+    "archived": false,
+    "description": "AI music generator where every regenerate, remix & branch is a node in a revision tree — durable on Backblaze B2. FastAPI + Next.js B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-28T17:47:21Z",
+    "repo": "backblaze-b2-samples/ai-music-studio",
+    "fetchedAt": "2026-05-28T23:06:05.360Z"
+  },
+  "arxiv-insight-briefs-nvidia-nemotron": {
+    "archived": false,
+    "description": "arXiv research briefing pipeline that routes natural language queries to relevant papers, caches PDFs in Backblaze B2, extracts key sections with PyMuPDF, and generates citation-backed insight briefs using NVIDIA Nemotron.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-27T16:06:40Z",
+    "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
+    "fetchedAt": "2026-05-28T23:00:26.596Z"
+  },
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
@@ -149,11 +185,23 @@
     "forks": 3693,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 600,
-    "stars": 15929,
-    "updated": "2026-05-28T09:02:09Z",
+    "openIssues": 604,
+    "stars": 15935,
+    "updated": "2026-05-28T21:06:58Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-28T10:51:16.614Z"
+    "fetchedAt": "2026-05-28T23:00:26.153Z"
+  },
+  "firewatch-agent": {
+    "archived": false,
+    "description": "FireWatch is an AI-powered wildfire detection and alerting pipeline using OpenClaw, Nemotron, and Backblaze B2 to process satellite hotspot data, live weather, and explainable risk scores for faster wildfire response.",
+    "forks": 1,
+    "lang": "Python",
+    "license": null,
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-27T19:57:24Z",
+    "repo": "backblaze-b2-samples/firewatch-agent",
+    "fetchedAt": "2026-05-28T23:00:26.655Z"
   },
   "genblaze": {
     "archived": false,
@@ -178,6 +226,18 @@
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
     "fetchedAt": "2026-05-14T21:47:44.923Z"
+  },
+  "gpt-realtime-whisper-live-transcript-redactor": {
+    "archived": false,
+    "description": "Live mic-to-text transcription with inline PII, secrets, and glossary redaction on Backblaze B2 — stream audio through OpenAI Realtime + Whisper, redact in flight, and persist a privacy-default session bundle. FastAPI + Next.js B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-28T20:32:53Z",
+    "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
+    "fetchedAt": "2026-05-28T23:06:05.247Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -230,14 +290,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5788,
+    "forks": 5791,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2068,
-    "stars": 26162,
-    "updated": "2026-05-28T09:17:12Z",
+    "openIssues": 2071,
+    "stars": 26172,
+    "updated": "2026-05-28T22:59:38Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-28T10:51:16.583Z"
+    "fetchedAt": "2026-05-28T23:06:05.629Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -310,6 +370,30 @@
     "updated": "2026-05-27T02:20:21Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
     "fetchedAt": "2026-05-27T10:52:57.976Z"
+  },
+  "video-to-insights-nvidia-parakeet-llama": {
+    "archived": false,
+    "description": "AI-powered video analysis pipeline that downloads YouTube videos, stores durable artifacts in Backblaze B2, transcribes audio with NVIDIA Parakeet, generates timestamped insights with Llama 3.3, and serves interactive seekable video playback.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-27T02:58:23Z",
+    "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
+    "fetchedAt": "2026-05-28T23:00:27.081Z"
+  },
+  "voice-memo-ai-second-brain": {
+    "archived": false,
+    "description": "Personal voice-memo second brain on Backblaze B2 — record, transcribe, tag, cross-reference, and summarize. FastAPI + Next.js reference app, no database, B2 is the source of truth.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-27T18:54:29Z",
+    "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
+    "fetchedAt": "2026-05-28T23:00:26.566Z"
   },
   "whisper-transformersjs-transcriber": {
     "archived": false,
