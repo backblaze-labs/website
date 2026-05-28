@@ -654,6 +654,62 @@
       "url": "https://github.com/backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "gpt-realtime-whisper-live-transcript-redactor",
+      "title": "Gpt Realtime Whisper Live Transcript Redactor",
+      "tagline": "Live mic-to-text transcription with inline PII, secrets, and glossary…",
+      "description": "Live mic-to-text transcription with inline PII, secrets, and glossary redaction on Backblaze B2 — stream audio through OpenAI Realtime + Whisper, redact in flight, and persist a privacy-default session bundle. FastAPI + Next.js B2 sample app.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": ["backblaze-b2", "cloudstorage", "fastapi", "nextjs", "object-storage", "openai"],
+      "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
+      "url": "https://github.com/backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "ai-music-studio",
+      "title": "Ai Music Studio",
+      "tagline": "AI music generator where every regenerate, remix & branch is a node in a…",
+      "description": "AI music generator where every regenerate, remix & branch is a node in a revision tree — durable on Backblaze B2. FastAPI + Next.js B2 sample app.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": [
+        "ai-music",
+        "fastapi",
+        "music-generation",
+        "nextjs",
+        "object-storage",
+        "revision-history"
+      ],
+      "repo": "backblaze-b2-samples/ai-music-studio",
+      "url": "https://github.com/backblaze-b2-samples/ai-music-studio",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "ai-meeting-notes",
+      "title": "Ai Meeting Notes",
+      "tagline": "AI meeting notes on Backblaze B2 — record or upload meetings, transcribe with…",
+      "description": "AI meeting notes on Backblaze B2 — record or upload meetings, transcribe with speaker diarization, and auto-generate summaries, decisions, and action items. FastAPI + Next.js B2 sample app, searchable across every past meeting.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": [
+        "action-items",
+        "ai-meeting-notes",
+        "backblaze-b2",
+        "cloudstorage",
+        "fastapi",
+        "meeting-notes"
+      ],
+      "repo": "backblaze-b2-samples/ai-meeting-notes",
+      "url": "https://github.com/backblaze-b2-samples/ai-meeting-notes",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
