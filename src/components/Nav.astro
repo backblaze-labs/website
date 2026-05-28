@@ -22,7 +22,7 @@ import { catalog } from "~/lib/labs";
         href={catalog.meta.b2 ?? "https://www.backblaze.com/sign-up/ai-cloud-storage?utm_source=github&utm_medium=referral&utm_campaign=ai_artifacts"}
         target="_blank"
         rel="noopener"
-        class="btn-primary text-sm hidden sm:inline-flex"
+        class="btn-primary text-sm inline-flex shrink-0 whitespace-nowrap nav-cta"
         data-track="cta_click"
         data-track-cta="try_b2"
       >
@@ -39,5 +39,14 @@ import { catalog } from "~/lib/labs";
     -webkit-backdrop-filter: blur(14px) saturate(150%);
     background: color-mix(in oklab, var(--bg) 75%, transparent);
     border-bottom: 1px solid var(--border);
+  }
+
+  /* Compact the CTA on phones so the nav fits without crowding the logo. */
+  @media (max-width: 639px) {
+    .nav-cta {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      gap: 0.3rem;
+    }
   }
 </style>
