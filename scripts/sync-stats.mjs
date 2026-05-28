@@ -20,6 +20,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { formatJson } from "./_format.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -153,7 +154,7 @@ const sorted = Object.fromEntries(
     .sort()
     .map((k) => [k, out[k]]),
 );
-const nextJson = `${JSON.stringify(sorted, null, 2)}\n`;
+const nextJson = formatJson(sorted, outPath);
 const prevJson = (() => {
   try {
     return fs.readFileSync(outPath, "utf8");
