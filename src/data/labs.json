@@ -584,6 +584,76 @@
       "url": "https://github.com/backblaze-labs/b2-action",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "firewatch-agent",
+      "title": "Firewatch Agent",
+      "tagline": "FireWatch is an AI-powered wildfire detection and alerting pipeline using…",
+      "description": "FireWatch is an AI-powered wildfire detection and alerting pipeline using OpenClaw, Nemotron, and Backblaze B2 to process satellite hotspot data, live weather, and explainable risk scores for faster wildfire response.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "python",
+      "tags": ["nemoclaw", "openclaw"],
+      "repo": "backblaze-b2-samples/firewatch-agent",
+      "url": "https://github.com/backblaze-b2-samples/firewatch-agent",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "voice-memo-ai-second-brain",
+      "title": "Voice Memo Ai Second Brain",
+      "tagline": "Personal voice-memo second brain on Backblaze B2 — record, transcribe, tag,…",
+      "description": "Personal voice-memo second brain on Backblaze B2 — record, transcribe, tag, cross-reference, and summarize. FastAPI + Next.js reference app, no database, B2 is the source of truth.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "openai",
+        "openai-api",
+        "voice",
+        "voice-recognition"
+      ],
+      "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
+      "url": "https://github.com/backblaze-b2-samples/voice-memo-ai-second-brain",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "arxiv-insight-briefs-nvidia-nemotron",
+      "title": "Arxiv Insight Briefs Nvidia Nemotron",
+      "tagline": "arXiv research briefing pipeline that routes natural language queries to…",
+      "description": "arXiv research briefing pipeline that routes natural language queries to relevant papers, caches PDFs in Backblaze B2, extracts key sections with PyMuPDF, and generates citation-backed insight briefs using NVIDIA Nemotron.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": ["arxiv", "arxiv-api", "arxiv-papers", "cloudstorage", "data-processing", "insights"],
+      "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
+      "url": "https://github.com/backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "video-to-insights-nvidia-parakeet-llama",
+      "title": "Video To Insights Nvidia Parakeet Llama",
+      "tagline": "AI-powered video analysis pipeline that downloads YouTube videos, stores…",
+      "description": "AI-powered video analysis pipeline that downloads YouTube videos, stores durable artifacts in Backblaze B2, transcribes audio with NVIDIA Parakeet, generates timestamped insights with Llama 3.3, and serves interactive seekable video playback.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "nvidia-parakeet",
+        "parakeet",
+        "videoanalysis",
+        "youtube"
+      ],
+      "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
+      "url": "https://github.com/backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
