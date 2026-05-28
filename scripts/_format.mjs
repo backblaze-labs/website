@@ -4,10 +4,10 @@
  * Why this module exists: every script that mutates a committed JSON file
  * (`labs.json`, `github-stats.json`, `links.json`, `previews.json`) used to
  * write via `JSON.stringify(data, null, 2)`. That always expands arrays to
- * multi-line, but biome's formatter (lineWidth: 100) inlines short arrays —
- * so the written file would fail CI's `npm run format:check`. It broke the
- * weekly discovery PR; it could break any of the sync workflows the next
- * time an entry's array got short enough to be inlinable.
+ * multi-line, but biome's formatter (lineWidth: 100) keeps short arrays on
+ * one line — so the written file would fail CI's `npm run format:check`. It
+ * broke the weekly discovery PR; it could break any of the sync workflows
+ * the next time an entry's array got short enough for biome to collapse.
  *
  * The fix is to route the output through biome's stdin formatter so it
  * matches what `biome format --write` would produce. Centralized here so the
