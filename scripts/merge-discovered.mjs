@@ -17,6 +17,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { formatJson } from "./_format.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -96,7 +97,7 @@ for (const e of labs.integrations) {
 }
 
 if (added.length > 0 || featuredFlips.length > 0 || refreshes.length > 0) {
-  fs.writeFileSync(labsPath, `${JSON.stringify(labs, null, 2)}\n`);
+  fs.writeFileSync(labsPath, formatJson(labs, labsPath));
   if (added.length > 0) {
     console.log(`✔ Appended ${added.length} entries to labs.json:`);
     for (const id of added) console.log(`    + ${id}`);
