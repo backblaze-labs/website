@@ -38,9 +38,8 @@ import { execFileSync } from "node:child_process";
  */
 export function formatJson(data, filePath) {
   const raw = `${JSON.stringify(data, null, 2)}\n`;
-  return execFileSync(
-    "npx",
-    ["@biomejs/biome", "format", `--stdin-file-path=${filePath}`],
-    { input: raw, encoding: "utf8" },
-  );
+  return execFileSync("npx", ["@biomejs/biome", "format", `--stdin-file-path=${filePath}`], {
+    input: raw,
+    encoding: "utf8",
+  });
 }
