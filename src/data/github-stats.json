@@ -133,15 +133,15 @@
   },
   "b2-action": {
     "archived": false,
-    "description": "The Backblaze B2 GitHub Action",
+    "description": "The Official Backblaze B2 Cloud Storage GitHub Action",
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 0,
     "stars": 1,
-    "updated": "2026-05-26T05:03:14Z",
+    "updated": "2026-05-29T04:05:18Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-05-27T10:52:57.990Z"
+    "fetchedAt": "2026-05-29T10:41:17.530Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -182,14 +182,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3693,
+    "forks": 3694,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 604,
-    "stars": 15935,
-    "updated": "2026-05-28T21:06:58Z",
+    "openIssues": 606,
+    "stars": 15941,
+    "updated": "2026-05-29T10:39:43Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-05-28T23:00:26.153Z"
+    "fetchedAt": "2026-05-29T10:41:17.473Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -294,10 +294,10 @@
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 2071,
-    "stars": 26172,
-    "updated": "2026-05-28T22:59:38Z",
+    "stars": 26180,
+    "updated": "2026-05-29T09:46:52Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-05-28T23:06:05.629Z"
+    "fetchedAt": "2026-05-29T10:41:17.451Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
