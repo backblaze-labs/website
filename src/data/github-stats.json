@@ -55,9 +55,9 @@
     "license": "CC0-1.0",
     "openIssues": 3,
     "stars": 1,
-    "updated": "2026-05-05T13:59:20Z",
+    "updated": "2026-06-01T20:35:06Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-05-14T21:47:46.165Z"
+    "fetchedAt": "2026-06-02T11:14:09.955Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -67,9 +67,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 2,
-    "updated": "2026-05-05T14:00:43Z",
+    "updated": "2026-06-01T20:35:08Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-05-14T21:47:45.116Z"
+    "fetchedAt": "2026-06-02T11:14:09.903Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -79,9 +79,9 @@
     "license": "CC0-1.0",
     "openIssues": 3,
     "stars": 2,
-    "updated": "2026-05-05T14:03:08Z",
+    "updated": "2026-06-01T20:35:09Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-05-27T10:52:57.836Z"
+    "fetchedAt": "2026-06-02T11:14:10.029Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -91,9 +91,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-05-05T13:59:33Z",
+    "updated": "2026-06-01T20:35:10Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-05-14T21:47:45.931Z"
+    "fetchedAt": "2026-06-02T11:14:10.308Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -103,9 +103,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-05-05T13:59:18Z",
+    "updated": "2026-06-01T20:35:12Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-05-14T21:47:44.994Z"
+    "fetchedAt": "2026-06-02T11:14:10.079Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -115,9 +115,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-05-05T13:59:42Z",
+    "updated": "2026-06-01T20:35:13Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-05-14T21:47:45.116Z"
+    "fetchedAt": "2026-06-02T11:14:10.047Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -127,9 +127,9 @@
     "license": "CC0-1.0",
     "openIssues": 1,
     "stars": 9,
-    "updated": "2026-05-05T14:00:40Z",
+    "updated": "2026-06-01T20:35:14Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-01T12:33:00.079Z"
+    "fetchedAt": "2026-06-02T11:14:10.186Z"
   },
   "b2-action": {
     "archived": false,
@@ -182,14 +182,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3695,
+    "forks": 3696,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 608,
-    "stars": 15955,
-    "updated": "2026-06-01T12:25:27Z",
+    "openIssues": 611,
+    "stars": 15956,
+    "updated": "2026-06-02T11:03:07Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-01T12:33:00.048Z"
+    "fetchedAt": "2026-06-02T11:14:10.049Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -206,14 +206,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 0,
+    "forks": 1,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 82,
     "stars": 10,
-    "updated": "2026-05-26T19:14:50Z",
+    "updated": "2026-06-02T01:56:11Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-05-27T10:52:57.953Z"
+    "fetchedAt": "2026-06-02T11:14:10.041Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -290,14 +290,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5805,
+    "forks": 5811,
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 2068,
-    "stars": 26228,
-    "updated": "2026-06-01T11:00:48Z",
+    "stars": 26248,
+    "updated": "2026-06-02T11:04:22Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-01T12:33:00.057Z"
+    "fetchedAt": "2026-06-02T11:14:09.943Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
