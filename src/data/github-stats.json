@@ -137,11 +137,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 17,
+    "openIssues": 18,
     "stars": 7,
-    "updated": "2026-05-30T22:46:41Z",
+    "updated": "2026-06-03T16:59:25Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-05-31T09:45:47.519Z"
+    "fetchedAt": "2026-06-04T10:36:23.805Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -182,14 +182,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3696,
+    "forks": 3697,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 610,
-    "stars": 15965,
-    "updated": "2026-06-03T11:08:01Z",
+    "openIssues": 609,
+    "stars": 15973,
+    "updated": "2026-06-04T10:35:05Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-03T11:51:54.066Z"
+    "fetchedAt": "2026-06-04T10:36:23.815Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -209,11 +209,11 @@
     "forks": 1,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 83,
+    "openIssues": 84,
     "stars": 10,
-    "updated": "2026-06-02T18:39:33Z",
+    "updated": "2026-06-04T05:43:17Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-03T11:51:54.033Z"
+    "fetchedAt": "2026-06-04T10:36:23.801Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -290,14 +290,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5805,
+    "forks": 5808,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2074,
-    "stars": 26276,
-    "updated": "2026-06-03T09:36:02Z",
+    "openIssues": 2073,
+    "stars": 26295,
+    "updated": "2026-06-04T10:23:09Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-03T11:51:54.100Z"
+    "fetchedAt": "2026-06-04T10:36:23.820Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
