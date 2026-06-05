@@ -50,14 +50,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 5,
+    "forks": 6,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 3,
+    "openIssues": 4,
     "stars": 1,
     "updated": "2026-06-01T20:35:06Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-06-02T11:14:09.955Z"
+    "fetchedAt": "2026-06-05T10:43:08.003Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -137,11 +137,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 18,
+    "openIssues": 21,
     "stars": 7,
     "updated": "2026-06-03T16:59:25Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-06-04T10:36:23.805Z"
+    "fetchedAt": "2026-06-05T10:43:08.035Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -149,11 +149,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 19,
+    "openIssues": 24,
     "stars": 3,
-    "updated": "2026-05-30T22:46:27Z",
+    "updated": "2026-06-04T18:27:48Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-05-31T09:45:47.553Z"
+    "fetchedAt": "2026-06-05T10:43:08.246Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -182,14 +182,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3697,
+    "forks": 3696,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 609,
-    "stars": 15973,
-    "updated": "2026-06-04T10:35:05Z",
+    "openIssues": 607,
+    "stars": 15982,
+    "updated": "2026-06-05T10:11:50Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-04T10:36:23.815Z"
+    "fetchedAt": "2026-06-05T10:43:07.978Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -290,14 +290,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5808,
+    "forks": 5812,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2073,
-    "stars": 26295,
-    "updated": "2026-06-04T10:23:09Z",
+    "openIssues": 2079,
+    "stars": 26311,
+    "updated": "2026-06-05T06:35:21Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-04T10:36:23.820Z"
+    "fetchedAt": "2026-06-05T10:43:07.994Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
