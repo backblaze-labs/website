@@ -182,14 +182,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3696,
+    "forks": 3697,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 607,
-    "stars": 15982,
-    "updated": "2026-06-05T10:11:50Z",
+    "openIssues": 608,
+    "stars": 15989,
+    "updated": "2026-06-05T16:04:27Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-05T10:43:07.978Z"
+    "fetchedAt": "2026-06-06T09:21:42.139Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -293,11 +293,11 @@
     "forks": 5812,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2079,
-    "stars": 26311,
-    "updated": "2026-06-05T06:35:21Z",
+    "openIssues": 2078,
+    "stars": 26326,
+    "updated": "2026-06-05T10:46:53Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-05T10:43:07.994Z"
+    "fetchedAt": "2026-06-06T09:21:42.202Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
