@@ -62,14 +62,14 @@
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 2,
+    "forks": 3,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 2,
     "updated": "2026-06-01T20:35:08Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-06-02T11:14:09.903Z"
+    "fetchedAt": "2026-06-08T11:52:25.630Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -122,14 +122,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 4,
+    "forks": 5,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 1,
     "stars": 9,
     "updated": "2026-06-01T20:35:14Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-02T11:14:10.186Z"
+    "fetchedAt": "2026-06-08T11:52:25.629Z"
   },
   "b2-action": {
     "archived": false,
@@ -146,14 +146,14 @@
   "b2-vscode": {
     "archived": false,
     "description": null,
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 24,
+    "openIssues": 25,
     "stars": 3,
     "updated": "2026-06-04T18:27:48Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-06-05T10:43:08.246Z"
+    "fetchedAt": "2026-06-08T11:52:25.618Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -182,14 +182,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3696,
+    "forks": 3699,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 608,
-    "stars": 15995,
-    "updated": "2026-06-06T21:38:17Z",
+    "stars": 16003,
+    "updated": "2026-06-08T11:46:40Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-07T09:57:14.385Z"
+    "fetchedAt": "2026-06-08T11:52:25.624Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -206,14 +206,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 1,
+    "forks": 2,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 84,
+    "openIssues": 85,
     "stars": 10,
     "updated": "2026-06-04T05:43:17Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-04T10:36:23.801Z"
+    "fetchedAt": "2026-06-08T11:52:25.585Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -290,14 +290,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5817,
+    "forks": 5822,
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 2077,
-    "stars": 26336,
-    "updated": "2026-06-05T10:46:53Z",
+    "stars": 26353,
+    "updated": "2026-06-08T10:05:56Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-07T09:57:14.363Z"
+    "fetchedAt": "2026-06-08T11:52:25.635Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
