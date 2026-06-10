@@ -22,13 +22,15 @@ interface Props {
 }
 
 const {
-  title = catalog.meta.title,
+  title = catalog.meta.homeTitle,
   description = catalog.meta.description,
   ogImage,
   itemList,
 } = Astro.props;
 
-const fullTitle = title === catalog.meta.title ? title : `${title} · ${catalog.meta.title}`;
+// The homepage uses the long SEO `homeTitle` standalone; every other page
+// passes a short title that we suffix with the brand for context in the SERP.
+const fullTitle = title === catalog.meta.homeTitle ? title : `${title} · ${catalog.meta.title}`;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblazelabs.com").toString();
 

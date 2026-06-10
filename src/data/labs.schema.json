@@ -10,6 +10,7 @@
       "required": ["title", "tagline", "description", "github"],
       "properties": {
         "title": { "type": "string" },
+        "homeTitle": { "type": "string" },
         "tagline": { "type": "string" },
         "description": { "type": "string" },
         "github": { "type": "string", "format": "uri" },
