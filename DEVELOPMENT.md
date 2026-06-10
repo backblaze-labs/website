@@ -31,7 +31,7 @@ brew install node@24         # if you'd rather have it global
 
 ```bash
 npm install
-npm run dev          # http://localhost:4321/website/
+npm run dev          # http://localhost:4321/
 npm run build        # → ./dist/
 npm run preview      # serve the production build locally
 
@@ -259,6 +259,6 @@ When you wire a custom domain (e.g. `labs.backblaze.com`):
 
 **Astro complains about Vite plugin types** — Astro 5 bundles its own Vite. The plugin from `@tailwindcss/vite` is structurally compatible but its `Plugin` type comes from a different copy. The cast `/** @type {any} */ (tailwindcss())` in `astro.config.mjs` silences the false positive.
 
-**Images not loading on GitHub Pages** — make sure asset paths use `import.meta.env.BASE_URL` so the `/website` base path is honored.
+**Images not loading** — make sure asset paths are resolved against `import.meta.env.BASE_URL` rather than hard-coded, so they stay correct if the base path ever changes. The site currently serves from the root (`/`) on the custom domain backblazelabs.com.
 
 **`npm run sync-stats` fails** — the `gh` CLI must be authenticated. Run `gh auth status` to confirm, or set `GH_TOKEN` / `GITHUB_TOKEN`.

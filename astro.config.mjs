@@ -4,15 +4,15 @@ import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
-// Backblaze Labs site — deployed to GitHub Pages.
-// Custom-domain-ready: when a CNAME is added, swap `site` and clear `base`.
+// Backblaze Labs site — deployed to GitHub Pages on the custom domain
+// backblazelabs.com (see public/CNAME). The site serves from the root, so
+// there's no `base` path; asset/link helpers resolve against `import.meta.env.BASE_URL`.
 //
 // Sitemap is hand-rolled in src/pages/sitemap.xml.ts so we get a single file
 // instead of @astrojs/sitemap's index-of-shards pattern (which is overkill for
 // our ~40-URL footprint).
 export default defineConfig({
-  site: "https://backblaze-labs.github.io",
-  base: "/website",
+  site: "https://backblazelabs.com",
   trailingSlash: "ignore",
   integrations: [mdx()],
   vite: {

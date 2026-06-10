@@ -118,7 +118,7 @@ Don't want to open a PR? Use the **[Add an integration](.github/ISSUE_TEMPLATE/a
 ```bash
 conda activate node     # or: nvm use 24 — the project pins Node 24
 npm install
-npm run dev             # http://localhost:4321/website/
+npm run dev             # http://localhost:4321/
 ```
 
 ### Project layout

@@ -8,9 +8,7 @@ import { catalog } from "~/lib/labs";
  * Excludes /og/*.png — those are images, not pages. Sitemaps are for crawlable docs.
  */
 export const GET: APIRoute = ({ site }) => {
-  const baseUrl = (site ?? new URL("https://backblaze-labs.github.io"))
-    .toString()
-    .replace(/\/$/, "");
+  const baseUrl = (site ?? new URL("https://backblazelabs.com")).toString().replace(/\/$/, "");
   const path = import.meta.env.BASE_URL.replace(/\/$/, "");
   const today = new Date().toISOString().slice(0, 10);
 
