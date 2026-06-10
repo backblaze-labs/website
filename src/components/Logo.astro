@@ -6,7 +6,7 @@ interface Props {
 const { variant = "horizontal", class: className = "" } = Astro.props;
 import { catalog } from "~/lib/labs";
 
-// Resolve asset path against base — works in dev (`/`) and on GitHub Pages (`/website`).
+// Resolve asset path against base. The site serves from the root, so this is `/`.
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const flameSrc = `${base}/brand/flame-red.svg`;
 ---

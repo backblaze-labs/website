@@ -2,14 +2,14 @@
   "name": "Backblaze Labs",
   "short_name": "BB Labs",
   "description": "Open source experiments, integrations, and tools built on Backblaze B2.",
-  "start_url": "/website/",
-  "scope": "/website/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000033",
   "theme_color": "#000033",
   "icons": [
     {
-      "src": "/website/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

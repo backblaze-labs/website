@@ -54,7 +54,7 @@ conda activate node
 # or: brew install node@24
 
 npm install
-npm run dev      # → http://localhost:4321/website/
+npm run dev      # → http://localhost:4321/
 npm run build    # → ./dist/
 npm run preview  # serve the production build locally
 ```

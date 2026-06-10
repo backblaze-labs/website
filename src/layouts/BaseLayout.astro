@@ -30,15 +30,14 @@ const {
 
 const fullTitle = title === catalog.meta.title ? title : `${title} · ${catalog.meta.title}`;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblaze-labs.github.io").toString();
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblazelabs.com").toString();
 
 // Single site-wide OG image. We don't generate per-page variants — the site is a
 // single gallery and detail pages were dropped in favor of direct upstream links.
-const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backblaze-labs.github.io").toString();
+const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backblazelabs.com").toString();
 
-// Site root for schema docs (always includes the base path). e.g.
-//   https://backblaze-labs.github.io/website
-const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblaze-labs.github.io")
+// Site root for schema docs. e.g. https://backblazelabs.com
+const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblazelabs.com")
   .toString()
   .replace(/\/$/, "");
 const pageUrl = canonical;

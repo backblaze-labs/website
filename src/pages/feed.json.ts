@@ -14,7 +14,7 @@ import { catalog, previewUrl, sortIntegrations, statsFor } from "~/lib/labs";
  * item (which would churn every subscriber on each rebuild).
  */
 export const GET: APIRoute = ({ site }) => {
-  const baseUrl = (site ?? new URL("https://backblaze-labs.github.io"))
+  const baseUrl = (site ?? new URL("https://backblazelabs.com"))
     .toString()
     .replace(/\/$/, "");
   const path = import.meta.env.BASE_URL.replace(/\/$/, "");
