@@ -32,9 +32,11 @@ const fullTitle = title === catalog.meta.title ? title : `${title} · ${catalog.
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblazelabs.com").toString();
 
-// Single site-wide OG image. We don't generate per-page variants — the site is a
-// single gallery and detail pages were dropped in favor of direct upstream links.
-const ogUrl = ogImage ?? new URL(`${base}/og.png`, Astro.site ?? "https://backblazelabs.com").toString();
+// Single site-wide OG image — a 1200×630 social card (see scripts/gen-og-assets.mjs).
+// We don't generate per-page variants: the site is a single gallery and detail pages
+// were dropped in favor of direct upstream links. Pages may still override via `ogImage`.
+const ogUrl = ogImage ?? new URL(`${base}/og.jpg`, Astro.site ?? "https://backblazelabs.com").toString();
+const ogImageAlt = `${catalog.meta.title} — ${catalog.meta.tagline}`;
 
 // Site root for schema docs. e.g. https://backblazelabs.com
 const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblazelabs.com")
@@ -55,26 +57,34 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
     <meta name="theme-color" content="#04050f" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)" />
     <link rel="canonical" href={canonical} />
+    <!-- Let crawlers index everything and use full-size image/text previews. -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="sitemap" type="application/xml" href={`${base}/sitemap.xml`} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="mask-icon" href={`${base}/favicon.svg`} color="#E20626" />
-    <link rel="apple-touch-icon" href={`${base}/favicon.svg`} />
+    <!-- PNG apple-touch-icon: iOS Safari ignores SVG touch icons. -->
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}/site.webmanifest`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Backblaze Labs" />
     <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- JSON Feed for syndication -->
     <link rel="alternate" type="application/feed+json" title="Backblaze Labs" href={`${base}/feed.json`} />
