@@ -50,6 +50,8 @@ export interface LabsCatalog {
   version: number;
   meta: {
     title: string;
+    /** Longer, SEO-optimized title used only for the homepage `<title>`. */
+    homeTitle: string;
     tagline: string;
     description: string;
     github: string;
