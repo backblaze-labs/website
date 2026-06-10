@@ -7,6 +7,7 @@
 # Backblaze / B2 product terminology
 backblaze
 backblazeb
+backblazelabs
 b2cloud
 blze
 
