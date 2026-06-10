@@ -24,6 +24,7 @@ cspell
 dependabot
 satori
 resvg
+mozjpeg
 fontsource
 codeowners
 nvmrc
@@ -61,6 +62,7 @@ genblaze
 colab
 
 # AI / ML domain
+llms
 multimodal
 transformer
 transformers

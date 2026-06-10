@@ -24,6 +24,7 @@
     "sync": "node scripts/sync.mjs",
     "discover": "node scripts/discover.mjs",
     "merge-discovered": "node scripts/merge-discovered.mjs",
+    "gen-assets": "node scripts/gen-og-assets.mjs",
     "docs:lint": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#dist\" \"#.astro\"",
     "spellcheck": "cspell --no-progress --no-must-find-files",
     "checks": "npm run lint && npm run format:check && npm run typecheck && npm run validate && npm run docs:lint && npm run spellcheck",
