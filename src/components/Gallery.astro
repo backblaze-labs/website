@@ -4,9 +4,10 @@ import IntegrationCard from "~/components/IntegrationCard.astro";
 import Icon from "~/components/Icon.astro";
 import { catalog, sortIntegrations } from "~/lib/labs";
 
-// Sort order: featured → has-real-image → alphabetical. The "image first"
-// tier means a wall of branded preview artwork loads in the visible region
-// before the placeholder-gradient cards drop in below.
+// Sort order: featured → has-real-image → alphabetical, with awesome lists
+// (type "list") always sunk to the bottom. The "image first" tier means a wall
+// of branded preview artwork loads in the visible region before the
+// placeholder-gradient cards drop in below.
 const sorted = sortIntegrations(catalog.integrations);
 ---
 <section id="integrations" class="container-page mt-12 md:mt-16">
@@ -50,7 +51,7 @@ const sorted = sortIntegrations(catalog.integrations);
     <div>
       <div class="mb-3 flex items-center justify-between text-sm" style="color: var(--fg-muted);">
         <span><span data-result-count>{catalog.integrations.length}</span> shown</span>
-        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then with previews · then alphabetical</span>
+        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then with previews · awesome lists last</span>
       </div>
       <div class="mb-3 hidden flex-wrap gap-1.5 sm:flex">
         <span class="text-xs" style="color: var(--fg-dim);">Quick filters:</span>
@@ -70,14 +71,13 @@ const sorted = sortIntegrations(catalog.integrations);
         <p class="mt-1 text-sm" style="color: var(--fg-muted);">Try clearing a filter or adjusting your search.</p>
         <button type="button" data-filter-clear class="btn-secondary mt-4">Clear filters</button>
       </div>
-      <div data-pager class="mt-8 hidden flex-col items-center gap-2">
-        <button type="button" data-show-more class="btn-secondary" data-track="show_more">
-          Show more
-        </button>
-        <p class="text-xs" style="color: var(--fg-dim);">
-          Showing <span data-pager-shown>0</span> of <span data-pager-total>0</span>
-        </p>
-      </div>
+      <!-- Infinite scroll sentinel: when it enters the viewport we reveal the
+           next page of matching cards. Zero-height and aria-hidden so it's
+           invisible to layout and assistive tech. -->
+      <div data-sentinel aria-hidden="true"></div>
+      <p data-pager-status class="mt-8 hidden text-center text-xs" style="color: var(--fg-dim);">
+        Showing <span data-pager-shown>0</span> of <span data-pager-total>0</span>
+      </p>
     </div>
   </div>
 </section>
@@ -184,15 +184,19 @@ const sorted = sortIntegrations(catalog.integrations);
   const filtersWrap = document.querySelector("[data-filters-wrap]");
   const filtersToggle = document.querySelector("[data-filters-toggle]");
   const filtersToggleLabel = document.querySelector("[data-filters-toggle-label]");
-  const pager = document.querySelector("[data-pager]");
-  const showMoreBtn = document.querySelector("[data-show-more]");
+  const sentinel = document.querySelector("[data-sentinel]");
+  const pagerStatus = document.querySelector("[data-pager-status]");
   const pagerShown = document.querySelector("[data-pager-shown]");
   const pagerTotal = document.querySelector("[data-pager-total]");
 
   // How many filtered-matching cards to render at once. Filter + search apply
   // across the FULL set; only the slice that's actually visible is rendered.
+  // Additional pages are revealed automatically as the sentinel scrolls into
+  // view (see the IntersectionObserver below).
   const PAGE_SIZE = 12;
   let pageLimit = PAGE_SIZE;
+  // Set by apply(): whether unrendered matches remain to reveal on scroll.
+  let hasMore = false;
 
   // Pre-populate search from `?q=` so the Schema.org SearchAction template
   // (configured in BaseLayout to point at `?q={search_term_string}`) actually
@@ -244,7 +248,7 @@ const sorted = sortIntegrations(catalog.integrations);
         continue;
       }
       totalMatching++;
-      // Show the first `pageLimit` matches; hide the rest until "Show more".
+      // Show the first `pageLimit` matches; hide the rest until scrolled into view.
       if (shown < pageLimit) {
         card.style.display = "";
         shown++;
@@ -255,13 +259,26 @@ const sorted = sortIntegrations(catalog.integrations);
     if (countEl) countEl.textContent = String(totalMatching);
     if (empty) empty.classList.toggle("hidden", totalMatching !== 0);
     grid.classList.toggle("hidden", totalMatching === 0);
-    // Pager: show "Show more" only when there are more matches than rendered.
-    if (pager) {
-      const hasMore = totalMatching > shown;
-      pager.classList.toggle("hidden", !hasMore);
-      pager.classList.toggle("flex", hasMore);
+    // Drive the infinite-scroll trigger and the "Showing X of Y" status line.
+    hasMore = totalMatching > shown;
+    if (pagerStatus) {
+      pagerStatus.classList.toggle("hidden", totalMatching === 0);
       if (pagerShown) pagerShown.textContent = String(shown);
       if (pagerTotal) pagerTotal.textContent = String(totalMatching);
+    }
+  }
+
+  // Reveal pages until the sentinel sits below the preload band or nothing is
+  // left. The rAF loop re-measures after each reveal so that on tall viewports
+  // (where one page doesn't fill the gap) we keep loading without waiting for
+  // another scroll event.
+  function fill() {
+    if (!hasMore) return;
+    const rect = sentinel?.getBoundingClientRect();
+    if (rect && rect.top <= window.innerHeight + 600) {
+      pageLimit += PAGE_SIZE;
+      apply();
+      requestAnimationFrame(fill);
     }
   }
 
@@ -270,21 +287,31 @@ const sorted = sortIntegrations(catalog.integrations);
     if (search) search.value = "";
     pageLimit = PAGE_SIZE;
     apply();
+    fill();
   }
 
-  if (showMoreBtn) {
-    showMoreBtn.addEventListener("click", () => {
-      pageLimit += PAGE_SIZE;
-      apply();
-    });
+  // Infinite scroll: reveal the next page whenever the sentinel nears the
+  // viewport. Falls back to rendering everything up front if the browser lacks
+  // IntersectionObserver, so the full catalog stays reachable without JS paging.
+  if (sentinel && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) fill();
+      },
+      { rootMargin: "600px 0px" }
+    );
+    io.observe(sentinel);
+  } else {
+    pageLimit = cards.length;
   }
 
-  // When filters or search change, reset to the first page — otherwise "Show more"
-  // state from a previous filter would leak through.
+  // When filters or search change, reset to the first page — otherwise the
+  // revealed-page count from a previous filter would leak through.
   for (const cb of checkboxes) {
     cb.addEventListener("change", () => {
       pageLimit = PAGE_SIZE;
       apply();
+      fill();
       if (window.bbTrack && cb.checked) {
         window.bbTrack("filter_change", { filter: cb.dataset.filter, value: cb.value });
       }
@@ -295,6 +322,7 @@ const sorted = sortIntegrations(catalog.integrations);
     search.addEventListener("input", () => {
       pageLimit = PAGE_SIZE;
       apply();
+      fill();
       // Debounce search-term events so we don't fire on every keystroke.
       clearTimeout(searchTimer);
       searchTimer = window.setTimeout(() => {
@@ -307,13 +335,17 @@ const sorted = sortIntegrations(catalog.integrations);
   }
   document.querySelectorAll("[data-filter-clear]").forEach((b) => b.addEventListener("click", clearAll));
 
-  // First paint: render the initial page slice. Defer until idle so the
-  // initial filter pass doesn't compete with the browser's first paint —
-  // significant TBT win on slower CPUs (~50–100ms).
+  // First paint: render the initial page slice, then top up to fill tall
+  // viewports. Deferred until idle so the initial filter pass doesn't compete
+  // with the browser's first paint — significant TBT win on slower CPUs.
+  const firstPaint = () => {
+    apply();
+    fill();
+  };
   if ("requestIdleCallback" in window) {
-    requestIdleCallback(apply, { timeout: 200 });
+    requestIdleCallback(firstPaint, { timeout: 200 });
   } else {
-    setTimeout(apply, 0);
+    setTimeout(firstPaint, 0);
   }
 
   // "/" focuses search.
