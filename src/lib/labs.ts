@@ -126,16 +126,21 @@ export function hasPreview(item: Integration): boolean {
 /**
  * Canonical display order for the gallery and category pages:
  *
- *   1. `featured: true` items first.
- *   2. Then items with a real preview image (manual or auto-discovered) —
+ *   1. Awesome lists (`type: "list"`) always sink to the bottom — they're
+ *      meta-resources, not projects, so they shouldn't crowd the top.
+ *   2. `featured: true` items first (among non-lists).
+ *   3. Then items with a real preview image (manual or auto-discovered) —
  *      a wall of branded artwork reads better than a wall of placeholder
  *      gradients.
- *   3. Alphabetical by title within each tier.
+ *   4. Alphabetical by title within each tier.
  *
  * Returns a new array; never mutates the input.
  */
 export function sortIntegrations(items: Integration[]): Integration[] {
   return [...items].sort((a, b) => {
+    const al = a.type === "list" ? 1 : 0;
+    const bl = b.type === "list" ? 1 : 0;
+    if (al !== bl) return al - bl;
     const af = a.featured ? 1 : 0;
     const bf = b.featured ? 1 : 0;
     if (af !== bf) return bf - af;

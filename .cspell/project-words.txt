@@ -34,6 +34,7 @@ vercel
 vitest
 ajv
 fallthroughs
+viewports
 
 # Integration / upstream project names
 mlflow

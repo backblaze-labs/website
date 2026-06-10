@@ -118,7 +118,7 @@ const options = [
     const options = wrap.querySelectorAll(".theme-option");
 
     const refreshChecked = () => {
-      const current = root.getAttribute("data-theme") ?? "system";
+      const current = root.getAttribute("data-theme") ?? "dark";
       options.forEach((opt) => {
         opt.setAttribute("aria-checked", opt.getAttribute("data-theme-set") === current ? "true" : "false");
       });

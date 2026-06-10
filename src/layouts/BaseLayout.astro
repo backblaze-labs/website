@@ -107,15 +107,15 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
     <Analytics />
 
     <!-- Pre-paint theme: avoids FOUC when user has saved a non-default theme.
-         Defaults to "system" if nothing is stored. -->
+         Defaults to "dark" if nothing is stored. -->
     <script is:inline>
       (function () {
         try {
           const saved = localStorage.getItem("bb-theme");
-          const theme = saved === "light" || saved === "dark" || saved === "system" ? saved : "system";
+          const theme = saved === "light" || saved === "dark" || saved === "system" ? saved : "dark";
           document.documentElement.setAttribute("data-theme", theme);
         } catch (_) {
-          document.documentElement.setAttribute("data-theme", "system");
+          document.documentElement.setAttribute("data-theme", "dark");
         }
       })();
     </script>
