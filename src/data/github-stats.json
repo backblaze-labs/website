@@ -11,6 +11,42 @@
     "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
     "fetchedAt": "2026-06-09T10:31:13.122Z"
   },
+  "ai-audiobook-generator": {
+    "archived": false,
+    "description": "Sample app: convert any manuscript into a chapterized audiobook using OpenAI or ElevenLabs TTS, with per-chapter MP3s and an M4B master stored in Backblaze B2 object storage — no database, just a JSON manifest per book",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-04T19:23:08Z",
+    "repo": "backblaze-b2-samples/ai-audiobook-generator",
+    "fetchedAt": "2026-06-11T11:19:48.624Z"
+  },
+  "ai-avatar-video-generator": {
+    "archived": false,
+    "description": "Open-source AI avatar video generator: turn a script + avatar into a talking-head video with synced voice. Next.js + FastAPI demo using Backblaze B2 as the sole datastore — no database.",
+    "forks": 1,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 1,
+    "updated": "2026-06-05T13:25:00Z",
+    "repo": "backblaze-b2-samples/ai-avatar-video-generator",
+    "fetchedAt": "2026-06-11T11:19:48.705Z"
+  },
+  "ai-headshot-studio": {
+    "archived": false,
+    "description": "AI headshot generator that fine-tunes a likeness LoRA from your selfies and renders professional headshots across style packs. Every artifact — selfies, captions, the trained model, and generated images — lives on Backblaze B2 (S3-compatible). Next.js + FastAPI sample with a real face-data privacy lifecycle.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-10T13:17:59Z",
+    "repo": "backblaze-b2-samples/ai-headshot-studio",
+    "fetchedAt": "2026-06-11T11:19:48.682Z"
+  },
   "ai-meeting-notes": {
     "archived": false,
     "description": "AI meeting notes on Backblaze B2 — record or upload meetings, transcribe with speaker diarization, and auto-generate summaries, decisions, and action items. FastAPI + Next.js B2 sample app, searchable across every past meeting.",
@@ -34,6 +70,18 @@
     "updated": "2026-05-28T17:47:21Z",
     "repo": "backblaze-b2-samples/ai-music-studio",
     "fetchedAt": "2026-05-28T23:06:05.360Z"
+  },
+  "ai-sticker-pack-generator": {
+    "archived": false,
+    "description": "AI sticker pack generator: turn one text prompt into a consistent pack of transparent die-cut stickers with OpenAI gpt-image-1, store every image in Backblaze B2 object storage (no database), and export to Telegram, WhatsApp, Discord, and iMessage.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-09T18:24:15Z",
+    "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
+    "fetchedAt": "2026-06-11T11:19:48.654Z"
   },
   "arxiv-insight-briefs-nvidia-nemotron": {
     "archived": false,
@@ -126,10 +174,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 2,
-    "stars": 9,
+    "stars": 10,
     "updated": "2026-06-01T20:35:14Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-09T10:31:13.015Z"
+    "fetchedAt": "2026-06-11T11:19:48.620Z"
   },
   "b2-action": {
     "archived": false,
@@ -179,17 +227,41 @@
     "repo": "backblaze-labs/comfyui-cloud-storage",
     "fetchedAt": "2026-05-14T21:47:45.213Z"
   },
+  "comic-storyboard-b2": {
+    "archived": false,
+    "description": "Turn a one-sentence idea into a character-consistent multi-panel comic, with every AI-generated frame persisted to Backblaze B2 storage and a SHA-256 provenance manifest. A Genblaze sample app: Next.js + FastAPI, FLUX and Replicate image gen, zero direct S3 code.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": null,
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-10T00:34:20Z",
+    "repo": "backblaze-b2-samples/comic-storyboard-b2",
+    "fetchedAt": "2026-06-11T11:19:48.612Z"
+  },
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
     "forks": 3702,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 607,
-    "stars": 16018,
-    "updated": "2026-06-10T09:42:46Z",
+    "openIssues": 609,
+    "stars": 16032,
+    "updated": "2026-06-11T11:19:21Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-10T10:52:26.262Z"
+    "fetchedAt": "2026-06-11T11:19:48.634Z"
+  },
+  "docs-to-podcast": {
+    "archived": false,
+    "description": "NotebookLM-style podcast generator built on Backblaze B2: turn PDFs and docs into a two-host AI audio overview with OpenAI script generation and TTS, storing sources, transcripts, and episode audio in B2 cloud storage via the S3-compatible API.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-08T16:22:45Z",
+    "repo": "backblaze-b2-samples/docs-to-podcast",
+    "fetchedAt": "2026-06-11T11:19:48.664Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -211,9 +283,21 @@
     "license": "MIT",
     "openIssues": 86,
     "stars": 10,
-    "updated": "2026-06-09T01:10:23Z",
+    "updated": "2026-06-11T05:44:03Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-09T10:31:12.983Z"
+    "fetchedAt": "2026-06-11T11:19:48.593Z"
+  },
+  "genblaze-gen-media-multi-provider-sample": {
+    "archived": false,
+    "description": null,
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-02T04:37:09Z",
+    "repo": "backblaze-labs/genblaze-gen-media-multi-provider-sample",
+    "fetchedAt": "2026-06-11T11:19:48.705Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -226,6 +310,30 @@
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
     "fetchedAt": "2026-05-14T21:47:44.923Z"
+  },
+  "gpt-realtime-2-customer-support-voice-agent": {
+    "archived": false,
+    "description": "Browser-based customer-support voice agent on OpenAI gpt-realtime-2 — full-duplex WebRTC voice, mock CRM/helpdesk tool calling, with every call archived to Backblaze B2 (WAV audio, transcript, tool trace, summary, manifest). FastAPI + Next.js B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-29T20:01:05Z",
+    "repo": "backblaze-b2-samples/gpt-realtime-2-customer-support-voice-agent",
+    "fetchedAt": "2026-06-11T11:19:48.711Z"
+  },
+  "gpt-realtime-translate-live-event-interpreter": {
+    "archived": false,
+    "description": "Real-time multilingual interpreter for live events on OpenAI gpt-realtime-translate — one speaker, attendees get translated audio + live captions, every event archived to Backblaze B2 (source audio, transcripts, VTT/SRT). FastAPI + Next.js B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-05-29T18:36:02Z",
+    "repo": "backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
+    "fetchedAt": "2026-06-11T11:19:48.726Z"
   },
   "gpt-realtime-whisper-live-transcript-redactor": {
     "archived": false,
@@ -287,17 +395,29 @@
     "repo": "backblaze-labs/jupyterlab-b2",
     "fetchedAt": "2026-05-14T21:47:45.120Z"
   },
+  "lora-training-studio": {
+    "archived": false,
+    "description": "Browser-based LoRA fine-tuning studio for Stable Diffusion: upload images, caption, train, and download the .safetensors — every artifact (dataset, captions, checkpoints, samples, LoRA) versioned on Backblaze B2.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-09T17:55:52Z",
+    "repo": "backblaze-b2-samples/lora-training-studio",
+    "fetchedAt": "2026-06-11T11:19:48.680Z"
+  },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5828,
+    "forks": 5831,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2088,
-    "stars": 26403,
-    "updated": "2026-06-10T10:25:20Z",
+    "openIssues": 2077,
+    "stars": 26423,
+    "updated": "2026-06-11T09:10:06Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-10T10:52:26.075Z"
+    "fetchedAt": "2026-06-11T11:19:48.676Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -323,6 +443,18 @@
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
     "fetchedAt": "2026-05-14T21:47:45.414Z"
   },
+  "personal-video-ai-search": {
+    "archived": false,
+    "description": "AI-powered semantic search over your personal video archive on Backblaze B2. Indexes every clip on three signals — Whisper transcripts, multimodal scene captions, and locally clustered faces — then answers natural-language queries with playable clips. No database: the search and face indexes are JSON in the bucket.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-09T21:42:49Z",
+    "repo": "backblaze-b2-samples/personal-video-ai-search",
+    "fetchedAt": "2026-06-11T11:19:48.692Z"
+  },
   "pixeltable-multimodal-data": {
     "archived": false,
     "description": "Example notebooks showing how to use Pixeltable with Backblaze B2 for managing and querying multimodal datasets.",
@@ -334,6 +466,18 @@
     "updated": "2025-12-02T19:04:46Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
     "fetchedAt": "2026-05-14T21:47:45.405Z"
+  },
+  "sdk-typescript": {
+    "archived": false,
+    "description": "Backblaze-maintained TypeScript and JavaScript SDK for B2 Cloud Storage, currently incubating in Backblaze-Labs",
+    "forks": 1,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 52,
+    "stars": 7,
+    "updated": "2026-06-08T11:12:06Z",
+    "repo": "backblaze-labs/b2-sdk-typescript",
+    "fetchedAt": "2026-06-11T11:19:48.683Z"
   },
   "transformerjs-background-removal": {
     "archived": false,
@@ -370,6 +514,18 @@
     "updated": "2026-06-06T12:34:37Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
     "fetchedAt": "2026-06-07T09:57:14.333Z"
+  },
+  "video-semantic-search": {
+    "archived": false,
+    "description": "Chat with your video: a full-stack TypeScript + Python sample app that transcribes long-form video with Whisper, embeds it, and returns the exact timestamped moments that answer a natural-language question. Backblaze B2 is the sole data store — source, audio, transcript, and vector index — with no separate database.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-08T17:20:19Z",
+    "repo": "backblaze-b2-samples/video-semantic-search",
+    "fetchedAt": "2026-06-11T11:19:48.689Z"
   },
   "video-to-insights-nvidia-parakeet-llama": {
     "archived": false,
