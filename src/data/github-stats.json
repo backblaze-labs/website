@@ -101,11 +101,11 @@
     "forks": 8,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 6,
+    "openIssues": 5,
     "stars": 1,
     "updated": "2026-06-01T20:35:06Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-06-10T10:52:26.287Z"
+    "fetchedAt": "2026-06-13T09:54:24.346Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -113,11 +113,11 @@
     "forks": 4,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 2,
     "updated": "2026-06-01T20:35:08Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-06-10T10:52:26.252Z"
+    "fetchedAt": "2026-06-13T09:54:24.320Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -126,10 +126,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 3,
-    "stars": 2,
+    "stars": 3,
     "updated": "2026-06-01T20:35:09Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-06-02T11:14:10.029Z"
+    "fetchedAt": "2026-06-13T09:54:24.325Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -185,11 +185,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 24,
+    "openIssues": 21,
     "stars": 7,
-    "updated": "2026-06-12T04:11:48Z",
+    "updated": "2026-06-12T16:49:35Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-06-12T10:58:00.556Z"
+    "fetchedAt": "2026-06-13T09:54:24.323Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -242,14 +242,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3704,
+    "forks": 3707,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 611,
-    "stars": 16045,
-    "updated": "2026-06-12T10:10:04Z",
+    "openIssues": 614,
+    "stars": 16058,
+    "updated": "2026-06-12T21:06:34Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-12T10:58:00.368Z"
+    "fetchedAt": "2026-06-13T09:54:24.307Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -410,14 +410,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5834,
+    "forks": 5835,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2078,
-    "stars": 26463,
-    "updated": "2026-06-12T10:14:50Z",
+    "openIssues": 2090,
+    "stars": 26484,
+    "updated": "2026-06-13T03:15:46Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-12T10:58:00.272Z"
+    "fetchedAt": "2026-06-13T09:54:24.310Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
