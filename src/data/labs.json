@@ -942,6 +942,27 @@
       "url": "https://github.com/backblaze-labs/genblaze-gen-media-multi-provider-sample",
       "icon": "sparkle",
       "featured": false
+    },
+    {
+      "id": "iceberg-feature-store",
+      "title": "Iceberg Feature Store",
+      "tagline": "Apache Iceberg feature store and data lakehouse on Backblaze B2 — versioned…",
+      "description": "Apache Iceberg feature store and data lakehouse on Backblaze B2 — versioned feature tables, schema evolution, snapshot rollback, and DuckDB time-travel queries via PyIceberg, with B2 as the warehouse (no data warehouse to run)",
+      "categories": ["ai-ml"],
+      "type": "tool",
+      "language": "typescript",
+      "tags": [
+        "apache-iceberg",
+        "backblaze-b2",
+        "cloudstorage",
+        "data-lakehouse",
+        "duckdb",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/iceberg-feature-store",
+      "url": "https://github.com/backblaze-b2-samples/iceberg-feature-store",
+      "icon": "sparkle",
+      "featured": false
     }
   ]
 }
