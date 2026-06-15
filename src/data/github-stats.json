@@ -242,14 +242,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3706,
+    "forks": 3707,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 614,
-    "stars": 16065,
-    "updated": "2026-06-12T21:06:34Z",
+    "openIssues": 607,
+    "stars": 16069,
+    "updated": "2026-06-15T12:27:50Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-14T10:21:36.378Z"
+    "fetchedAt": "2026-06-15T13:09:28.611Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -410,14 +410,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5838,
+    "forks": 5847,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 1973,
-    "stars": 26508,
-    "updated": "2026-06-14T06:12:43Z",
+    "openIssues": 1982,
+    "stars": 26535,
+    "updated": "2026-06-15T12:48:22Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-14T10:21:36.464Z"
+    "fetchedAt": "2026-06-15T13:09:28.647Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -473,11 +473,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 52,
+    "openIssues": 53,
     "stars": 7,
-    "updated": "2026-06-08T11:12:06Z",
+    "updated": "2026-06-15T11:14:21Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-11T11:19:48.683Z"
+    "fetchedAt": "2026-06-15T13:09:28.647Z"
   },
   "transformerjs-background-removal": {
     "archived": false,
