@@ -1,0 +1,256 @@
+---
+const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
+const gtmId = import.meta.env.PUBLIC_GTM_ID as string | undefined;
+const privacyUrl = "https://www.backblaze.com/company/policy/privacy";
+const cookieUrl = "https://www.backblaze.com/company/policy/cookies";
+const analyticsConfigured = (!!gaId && /^G-[A-Z0-9]+$/i.test(gaId)) || (!!gtmId && /^GTM-[A-Z0-9]+$/i.test(gtmId));
+---
+
+{analyticsConfigured && (
+  <>
+    <section class="cookie-consent" data-cookie-consent hidden aria-live="polite">
+      <div class="cookie-consent__copy">
+        <p class="cookie-consent__eyebrow">Privacy choices</p>
+        <h2>Analytics cookies</h2>
+        <p>
+          Backblaze Labs uses essential local preferences. With your choice, we also use Google Analytics cookies to
+          understand site usage.
+        </p>
+        <p class="cookie-consent__status" data-consent-status></p>
+        <p class="cookie-consent__gpc" data-gpc-notice hidden>
+          Your browser is sending a Global Privacy Control signal, so analytics remains off.
+        </p>
+        <p class="cookie-consent__links">
+          <a href={privacyUrl} target="_blank" rel="noopener">Privacy Notice</a>
+          <span aria-hidden="true">·</span>
+          <a href={cookieUrl} target="_blank" rel="noopener">Cookie Policy</a>
+        </p>
+      </div>
+      <div class="cookie-consent__actions">
+        <button type="button" class="cookie-consent__secondary" data-consent-deny>Decline</button>
+        <button type="button" class="cookie-consent__primary" data-consent-accept>Accept analytics</button>
+      </div>
+    </section>
+
+    <script is:inline>
+      (function () {
+        const panel = document.querySelector("[data-cookie-consent]");
+        if (!panel) return;
+
+        const status = panel.querySelector("[data-consent-status]");
+        const gpcNotice = panel.querySelector("[data-gpc-notice]");
+        const acceptButtons = panel.querySelectorAll("[data-consent-accept]");
+        const denyButtons = panel.querySelectorAll("[data-consent-deny]");
+
+        function api() {
+          return window.bbAnalyticsConsent;
+        }
+
+        function hasGpc() {
+          return Boolean(api() && api().hasGlobalPrivacyControl());
+        }
+
+        function currentConsent() {
+          return api() ? api().get() : null;
+        }
+
+        function updateStatus() {
+          const consent = currentConsent();
+          if (status) {
+            status.textContent =
+              consent === "granted"
+                ? "Analytics is currently on."
+                : consent === "denied"
+                  ? "Analytics is currently off."
+                  : "Choose whether analytics cookies may be used.";
+          }
+
+          if (gpcNotice) {
+            gpcNotice.hidden = !hasGpc();
+          }
+
+          for (const button of acceptButtons) {
+            button.disabled = hasGpc();
+            button.setAttribute(
+              "aria-disabled",
+              hasGpc() ? "true" : "false",
+            );
+          }
+        }
+
+        function render(forceOpen) {
+          updateStatus();
+          panel.hidden = !(forceOpen || currentConsent() === null);
+        }
+
+        function setConsent(value) {
+          if (!api()) return;
+          api().set(value);
+          render(false);
+        }
+
+        for (const button of acceptButtons) {
+          button.addEventListener("click", function () {
+            setConsent("granted");
+          });
+        }
+
+        for (const button of denyButtons) {
+          button.addEventListener("click", function () {
+            setConsent("denied");
+          });
+        }
+
+        document.addEventListener("click", function (event) {
+          const trigger =
+            event.target instanceof Element ? event.target.closest("[data-cookie-preferences]") : null;
+          if (!trigger) return;
+          event.preventDefault();
+          render(true);
+        });
+
+        window.addEventListener("bb-analytics-preferences-open", function () {
+          render(true);
+        });
+
+        window.addEventListener("bb-analytics-consent-change", function () {
+          render(false);
+        });
+
+        render(false);
+      })();
+    </script>
+
+    <style>
+      .cookie-consent[hidden] {
+        display: none !important;
+      }
+
+  .cookie-consent {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: max(1rem, env(safe-area-inset-left));
+    z-index: 80;
+    display: grid;
+    gap: 1rem;
+    max-width: 680px;
+    padding: 1rem;
+    color: var(--fg);
+    background: color-mix(in oklab, var(--bg) 94%, black 6%);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    box-shadow: 0 24px 80px -28px rgba(0, 0, 0, 0.65);
+  }
+
+  .cookie-consent__copy {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .cookie-consent__eyebrow {
+    margin: 0;
+    color: var(--fg-dim);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cookie-consent h2 {
+    margin: 0;
+    color: var(--fg);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .cookie-consent p {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .cookie-consent__status,
+  .cookie-consent__gpc {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  .cookie-consent__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .cookie-consent__links a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cookie-consent__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .cookie-consent__primary,
+  .cookie-consent__secondary {
+    min-height: 2.5rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .cookie-consent__primary {
+    color: var(--cta-fg);
+    background: var(--cta-bg);
+    border: 1px solid transparent;
+  }
+
+  .cookie-consent__primary:hover:not(:disabled) {
+    background: var(--cta-bg-hover);
+    transform: translateY(-1px);
+  }
+
+  .cookie-consent__primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .cookie-consent__secondary {
+    color: var(--fg);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+  }
+
+  .cookie-consent__secondary:hover {
+    border-color: var(--fg-dim);
+    transform: translateY(-1px);
+  }
+
+  @media (min-width: 720px) {
+    .cookie-consent {
+      left: auto;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      padding: 1.1rem;
+    }
+
+    .cookie-consent__actions {
+      justify-content: flex-end;
+      min-width: 260px;
+    }
+  }
+    </style>
+  </>
+)}

@@ -1,11 +1,13 @@
 ---
-// Analytics: GA4 (direct) and/or Google Tag Manager. Both are opt-in via env var.
+// Analytics: GA4 (direct) and/or Google Tag Manager. Both are opt-in via env var
+// and consent-gated in the browser.
 //
 //   PUBLIC_GA_ID    — GA4 measurement ID (e.g. "G-XXXXXXXXXX"). Loads gtag.js.
 //   PUBLIC_GTM_ID   — Tag Manager container ID (e.g. "GTM-XXXXXXX"). Loads gtm.js.
 //   PUBLIC_GA_DEBUG — set to "true" to enable GA4 debug_mode in non-prod.
 //
 // You can set either (or both). With nothing set, this component renders nothing.
+// Google scripts are loaded only after analytics consent is granted.
 //
 // Why a delegation-based event tracker (`window.bbTrack`):
 //   Adding a new tracked interaction is just `data-track="event_name"
@@ -21,71 +23,246 @@ const gaEnabled = !!gaId && /^G-[A-Z0-9]+$/i.test(gaId);
 const gtmEnabled = !!gtmId && /^GTM-[A-Z0-9]+$/i.test(gtmId);
 const anyEnabled = gaEnabled || gtmEnabled;
 ---
-{gaEnabled && (
-  <>
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-    <script is:inline define:vars={{ gaId, debug }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ window.dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', gaId, Object.assign({ anonymize_ip: true }, debug ? { debug_mode: true } : {}));
-    </script>
-  </>
-)}
-{gtmEnabled && (
-  <>
-    <script is:inline define:vars={{ gtmId }}>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtmId);
-    </script>
-  </>
-)}
 {anyEnabled && (
-  <script is:inline>
-    {`
-      // window.bbTrack(name, params) — forwards to GA4 (gtag) and pushes onto dataLayer
-      // for GTM consumers. No-ops if neither is configured.
-      window.bbTrack = function (name, params) {
-        params = params || {};
+  <script is:inline define:vars={{ gaId: gaEnabled ? gaId : "", gtmId: gtmEnabled ? gtmId : "", debug }}>
+    (function () {
+      const STORAGE_KEY = "bb-labs-analytics-consent";
+      const CONSENT_GRANTED = "granted";
+      const CONSENT_DENIED = "denied";
+      const consentDenied = {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+      };
+      let vendorScriptsLoaded = false;
+      let currentConsent = null;
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("consent", "default", Object.assign({ wait_for_update: 500 }, consentDenied));
+
+      function hasGlobalPrivacyControl() {
+        return navigator.globalPrivacyControl === true;
+      }
+
+      function readStoredConsent() {
         try {
-          if (typeof window.gtag === 'function') window.gtag('event', name, params);
+          const stored = localStorage.getItem(STORAGE_KEY);
+          return stored === CONSENT_GRANTED || stored === CONSENT_DENIED ? stored : null;
+        } catch (_) {
+          return null;
+        }
+      }
+
+      function writeStoredConsent(value) {
+        try {
+          localStorage.setItem(STORAGE_KEY, value);
+        } catch (_) {
+          /* Consent remains session-only if storage is unavailable. */
+        }
+      }
+
+      function analyticsConsentValue(value) {
+        return value === CONSENT_GRANTED ? "granted" : "denied";
+      }
+
+      function gaConfig() {
+        return Object.assign({ anonymize_ip: true }, debug ? { debug_mode: true } : {});
+      }
+
+      function setGaDisabled(disabled) {
+        if (gaId) {
+          window["ga-disable-" + gaId] = disabled;
+        }
+      }
+
+      function knownAnalyticsCookieNames() {
+        const names = ["_ga", "_gid", "_gat"];
+        if (gaId) {
+          names.push("_gat_gtag_" + gaId.replaceAll("-", "_"));
+        }
+        return names;
+      }
+
+      function cookieDomains() {
+        const host = location.hostname;
+        const parts = host.split(".").filter(Boolean);
+        const domains = ["", host];
+        if (parts.length > 1) {
+          domains.push("." + parts.slice(-2).join("."));
+        }
+        return Array.from(new Set(domains));
+      }
+
+      function clearKnownAnalyticsCookies() {
+        for (const name of knownAnalyticsCookieNames()) {
+          for (const domain of cookieDomains()) {
+            document.cookie = [
+              name + "=",
+              "Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+              "Path=/",
+              domain ? "Domain=" + domain : "",
+              "SameSite=Lax",
+            ]
+              .filter(Boolean)
+              .join("; ");
+          }
+        }
+      }
+
+      function insertScriptOnce(id, src) {
+        if (document.getElementById(id)) return;
+        const script = document.createElement("script");
+        script.id = id;
+        script.async = true;
+        script.src = src;
+        document.head.appendChild(script);
+      }
+
+      function loadVendorScripts() {
+        if (vendorScriptsLoaded || currentConsent !== CONSENT_GRANTED) return;
+        vendorScriptsLoaded = true;
+        setGaDisabled(false);
+
+        if (gaId) {
+          insertScriptOnce("bb-ga4-script", "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gaId));
+          window.gtag("js", new Date());
+          window.gtag("config", gaId, gaConfig());
+        }
+
+        if (gtmId) {
+          window.dataLayer.push({ event: "gtm.js", "gtm.start": new Date().getTime() });
+          insertScriptOnce(
+            "bb-gtm-script",
+            "https://www.googletagmanager.com/gtm.js?id=" + encodeURIComponent(gtmId),
+          );
+        }
+      }
+
+      function notifyConsentChange() {
+        window.dispatchEvent(
+          new CustomEvent("bb-analytics-consent-change", {
+            detail: {
+              configured: true,
+              consent: currentConsent,
+              globalPrivacyControl: hasGlobalPrivacyControl(),
+            },
+          }),
+        );
+      }
+
+      function setConsent(value, options) {
+        const next = hasGlobalPrivacyControl() ? CONSENT_DENIED : value === CONSENT_GRANTED ? CONSENT_GRANTED : CONSENT_DENIED;
+        const opts = options || {};
+        currentConsent = next;
+
+        if (opts.persist !== false || hasGlobalPrivacyControl()) {
+          writeStoredConsent(next);
+        }
+
+        window.gtag(
+          "consent",
+          "update",
+          Object.assign({}, consentDenied, {
+            analytics_storage: analyticsConsentValue(next),
+          }),
+        );
+
+        if (next === CONSENT_GRANTED) {
+          loadVendorScripts();
+        } else {
+          setGaDisabled(true);
+          clearKnownAnalyticsCookies();
+        }
+
+        if (opts.notify !== false) {
+          notifyConsentChange();
+        }
+      }
+
+      function openCookiePreferences() {
+        window.dispatchEvent(new CustomEvent("bb-analytics-preferences-open"));
+      }
+
+      window.bbAnalyticsConsent = {
+        configured: true,
+        get: function () {
+          return currentConsent;
+        },
+        hasGlobalPrivacyControl,
+        openPreferences: openCookiePreferences,
+        set: setConsent,
+      };
+      window.bbOpenCookiePreferences = openCookiePreferences;
+
+      window.bbTrack = function (name, params) {
+        if (currentConsent !== CONSENT_GRANTED) return;
+        params = params || {};
+        loadVendorScripts();
+        try {
+          if (typeof window.gtag === "function") window.gtag("event", name, params);
           if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, params));
-        } catch (e) { /* never break the page over telemetry */ }
+        } catch (_) {
+          /* Never break the page over telemetry. */
+        }
       };
 
-      // === Delegated click handler ===
-      // Tracks two flavours:
-      //   1. Any element carrying \`data-track="<event_name>"\` — extra params come
-      //      from \`data-track-*\` attributes (data-track-foo → "foo").
-      //   2. Outbound links (a[target="_blank"][href^="http"]) → "outbound_click"
-      //      with { host, url, text }.
       function paramsFrom(el) {
-        var p = {};
-        for (var k in el.dataset) {
-          if (k === 'track' || !k.startsWith('track')) continue;
-          var key = k.slice(5).replace(/[A-Z]/g, function (m) { return '_' + m.toLowerCase(); });
-          p[key.replace(/^_/, '')] = el.dataset[k];
+        const params = {};
+        for (const key in el.dataset) {
+          if (key === "track" || !key.startsWith("track")) continue;
+          const paramName = key
+            .slice(5)
+            .replace(/[A-Z]/g, function (match) {
+              return "_" + match.toLowerCase();
+            })
+            .replace(/^_/, "");
+          params[paramName] = el.dataset[key];
         }
-        return p;
+        return params;
       }
-      document.addEventListener('click', function (e) {
-        var el = e.target instanceof Element ? e.target.closest('[data-track], a[target="_blank"][href^="http"]') : null;
-        if (!el) return;
-        var name = el.getAttribute('data-track');
-        if (name) {
-          window.bbTrack(name, paramsFrom(el));
-        } else {
-          // Outbound link auto-track.
+
+      document.addEventListener(
+        "click",
+        function (event) {
+          const el =
+            event.target instanceof Element
+              ? event.target.closest('[data-track], a[target="_blank"][href^="http"]')
+              : null;
+          if (!el) return;
+
+          const name = el.getAttribute("data-track");
+          if (name) {
+            window.bbTrack(name, paramsFrom(el));
+            return;
+          }
+
           try {
-            var u = new URL(el.href);
-            window.bbTrack('outbound_click', {
-              host: u.host,
+            const url = new URL(el.href);
+            window.bbTrack("outbound_click", {
+              host: url.host,
+              text: (el.textContent || "").trim().slice(0, 80),
               url: el.href,
-              text: (el.textContent || '').trim().slice(0, 80),
             });
-          } catch (_) { /* ignore non-URL hrefs */ }
-        }
-      }, { capture: true });
-    `}
+          } catch (_) {
+            /* Ignore non-URL hrefs. */
+          }
+        },
+        { capture: true },
+      );
+
+      const storedConsent = readStoredConsent();
+      if (hasGlobalPrivacyControl()) {
+        setConsent(CONSENT_DENIED, { notify: false });
+      } else if (storedConsent) {
+        setConsent(storedConsent, { notify: false, persist: false });
+      } else {
+        currentConsent = null;
+        setGaDisabled(true);
+      }
+    })();
   </script>
 )}

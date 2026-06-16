@@ -3,6 +3,7 @@ import "~/styles/global.css";
 import Nav from "~/components/Nav.astro";
 import Footer from "~/components/Footer.astro";
 import Analytics from "~/components/Analytics.astro";
+import CookieConsent from "~/components/CookieConsent.astro";
 import { catalog, type Integration } from "~/lib/labs";
 import { organizationSchema, websiteSchema, itemListSchema } from "~/lib/schema";
 
@@ -127,6 +128,7 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
 
     <style>
       .skip-link {

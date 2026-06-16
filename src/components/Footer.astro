@@ -2,10 +2,14 @@
 import Logo from "~/components/Logo.astro";
 import Icon from "~/components/Icon.astro";
 import { catalog } from "~/lib/labs";
+
+const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
+const gtmId = import.meta.env.PUBLIC_GTM_ID as string | undefined;
+const analyticsConfigured = (!!gaId && /^G-[A-Z0-9]+$/i.test(gaId)) || (!!gtmId && /^GTM-[A-Z0-9]+$/i.test(gtmId));
 ---
 <footer class="mt-24 border-t" style="border-color: var(--border);">
   <div class="container-page py-10 md:py-14">
-    <div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
+    <div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
       <div>
         <Logo />
         <p class="mt-3 text-sm max-w-xs" style="color: var(--fg-muted);">
@@ -26,6 +30,18 @@ import { catalog } from "~/lib/labs";
           <li><a class="hover:text-[var(--link)]" href="https://www.backblaze.com/blog/" target="_blank" rel="noopener">Blog</a></li>
         </ul>
       </div>
+      <div>
+        <h4 class="mb-3 text-xs uppercase tracking-wider" style="color: var(--fg-dim);">Policies</h4>
+        <ul class="space-y-2 text-sm">
+          {analyticsConfigured && (
+            <li><button type="button" class="policy-button hover:text-[var(--link)]" data-cookie-preferences>Cookie choices</button></li>
+          )}
+          <li><a class="hover:text-[var(--link)]" href="https://www.backblaze.com/company/policy/privacy" target="_blank" rel="noopener">Privacy Notice</a></li>
+          <li><a class="hover:text-[var(--link)]" href="https://www.backblaze.com/company/policy/cookies" target="_blank" rel="noopener">Cookie Policy</a></li>
+          <li><a class="hover:text-[var(--link)]" href="https://www.backblaze.com/company/policy/privacy-notice-for-ca-residents" target="_blank" rel="noopener">CA Privacy Notice</a></li>
+          <li><a class="hover:text-[var(--link)]" href="https://www.backblaze.com/company/policy/gdpr" target="_blank" rel="noopener">EEA, UK & Swiss Notice</a></li>
+        </ul>
+      </div>
     </div>
     <div class="mt-10 flex flex-col gap-3 border-t pt-6 md:flex-row md:items-center md:justify-between" style="border-color: var(--border);">
       <p class="text-xs" style="color: var(--fg-dim);">
@@ -44,3 +60,14 @@ import { catalog } from "~/lib/labs";
     el.textContent = String(new Date().getFullYear());
   }
 </script>
+
+<style>
+  .policy-button {
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+    background: transparent;
+    border: 0;
+  }
+</style>

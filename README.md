@@ -103,7 +103,23 @@ Display font: **Space Grotesk**. Body font: **DM Sans**.
 
 ## Analytics
 
-Both **Google Analytics 4** (direct) and **Google Tag Manager** are supported, via env vars. Set either (or both); with nothing set, no telemetry is loaded.
+Both **Google Analytics 4** (direct) and **Google Tag Manager** are supported, via env vars. Set either (or both); with nothing set, no telemetry is loaded. Google scripts are consent-gated and load only after a visitor accepts analytics cookies.
+
+### Consent and policy posture
+
+The site follows the public Backblaze policy posture for third-party analytics cookies:
+
+- Backblaze's Cookie Policy lists Google Analytics cookies as analytics/customization cookies and points visitors to the Google Analytics opt-out tool.
+- Backblaze's Privacy Notice says cookies and similar tracking technologies are covered by the Cookie Policy.
+- Backblaze's California notice describes opt-out rights and Global Privacy Control signals.
+
+Implementation details:
+
+- Consent is stored in `localStorage` under `bb-labs-analytics-consent` as `granted` or `denied`.
+- Until consent is `granted`, GA/GTM scripts are not requested and `window.bbTrack(...)` no-ops.
+- If `navigator.globalPrivacyControl === true`, analytics is forced off and the accept button is disabled.
+- Visitors can reopen choices from the footer's **Cookie choices** control.
+- Withdrawing/declining consent updates Google Consent Mode to denied, disables GA, and attempts to clear the usual `_ga`, `_gid`, and `_gat*` cookies for this domain.
 
 ### Configuration
 
