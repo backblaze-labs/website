@@ -18,15 +18,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 // previewUrl: explicit override → README-extracted image → upstream body
 // image/video → og:image → null. `null` ⇒ render the placeholder gradient.
 const customPreview = previewUrl(item, base);
-// Detect video previews so we render a <video> tag instead of <img>. Catches
-// both extension-only URLs (.mp4) and Webflow-style URLs that have query
-// strings or fragments after the extension.
+// Detect video previews so animated upstream hero clips stay animated. Static
+// screenshots are optimized by sync-previews into local WebP thumbnails.
 const isVideo = customPreview ? /\.(mp4|webm|mov|m4v)(?:[?#]|$)/i.test(customPreview) : false;
 
 // Stats are first-party only — upstream integrations don't have a `repo`.
 const stats = item.repo ? statsFor(item.id) : undefined;
 
 const delay = `${Math.min(index, 7) * 60}ms`;
+const initiallyHidden = index >= 12;
 ---
 <a
   href={item.url}
@@ -46,6 +46,7 @@ const delay = `${Math.min(index, 7) * 60}ms`;
   data-track-type={item.type}
   data-track-languages={item.languages.join(",")}
   data-track-source={item.repo ? "labs" : "upstream"}
+  hidden={initiallyHidden}
 >
   <div class="card-preview" aria-hidden="true">
     {customPreview ? (
@@ -59,7 +60,15 @@ const delay = `${Math.min(index, 7) * 60}ms`;
           preload="metadata"
         />
       ) : (
-        <img src={customPreview} alt="" loading="lazy" decoding="async" />
+        <img
+          src={customPreview}
+          alt=""
+          width="640"
+          height="240"
+          sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+          loading="lazy"
+          decoding="async"
+        />
       )
     ) : (
       <PreviewPlaceholder />

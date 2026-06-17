@@ -61,6 +61,8 @@ invokeai
 labelstudio
 genblaze
 colab
+duckdb
+headshot
 
 # AI / ML domain
 llms

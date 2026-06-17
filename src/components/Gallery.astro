@@ -66,6 +66,13 @@ const sorted = sortIntegrations(catalog.integrations);
           <IntegrationCard item={item} index={i} />
         ))}
       </div>
+      <noscript>
+        <style>
+          [data-card][hidden] {
+            display: flex !important;
+          }
+        </style>
+      </noscript>
       <div data-empty class="empty-state hidden">
         <p class="font-display text-lg font-semibold">No matches</p>
         <p class="mt-1 text-sm" style="color: var(--fg-muted);">Try clearing a filter or adjusting your search.</p>
@@ -244,16 +251,16 @@ const sorted = sortIntegrations(catalog.integrations);
     let shown = 0;
     for (const card of cards) {
       if (!matches(card)) {
-        card.style.display = "none";
+        card.hidden = true;
         continue;
       }
       totalMatching++;
       // Show the first `pageLimit` matches; hide the rest until scrolled into view.
       if (shown < pageLimit) {
-        card.style.display = "";
+        card.hidden = false;
         shown++;
       } else {
-        card.style.display = "none";
+        card.hidden = true;
       }
     }
     if (countEl) countEl.textContent = String(totalMatching);

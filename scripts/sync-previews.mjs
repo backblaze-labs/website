@@ -35,20 +35,30 @@ import path from "node:path";
 import url from "node:url";
 import { formatJson } from "./_format.mjs";
 import { absoluteUrl, FETCH_UA, fetchHtml } from "./_http.mjs";
+import { optimizePreviewSources } from "./_preview-optimizer.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
 const dataPath = path.join(root, "src/data/labs.json");
 const outPath = path.join(root, "src/data/previews.json");
+const sourcePath = path.join(root, "src/data/preview-sources.json");
 
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
-const existing = (() => {
+const readJson = (filePath) => {
   try {
-    return JSON.parse(fs.readFileSync(outPath, "utf8"));
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
   } catch {
     return {};
   }
-})();
+};
+const existingPreviews = readJson(outPath);
+const existingSourceFile = readJson(sourcePath);
+const existingSources =
+  Object.keys(existingSourceFile).length > 0
+    ? existingSourceFile
+    : Object.fromEntries(
+        Object.entries(existingPreviews).filter(([, value]) => /^https?:\/\//i.test(value)),
+      );
 
 function ghJSON(args) {
   return new Promise((resolve, reject) => {
@@ -199,18 +209,25 @@ function extractFirstBodyImage(html, basePageUrl) {
     if (/\b(badge|shield|status|build|coverage|license)\b/i.test(alt)) continue;
     // Skip obvious tiny decorations.
     if ((widthAttr > 0 && widthAttr < 80) || (heightAttr > 0 && heightAttr < 80)) continue;
-    // Skip favicons and apple-touch icons.
+    const className = tag.match(/\bclass=["']([^"']*)["']/i)?.[1] ?? "";
+    const kindText = `${alt} ${src} ${className}`;
+    // Skip favicons, SVG chrome, and apple-touch icons.
     if (/\b(favicon|apple-touch|sprite)\b/i.test(src)) continue;
+    if (/\.svg(?:[?#]|$)/i.test(src)) continue;
     // Skip arrows/chevrons/expand-icons/etc. that often appear before content.
     if (/\b(arrow|chevron|caret|hamburger|menu-icon)\b/i.test(src)) continue;
     // Skip nav/branding artwork — site logos and wordmarks are usually small
     // transparent SVGs that look bad stretched to fill a 16:6 card. The brand
     // gradient placeholder reads better in their absence.
-    if (/\b(logo|wordmark|brand-?mark)\b/i.test(`${alt} ${src}`)) continue;
+    if (
+      /\b(navbar|nav-|menu|dropdown|header|footer)\b/i.test(className) ||
+      /(?:^|[_\-/\s])(logo|wordmark|brand-?mark)(?:[._\-/\s]|$)/i.test(kindText)
+    )
+      continue;
     // Skip generic decorative iconography — tiny icons used inline for
     // "run in colab", "view on github", etc. They're not page heroes.
     if (/[_-]icon\b|[_-]pic\b|\bicon[_-]/i.test(src)) continue;
-    if (/\bicon\b/i.test(alt)) continue;
+    if (/\bicon\b/i.test(`${alt} ${className}`)) continue;
     // Hosts whose images are never the page's hero artwork — encyclopaedia
     // illustrations, video-platform thumbnails, third-party badge mirrors.
     // Skipping these lets the upstream walk fall through to the apex domain
@@ -393,7 +410,7 @@ async function processOne(i) {
           line: `  ${i.id} (upstream → ${new URL(i.url).host}) ... ${label} (${new URL(found.url).host})`,
         };
       }
-      const prev = isUnacceptablePreview(existing[i.id]) ? null : existing[i.id];
+      const prev = isUnacceptablePreview(existingSources[i.id]) ? null : existingSources[i.id];
       return {
         id: i.id,
         status: "ok",
@@ -402,7 +419,7 @@ async function processOne(i) {
         line: `  ${i.id} (upstream → ${new URL(i.url).host}) ... no image → ${prev ? "kept previous" : "placeholder"}`,
       };
     } catch (err) {
-      const prev = isUnacceptablePreview(existing[i.id]) ? null : existing[i.id];
+      const prev = isUnacceptablePreview(existingSources[i.id]) ? null : existingSources[i.id];
       return {
         id: i.id,
         status: "failed",
@@ -441,8 +458,8 @@ async function processOne(i) {
     };
   } catch (err) {
     const prev =
-      existing[i.id] && !/opengraph\.githubassets\.com/i.test(existing[i.id])
-        ? existing[i.id]
+      existingSources[i.id] && !/opengraph\.githubassets\.com/i.test(existingSources[i.id])
+        ? existingSources[i.id]
         : null;
     return {
       id: i.id,
@@ -486,7 +503,7 @@ const orderById = new Map(data.integrations.map((i, idx) => [i.id, idx]));
 results.sort((a, b) => (orderById.get(a.id) ?? 0) - (orderById.get(b.id) ?? 0));
 for (const r of results) if (r.line) console.log(r.line);
 
-const out = {};
+const sourceOut = {};
 let ok = 0;
 let fail = 0;
 let fromReadme = 0;
@@ -497,7 +514,7 @@ let placeholders = 0;
 for (const r of results) {
   if (r.status === "ok") ok++;
   else if (r.status === "failed") fail++;
-  if (r.url) out[r.id] = r.url;
+  if (r.url) sourceOut[r.id] = r.url;
   if (r.source === "readme") fromReadme++;
   else if (r.source === "upstream-video") fromUpstreamVideo++;
   else if (r.source === "upstream-body") fromUpstreamBody++;
@@ -505,28 +522,59 @@ for (const r of results) {
   else if (r.source === "placeholder") placeholders++;
 }
 
-const sorted = Object.fromEntries(
-  Object.keys(out)
+const sortedSources = Object.fromEntries(
+  Object.keys(sourceOut)
     .sort()
-    .map((k) => [k, out[k]]),
+    .map((k) => [k, sourceOut[k]]),
 );
-const nextJson = formatJson(sorted, outPath);
-const prevJson = (() => {
+
+const { optimized, stats: optimizationStats } = await optimizePreviewSources(sortedSources, {
+  root,
+  existingPreviews,
+});
+const sortedPreviews = Object.fromEntries(
+  Object.keys(optimized)
+    .sort()
+    .map((k) => [k, optimized[k]]),
+);
+
+function readText(filePath) {
   try {
-    return fs.readFileSync(outPath, "utf8");
+    return fs.readFileSync(filePath, "utf8");
   } catch {
     return null;
   }
-})();
+}
+
+function humanBytes(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KiB`;
+  return `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
+}
 
 const revalidationSummary = revalidationFailures.length
   ? ` · ${revalidationFailures.length} stale (dropped)`
   : "";
 const summary = `${ok} ok, ${fail} failed · ${fromReadme} README · ${fromUpstreamVideo} upstream video · ${fromUpstreamBody} upstream body · ${fromUpstreamOg} upstream og · ${placeholders} placeholder${revalidationSummary}`;
-if (nextJson !== prevJson) {
-  fs.writeFileSync(outPath, nextJson);
-  console.log(`\n✔ Wrote ${path.relative(root, outPath)} — ${summary}.`);
+const optimizationSummary = `${optimizationStats.optimized} optimized, ${optimizationStats.animated} animated preserved, ${optimizationStats.kept} kept, ${optimizationStats.skipped} skipped, ${optimizationStats.removed} stale removed · ${humanBytes(optimizationStats.sourceBytes)} source → ${humanBytes(optimizationStats.thumbnailBytes)} thumbnails`;
+
+const nextSourceJson = formatJson(sortedSources, sourcePath);
+const prevSourceJson = readText(sourcePath);
+if (nextSourceJson !== prevSourceJson) {
+  fs.writeFileSync(sourcePath, nextSourceJson);
+  console.log(`\n✔ Wrote ${path.relative(root, sourcePath)} — ${summary}.`);
 } else {
-  console.log(`\n✔ No changes — ${summary}. (file untouched)`);
+  console.log(`\n✔ No source changes — ${summary}. (${path.relative(root, sourcePath)} untouched)`);
+}
+
+const nextPreviewJson = formatJson(sortedPreviews, outPath);
+const prevPreviewJson = readText(outPath);
+if (nextPreviewJson !== prevPreviewJson) {
+  fs.writeFileSync(outPath, nextPreviewJson);
+  console.log(`✔ Wrote ${path.relative(root, outPath)} — ${optimizationSummary}.`);
+} else {
+  console.log(
+    `✔ No preview changes — ${optimizationSummary}. (${path.relative(root, outPath)} untouched)`,
+  );
 }
 if (fail > 0) process.exitCode = 1;

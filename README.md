@@ -84,8 +84,10 @@ npm run fix      # biome check --write (lint+format autofix) + typecheck + valid
 | `npm run merge-discovered` | Fold the discovery proposal into `labs.json` and reconcile `featured` from tracker labels. |
 | `npm run sync-stats` | Refresh `github-stats.json` from the GitHub API (diff-aware). |
 | `npm run sync-links` | Refresh `links.json` with auto-discovered `site` / `docs` / `demo` URLs (diff-aware). |
-| `npm run sync-previews` | Refresh `previews.json` with discovered hero images/videos (HEAD-verified, diff-aware). |
+| `npm run sync-previews` | Refresh remote preview sources and generate local optimized WebP thumbnails. |
 | `npm run sync` | Run `sync-stats`, `sync-links`, and `sync-previews` in parallel. |
+
+Preview sync writes two committed data layers: `src/data/preview-sources.json` keeps the original remote media URLs, while `src/data/previews.json` points static screenshots at small first-party thumbnails in `public/previews/`. Animated previews such as upstream MP4/GIF heroes stay animated; the optimizer only compresses static images.
 
 ## Brand
 
