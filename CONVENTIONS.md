@@ -10,7 +10,7 @@ The Backblaze Labs website auto-discovers integrations from three sources and pr
 | [`github.com/backblaze-b2-samples`](https://github.com/backblaze-b2-samples) | Public, non-archived repos **with the `b2-labs` topic** |
 | Tier-1 tracking issues (currently [`backblaze-labs/demand-side-ai#5`](https://github.com/backblaze-labs/demand-side-ai/issues/5)) | Closed sub-issues / `[x]` task-list items |
 
-The CI workflow [`discover.yml`](.github/workflows/discover.yml) runs every Monday and opens a PR with the week's proposed entries. The PR body breaks down which entries are "ready" (everything inferred cleanly — merge as-is) vs "need upstream fix" (description missing — go fix the source repo and close the PR; next Monday's run picks them up).
+The CI workflow [`discover.yml`](.github/workflows/discover.yml) runs every Monday, merges proposed entries, and commits catalog changes straight to `main`. The discovery output breaks down which entries are "ready" (everything inferred cleanly) vs "need upstream fix" (description missing — fix the source repo and the next run refreshes it).
 
 A separate workflow ([`refresh-stats.yml`](.github/workflows/refresh-stats.yml)) refreshes star counts / last-push timestamps **daily and commits straight to main** — stats are low-risk numeric data that nobody needs to review.
 
@@ -36,7 +36,7 @@ Everything else is inferred:
 
 ### The only thing you need to write well
 
-**The repo description.** It becomes the tagline (first sentence) and the long-form description on the card. If the repo has no description, the entry lands as a TODO and the weekly PR flags it.
+**The repo description.** It becomes the tagline (first sentence) and the long-form description on the card. If the repo has no description, the entry lands as a TODO and the weekly run flags it in the workflow output.
 
 ### Standard topics that map to categories
 
@@ -193,14 +193,14 @@ icon: flow
 
 Two scenarios specifically:
 
-- **`b2-labs` topic accidentally removed.** The weekly run flags it as `topic-missing` in the PR body and tells you which repo lost the topic. The catalog entry stays put. Re-add the topic on GitHub when you notice. Re-tagging makes the warning disappear next run.
-- **Repo deleted, transferred, or made private.** Flagged as `removed` in the PR body. Entry stays. A maintainer decides whether to keep it (if it lives on under a new owner) or hand-remove the JSON entry.
+- **`b2-labs` topic accidentally removed.** The weekly run flags it as `topic-missing` in workflow output and tells you which repo lost the topic. The catalog entry stays put. Re-add the topic on GitHub when you notice. Re-tagging makes the warning disappear next run.
+- **Repo deleted, transferred, or made private.** Flagged as `removed` in workflow output. Entry stays. A maintainer decides whether to keep it (if it lives on under a new owner) or hand-remove the JSON entry.
 
 The tooling deliberately can't auto-remove because:
 
 1. Catalog inclusion is a public statement; revoking it should be a deliberate human act.
 2. Topic toggles are easy to fat-finger; auto-removal would punish accidents.
-3. PR-based merge is the only mutation path and it's purely additive.
+3. Automated discovery is append-only; removal is always a deliberate human edit.
 
 ## Auditing
 

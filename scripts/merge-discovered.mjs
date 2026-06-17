@@ -2,11 +2,9 @@
 /**
  * Merges every proposed entry in src/data/labs.discovered.json into labs.json.
  *
- * Discovery is treated as a unit of human review (one PR per week) — we don't
- * split "complete" from "incomplete" at merge time. The PR description surfaces
- * which entries need upstream metadata fixes; the maintainer either:
- *   - merges as-is and the TODO entries land with placeholders to polish later, or
- *   - fixes the upstream first, closes the PR, and lets next week's run pick it up.
+ * Discovery is treated as one append-only sync. We don't split "complete" from
+ * "incomplete" at merge time; TODO entries can land with placeholders and get
+ * polished later or refreshed after the upstream metadata is fixed.
  *
  * Behavior:
  *   - Appends new entries (skipping any whose id already exists).

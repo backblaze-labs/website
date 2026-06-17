@@ -13,8 +13,8 @@
  *
  * Each candidate is drafted with a `_complete` flag indicating whether every
  * field came from explicit upstream metadata. Both complete and incomplete
- * entries are merged by `merge-discovered`; the weekly PR surfaces TODOs so
- * the maintainer can either polish them or fix the upstream first.
+ * entries are merged by `merge-discovered`; the weekly workflow output
+ * surfaces TODOs so maintainers can polish them or fix the upstream first.
  *
  * Outputs src/data/labs.discovered.json — consumed by `merge-discovered.mjs`.
  *
@@ -581,7 +581,7 @@ function draftRepoEntry(r) {
   const featured = false;
 
   // The only field we genuinely can't infer is the description. If it's empty,
-  // we still produce an entry but flag it so the PR body shows what's missing.
+  // we still produce an entry but flag it in discovery output.
   if (!r.description) {
     missing.push("description (set the repo description on GitHub)");
   }
