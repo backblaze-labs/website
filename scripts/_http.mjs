@@ -46,14 +46,21 @@ export const FETCH_UA =
  */
 export function decodeHtmlEntities(s) {
   if (s == null) return s;
+  const decodeNumericEntity = (entity, value, radix) => {
+    const codePoint = Number.parseInt(value, radix);
+    if (!Number.isSafeInteger(codePoint) || codePoint < 0 || codePoint > 0x10ffff) {
+      return entity;
+    }
+    return codePoint === 38 ? entity : String.fromCodePoint(codePoint);
+  };
   return s
-    .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#39;|&apos;/g, "'")
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(Number.parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number.parseInt(d, 10)));
+    .replace(/&#x([0-9a-f]+);/gi, (entity, h) => decodeNumericEntity(entity, h, 16))
+    .replace(/&#(\d+);/g, (entity, d) => decodeNumericEntity(entity, d, 10))
+    .replace(/&amp;|&#x0*26;|&#0*38;/gi, "&");
 }
 
 /**
