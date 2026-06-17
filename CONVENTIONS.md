@@ -26,10 +26,10 @@ Everything else is inferred:
 | --- | --- |
 | `id`, `title` | Repo name |
 | `tagline`, `description` | Repo description (first sentence ≤ 80 chars → tagline; full → description) |
-| `language` | Primary GitHub language |
+| `languages` | GitHub language breakdown, limited to catalog-supported languages |
 | `tags` | Repo topics (with `b2-labs` stripped) |
 | `categories` | Standard topics (table below) — falls back to `developer-tools` |
-| `type` | Repo name patterns + standard topics |
+| `type` | Source org, repo name patterns, and standard topics |
 | `icon` | Inferred from categories |
 | `url` | Repo URL by default; `pypi` topic → PyPI; `npm` topic → npm registry |
 | `accent`, `featured` | `accent: red`; `featured: false`. Hand-flip `featured: true` in `labs.json` after merge if needed. |
@@ -53,6 +53,8 @@ Use any of these (no `b2-` prefix needed) and you get the matching category:
 | `cli`, `devtools`, `developer-tools`, `sdk` | **Developer Tools** |
 
 Repos starting with `awesome-` automatically pick up the **Awesome Lists** category.
+Repos in `backblaze-b2-samples/*` automatically get type **Sample**, even when
+their names do not include `sample`.
 
 ### URL routing
 
@@ -82,7 +84,7 @@ Discovery produces, with no further input:
   "description": "Jupyter/IPython magic commands and fsspec backend for Backblaze B2.",
   "categories": ["notebooks"],
   "type": "tool",
-  "language": "python",
+  "languages": ["python"],
   "tags": ["jupyter", "ipython", "fsspec", "magic", "python", "pypi"],
   "repo": "backblaze-labs/jupyter-b2",
   "url": "https://pypi.org/project/jupyter-b2/",
@@ -160,7 +162,7 @@ If discovery's auto-inference produces something off, override per-key in the sa
 | `tagline` | The destination page's `<meta og:title>` / `<title>`, capped at 80 chars. |
 | `description` | The page's `<meta name="description">` / `og:description`. |
 | `categories` (comma-sep) | Defaults to `ai-ml`. **The one field you'll often want to set.** |
-| `language` | Defaults to `python`. |
+| `languages` (comma-sep) | Defaults to `python`. Legacy `language` is still accepted by discovery. |
 | `tags` (comma-sep) | Heuristic from URL host + source name + `s3-compatible`. |
 | `icon` | Defaults to `flow`. |
 | `id` | URL host slug → `user_agent_extra` → title slug. |

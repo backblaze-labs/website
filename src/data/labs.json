@@ -112,7 +112,6 @@
       "description": "MLflow's tracking server supports Backblaze B2 directly via the S3-compatible API. Configure `MLFLOW_S3_ENDPOINT_URL` and your B2 credentials, and your runs, models, and artifacts persist to B2 — no extra plugin, fully documented upstream.",
       "categories": ["ai-ml", "data-pipelines", "infra"],
       "type": "integration",
-      "language": "python",
       "tags": ["mlflow", "mlops", "artifact-store", "tracking", "s3-compatible"],
       "repo": "mlflow/mlflow",
       "source": "MLflow",
@@ -120,7 +119,8 @@
       "site": "https://mlflow.org/",
       "docs": "https://mlflow.org/docs/latest/",
       "icon": "flow",
-      "featured": true
+      "featured": true,
+      "languages": ["python", "typescript", "javascript"]
     },
     {
       "id": "cvat",
@@ -129,7 +129,6 @@
       "description": "CVAT — the open source computer vision annotation tool — supports Backblaze B2 as an S3-compatible cloud storage. Attach B2 buckets to your projects to store annotation source data and exported results without paying egress fees.",
       "categories": ["ai-ml", "data-pipelines"],
       "type": "integration",
-      "language": "python",
       "tags": ["cvat", "annotation", "computer-vision", "data-labeling", "s3-compatible"],
       "repo": "cvat-ai/cvat",
       "source": "CVAT",
@@ -139,7 +138,8 @@
       "demo": "https://app.cvat.ai/",
       "preview": "https://cdn.prod.website-files.com/62bebfb83044de7f13ae257e/685e448d192137f9375afc38_Use%20Case%202K-H265%20Low-Hevc-3-transcode.mp4",
       "icon": "flow",
-      "featured": true
+      "featured": true,
+      "languages": ["python", "typescript", "javascript"]
     },
     {
       "id": "genblaze",
@@ -148,12 +148,12 @@
       "description": "Open source Python SDK that orchestrates generative AI media pipelines across video, audio, and image providers — with built-in provenance for every output, persisted to Backblaze B2.",
       "categories": ["ai-ml", "data-pipelines"],
       "type": "sdk",
-      "language": "python",
       "tags": ["python", "sdk", "ai", "video", "audio", "image", "openai", "gemini"],
       "repo": "backblaze-labs/genblaze",
       "url": "https://github.com/backblaze-labs/genblaze",
       "icon": "flame",
-      "featured": true
+      "featured": true,
+      "languages": ["python"]
     },
     {
       "id": "claude-skill-b2",
@@ -162,12 +162,12 @@
       "description": "Claude Skill for Backblaze B2 Cloud Storage management from the terminal. Manage buckets, list and search files, audit storage usage, detect stale or large objects, review security posture, and safely clean up data using natural language.",
       "categories": ["agent-skills", "developer-tools"],
       "type": "skill",
-      "language": "markdown",
       "tags": ["claude", "agent-skill", "cli", "natural-language"],
       "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
       "url": "https://github.com/backblaze-labs/claude-skill-b2-cloud-storage",
       "icon": "bot",
-      "featured": true
+      "featured": true,
+      "languages": ["python"]
     },
     {
       "id": "hf-cache-sync",
@@ -176,12 +176,12 @@
       "description": "Sync local Hugging Face cache to Backblaze B2 or S3, eliminate repeated downloads, and enable fast, consistent model access across machines and CI runners.",
       "categories": ["ai-ml", "infra"],
       "type": "tool",
-      "language": "python",
       "tags": ["python", "huggingface", "mlops", "cache", "ci"],
       "repo": "backblaze-labs/hf-cache-sync",
       "url": "https://github.com/backblaze-labs/hf-cache-sync",
       "icon": "server",
-      "featured": false
+      "featured": false,
+      "languages": ["python"]
     },
     {
       "id": "jupyter-b2",
@@ -190,11 +190,11 @@
       "description": "Jupyter/IPython magic commands and fsspec backend for Backblaze B2. Load datasets, save models, and manage cloud storage — all from your notebook with simple %b2 commands. No boilerplate, no SDK ceremony.",
       "categories": ["notebooks", "ai-ml"],
       "type": "tool",
-      "language": "python",
       "tags": ["python", "jupyter", "ipython", "fsspec", "magic"],
       "repo": "backblaze-labs/jupyter-b2",
       "url": "https://pypi.org/project/jupyter-b2/",
-      "icon": "notebook"
+      "icon": "notebook",
+      "languages": ["python"]
     },
     {
       "id": "jupyterlab-b2",
@@ -203,11 +203,11 @@
       "description": "JupyterLab extension that registers Backblaze B2 as a native drive — same look, same breadcrumbs, drag-and-drop upload, click-to-open, and full bucket management from the sidebar.",
       "categories": ["notebooks", "developer-tools"],
       "type": "extension",
-      "language": "typescript",
       "tags": ["typescript", "jupyterlab", "extension", "file-browser"],
       "repo": "backblaze-labs/jupyterlab-b2",
       "url": "https://pypi.org/project/jupyterlab-b2/",
-      "icon": "notebook"
+      "icon": "notebook",
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "b2-vscode",
@@ -216,11 +216,11 @@
       "description": "Bucket explorer, auto-detected credentials, file open/download/rename/delete, Copilot tools for B2 operations, and SARIF-compatible structured logging for CI/CD — all without leaving VS Code.",
       "categories": ["ide-extensions", "developer-tools"],
       "type": "extension",
-      "language": "typescript",
       "tags": ["typescript", "vscode", "extension", "copilot"],
       "repo": "backblaze-labs/b2-vscode",
       "url": "https://github.com/backblaze-labs/b2-vscode",
-      "icon": "code"
+      "icon": "code",
+      "languages": ["typescript", "javascript"]
     },
     {
       "id": "genblaze-gmicloud",
@@ -229,11 +229,11 @@
       "description": "Sample app that composes GMICloud image and video models with Genblaze and persists every artifact to B2 with a SHA-256-verified manifest. One prompt becomes an anchor image, then fans out concurrently to three video models.",
       "categories": ["ai-ml", "data-pipelines"],
       "type": "sample",
-      "language": "python",
       "tags": ["python", "genblaze", "gmicloud", "video", "image-to-video"],
       "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
       "url": "https://github.com/backblaze-labs/genblaze-gmicloud-pipeline",
-      "icon": "flow"
+      "icon": "flow",
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "nemotron-genblaze-b2",
@@ -242,11 +242,11 @@
       "description": "Reference pipeline showing how to use NVIDIA Nemotron models with Genblaze and persist artifacts to Backblaze B2.",
       "categories": ["ai-ml", "data-pipelines"],
       "type": "sample",
-      "language": "python",
       "tags": ["python", "nvidia", "nemotron", "genblaze"],
       "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
       "url": "https://github.com/backblaze-labs/nvidia-nemotron-genblaze-b2",
-      "icon": "flow"
+      "icon": "flow",
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "awesome-agent-infrastructure",
@@ -255,11 +255,11 @@
       "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
       "categories": ["awesome-lists", "ai-ml"],
       "type": "list",
-      "language": "markdown",
       "tags": ["agents", "mcp", "vector-db", "sandbox", "memory"],
       "repo": "backblaze-labs/awesome-agent-infrastructure",
       "url": "https://github.com/backblaze-labs/awesome-agent-infrastructure",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "awesome-ml-data-pipelines",
@@ -268,11 +268,11 @@
       "description": "A curated list of ML data pipeline tools: dataset versioning, labeling, feature stores, workflow orchestration, data loaders, and storage infrastructure for training and inference.",
       "categories": ["awesome-lists", "data-pipelines"],
       "type": "list",
-      "language": "markdown",
       "tags": ["mlops", "feature-store", "labeling", "versioning"],
       "repo": "backblaze-labs/awesome-ml-data-pipelines",
       "url": "https://github.com/backblaze-labs/awesome-ml-data-pipelines",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "awesome-multimodal-data",
@@ -281,11 +281,11 @@
       "description": "A curated list of multimodal AI datasets and data infrastructure: video, image, audio, 3D, and robotics data, with formats, loaders, versioning, and labeling tools for large-scale training.",
       "categories": ["awesome-lists", "ai-ml"],
       "type": "list",
-      "language": "markdown",
       "tags": ["datasets", "multimodal", "video", "audio", "3d"],
       "repo": "backblaze-labs/awesome-multimodal-data",
       "url": "https://github.com/backblaze-labs/awesome-multimodal-data",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "awesome-image-generation",
@@ -294,11 +294,11 @@
       "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms.",
       "categories": ["awesome-lists", "ai-ml"],
       "type": "list",
-      "language": "markdown",
       "tags": ["image", "diffusion", "generative-ai", "text-to-image"],
       "repo": "backblaze-labs/awesome-image-generation",
       "url": "https://github.com/backblaze-labs/awesome-image-generation",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "awesome-video-generation",
@@ -307,11 +307,11 @@
       "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms.",
       "categories": ["awesome-lists", "ai-ml"],
       "type": "list",
-      "language": "markdown",
       "tags": ["video", "text-to-video", "diffusion", "generative-ai"],
       "repo": "backblaze-labs/awesome-video-generation",
       "url": "https://github.com/backblaze-labs/awesome-video-generation",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "awesome-audio-generation",
@@ -320,11 +320,11 @@
       "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms.",
       "categories": ["awesome-lists", "ai-ml"],
       "type": "list",
-      "language": "markdown",
       "tags": ["audio", "tts", "voice", "music", "generative-ai"],
       "repo": "backblaze-labs/awesome-audio-generation",
       "url": "https://github.com/backblaze-labs/awesome-audio-generation",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "awesome-physical-ai",
@@ -333,11 +333,11 @@
       "description": "A curated list of physical AI tools: robotics foundation models, world models, simulators, teleoperation, sim-to-real, and embodied AI datasets for robot learning and autonomous systems.",
       "categories": ["awesome-lists", "ai-ml"],
       "type": "list",
-      "language": "markdown",
       "tags": ["robotics", "world-models", "sim2real", "embodied-ai"],
       "repo": "backblaze-labs/awesome-physical-ai",
       "url": "https://github.com/backblaze-labs/awesome-physical-ai",
-      "icon": "star"
+      "icon": "star",
+      "languages": ["markdown"]
     },
     {
       "id": "comfyui-cloud-storage",
@@ -346,12 +346,12 @@
       "description": "ComfyUI cloud storage nodes with Backblaze B2 and S3-compatible support. Upload images, video, and audio, and manage AI models across machines with a unified workflow.",
       "categories": ["ai-ml", "developer-tools"],
       "type": "tool",
-      "language": "python",
       "tags": ["comfyui", "comfyui-custom-node", "generative-ai", "cloudstorage", "s3-compatible"],
       "repo": "backblaze-labs/comfyui-cloud-storage",
       "url": "https://github.com/backblaze-labs/comfyui-cloud-storage",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["python"]
     },
     {
       "id": "vibe-coding-starter-kit",
@@ -359,8 +359,7 @@
       "tagline": "Starter kit for vibe coders building apps with file uploads and object storage.",
       "description": "Starter kit for vibe coders building apps with file uploads and object storage. This full-stack dashboard template integrates with Backblaze B2 Cloud Storage and includes secure upload flows, file browsing, and basic storage management.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "cloudstorage",
         "file-storage",
@@ -372,7 +371,8 @@
       "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
       "url": "https://github.com/backblaze-b2-samples/vibe-coding-starter-kit",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "agentic-rag-vector-starter-kit",
@@ -380,8 +380,7 @@
       "tagline": "Agentic RAG starter kit with Langchain, LanceDB, and Backblaze B2.",
       "description": "Agentic RAG vector starter kit with AI coding agent architecture, Langchain, LanceDB, and Backblaze B2 for document upload, semantic search, grounded chat, and document citations.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "python",
+      "type": "sample",
       "tags": [
         "agentic-ai",
         "agentic-coding",
@@ -393,7 +392,8 @@
       "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
       "url": "https://github.com/backblaze-b2-samples/agentic-rag-vector-starter-kit",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["python", "typescript", "javascript"]
     },
     {
       "id": "zeroshot-image-classifier",
@@ -401,8 +401,7 @@
       "tagline": "Browser image classification with OpenAI CLIP and Transformers.js.",
       "description": "Browser-based image classification example application using OpenAI CLIP and Transformers.js. Upload images, run zero-shot classification with custom labels directly in the browser, and store images plus results in S3-compatible Backblaze B2 cloud object storage using pre-signed uploads.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "markdown",
+      "type": "sample",
       "tags": [
         "image-classification",
         "image-classification-algorithms",
@@ -414,7 +413,8 @@
       "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
       "url": "https://github.com/backblaze-b2-samples/b2-zeroshot-image-classifier",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["javascript"]
     },
     {
       "id": "whisper-transformersjs-transcriber",
@@ -422,8 +422,7 @@
       "tagline": "Browser-based audio transcription with Whisper and Transformers.js.",
       "description": "Browser-based audio transcription using Whisper and Transformers.js, storing results in Backblaze B2 Cloud Storage.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "markdown",
+      "type": "sample",
       "tags": [
         "cloud-storage",
         "cloudstorage",
@@ -435,7 +434,8 @@
       "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
       "url": "https://github.com/backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["javascript"]
     },
     {
       "id": "transformers-video-object-detection",
@@ -443,8 +443,7 @@
       "tagline": "Real-time browser video object detection with Transformers.js + YOLOv9.",
       "description": "Real-time video object detection monitoring demo using Transformers.js and Backblaze B2 Cloud Storage. Runs YOLOv9 fully in the browser with automatic capture intervals, no server or GPU required. Detected snapshots and metadata are stored in low cost, scalable B2 storage for analysis and retention.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "markdown",
+      "type": "sample",
       "tags": [
         "cloud-storage",
         "cloudstorage",
@@ -456,7 +455,8 @@
       "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
       "url": "https://github.com/backblaze-b2-samples/b2-transformers-video-object-detection",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["javascript"]
     },
     {
       "id": "transformerjs-background-removal",
@@ -464,8 +464,7 @@
       "tagline": "Browser AI image background removal with Transformers.js and RMBG-1.4.",
       "description": "Browser-based AI image background removal app using Transformers.js and the RMBG-1.4 model, storing original and cutout images in Backblaze B2 Cloud Storage — no GPU or backend required.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "markdown",
+      "type": "sample",
       "tags": [
         "background-removal",
         "cloud-storage",
@@ -477,7 +476,8 @@
       "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
       "url": "https://github.com/backblaze-b2-samples/b2-transformerjs-background-removal",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["javascript"]
     },
     {
       "id": "openclaw-b2-sync-backup",
@@ -485,8 +485,7 @@
       "tagline": "OpenClaw automatic backup and sync to Backblaze B2.",
       "description": "OpenClaw automatic backup and sync to Backblaze B2. Keep state durable across machines, restore instantly on new hardware, and roll back to previous snapshots if configs break or memory becomes corrupted.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backup",
         "openclaw",
@@ -498,7 +497,8 @@
       "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
       "url": "https://github.com/backblaze-b2-samples/openclaw-b2-sync-backup",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript"]
     },
     {
       "id": "image-generation-prompt-flow",
@@ -506,8 +506,7 @@
       "tagline": "Compare GPT Image, DALL-E, Gemini, and Google Imagen prompts side by side.",
       "description": "AI image generation prompt flow example app focused on prompt engineering and prompt optimization, comparing models GPT Image, DALL-E, Gemini Nano Banana, and Google Imagen. Shows how image prompts are structured, refined, and evolved from input to final output, with clear prompt lineage for learning and experimentation.",
       "categories": ["ai-ml"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "generative-ai",
         "google-gemini",
@@ -519,7 +518,8 @@
       "repo": "backblaze-b2-samples/image-generation-prompt-flow",
       "url": "https://github.com/backblaze-b2-samples/image-generation-prompt-flow",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "javascript"]
     },
     {
       "id": "pixeltable-multimodal-data",
@@ -527,8 +527,7 @@
       "tagline": "Notebooks for managing multimodal datasets with Pixeltable and Backblaze B2.",
       "description": "Example notebooks showing how to use Pixeltable with Backblaze B2 for managing and querying multimodal datasets.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "markdown",
+      "type": "sample",
       "tags": [
         "data-orchestration",
         "data-processing",
@@ -540,7 +539,8 @@
       "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
       "url": "https://github.com/backblaze-b2-samples/b2-pixeltable-multimodal-data",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["markdown"]
     },
     {
       "id": "meltano",
@@ -549,13 +549,13 @@
       "description": "Meltano supports Backblaze B2 as a state backend via its S3-compatible API. Configure `state_backend.uri` with your B2 bucket and credentials and your pipeline state persists to B2 between runs — no extra plugin, fully documented upstream.",
       "categories": ["ai-ml"],
       "type": "integration",
-      "language": "python",
       "tags": ["meltano", "s3-compatible"],
       "repo": null,
       "source": "Meltano",
       "url": "https://docs.meltano.com/concepts/state_backends/#backblaze-b2-example",
       "icon": "flow",
-      "featured": false
+      "featured": false,
+      "languages": ["python"]
     },
     {
       "id": "pixeltable",
@@ -564,13 +564,13 @@
       "description": "Pixeltable is a declarative table-based system for multimodal AI data. Configure your B2 endpoint and credentials and Pixeltable persists tables, media, and computed columns to B2 — same path as the S3 / GCS / R2 backends.",
       "categories": ["ai-ml"],
       "type": "integration",
-      "language": "python",
       "tags": ["pixeltable", "pixel-table", "s3-compatible"],
       "repo": null,
       "source": "Pixel Table",
       "url": "https://docs.pixeltable.com/integrations/cloud-storage#backblaze-b2",
       "icon": "flow",
-      "featured": false
+      "featured": false,
+      "languages": ["python"]
     },
     {
       "id": "b2-action",
@@ -579,12 +579,12 @@
       "description": "The Backblaze B2 GitHub Action",
       "categories": ["developer-tools"],
       "type": "tool",
-      "language": "typescript",
       "tags": ["b2", "github-actions"],
       "repo": "backblaze-labs/b2-action",
       "url": "https://github.com/backblaze-labs/b2-action",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "javascript"]
     },
     {
       "id": "firewatch-agent",
@@ -592,13 +592,13 @@
       "tagline": "FireWatch is an AI-powered wildfire detection and alerting pipeline using…",
       "description": "FireWatch is an AI-powered wildfire detection and alerting pipeline using OpenClaw, Nemotron, and Backblaze B2 to process satellite hotspot data, live weather, and explainable risk scores for faster wildfire response.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "python",
+      "type": "sample",
       "tags": ["nemoclaw", "openclaw"],
       "repo": "backblaze-b2-samples/firewatch-agent",
       "url": "https://github.com/backblaze-b2-samples/firewatch-agent",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["python"]
     },
     {
       "id": "voice-memo-ai-second-brain",
@@ -606,8 +606,7 @@
       "tagline": "Personal voice-memo second brain on Backblaze B2 — record, transcribe, tag,…",
       "description": "Personal voice-memo second brain on Backblaze B2 — record, transcribe, tag, cross-reference, and summarize. FastAPI + Next.js reference app, no database, B2 is the source of truth.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backblaze-b2",
         "cloudstorage",
@@ -619,7 +618,8 @@
       "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
       "url": "https://github.com/backblaze-b2-samples/voice-memo-ai-second-brain",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "arxiv-insight-briefs-nvidia-nemotron",
@@ -627,13 +627,13 @@
       "tagline": "arXiv research briefing pipeline that routes natural language queries to…",
       "description": "arXiv research briefing pipeline that routes natural language queries to relevant papers, caches PDFs in Backblaze B2, extracts key sections with PyMuPDF, and generates citation-backed insight briefs using NVIDIA Nemotron.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": ["arxiv", "arxiv-api", "arxiv-papers", "cloudstorage", "data-processing", "insights"],
       "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
       "url": "https://github.com/backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "video-to-insights-nvidia-parakeet-llama",
@@ -641,8 +641,7 @@
       "tagline": "AI-powered video analysis pipeline that downloads YouTube videos, stores…",
       "description": "AI-powered video analysis pipeline that downloads YouTube videos, stores durable artifacts in Backblaze B2, transcribes audio with NVIDIA Parakeet, generates timestamped insights with Llama 3.3, and serves interactive seekable video playback.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backblaze-b2",
         "cloudstorage",
@@ -654,7 +653,8 @@
       "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
       "url": "https://github.com/backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "gpt-realtime-whisper-live-transcript-redactor",
@@ -662,13 +662,13 @@
       "tagline": "Live mic-to-text transcription with inline PII, secrets, and glossary…",
       "description": "Live mic-to-text transcription with inline PII, secrets, and glossary redaction on Backblaze B2 — stream audio through OpenAI Realtime + Whisper, redact in flight, and persist a privacy-default session bundle. FastAPI + Next.js B2 sample app.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": ["backblaze-b2", "cloudstorage", "fastapi", "nextjs", "object-storage", "openai"],
       "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
       "url": "https://github.com/backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "ai-music-studio",
@@ -676,8 +676,7 @@
       "tagline": "AI music generator where every regenerate, remix & branch is a node in a…",
       "description": "AI music generator where every regenerate, remix & branch is a node in a revision tree — durable on Backblaze B2. FastAPI + Next.js B2 sample app.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "ai-music",
         "fastapi",
@@ -689,7 +688,8 @@
       "repo": "backblaze-b2-samples/ai-music-studio",
       "url": "https://github.com/backblaze-b2-samples/ai-music-studio",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "ai-meeting-notes",
@@ -697,8 +697,7 @@
       "tagline": "AI meeting notes on Backblaze B2 — record or upload meetings, transcribe with…",
       "description": "AI meeting notes on Backblaze B2 — record or upload meetings, transcribe with speaker diarization, and auto-generate summaries, decisions, and action items. FastAPI + Next.js B2 sample app, searchable across every past meeting.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "action-items",
         "ai-meeting-notes",
@@ -710,7 +709,8 @@
       "repo": "backblaze-b2-samples/ai-meeting-notes",
       "url": "https://github.com/backblaze-b2-samples/ai-meeting-notes",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "sdk-typescript",
@@ -719,12 +719,12 @@
       "description": "Backblaze-maintained TypeScript and JavaScript SDK for B2 Cloud Storage, currently incubating in Backblaze-Labs",
       "categories": ["developer-tools"],
       "type": "sdk",
-      "language": "typescript",
       "tags": ["b2", "javascript", "sdk", "sdk-js", "typescript"],
       "repo": "backblaze-labs/b2-sdk-typescript",
       "url": "https://github.com/backblaze-labs/b2-sdk-typescript",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "javascript"]
     },
     {
       "id": "ai-headshot-studio",
@@ -732,8 +732,7 @@
       "tagline": "Fine-tune a likeness LoRA from selfies and render headshots, stored on B2.",
       "description": "AI headshot generator that fine-tunes a likeness LoRA from your selfies and renders professional headshots across style packs. Every artifact — selfies, captions, the trained model, and generated images — lives on Backblaze B2 (S3-compatible). Next.js + FastAPI sample with a real face-data privacy lifecycle.",
       "categories": ["ai-ml"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "ai-headshots",
         "backblaze-b2",
@@ -745,7 +744,8 @@
       "repo": "backblaze-b2-samples/ai-headshot-studio",
       "url": "https://github.com/backblaze-b2-samples/ai-headshot-studio",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "comic-storyboard-b2",
@@ -753,8 +753,7 @@
       "tagline": "Turn one idea into a character-consistent multi-panel comic, stored on B2.",
       "description": "Turn a one-sentence idea into a character-consistent multi-panel comic, with every AI-generated frame persisted to Backblaze B2 storage and a SHA-256 provenance manifest. A Genblaze sample app: Next.js + FastAPI, FLUX and Replicate image gen, zero direct S3 code.",
       "categories": ["ai-ml"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "ai-image-generation",
         "anthropic",
@@ -766,7 +765,8 @@
       "repo": "backblaze-b2-samples/comic-storyboard-b2",
       "url": "https://github.com/backblaze-b2-samples/comic-storyboard-b2",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "personal-video-ai-search",
@@ -774,8 +774,7 @@
       "tagline": "AI-powered semantic search over your personal video archive on Backblaze B2.",
       "description": "AI-powered semantic search over your personal video archive on Backblaze B2. Indexes every clip on three signals — Whisper transcripts, multimodal scene captions, and locally clustered faces — then answers natural-language queries with playable clips. No database: the search and face indexes are JSON in the bucket.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backblaze-b2",
         "cloudstorage",
@@ -787,7 +786,8 @@
       "repo": "backblaze-b2-samples/personal-video-ai-search",
       "url": "https://github.com/backblaze-b2-samples/personal-video-ai-search",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "ai-sticker-pack-generator",
@@ -795,8 +795,7 @@
       "tagline": "Turn one prompt into a consistent transparent sticker pack, stored on B2.",
       "description": "AI sticker pack generator: turn one text prompt into a consistent pack of transparent die-cut stickers with OpenAI gpt-image-1, store every image in Backblaze B2 object storage (no database), and export to Telegram, WhatsApp, Discord, and iMessage.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "ai-image-generation",
         "backblaze-b2",
@@ -808,7 +807,8 @@
       "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
       "url": "https://github.com/backblaze-b2-samples/ai-sticker-pack-generator",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "lora-training-studio",
@@ -816,8 +816,7 @@
       "tagline": "Browser-based LoRA fine-tuning for Stable Diffusion, versioned on B2.",
       "description": "Browser-based LoRA fine-tuning studio for Stable Diffusion: upload images, caption, train, and download the .safetensors — every artifact (dataset, captions, checkpoints, samples, LoRA) versioned on Backblaze B2.",
       "categories": ["ai-ml"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backblaze-b2",
         "cloudstorage",
@@ -829,7 +828,8 @@
       "repo": "backblaze-b2-samples/lora-training-studio",
       "url": "https://github.com/backblaze-b2-samples/lora-training-studio",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "video-semantic-search",
@@ -837,13 +837,13 @@
       "tagline": "Chat with your video: timestamped answers from transcripts, all on B2.",
       "description": "Chat with your video: a full-stack TypeScript + Python sample app that transcribes long-form video with Whisper, embeds it, and returns the exact timestamped moments that answer a natural-language question. Backblaze B2 is the sole data store — source, audio, transcript, and vector index — with no separate database.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": ["backblaze-b2", "cloudstorage", "embeddings", "fastapi", "nextjs", "rag"],
       "repo": "backblaze-b2-samples/video-semantic-search",
       "url": "https://github.com/backblaze-b2-samples/video-semantic-search",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "docs-to-podcast",
@@ -851,13 +851,13 @@
       "tagline": "Turn PDFs and docs into a two-host AI audio overview, stored on B2.",
       "description": "NotebookLM-style podcast generator built on Backblaze B2: turn PDFs and docs into a two-host AI audio overview with OpenAI script generation and TTS, storing sources, transcripts, and episode audio in B2 cloud storage via the S3-compatible API.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": ["ai-audio", "audio-overview", "backblaze-b2", "cloudstorage", "fastapi", "nextjs"],
       "repo": "backblaze-b2-samples/docs-to-podcast",
       "url": "https://github.com/backblaze-b2-samples/docs-to-podcast",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "ai-avatar-video-generator",
@@ -865,13 +865,13 @@
       "tagline": "Turn a script and avatar into a talking-head video, stored on B2.",
       "description": "Open-source AI avatar video generator: turn a script + avatar into a talking-head video with synced voice. Next.js + FastAPI demo using Backblaze B2 as the sole datastore — no database.",
       "categories": ["ai-ml"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": ["ai-avatar", "backblaze-b2", "cloudstorage", "d-id", "fastapi", "heygen"],
       "repo": "backblaze-b2-samples/ai-avatar-video-generator",
       "url": "https://github.com/backblaze-b2-samples/ai-avatar-video-generator",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "ai-audiobook-generator",
@@ -879,13 +879,13 @@
       "tagline": "Convert any manuscript into a chapterized audiobook, stored on B2.",
       "description": "Sample app: convert any manuscript into a chapterized audiobook using OpenAI or ElevenLabs TTS, with per-chapter MP3s and an M4B master stored in Backblaze B2 object storage — no database, just a JSON manifest per book",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": ["audiobook", "backblaze-b2", "cloudstorage", "elevenlabs", "fastapi", "ffmpeg"],
       "repo": "backblaze-b2-samples/ai-audiobook-generator",
       "url": "https://github.com/backblaze-b2-samples/ai-audiobook-generator",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "gpt-realtime-2-customer-support-voice-agent",
@@ -893,8 +893,7 @@
       "tagline": "Browser-based support voice agent on gpt-realtime-2, calls archived to B2.",
       "description": "Browser-based customer-support voice agent on OpenAI gpt-realtime-2 — full-duplex WebRTC voice, mock CRM/helpdesk tool calling, with every call archived to Backblaze B2 (WAV audio, transcript, tool trace, summary, manifest). FastAPI + Next.js B2 sample app.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backblaze-b2",
         "cloudstorage",
@@ -906,7 +905,8 @@
       "repo": "backblaze-b2-samples/gpt-realtime-2-customer-support-voice-agent",
       "url": "https://github.com/backblaze-b2-samples/gpt-realtime-2-customer-support-voice-agent",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "gpt-realtime-translate-live-event-interpreter",
@@ -914,8 +914,7 @@
       "tagline": "Real-time multilingual interpreter for live events, archived to B2.",
       "description": "Real-time multilingual interpreter for live events on OpenAI gpt-realtime-translate — one speaker, attendees get translated audio + live captions, every event archived to Backblaze B2 (source audio, transcripts, VTT/SRT). FastAPI + Next.js B2 sample app.",
       "categories": ["developer-tools"],
-      "type": "tool",
-      "language": "typescript",
+      "type": "sample",
       "tags": [
         "backblaze-b2",
         "cloudstorage",
@@ -927,7 +926,8 @@
       "repo": "backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
       "url": "https://github.com/backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
       "icon": "wrench",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     },
     {
       "id": "genblaze-gen-media-multi-provider-sample",
@@ -936,12 +936,89 @@
       "description": "A Genblaze sample app that generates media across multiple AI providers from a single pipeline, persisting every output — and its provenance — to Backblaze B2. Demonstrates provider-agnostic gen-media workflows with zero direct S3 code.",
       "categories": ["ai-ml", "data-pipelines"],
       "type": "sample",
-      "language": "typescript",
       "tags": ["typescript", "genblaze", "ai", "video", "audio", "image"],
       "repo": "backblaze-labs/genblaze-gen-media-multi-provider-sample",
       "url": "https://github.com/backblaze-labs/genblaze-gen-media-multi-provider-sample",
       "icon": "sparkle",
-      "featured": false
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
+    },
+    {
+      "id": "deep-research-agent-app",
+      "title": "Deep Research Agent App",
+      "tagline": "Deep-research AI agent that turns a question into a long-form cited report and…",
+      "description": "Deep-research AI agent that turns a question into a long-form cited report and caches every source page, screenshot, and report to Backblaze B2 (S3-compatible object storage) as the agent's durable memory. Claude Sonnet 4.6 tool-use loop, Next.js + FastAPI. A Backblaze B2 sample app.",
+      "categories": ["agent-skills"],
+      "type": "sample",
+      "tags": ["ai-agent", "anthropic", "backblaze-b2", "claude", "cloudstorage", "deep-research"],
+      "repo": "backblaze-b2-samples/deep-research-agent-app",
+      "url": "https://github.com/backblaze-b2-samples/deep-research-agent-app",
+      "icon": "bot",
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
+    },
+    {
+      "id": "duckdb-query-in-place",
+      "title": "Duckdb Query In Place",
+      "tagline": "Run SQL directly against Parquet, CSV, and JSON files in Backblaze B2 with…",
+      "description": "Run SQL directly against Parquet, CSV, and JSON files in Backblaze B2 with DuckDB's httpfs extension — query-in-place with no ETL or warehouse, and materialize results back to B2 as Parquet. Next.js + FastAPI sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "tags": ["backblaze-b2", "cloudstorage", "data-lake", "duckdb", "fastapi", "httpfs"],
+      "repo": "backblaze-b2-samples/duckdb-query-in-place",
+      "url": "https://github.com/backblaze-b2-samples/duckdb-query-in-place",
+      "icon": "wrench",
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
+    },
+    {
+      "id": "lance-multimodal-search",
+      "title": "Lance Multimodal Search",
+      "tagline": "Multimodal semantic search over images and PDFs with no vector-database…",
+      "description": "Multimodal semantic search over images and PDFs with no vector-database server: the LanceDB vector store and ANN index live directly on Backblaze B2. Local CLIP embeddings, S3-only.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "tags": ["backblaze-b2", "clip", "cloudstorage", "embeddings", "fastapi", "image-search"],
+      "repo": "backblaze-b2-samples/lance-multimodal-search",
+      "url": "https://github.com/backblaze-b2-samples/lance-multimodal-search",
+      "icon": "wrench",
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
+    },
+    {
+      "id": "supervision-sports-highlights",
+      "title": "Supervision Sports Highlights",
+      "tagline": "Computer-vision sports-highlights pipeline: detect, track, clip, annotate, and…",
+      "description": "Computer-vision sports-highlights pipeline: detect, track, clip, annotate, and AI-summarize the action in a sports video, with Backblaze B2 (S3-compatible) as the sole data store. Built with Roboflow Inference + Supervision, ffmpeg, Claude, FastAPI, and Next.js.",
+      "categories": ["agent-skills"],
+      "type": "sample",
+      "tags": ["backblaze-b2", "claude", "cloudstorage", "computer-vision", "fastapi", "ffmpeg"],
+      "repo": "backblaze-b2-samples/supervision-sports-highlights",
+      "url": "https://github.com/backblaze-b2-samples/supervision-sports-highlights",
+      "icon": "bot",
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
+    },
+    {
+      "id": "iceberg-feature-store",
+      "title": "Iceberg Feature Store",
+      "tagline": "Apache Iceberg feature store and data lakehouse on Backblaze B2 — versioned…",
+      "description": "Apache Iceberg feature store and data lakehouse on Backblaze B2 — versioned feature tables, schema evolution, snapshot rollback, and DuckDB time-travel queries via PyIceberg, with B2 as the warehouse (no data warehouse to run)",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": [
+        "apache-iceberg",
+        "backblaze-b2",
+        "cloudstorage",
+        "data-lakehouse",
+        "duckdb",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/iceberg-feature-store",
+      "url": "https://github.com/backblaze-b2-samples/iceberg-feature-store",
+      "icon": "sparkle",
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"]
     }
   ]
 }

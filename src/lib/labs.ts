@@ -25,7 +25,7 @@ export interface Integration {
   description: string;
   categories: string[];
   type: string;
-  language: string;
+  languages: string[];
   tags: string[];
   /**
    * GitHub `owner/name` for first-party Labs projects. Omit (or set null) for upstream
@@ -172,7 +172,9 @@ export function countByType(): Record<string, number> {
 export function countByLanguage(): Record<string, number> {
   const counts: Record<string, number> = {};
   for (const i of labs.integrations) {
-    counts[i.language] = (counts[i.language] ?? 0) + 1;
+    for (const l of i.languages) {
+      counts[l] = (counts[l] ?? 0) + 1;
+    }
   }
   return counts;
 }

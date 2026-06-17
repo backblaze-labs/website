@@ -29,7 +29,7 @@ The catalog is a **single JSON file** at [`src/data/labs.json`](src/data/labs.js
   "description": "Two or three sentences explaining what it does and why it's useful.",
   "categories": ["ai-ml", "data-pipelines"],
   "type": "sdk",
-  "language": "python",
+  "languages": ["python"],
   "tags": ["python", "ai"],
   "repo": "backblaze-labs/your-project",
   "url": "https://github.com/backblaze-labs/your-project",
@@ -139,7 +139,7 @@ The [`<Analytics />`](src/components/Analytics.astro) component installs a small
 
 | Event | Fires when | Params |
 | --- | --- | --- |
-| `card_click` | A gallery card is clicked | `id`, `type`, `language`, `source` (`labs` / `upstream`) |
+| `card_click` | A gallery card is clicked | `id`, `type`, `languages`, `source` (`labs` / `upstream`) |
 | `cta_click` | A CTA button is clicked (Try B2, Browse, Hero GitHub, etc.) | `cta` |
 | `theme_change` | Theme switcher button is pressed | `theme` (`light` / `system` / `dark`) |
 | `filter_change` | A category / type / language filter checkbox toggles on | `filter` (`category` / `type` / `language`), `value` |

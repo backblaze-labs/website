@@ -63,7 +63,7 @@
           "description",
           "categories",
           "type",
-          "language",
+          "languages",
           "url"
         ],
         "properties": {
@@ -77,7 +77,12 @@
             "minItems": 1
           },
           "type": { "type": "string" },
-          "language": { "type": "string" },
+          "languages": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "uniqueItems": true
+          },
           "tags": {
             "type": "array",
             "items": { "type": "string" }

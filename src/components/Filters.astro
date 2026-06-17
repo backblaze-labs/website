@@ -10,6 +10,15 @@ import Icon from "~/components/Icon.astro";
 const cCounts = countByCategory();
 const tCounts = countByType();
 const lCounts = countByLanguage();
+
+const displayTypeLabel = (type: (typeof catalog.types)[number]) =>
+  type.id === "tool" ? "Tool or Plugin" : type.label;
+const byLabel = <T extends { label: string }>(a: T, b: T) => a.label.localeCompare(b.label);
+const sortedCategories = [...catalog.categories].sort(byLabel);
+const sortedTypes = [...catalog.types].sort((a, b) =>
+  displayTypeLabel(a).localeCompare(displayTypeLabel(b)),
+);
+const sortedLanguages = catalog.languages.filter((l) => l.id !== "go").sort(byLabel);
 ---
 <aside class="filters-panel" data-filters>
   <div class="flex items-center justify-between md:hidden mb-3">
@@ -27,7 +36,7 @@ const lCounts = countByLanguage();
 
   <fieldset class="filter-group">
     <legend class="filter-legend">Use Case</legend>
-    {catalog.categories.map((c) => (
+    {sortedCategories.map((c) => (
       <label class="filter-row" data-filter-row>
         <input type="checkbox" data-filter="category" value={c.id} />
         <span class="filter-row-label">{c.label}</span>
@@ -38,10 +47,10 @@ const lCounts = countByLanguage();
 
   <fieldset class="filter-group">
     <legend class="filter-legend">Type</legend>
-    {catalog.types.map((t) => (
+    {sortedTypes.map((t) => (
       <label class="filter-row" data-filter-row>
         <input type="checkbox" data-filter="type" value={t.id} />
-        <span class="filter-row-label">{t.label}</span>
+        <span class="filter-row-label">{displayTypeLabel(t)}</span>
         <span class="filter-row-count">{tCounts[t.id] ?? 0}</span>
       </label>
     ))}
@@ -49,7 +58,7 @@ const lCounts = countByLanguage();
 
   <fieldset class="filter-group">
     <legend class="filter-legend">Language</legend>
-    {catalog.languages.map((l) => (
+    {sortedLanguages.map((l) => (
       <label class="filter-row" data-filter-row>
         <input type="checkbox" data-filter="language" value={l.id} />
         <span class="filter-row-label">{l.label}</span>

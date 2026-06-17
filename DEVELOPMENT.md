@@ -235,7 +235,7 @@ To customize:
 `scripts/validate.mjs` enforces:
 
 - Schema-level constraints from `labs.schema.json`.
-- Cross-field constraints not expressible in JSON Schema (every `categories[]` ID must exist in the top-level `categories`; same for `type` and `language`; `id` must be unique).
+- Cross-field constraints not expressible in JSON Schema (every `categories[]` ID must exist in the top-level `categories`; same for `type` and `languages[]`; `id` must be unique).
 
 ## Deploy
 

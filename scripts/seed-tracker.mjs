@@ -244,7 +244,7 @@ function isAlreadyTracked(toolName, existing) {
 //                          discovery handles it and this card is skipped)
 //   user_agent_extra       stable identifier for User-Agent header / slug
 //
-// Catalog override fields (`source`, `categories`, `language`, `tagline`,
+// Catalog override fields (`source`, `categories`, `languages`, `tagline`,
 // `description`, `tags`, `icon`) are also accepted but not seeded here —
 // discovery falls back to sensible defaults when they're absent.
 function composeIssueBody(tool, _categories, _language) {

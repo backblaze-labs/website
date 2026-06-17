@@ -41,8 +41,8 @@ const TRACKERS = [{ repo: "backblaze-labs/demand-side-ai", number: 5 }];
 const SKIP_REPOS = new Set(["backblaze-labs/website", "backblaze-labs/demand-side-ai"]);
 
 // Single opt-in topic. A repo is included in the catalog if and only if it has
-// this topic set on GitHub. Everything else is inferred from description, primary
-// language, and other topics.
+// this topic set on GitHub. Everything else is inferred from description, GitHub
+// language breakdown, and other topics.
 const INCLUDE_TOPIC = "b2-labs";
 
 // === Topic vocabulary ===
@@ -90,6 +90,37 @@ const LANGUAGE_MAP = {
   JavaScript: "javascript",
   Go: "go",
 };
+const LANGUAGE_ALIASES = {
+  py: "python",
+  python: "python",
+  ts: "typescript",
+  typescript: "typescript",
+  js: "javascript",
+  javascript: "javascript",
+  md: "markdown",
+  markdown: "markdown",
+  go: "go",
+  golang: "go",
+};
+
+function normalizeLanguageId(value) {
+  const key = String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+  return LANGUAGE_ALIASES[key] ?? null;
+}
+
+function parseLanguageList(value) {
+  return [
+    ...new Set(
+      String(value ?? "")
+        .split(",")
+        .map(normalizeLanguageId)
+        .filter(Boolean),
+    ),
+  ];
+}
 
 // === gh CLI ===
 
@@ -117,7 +148,7 @@ function listOrgRepos(org) {
     "--limit",
     "200",
     "--json",
-    "name,nameWithOwner,description,repositoryTopics,primaryLanguage,isArchived,visibility",
+    "name,nameWithOwner,description,repositoryTopics,primaryLanguage,languages,isArchived,visibility",
   ]);
   return out
     .filter((r) => r.visibility === "PUBLIC" && !r.isArchived)
@@ -128,6 +159,7 @@ function listOrgRepos(org) {
       description: (r.description ?? "").trim(),
       topics: (r.repositoryTopics ?? []).map((t) => (typeof t === "string" ? t : t.name)),
       language: r.primaryLanguage?.name ?? null,
+      languages: (r.languages ?? []).map((l) => l.node?.name ?? l.name).filter(Boolean),
     }));
 }
 
@@ -158,7 +190,7 @@ function hasIncludeTopic(r) {
 //                          used as a slug fallback when URL host doesn't help.
 //
 // Catalog override keys (all optional, override auto-inference):
-//   url, source, tagline, description, categories, language, tags,
+//   url, source, tagline, description, categories, languages, language, tags,
 //   icon, featured, id, title.
 //
 // Literal "null", "none", "n/a", "tbd", and empty strings are coerced to
@@ -178,6 +210,7 @@ const TRACKER_SENTINEL_KEYS = new Set([
   "tagline",
   "description",
   "categories",
+  "languages",
   "language",
   "tags",
   "icon",
@@ -481,7 +514,7 @@ function clampTagline(raw) {
  *
  * The repo has already been filtered to `b2-labs`-tagged ones; this is the
  * sole opt-in mechanism. From here, we infer categories from standard topics,
- * type from name + topic patterns, language from GitHub, etc.
+ * type from name + topic patterns, languages from GitHub, etc.
  */
 function draftRepoEntry(r) {
   const topics = (r.topics ?? []).map((t) => t.toLowerCase());
@@ -497,11 +530,12 @@ function draftRepoEntry(r) {
   if (r.name.startsWith("awesome-")) cats.add("awesome-lists");
   if (cats.size === 0) cats.add("developer-tools");
 
-  // Type — inferred from name patterns + standard topics.
+  // Type — inferred from source org, name patterns, and standard topics.
   let type;
   if (r.name.startsWith("awesome-")) type = "list";
   else if (topics.includes("vscode-extension") || r.name.endsWith("-vscode")) type = "extension";
   else if (r.name.includes("skill") || topics.includes("agent-skill")) type = "skill";
+  else if (r.repo.startsWith("backblaze-b2-samples/")) type = "sample";
   else if (
     topics.includes("sample") ||
     r.name.startsWith("sample-") ||
@@ -513,12 +547,15 @@ function draftRepoEntry(r) {
     type = "sdk";
   } else type = "tool";
 
-  // Language — primary GitHub language → catalog id; falls back to markdown
-  // for awesome-lists or where the language is unknown.
-  let language;
-  if (r.language && LANGUAGE_MAP[r.language]) language = LANGUAGE_MAP[r.language];
-  else if (r.name.startsWith("awesome-")) language = "markdown";
-  else language = "markdown";
+  // Languages — GitHub language breakdown → catalog ids; falls back to the
+  // primary GitHub language, then markdown for awesome-lists or unknown repos.
+  const languages = [
+    ...new Set((r.languages ?? []).map((name) => LANGUAGE_MAP[name]).filter(Boolean)),
+  ];
+  if (languages.length === 0 && r.language && LANGUAGE_MAP[r.language]) {
+    languages.push(LANGUAGE_MAP[r.language]);
+  }
+  if (languages.length === 0) languages.push("markdown");
 
   // Icon — derived from inferred categories.
   const icon =
@@ -560,7 +597,7 @@ function draftRepoEntry(r) {
     description: desc,
     categories: [...cats],
     type,
-    language,
+    languages,
     // Strip the control topic from user-facing tags. Cap at 6.
     tags: (r.topics ?? []).filter((t) => t.toLowerCase() !== INCLUDE_TOPIC).slice(0, 6),
     repo: r.repo,
@@ -623,7 +660,8 @@ async function draftUpstreamEntry(item) {
       .filter(Boolean) ?? [];
   if (cats.length === 0) cats.push("ai-ml");
 
-  const language = meta.language || "python";
+  const languages = parseLanguageList(meta.languages ?? meta.language ?? "python");
+  if (languages.length === 0) languages.push("python");
 
   // Tags: meta first, else heuristic (URL host word + source slug + s3-compatible).
   let tags = meta.tags
@@ -677,7 +715,7 @@ async function draftUpstreamEntry(item) {
     description,
     categories: cats,
     type: "integration",
-    language,
+    languages,
     tags,
     repo: null,
     source,

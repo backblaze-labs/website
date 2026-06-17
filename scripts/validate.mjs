@@ -4,7 +4,7 @@
  * Also enforces a few cross-field rules ajv can't express:
  *   - integration.categories[] all reference an id in `categories`
  *   - integration.type references an id in `types`
- *   - integration.language references an id in `languages`
+ *   - integration.languages[] all reference an id in `languages`
  *   - integration.id is unique across the array
  */
 import fs from "node:fs";
@@ -46,8 +46,10 @@ for (const i of data.integrations ?? []) {
     if (!validCategoryIds.has(c)) errors.push(`integrations[${i.id}]: unknown category "${c}"`);
   }
   if (!validTypeIds.has(i.type)) errors.push(`integrations[${i.id}]: unknown type "${i.type}"`);
-  if (!validLanguageIds.has(i.language)) {
-    errors.push(`integrations[${i.id}]: unknown language "${i.language}"`);
+  for (const l of i.languages ?? []) {
+    if (!validLanguageIds.has(l)) {
+      errors.push(`integrations[${i.id}]: unknown language "${l}"`);
+    }
   }
 }
 

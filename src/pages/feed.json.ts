@@ -41,7 +41,7 @@ export const GET: APIRoute = ({ site }) => {
       summary: i.tagline,
       content_text: i.description,
       image: previewUrl(i),
-      tags: [...i.categories, ...i.tags, i.type, i.language],
+      tags: [...i.categories, ...i.tags, i.type, ...i.languages],
       date_modified: stats?.updated ?? buildTime,
       ...(Object.keys(external).length > 0 ? { _external_urls: external } : {}),
     };

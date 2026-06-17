@@ -230,11 +230,11 @@ const sorted = sortIntegrations(catalog.integrations);
     const { category, type, language } = getActive();
     const cats = (card.dataset.categories || "").split(" ");
     const t = card.dataset.type || "";
-    const l = card.dataset.language || "";
+    const languages = (card.dataset.languages || "").split(" ");
     const text = card.dataset.search || "";
     const okCat = category.size === 0 || cats.some((c) => category.has(c));
     const okType = type.size === 0 || type.has(t);
-    const okLang = language.size === 0 || language.has(l);
+    const okLang = language.size === 0 || languages.some((l) => language.has(l));
     const okSearch = q === "" || text.includes(q);
     return okCat && okType && okLang && okSearch;
   }

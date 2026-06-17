@@ -10,7 +10,9 @@ interface Props {
 const { item, index = 0 } = Astro.props;
 
 const typeLabel = catalog.types.find((t) => t.id === item.type)?.label ?? item.type;
-const langLabel = catalog.languages.find((l) => l.id === item.language)?.label ?? item.language;
+const languageLabels = item.languages.map(
+  (id) => catalog.languages.find((l) => l.id === id)?.label ?? id,
+);
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 // previewUrl: explicit override → README-extracted image → upstream body
@@ -36,13 +38,13 @@ const delay = `${Math.min(index, 7) * 60}ms`;
   data-id={item.id}
   data-categories={item.categories.join(" ")}
   data-type={item.type}
-  data-language={item.language}
-  data-search={`${item.title} ${item.tagline} ${item.description} ${item.tags.join(" ")} ${item.repo ?? item.source ?? ""}`.toLowerCase()}
+  data-languages={item.languages.join(" ")}
+  data-search={`${item.title} ${item.tagline} ${item.description} ${item.tags.join(" ")} ${item.languages.join(" ")} ${languageLabels.join(" ")} ${item.repo ?? item.source ?? ""}`.toLowerCase()}
   data-featured={item.featured ? "1" : "0"}
   data-track="card_click"
   data-track-id={item.id}
   data-track-type={item.type}
-  data-track-language={item.language}
+  data-track-languages={item.languages.join(",")}
   data-track-source={item.repo ? "labs" : "upstream"}
 >
   <div class="card-preview" aria-hidden="true">
@@ -86,7 +88,7 @@ const delay = `${Math.min(index, 7) * 60}ms`;
 
     <div class="flex flex-wrap items-center gap-1.5">
       <span class="chip">{typeLabel}</span>
-      <span class="chip">{langLabel}</span>
+      {languageLabels.map((label) => <span class="chip">{label}</span>)}
     </div>
   </div>
 </a>
