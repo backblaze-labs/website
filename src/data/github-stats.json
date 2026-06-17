@@ -103,9 +103,9 @@
     "license": "CC0-1.0",
     "openIssues": 5,
     "stars": 1,
-    "updated": "2026-06-01T20:35:06Z",
+    "updated": "2026-06-17T13:43:17Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -115,9 +115,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 2,
-    "updated": "2026-06-01T20:35:08Z",
+    "updated": "2026-06-17T13:43:16Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-06-17T03:51:23.534Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -127,9 +127,9 @@
     "license": "CC0-1.0",
     "openIssues": 3,
     "stars": 3,
-    "updated": "2026-06-01T20:35:09Z",
+    "updated": "2026-06-17T13:43:16Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -139,9 +139,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-01T20:35:10Z",
+    "updated": "2026-06-17T13:43:16Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -151,9 +151,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-01T20:35:12Z",
+    "updated": "2026-06-17T13:43:16Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -163,9 +163,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-01T20:35:13Z",
+    "updated": "2026-06-17T13:43:16Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-06-17T03:51:23.844Z"
+    "fetchedAt": "2026-06-17T13:47:49.447Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -175,9 +175,9 @@
     "license": "CC0-1.0",
     "openIssues": 3,
     "stars": 10,
-    "updated": "2026-06-01T20:35:14Z",
+    "updated": "2026-06-17T13:43:16Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "b2-action": {
     "archived": false,
@@ -213,7 +213,7 @@
     "stars": 38,
     "updated": "2026-05-04T17:06:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-06-17T11:43:31.750Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "comfyui-cloud-storage": {
     "archived": false,
@@ -242,14 +242,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3709,
+    "forks": 3711,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 609,
-    "stars": 16088,
-    "updated": "2026-06-17T11:37:53Z",
+    "openIssues": 608,
+    "stars": 16087,
+    "updated": "2026-06-17T13:27:11Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-17T11:43:31.950Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -461,11 +461,11 @@
     "forks": 5857,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 1977,
-    "stars": 26570,
-    "updated": "2026-06-17T10:22:05Z",
+    "openIssues": 1979,
+    "stars": 26572,
+    "updated": "2026-06-17T13:19:26Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-17T11:43:31.874Z"
+    "fetchedAt": "2026-06-17T13:47:49.448Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -525,7 +525,7 @@
     "stars": 7,
     "updated": "2026-06-17T04:07:36Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-17T11:43:32.091Z"
+    "fetchedAt": "2026-06-17T13:47:49.811Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
