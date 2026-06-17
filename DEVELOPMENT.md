@@ -116,7 +116,7 @@ npm run sync-stats          # refreshes github-stats.json for new repos
 | [`ci.yml`](.github/workflows/ci.yml) | every PR + non-main push | Runs `npm run checks` + a build smoke-test. Gates merges to `main`. |
 | [`deploy.yml`](.github/workflows/deploy.yml) | on push to `main` | Builds the site and publishes to GitHub Pages. |
 | [`refresh-stats.yml`](.github/workflows/refresh-stats.yml) | daily 07:00 UTC | Refreshes `github-stats.json` and **commits straight to `main`** — no PR. Stats are low-risk numeric data. |
-| [`discover.yml`](.github/workflows/discover.yml) | weekly, Mon 08:00 UTC | Runs discovery + always opens a **PR**. Body lists "ready" vs "need upstream fix" entries. Never auto-merged. |
+| [`discover.yml`](.github/workflows/discover.yml) | weekly, Mon 08:00 UTC | Runs discovery + opens a **PR** when there are proposals. Body lists "ready" vs "need upstream fix" entries. Never auto-merged. |
 
 To access the private `demand-side-ai` tracker on CI, set a `LABS_DISCOVERY_PAT` repo secret (a fine-grained PAT with read access). Without it, public-org listings still work; the tracker is silently skipped.
 
