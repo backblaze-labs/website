@@ -102,10 +102,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 5,
-    "stars": 1,
-    "updated": "2026-06-17T13:43:17Z",
+    "stars": 2,
+    "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.217Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -114,10 +114,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 2,
-    "updated": "2026-06-17T13:43:16Z",
+    "stars": 3,
+    "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -126,10 +126,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 3,
-    "stars": 3,
-    "updated": "2026-06-17T13:43:16Z",
+    "stars": 4,
+    "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.217Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -139,9 +139,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-17T13:43:16Z",
+    "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -151,9 +151,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-17T13:43:16Z",
+    "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -163,21 +163,21 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-17T13:43:16Z",
+    "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-06-17T13:47:49.447Z"
+    "fetchedAt": "2026-06-18T11:06:12.217Z"
   },
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 8,
+    "forks": 9,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 3,
+    "openIssues": 4,
     "stars": 10,
-    "updated": "2026-06-17T13:43:16Z",
+    "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "b2-action": {
     "archived": false,
@@ -185,11 +185,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 24,
+    "openIssues": 20,
     "stars": 7,
-    "updated": "2026-06-16T23:46:05Z",
+    "updated": "2026-06-18T01:59:46Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-06-17T03:51:23.484Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -197,11 +197,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 24,
+    "openIssues": 22,
     "stars": 3,
-    "updated": "2026-06-17T01:21:08Z",
+    "updated": "2026-06-18T03:31:34Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -242,14 +242,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3711,
+    "forks": 3710,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 608,
-    "stars": 16087,
-    "updated": "2026-06-17T13:27:11Z",
+    "openIssues": 602,
+    "stars": 16096,
+    "updated": "2026-06-18T11:01:56Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.217Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -305,11 +305,11 @@
     "forks": 3,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 85,
+    "openIssues": 89,
     "stars": 10,
-    "updated": "2026-06-17T01:21:40Z",
+    "updated": "2026-06-18T01:18:21Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-18T11:06:12.237Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -458,14 +458,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5857,
+    "forks": 5860,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 1979,
-    "stars": 26572,
-    "updated": "2026-06-17T13:19:26Z",
+    "openIssues": 1984,
+    "stars": 26597,
+    "updated": "2026-06-18T09:34:06Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-18T11:06:12.217Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -523,9 +523,9 @@
     "license": "MIT",
     "openIssues": 54,
     "stars": 7,
-    "updated": "2026-06-17T04:07:36Z",
+    "updated": "2026-06-18T03:05:38Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-17T13:47:49.811Z"
+    "fetchedAt": "2026-06-18T11:06:12.220Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -570,10 +570,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 3,
-    "stars": 7,
+    "stars": 8,
     "updated": "2026-06-06T12:34:37Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-18T11:06:12.217Z"
   },
   "video-semantic-search": {
     "archived": false,
