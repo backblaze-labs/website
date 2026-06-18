@@ -8,7 +8,7 @@
     "description": "Curated open source projects built on Backblaze B2 — SDKs, agent skills, IDE extensions, reference pipelines, and community integrations.",
     "github": "https://github.com/backblaze-labs",
     "homepage": "https://www.backblaze.com",
-    "b2": "https://www.backblaze.com/b2/cloud-storage.html"
+    "b2": "https://www.backblaze.com/cloud-storage"
   },
   "categories": [
     {
