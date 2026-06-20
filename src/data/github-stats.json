@@ -5,11 +5,11 @@
     "forks": 1,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 2,
     "updated": "2026-03-25T16:50:24Z",
     "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-20T09:59:09.774Z"
   },
   "ai-audiobook-generator": {
     "archived": false,
@@ -29,11 +29,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 1,
     "updated": "2026-06-05T13:25:00Z",
     "repo": "backblaze-b2-samples/ai-avatar-video-generator",
-    "fetchedAt": "2026-06-17T03:51:23.732Z"
+    "fetchedAt": "2026-06-20T09:59:09.806Z"
   },
   "ai-headshot-studio": {
     "archived": false,
@@ -53,11 +53,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-05-27T18:48:36Z",
     "repo": "backblaze-b2-samples/ai-meeting-notes",
-    "fetchedAt": "2026-06-17T03:51:26.145Z"
+    "fetchedAt": "2026-06-20T09:59:09.810Z"
   },
   "ai-music-studio": {
     "archived": false,
@@ -65,11 +65,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 0,
     "updated": "2026-05-28T17:47:21Z",
     "repo": "backblaze-b2-samples/ai-music-studio",
-    "fetchedAt": "2026-06-17T03:51:24.597Z"
+    "fetchedAt": "2026-06-20T09:59:09.807Z"
   },
   "ai-sticker-pack-generator": {
     "archived": false,
@@ -89,23 +89,23 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 0,
     "updated": "2026-05-27T16:06:40Z",
     "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
-    "fetchedAt": "2026-06-17T03:51:23.930Z"
+    "fetchedAt": "2026-06-20T09:59:09.787Z"
   },
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 8,
+    "forks": 9,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 5,
+    "openIssues": 6,
     "stars": 2,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-06-18T11:06:12.217Z"
+    "fetchedAt": "2026-06-20T09:59:09.818Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -170,14 +170,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 9,
+    "forks": 10,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 4,
+    "openIssues": 5,
     "stars": 10,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-18T11:06:12.220Z"
+    "fetchedAt": "2026-06-20T09:59:09.888Z"
   },
   "b2-action": {
     "archived": false,
@@ -185,11 +185,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 28,
+    "openIssues": 6,
     "stars": 7,
-    "updated": "2026-06-19T04:32:21Z",
+    "updated": "2026-06-20T03:46:12Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-06-19T11:16:49.731Z"
+    "fetchedAt": "2026-06-20T09:59:09.771Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -197,11 +197,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 27,
+    "openIssues": 20,
     "stars": 3,
-    "updated": "2026-06-19T04:59:11Z",
+    "updated": "2026-06-20T06:44:42Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-06-19T11:16:49.699Z"
+    "fetchedAt": "2026-06-20T09:59:09.795Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -242,14 +242,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3712,
+    "forks": 3713,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 601,
-    "stars": 16101,
-    "updated": "2026-06-19T11:11:11Z",
+    "openIssues": 599,
+    "stars": 16107,
+    "updated": "2026-06-20T07:13:09Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-19T11:16:49.574Z"
+    "fetchedAt": "2026-06-20T09:59:09.962Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -257,11 +257,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-06-16T19:21:42Z",
     "repo": "backblaze-b2-samples/deep-research-agent-app",
-    "fetchedAt": "2026-06-17T03:51:23.963Z"
+    "fetchedAt": "2026-06-20T09:59:09.832Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -269,11 +269,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 0,
     "updated": "2026-06-08T16:22:45Z",
     "repo": "backblaze-b2-samples/docs-to-podcast",
-    "fetchedAt": "2026-06-17T03:51:23.941Z"
+    "fetchedAt": "2026-06-20T09:59:09.806Z"
   },
   "duckdb-query-in-place": {
     "archived": false,
@@ -281,11 +281,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 0,
     "updated": "2026-06-16T19:18:52Z",
     "repo": "backblaze-b2-samples/duckdb-query-in-place",
-    "fetchedAt": "2026-06-17T03:51:23.941Z"
+    "fetchedAt": "2026-06-20T09:59:09.815Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -305,11 +305,11 @@
     "forks": 3,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 86,
+    "openIssues": 82,
     "stars": 10,
-    "updated": "2026-06-18T22:22:26Z",
+    "updated": "2026-06-20T05:55:58Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-19T11:16:49.740Z"
+    "fetchedAt": "2026-06-20T09:59:09.957Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -341,11 +341,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-05-29T20:01:05Z",
     "repo": "backblaze-b2-samples/gpt-realtime-2-customer-support-voice-agent",
-    "fetchedAt": "2026-06-17T03:51:24.003Z"
+    "fetchedAt": "2026-06-20T09:59:09.810Z"
   },
   "gpt-realtime-translate-live-event-interpreter": {
     "archived": false,
@@ -353,11 +353,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-05-29T18:36:02Z",
     "repo": "backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
-    "fetchedAt": "2026-06-17T03:51:24.000Z"
+    "fetchedAt": "2026-06-20T09:59:09.878Z"
   },
   "gpt-realtime-whisper-live-transcript-redactor": {
     "archived": false,
@@ -365,11 +365,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-05-28T20:32:53Z",
     "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
-    "fetchedAt": "2026-06-17T03:51:23.761Z"
+    "fetchedAt": "2026-06-20T09:59:09.779Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -401,11 +401,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 4,
     "stars": 2,
     "updated": "2026-02-09T18:12:49Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-06-17T03:51:24.083Z"
+    "fetchedAt": "2026-06-20T09:59:09.737Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -437,11 +437,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 3,
     "stars": 0,
     "updated": "2026-06-16T16:30:12Z",
     "repo": "backblaze-b2-samples/lance-multimodal-search",
-    "fetchedAt": "2026-06-17T03:51:23.925Z"
+    "fetchedAt": "2026-06-20T09:59:09.806Z"
   },
   "lora-training-studio": {
     "archived": false,
@@ -458,14 +458,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5866,
+    "forks": 5871,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 1984,
-    "stars": 26617,
-    "updated": "2026-06-19T11:09:55Z",
+    "openIssues": 1989,
+    "stars": 26639,
+    "updated": "2026-06-19T15:18:33Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-19T11:16:49.734Z"
+    "fetchedAt": "2026-06-20T09:59:09.771Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -485,11 +485,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
-    "stars": 2,
+    "openIssues": 10,
+    "stars": 1,
     "updated": "2026-02-26T22:23:45Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-06-17T03:51:23.340Z"
+    "fetchedAt": "2026-06-20T09:59:09.781Z"
   },
   "personal-video-ai-search": {
     "archived": false,
@@ -509,11 +509,11 @@
     "forks": 1,
     "lang": "Jupyter Notebook",
     "license": null,
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 1,
     "updated": "2025-12-02T19:04:46Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
-    "fetchedAt": "2026-06-17T03:51:23.689Z"
+    "fetchedAt": "2026-06-20T09:59:09.786Z"
   },
   "sdk-typescript": {
     "archived": false,
@@ -521,11 +521,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 61,
+    "openIssues": 55,
     "stars": 7,
-    "updated": "2026-06-19T05:01:30Z",
+    "updated": "2026-06-20T06:21:11Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-19T11:16:49.791Z"
+    "fetchedAt": "2026-06-20T09:59:09.789Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -533,11 +533,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-06-16T15:48:17Z",
     "repo": "backblaze-b2-samples/supervision-sports-highlights",
-    "fetchedAt": "2026-06-17T03:51:23.954Z"
+    "fetchedAt": "2026-06-20T09:59:09.797Z"
   },
   "transformerjs-background-removal": {
     "archived": false,
@@ -545,11 +545,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 3,
     "updated": "2026-05-13T12:41:50Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-06-17T03:51:23.433Z"
+    "fetchedAt": "2026-06-20T09:59:09.773Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
@@ -557,11 +557,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 3,
     "stars": 1,
     "updated": "2026-05-13T12:41:33Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-06-17T03:51:23.534Z"
+    "fetchedAt": "2026-06-20T09:59:09.771Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -569,11 +569,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 6,
     "stars": 8,
     "updated": "2026-06-06T12:34:37Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-06-18T11:06:12.217Z"
+    "fetchedAt": "2026-06-20T09:59:09.789Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -593,11 +593,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 0,
     "updated": "2026-05-27T02:58:23Z",
     "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
-    "fetchedAt": "2026-06-17T03:51:23.556Z"
+    "fetchedAt": "2026-06-20T09:59:09.856Z"
   },
   "voice-memo-ai-second-brain": {
     "archived": false,
@@ -605,11 +605,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 0,
     "updated": "2026-05-27T18:54:29Z",
     "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
-    "fetchedAt": "2026-06-17T03:51:24.096Z"
+    "fetchedAt": "2026-06-20T09:59:09.824Z"
   },
   "whisper-transformersjs-transcriber": {
     "archived": false,
@@ -617,11 +617,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 3,
     "updated": "2026-05-13T12:41:24Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-06-17T03:51:23.583Z"
+    "fetchedAt": "2026-06-20T09:59:09.800Z"
   },
   "zeroshot-image-classifier": {
     "archived": false,
@@ -629,10 +629,10 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 3,
     "stars": 0,
     "updated": "2026-05-13T12:41:58Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-20T09:59:09.810Z"
   }
 }
