@@ -1019,6 +1019,83 @@
       "icon": "sparkle",
       "featured": false,
       "languages": ["typescript", "python", "javascript"]
+    },
+    {
+      "id": "sam2-mask-dataset-builder",
+      "title": "Sam2 Mask Dataset Builder",
+      "tagline": "Turn a raw media archive on Backblaze B2 into a versioned segmentation dataset.",
+      "description": "Turn a raw media archive on Backblaze B2 into a versioned segmentation dataset. Drop click/box prompts, run Meta's Segment Anything 2 (SAM 2) locally to mask images and propagate across video, and write COCO RLE, mask PNGs, and cut-outs back to B2 — no second API key.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "annotation-tool",
+        "backblaze-b2",
+        "cloudstorage",
+        "coco",
+        "computer-vision",
+        "dataset"
+      ],
+      "repo": "backblaze-b2-samples/sam2-mask-dataset-builder",
+      "url": "https://github.com/backblaze-b2-samples/sam2-mask-dataset-builder",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "demucs-stem-archive",
+      "title": "Demucs Stem Archive",
+      "tagline": "Sample app that splits audio into vocals, drums, bass & other stems with…",
+      "description": "Sample app that splits audio into vocals, drums, bass & other stems with Demucs (htdemucs) locally and archives every track + stem to Backblaze B2 over the S3-compatible API. Next.js 16 + FastAPI, browse & stream stems from the bucket.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "audio-processing",
+        "audio-separation",
+        "backblaze-b2",
+        "cloudstorage",
+        "demucs",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/demucs-stem-archive",
+      "url": "https://github.com/backblaze-b2-samples/demucs-stem-archive",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "frigate-nvr-archive",
+      "title": "Frigate Nvr Archive",
+      "tagline": "Archive, search, and play back Frigate NVR surveillance footage on Backblaze B2.",
+      "description": "Archive, search, and play back Frigate NVR surveillance footage on Backblaze B2. Ships Frigate's recordings, event clips, snapshots, and a searchable object-detection index to B2 (S3-compatible), then searches the timeline and streams clips via presigned URLs. No database. Sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "cctv", "cloudstorage", "fastapi", "frigate", "nextjs"],
+      "repo": "backblaze-b2-samples/frigate-nvr-archive",
+      "url": "https://github.com/backblaze-b2-samples/frigate-nvr-archive",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "yolo11-batch-detection-pipeline",
+      "title": "Yolo11 Batch Detection Pipeline",
+      "tagline": "Batch object-detection pipeline that runs Ultralytics YOLO11 (detect/segment)…",
+      "description": "Batch object-detection pipeline that runs Ultralytics YOLO11 (detect/segment) over an image/video library on Backblaze B2 S3-compatible storage, writing COCO JSON, annotated frames, and per-class instance crops back to B2.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "batch-inference",
+        "cloudstorage",
+        "coco-dataset",
+        "computer-vision",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/yolo11-batch-detection-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/yolo11-batch-detection-pipeline",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
