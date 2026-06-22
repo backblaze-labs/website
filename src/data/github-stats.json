@@ -197,11 +197,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 20,
+    "openIssues": 18,
     "stars": 3,
-    "updated": "2026-06-20T15:42:01Z",
+    "updated": "2026-06-22T03:05:52Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-06-21T10:26:47.602Z"
+    "fetchedAt": "2026-06-22T12:45:29.507Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -242,14 +242,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3714,
+    "forks": 3716,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 599,
-    "stars": 16113,
-    "updated": "2026-06-20T07:13:09Z",
+    "openIssues": 600,
+    "stars": 16120,
+    "updated": "2026-06-22T11:40:37Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-21T10:26:47.565Z"
+    "fetchedAt": "2026-06-22T12:45:29.541Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -458,14 +458,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5876,
+    "forks": 5887,
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 1991,
-    "stars": 26647,
-    "updated": "2026-06-19T15:18:33Z",
+    "stars": 26680,
+    "updated": "2026-06-22T10:24:27Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-21T10:26:47.636Z"
+    "fetchedAt": "2026-06-22T12:45:29.540Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -521,11 +521,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 53,
+    "openIssues": 55,
     "stars": 7,
-    "updated": "2026-06-20T15:46:49Z",
+    "updated": "2026-06-22T11:12:50Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-21T10:26:47.625Z"
+    "fetchedAt": "2026-06-22T12:45:29.571Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
