@@ -1,4 +1,16 @@
 {
+  "agent-backup-core": {
+    "archived": false,
+    "description": "Reusable engine to back up AI coding agent state to Backblaze B2 — encrypted, incremental, WAL-safe SQLite snapshots.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:56Z",
+    "repo": "backblaze-labs/agent-backup-core",
+    "fetchedAt": "2026-06-24T10:18:02.542Z"
+  },
   "agentic-rag-vector-starter-kit": {
     "archived": false,
     "description": "Agentic RAG vector starter kit with AI coding agent architecture, Langchain, LanceDB, and Backblaze B2 for document upload, semantic search, grounded chat, and document citations.",
@@ -59,6 +71,18 @@
     "repo": "backblaze-b2-samples/ai-meeting-notes",
     "fetchedAt": "2026-06-20T09:59:09.810Z"
   },
+  "ai-moodboard-generator": {
+    "archived": false,
+    "description": "AI moodboard generator: text-to-image with OpenAI gpt-image-1 (via Genblaze), with every generated pin persisted to Backblaze B2 S3-compatible object storage. Named boards, fork/remix lineage, sha256 provenance, presigned or public URLs. Next.js 16 + FastAPI. A finished B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-23T13:31:54Z",
+    "repo": "backblaze-b2-samples/ai-moodboard-generator",
+    "fetchedAt": "2026-06-24T10:18:02.485Z"
+  },
   "ai-music-studio": {
     "archived": false,
     "description": "AI music generator where every regenerate, remix & branch is a node in a revision tree — durable on Backblaze B2. FastAPI + Next.js B2 sample app.",
@@ -71,6 +95,18 @@
     "repo": "backblaze-b2-samples/ai-music-studio",
     "fetchedAt": "2026-06-20T09:59:09.807Z"
   },
+  "ai-product-photo-studio": {
+    "archived": false,
+    "description": "AI product photography studio for e-commerce: upload one reference photo, write a scene prompt, and generate studio-quality, reference-faithful product shots with OpenAI gpt-image-1. Stored on Backblaze B2 with SHA-256 provenance.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-23T18:46:07Z",
+    "repo": "backblaze-b2-samples/ai-product-photo-studio",
+    "fetchedAt": "2026-06-24T10:18:02.496Z"
+  },
   "ai-sticker-pack-generator": {
     "archived": false,
     "description": "AI sticker pack generator: turn one text prompt into a consistent pack of transparent die-cut stickers with OpenAI gpt-image-1, store every image in Backblaze B2 object storage (no database), and export to Telegram, WhatsApp, Discord, and iMessage.",
@@ -82,6 +118,18 @@
     "updated": "2026-06-09T18:24:15Z",
     "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
     "fetchedAt": "2026-06-21T10:26:47.587Z"
+  },
+  "aider-b2-backup": {
+    "archived": false,
+    "description": "Back up your Aider chat history and config across projects to Backblaze B2 — encrypted, incremental.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:36Z",
+    "repo": "backblaze-labs/aider-b2-backup",
+    "fetchedAt": "2026-06-24T10:18:02.532Z"
   },
   "arxiv-insight-briefs-nvidia-nemotron": {
     "archived": false,
@@ -174,10 +222,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 5,
-    "stars": 10,
+    "stars": 11,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-06-20T09:59:09.888Z"
+    "fetchedAt": "2026-06-24T10:18:02.571Z"
   },
   "b2-action": {
     "archived": false,
@@ -185,11 +233,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 39,
     "stars": 7,
-    "updated": "2026-06-23T03:25:26Z",
+    "updated": "2026-06-23T20:31:57Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-06-23T10:32:46.360Z"
+    "fetchedAt": "2026-06-24T10:18:02.548Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -197,11 +245,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 16,
+    "openIssues": 48,
     "stars": 3,
-    "updated": "2026-06-23T04:20:32Z",
+    "updated": "2026-06-23T23:13:18Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-06-23T10:32:46.393Z"
+    "fetchedAt": "2026-06-24T10:18:02.573Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -214,6 +262,18 @@
     "updated": "2026-05-04T17:06:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
     "fetchedAt": "2026-06-17T13:47:49.448Z"
+  },
+  "cline-b2-backup": {
+    "archived": false,
+    "description": "Back up your Cline (VS Code, Cursor, Windsurf) chat history and tasks to Backblaze B2 — encrypted, incremental.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:40Z",
+    "repo": "backblaze-labs/cline-b2-backup",
+    "fetchedAt": "2026-06-24T10:18:02.580Z"
   },
   "comfyui-cloud-storage": {
     "archived": false,
@@ -235,21 +295,33 @@
     "license": null,
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-12T05:54:26Z",
+    "updated": "2026-06-23T21:33:03Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-06-17T03:51:23.695Z"
+    "fetchedAt": "2026-06-24T10:18:02.524Z"
+  },
+  "continue-b2-backup": {
+    "archived": false,
+    "description": "Back up your Continue (continue.dev) chat sessions and config to Backblaze B2 — encrypted, incremental.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:33Z",
+    "repo": "backblaze-labs/continue-b2-backup",
+    "fetchedAt": "2026-06-24T10:18:02.567Z"
   },
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3717,
+    "forks": 3718,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 598,
-    "stars": 16127,
-    "updated": "2026-06-23T10:09:50Z",
+    "openIssues": 592,
+    "stars": 16129,
+    "updated": "2026-06-24T09:32:51Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-23T10:32:46.350Z"
+    "fetchedAt": "2026-06-24T10:18:02.368Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -326,14 +398,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 3,
+    "forks": 5,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 75,
-    "stars": 30,
-    "updated": "2026-06-22T21:11:46Z",
+    "openIssues": 77,
+    "stars": 78,
+    "updated": "2026-06-23T18:20:11Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-23T10:32:46.286Z"
+    "fetchedAt": "2026-06-24T10:18:02.549Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -354,10 +426,22 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-06-24T10:18:02.594Z"
+  },
+  "goose-b2-backup": {
+    "archived": false,
+    "description": "Back up your Goose AI agent sessions, config, and memory to Backblaze B2 — encrypted, incremental, WAL-safe.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:52Z",
+    "repo": "backblaze-labs/goose-b2-backup",
+    "fetchedAt": "2026-06-24T10:18:02.462Z"
   },
   "gpt-realtime-2-customer-support-voice-agent": {
     "archived": false,
@@ -394,6 +478,18 @@
     "updated": "2026-05-28T20:32:53Z",
     "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
     "fetchedAt": "2026-06-20T09:59:09.779Z"
+  },
+  "hermes-b2-backup": {
+    "archived": false,
+    "description": "Back up your Hermes Agent (Nous Research) state, memory, and skills to Backblaze B2 — encrypted, incremental, offsite.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:46Z",
+    "repo": "backblaze-labs/hermes-b2-backup",
+    "fetchedAt": "2026-06-24T10:18:02.388Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -482,14 +578,26 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5893,
+    "forks": 5902,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 1999,
-    "stars": 26700,
-    "updated": "2026-06-23T09:04:30Z",
+    "openIssues": 2001,
+    "stars": 26716,
+    "updated": "2026-06-24T10:04:30Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-23T10:32:46.474Z"
+    "fetchedAt": "2026-06-24T10:18:02.499Z"
+  },
+  "music-tagging-search": {
+    "archived": false,
+    "description": "Self-hosted semantic music search and audio tagging over a catalog on Backblaze B2. Essentia extracts BPM, key, genre, and mood; CLAP embeddings power find-similar and plain-English text-to-audio search. All local OSS models — B2 is the only credential.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-22T20:32:08Z",
+    "repo": "backblaze-b2-samples/music-tagging-search",
+    "fetchedAt": "2026-06-24T10:18:02.606Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -506,14 +614,26 @@
   "openclaw-b2-sync-backup": {
     "archived": false,
     "description": "OpenClaw automatic backup and sync to Backblaze B2. Keep state durable across machines, restore instantly on new hardware, and roll back to previous snapshots if configs break or memory becomes corrupted.",
-    "forks": 2,
+    "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 10,
     "stars": 1,
     "updated": "2026-02-26T22:23:45Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-06-20T09:59:09.781Z"
+    "fetchedAt": "2026-06-24T10:18:02.478Z"
+  },
+  "openhands-b2-backup": {
+    "archived": false,
+    "description": "Back up your OpenHands (OpenDevin) conversations, settings, and secrets to Backblaze B2 — encrypted, incremental.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T04:16:42Z",
+    "repo": "backblaze-labs/openhands-b2-backup",
+    "fetchedAt": "2026-06-24T10:18:02.531Z"
   },
   "personal-video-ai-search": {
     "archived": false,
@@ -557,11 +677,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 53,
+    "openIssues": 51,
     "stars": 7,
-    "updated": "2026-06-23T03:38:10Z",
+    "updated": "2026-06-24T03:31:37Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-23T10:32:46.777Z"
+    "fetchedAt": "2026-06-24T10:18:02.569Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -602,14 +722,14 @@
   "vibe-coding-starter-kit": {
     "archived": false,
     "description": "Starter kit for vibe coders building apps with file uploads and object storage. This full-stack dashboard template integrates with Backblaze B2 Cloud Storage and includes secure upload flows, file browsing, and basic storage management.",
-    "forks": 3,
+    "forks": 4,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 6,
-    "stars": 9,
+    "stars": 10,
     "updated": "2026-06-22T21:20:39Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-06-23T10:32:46.342Z"
+    "fetchedAt": "2026-06-24T10:18:02.552Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -658,6 +778,18 @@
     "updated": "2026-05-13T12:41:24Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
     "fetchedAt": "2026-06-20T09:59:09.800Z"
+  },
+  "whisperx-diarized-archive": {
+    "archived": false,
+    "description": "Turn an audio/video library on Backblaze B2 into a searchable, speaker-labeled transcript archive. Local open-source pipeline — WhisperX transcription, pyannote diarization, sentence-transformers embeddings — with keyword + semantic search and a Next.js/FastAPI web UI.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-23T13:04:03Z",
+    "repo": "backblaze-b2-samples/whisperx-diarized-archive",
+    "fetchedAt": "2026-06-24T10:18:02.451Z"
   },
   "yolo11-batch-detection-pipeline": {
     "archived": false,
