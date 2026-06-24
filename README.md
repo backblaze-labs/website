@@ -6,7 +6,7 @@ Inspired by [vercel.com/templates](https://vercel.com/templates).
 
 ## Stack
 
-- **[Astro 5](https://astro.build/)** — static-first, ships ~0kb JS by default.
+- **[Astro 7](https://astro.build/)** — static-first, ships ~0kb JS by default.
 - **[Tailwind CSS v4](https://tailwindcss.com/)** — `@theme`-driven brand tokens.
 - **MDX** — for future long-form content.
 - **GitHub Pages** — deploys via the workflow in `.github/workflows/deploy.yml`.

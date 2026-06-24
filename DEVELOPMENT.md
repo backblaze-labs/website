@@ -6,7 +6,7 @@ For maintainers and folks hacking on the website itself. If you just want to **a
 
 | | |
 | --- | --- |
-| Framework | [Astro 5](https://astro.build/) — static-first, ships ~0kb JS by default |
+| Framework | [Astro 7](https://astro.build/) — static-first, ships ~0kb JS by default |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com/) with `@theme` brand tokens |
 | Content | A single JSON file: [`src/data/labs.json`](src/data/labs.json) |
 | Validation | [`ajv`](https://ajv.js.org/) + a JSON Schema, run via `npm run validate` |
@@ -257,7 +257,7 @@ When you wire a custom domain (e.g. `labs.backblaze.com`):
 
 **"Cannot find module 'node:fs'"** — ensure `@types/node` is installed (`npm install`).
 
-**Astro complains about Vite plugin types** — Astro 5 bundles its own Vite. The plugin from `@tailwindcss/vite` is structurally compatible but its `Plugin` type comes from a different copy. The cast `/** @type {any} */ (tailwindcss())` in `astro.config.mjs` silences the false positive.
+**Astro complains about Vite plugin types** — Astro bundles its own Vite. The plugin from `@tailwindcss/vite` is structurally compatible but its `Plugin` type comes from a different copy. The cast `/** @type {any} */ (tailwindcss())` in `astro.config.mjs` silences the false positive.
 
 **Images not loading** — make sure asset paths are resolved against `import.meta.env.BASE_URL` rather than hard-coded, so they stay correct if the base path ever changes. The site currently serves from the root (`/`) on the custom domain backblazelabs.com.
 

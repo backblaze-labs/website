@@ -36,28 +36,28 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/mdx": "^7.0.0",
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.3.1",
-    "astro": "^6.4.7",
+    "astro": "^7.0.0",
     "satori": "^0.26.0",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
-    "@types/node": "^25.9.3",
+    "@types/node": "^26.0.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "cspell": "^10.0.1",
     "markdownlint-cli2": "^0.22.1",
-    "sharp": "^0.35.1",
+    "sharp": "^0.35.2",
     "simple-git-hooks": "^2.13.1"
   },
   "overrides": {
-    "vite": "^7.3.5",
+    "vite": "^8.0.13",
     "esbuild": "^0.28.1",
     "fast-uri": "^3.1.2",
     "js-yaml": "^4.2.0",
