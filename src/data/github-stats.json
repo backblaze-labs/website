@@ -17,11 +17,11 @@
     "forks": 1,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 2,
-    "updated": "2026-03-25T16:50:24Z",
+    "updated": "2026-06-24T12:23:34Z",
     "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
-    "fetchedAt": "2026-06-20T09:59:09.774Z"
+    "fetchedAt": "2026-06-25T10:13:07.425Z"
   },
   "ai-audiobook-generator": {
     "archived": false,
@@ -41,11 +41,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 1,
-    "updated": "2026-06-05T13:25:00Z",
+    "updated": "2026-06-24T12:32:37Z",
     "repo": "backblaze-b2-samples/ai-avatar-video-generator",
-    "fetchedAt": "2026-06-20T09:59:09.806Z"
+    "fetchedAt": "2026-06-25T10:13:07.325Z"
   },
   "ai-headshot-studio": {
     "archived": false,
@@ -65,11 +65,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 0,
-    "updated": "2026-05-27T18:48:36Z",
+    "updated": "2026-06-24T12:32:16Z",
     "repo": "backblaze-b2-samples/ai-meeting-notes",
-    "fetchedAt": "2026-06-20T09:59:09.810Z"
+    "fetchedAt": "2026-06-25T10:13:07.343Z"
   },
   "ai-moodboard-generator": {
     "archived": false,
@@ -89,11 +89,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-05-28T17:47:21Z",
+    "updated": "2026-06-24T12:32:57Z",
     "repo": "backblaze-b2-samples/ai-music-studio",
-    "fetchedAt": "2026-06-20T09:59:09.807Z"
+    "fetchedAt": "2026-06-25T10:13:07.303Z"
   },
   "ai-product-photo-studio": {
     "archived": false,
@@ -137,11 +137,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-05-27T16:06:40Z",
+    "updated": "2026-06-24T12:30:50Z",
     "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
-    "fetchedAt": "2026-06-20T09:59:09.787Z"
+    "fetchedAt": "2026-06-25T10:13:07.366Z"
   },
   "awesome-agent-infrastructure": {
     "archived": false,
@@ -258,10 +258,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 38,
+    "stars": 39,
     "updated": "2026-05-04T17:06:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-06-17T13:47:49.448Z"
+    "fetchedAt": "2026-06-25T10:13:07.346Z"
   },
   "cline-b2-backup": {
     "archived": false,
@@ -314,14 +314,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3718,
+    "forks": 3721,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 592,
-    "stars": 16129,
-    "updated": "2026-06-24T09:32:51Z",
+    "openIssues": 591,
+    "stars": 16142,
+    "updated": "2026-06-25T10:10:53Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-24T10:18:02.368Z"
+    "fetchedAt": "2026-06-25T10:13:07.453Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -353,11 +353,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-06-08T16:22:45Z",
+    "updated": "2026-06-24T13:08:40Z",
     "repo": "backblaze-b2-samples/docs-to-podcast",
-    "fetchedAt": "2026-06-20T09:59:09.806Z"
+    "fetchedAt": "2026-06-25T10:13:07.366Z"
   },
   "duckdb-query-in-place": {
     "archived": false,
@@ -398,14 +398,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 5,
+    "forks": 7,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 77,
-    "stars": 78,
-    "updated": "2026-06-23T18:20:11Z",
+    "openIssues": 71,
+    "stars": 103,
+    "updated": "2026-06-25T05:54:18Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-24T10:18:02.549Z"
+    "fetchedAt": "2026-06-25T10:13:07.318Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -422,14 +422,14 @@
   "genblaze-gmicloud": {
     "archived": false,
     "description": null,
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 2,
     "updated": "2026-04-27T22:18:38Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
-    "fetchedAt": "2026-06-24T10:18:02.594Z"
+    "fetchedAt": "2026-06-25T10:13:07.438Z"
   },
   "goose-b2-backup": {
     "archived": false,
@@ -578,14 +578,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5902,
+    "forks": 5906,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2001,
-    "stars": 26716,
-    "updated": "2026-06-24T10:04:30Z",
+    "openIssues": 2002,
+    "stars": 26736,
+    "updated": "2026-06-25T10:09:53Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-24T10:18:02.499Z"
+    "fetchedAt": "2026-06-25T10:13:07.400Z"
   },
   "music-tagging-search": {
     "archived": false,
@@ -618,10 +618,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 10,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-02-26T22:23:45Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-06-24T10:18:02.478Z"
+    "fetchedAt": "2026-06-25T10:13:07.333Z"
   },
   "openhands-b2-backup": {
     "archived": false,
@@ -713,11 +713,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 4,
     "stars": 1,
-    "updated": "2026-05-13T12:41:33Z",
+    "updated": "2026-06-24T12:31:47Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-06-20T09:59:09.771Z"
+    "fetchedAt": "2026-06-25T10:13:07.223Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
