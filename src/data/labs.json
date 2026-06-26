@@ -98,10 +98,6 @@
     {
       "id": "markdown",
       "label": "Markdown"
-    },
-    {
-      "id": "go",
-      "label": "Go"
     }
   ],
   "integrations": [
@@ -1263,6 +1259,112 @@
       "repo": "backblaze-b2-samples/music-tagging-search",
       "url": "https://github.com/backblaze-b2-samples/music-tagging-search",
       "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "albumentations-dataset-augmentation",
+      "title": "Albumentations Dataset Augmentation",
+      "tagline": "Reproducible image dataset augmentation pipeline built on Albumentations and…",
+      "description": "Reproducible image dataset augmentation pipeline built on Albumentations and Backblaze B2: define a versioned transform recipe, generate N augmented variants per seed image, and write the expanded training dataset back to B2 with a manifest that makes every run replayable bit-for-bit.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "albumentations",
+        "backblaze-b2",
+        "cloudstorage",
+        "computer-vision",
+        "data-augmentation",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/albumentations-dataset-augmentation",
+      "url": "https://github.com/backblaze-b2-samples/albumentations-dataset-augmentation",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "prompt-showdown",
+      "title": "Prompt Showdown",
+      "tagline": "Version and A/B test your LLM prompts like code: run N prompt variants across…",
+      "description": "Version and A/B test your LLM prompts like code: run N prompt variants across a shared input set, score every output with an LLM judge (NVIDIA NIM), and preserve each run on Backblaze B2 as a durable, queryable system of record. Next.js + FastAPI sample app.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["ai", "backblaze-b2", "cloudstorage", "fastapi", "llm", "llm-as-a-judge"],
+      "repo": "backblaze-b2-samples/prompt-showdown",
+      "url": "https://github.com/backblaze-b2-samples/prompt-showdown",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "ai-video-upscaler-restore",
+      "title": "Ai Video Upscaler Restore",
+      "tagline": "AI video & image upscaler and restorer: run Real-ESRGAN 4×/8× super-resolution…",
+      "description": "AI video & image upscaler and restorer: run Real-ESRGAN 4×/8× super-resolution and optional GFPGAN face restoration locally, storing degraded sources and restored outputs side by side on Backblaze B2. Next.js + FastAPI sample app with a before/after browser and no database — the B2 bucket is the system of record.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "face-restoration",
+        "fastapi",
+        "gfpgan",
+        "image-upscaling"
+      ],
+      "repo": "backblaze-b2-samples/ai-video-upscaler-restore",
+      "url": "https://github.com/backblaze-b2-samples/ai-video-upscaler-restore",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "eval-vault",
+      "title": "Eval Vault",
+      "tagline": "LLM evaluation harness that archives every eval run — input, output, score,…",
+      "description": "LLM evaluation harness that archives every eval run — input, output, score, and trace — as immutable JSON on Backblaze B2. Run prompt evals against multiple Claude models, score with built-in + LLM-as-a-judge scorers, and diff runs to catch regressions.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "anthropic-claude",
+        "backblaze-b2",
+        "cloudstorage",
+        "evaluation-harness",
+        "fastapi",
+        "llm-as-a-judge"
+      ],
+      "repo": "backblaze-b2-samples/eval-vault",
+      "url": "https://github.com/backblaze-b2-samples/eval-vault",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "ai-shorts-generator",
+      "title": "Ai Shorts Generator",
+      "tagline": "Open-source AI shorts generator: turn one long video into vertical 9:16 clips…",
+      "description": "Open-source AI shorts generator: turn one long video into vertical 9:16 clips with burned-in captions. Transcribes with Whisper, uses an LLM to pick the best moments, renders with ffmpeg — every source, transcript, and clip stored on Backblaze B2. Next.js + FastAPI sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["ai-video", "backblaze-b2", "captions", "cloudstorage", "fastapi", "ffmpeg"],
+      "repo": "backblaze-b2-samples/ai-shorts-generator",
+      "url": "https://github.com/backblaze-b2-samples/ai-shorts-generator",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "sveltiacms",
+      "title": "Sveltia CMS",
+      "tagline": "Git-based headless CMS with media stored in Backblaze B2.",
+      "description": "Sveltia CMS is a Git-based headless CMS and a drop-in successor to Netlify/Decap CMS. Point its media library at Backblaze B2 over the S3-compatible API so editorial uploads land directly in your own bucket.",
+      "categories": ["developer-tools"],
+      "type": "integration",
+      "languages": ["javascript"],
+      "tags": ["sveltiacms", "sveltia-cms", "s3-compatible"],
+      "repo": null,
+      "source": "Sveltia CMS",
+      "url": "https://sveltiacms.app/en/docs/media/backblaze-b2",
+      "icon": "flow",
       "featured": false
     }
   ]
