@@ -27,6 +27,7 @@
     "src/data/github-stats.json",
     "src/data/links.json",
     "src/data/previews.json",
+    "src/data/preview-sources.json",
     "src/data/labs.discovered.json",
     "research/**",
     "*.min.*",
