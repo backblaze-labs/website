@@ -3,8 +3,8 @@
  * Discovers candidate integrations from three sources:
  *   1. Public, non-archived repos in `backblaze-labs` carrying the `b2-labs` topic
  *   2. Public, non-archived repos in `backblaze-b2-samples` carrying the `b2-labs` topic
- *   3. Closed sub-issues / `[x]` task-list items in tier-1 tracker issues
- *      (currently just backblaze-labs/demand-side-ai#5)
+ *   3. Closed sub-issues / `[x]` task-list items in tracker issues
+ *      (backblaze-labs/demand-side-ai#5 tier-1, #382 "Other Integrations")
  *
  * Tracker sub-issue labels control where the implementation lives:
  *   B2 Documentation  → upstream entry (someone else's docs)
@@ -34,10 +34,14 @@ const labsPath = path.join(root, "src/data/labs.json");
 const discoveredPath = path.join(root, "src/data/labs.discovered.json");
 
 const ORGS = ["backblaze-labs", "backblaze-b2-samples"];
-// Tier-1 tracker issues — issues that list upstream projects with shipped B2
-// integrations. Add more entries as new tier-1 trackers are created. Each is
-// processed identically; closed sub-issues / `[x]` items become catalog cards.
-const TRACKERS = [{ repo: "backblaze-labs/demand-side-ai", number: 5 }];
+// Tracker issues that list upstream projects with B2 integrations. #5 is the
+// tier-1 tracker; #382 ("Other Integrations") collects everything else we may
+// pick up. Add more entries as new trackers are created. Each is processed
+// identically; closed sub-issues / `[x]` items become catalog cards.
+const TRACKERS = [
+  { repo: "backblaze-labs/demand-side-ai", number: 5 },
+  { repo: "backblaze-labs/demand-side-ai", number: 382 },
+];
 const SKIP_REPOS = new Set(["backblaze-labs/website", "backblaze-labs/demand-side-ai"]);
 
 // Single opt-in topic. A repo is included in the catalog if and only if it has
