@@ -29,11 +29,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 1,
-    "updated": "2026-06-25T21:55:14Z",
+    "updated": "2026-06-26T21:10:30Z",
     "repo": "backblaze-b2-samples/ai-audiobook-generator",
-    "fetchedAt": "2026-06-26T10:19:09.908Z"
+    "fetchedAt": "2026-06-27T09:26:03.715Z"
   },
   "ai-avatar-video-generator": {
     "archived": false,
@@ -65,11 +65,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 1,
     "stars": 0,
-    "updated": "2026-06-26T00:08:18Z",
+    "updated": "2026-06-26T21:33:46Z",
     "repo": "backblaze-b2-samples/ai-meeting-notes",
-    "fetchedAt": "2026-06-26T10:19:09.907Z"
+    "fetchedAt": "2026-06-27T09:26:03.710Z"
   },
   "ai-moodboard-generator": {
     "archived": false,
@@ -107,6 +107,18 @@
     "repo": "backblaze-b2-samples/ai-product-photo-studio",
     "fetchedAt": "2026-06-26T10:19:10.303Z"
   },
+  "ai-shorts-generator": {
+    "archived": false,
+    "description": "Open-source AI shorts generator: turn one long video into vertical 9:16 clips with burned-in captions. Transcribes with Whisper, uses an LLM to pick the best moments, renders with ffmpeg — every source, transcript, and clip stored on Backblaze B2. Next.js + FastAPI sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T14:39:08Z",
+    "repo": "backblaze-b2-samples/ai-shorts-generator",
+    "fetchedAt": "2026-06-27T09:26:03.721Z"
+  },
   "ai-sticker-pack-generator": {
     "archived": false,
     "description": "AI sticker pack generator: turn one text prompt into a consistent pack of transparent die-cut stickers with OpenAI gpt-image-1, store every image in Backblaze B2 object storage (no database), and export to Telegram, WhatsApp, Discord, and iMessage.",
@@ -119,6 +131,18 @@
     "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
     "fetchedAt": "2026-06-26T10:19:09.885Z"
   },
+  "ai-video-upscaler-restore": {
+    "archived": false,
+    "description": "AI video & image upscaler and restorer: run Real-ESRGAN 4×/8× super-resolution and optional GFPGAN face restoration locally, storing degraded sources and restored outputs side by side on Backblaze B2. Next.js + FastAPI sample app with a before/after browser and no database — the B2 bucket is the system of record.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-25T16:12:16Z",
+    "repo": "backblaze-b2-samples/ai-video-upscaler-restore",
+    "fetchedAt": "2026-06-27T09:26:03.664Z"
+  },
   "aider-b2-backup": {
     "archived": false,
     "description": "Back up your Aider chat history and config across projects to Backblaze B2 — encrypted, incremental.",
@@ -130,6 +154,18 @@
     "updated": "2026-06-24T04:16:36Z",
     "repo": "backblaze-labs/aider-b2-backup",
     "fetchedAt": "2026-06-24T10:18:02.532Z"
+  },
+  "albumentations-dataset-augmentation": {
+    "archived": false,
+    "description": "Reproducible image dataset augmentation pipeline built on Albumentations and Backblaze B2: define a versioned transform recipe, generate N augmented variants per seed image, and write the expanded training dataset back to B2 with a manifest that makes every run replayable bit-for-bit.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-25T19:39:48Z",
+    "repo": "backblaze-b2-samples/albumentations-dataset-augmentation",
+    "fetchedAt": "2026-06-27T09:26:03.682Z"
   },
   "arxiv-insight-briefs-nvidia-nemotron": {
     "archived": false,
@@ -233,11 +269,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 39,
+    "openIssues": 37,
     "stars": 7,
-    "updated": "2026-06-23T20:31:57Z",
+    "updated": "2026-06-27T00:44:06Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-06-24T10:18:02.548Z"
+    "fetchedAt": "2026-06-27T09:26:03.644Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -245,11 +281,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 48,
+    "openIssues": 54,
     "stars": 3,
-    "updated": "2026-06-23T23:13:18Z",
+    "updated": "2026-06-27T02:25:17Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-06-24T10:18:02.573Z"
+    "fetchedAt": "2026-06-27T09:26:03.689Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -317,11 +353,11 @@
     "forks": 3723,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 603,
-    "stars": 16150,
-    "updated": "2026-06-26T10:02:08Z",
+    "openIssues": 602,
+    "stars": 16160,
+    "updated": "2026-06-26T19:10:04Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-06-26T10:19:09.709Z"
+    "fetchedAt": "2026-06-27T09:26:03.644Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -329,11 +365,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-06-25T23:51:49Z",
+    "updated": "2026-06-26T21:47:37Z",
     "repo": "backblaze-b2-samples/deep-research-agent-app",
-    "fetchedAt": "2026-06-26T10:19:10.025Z"
+    "fetchedAt": "2026-06-27T09:26:03.715Z"
   },
   "demucs-stem-archive": {
     "archived": false,
@@ -341,11 +377,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T01:06:59Z",
+    "updated": "2026-06-26T22:08:35Z",
     "repo": "backblaze-b2-samples/demucs-stem-archive",
-    "fetchedAt": "2026-06-26T10:19:10.234Z"
+    "fetchedAt": "2026-06-27T09:26:03.650Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -370,6 +406,18 @@
     "updated": "2026-06-25T20:35:33Z",
     "repo": "backblaze-b2-samples/duckdb-query-in-place",
     "fetchedAt": "2026-06-26T10:19:09.951Z"
+  },
+  "eval-vault": {
+    "archived": false,
+    "description": "LLM evaluation harness that archives every eval run — input, output, score, and trace — as immutable JSON on Backblaze B2. Run prompt evals against multiple Claude models, score with built-in + LLM-as-a-judge scorers, and diff runs to catch regressions.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-24T15:16:56Z",
+    "repo": "backblaze-b2-samples/eval-vault",
+    "fetchedAt": "2026-06-27T09:26:03.677Z"
   },
   "firewatch-agent": {
     "archived": false,
@@ -401,11 +449,11 @@
     "forks": 7,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 72,
-    "stars": 147,
-    "updated": "2026-06-25T19:13:37Z",
+    "openIssues": 73,
+    "stars": 166,
+    "updated": "2026-06-26T14:39:13Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-06-26T10:19:09.744Z"
+    "fetchedAt": "2026-06-27T09:26:03.677Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -449,11 +497,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T00:43:08Z",
+    "updated": "2026-06-26T21:06:10Z",
     "repo": "backblaze-b2-samples/gpt-realtime-2-customer-support-voice-agent",
-    "fetchedAt": "2026-06-26T10:19:09.969Z"
+    "fetchedAt": "2026-06-27T09:26:03.617Z"
   },
   "gpt-realtime-translate-live-event-interpreter": {
     "archived": false,
@@ -461,11 +509,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T01:15:39Z",
+    "updated": "2026-06-26T21:16:32Z",
     "repo": "backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
-    "fetchedAt": "2026-06-26T10:19:10.056Z"
+    "fetchedAt": "2026-06-27T09:26:03.678Z"
   },
   "gpt-realtime-whisper-live-transcript-redactor": {
     "archived": false,
@@ -473,11 +521,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-06-26T00:34:35Z",
+    "updated": "2026-06-26T21:51:18Z",
     "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
-    "fetchedAt": "2026-06-26T10:19:09.898Z"
+    "fetchedAt": "2026-06-27T09:26:03.691Z"
   },
   "hermes-b2-backup": {
     "archived": false,
@@ -521,11 +569,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 1,
     "stars": 2,
-    "updated": "2026-06-26T02:02:55Z",
+    "updated": "2026-06-26T21:16:02Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-06-26T10:19:09.676Z"
+    "fetchedAt": "2026-06-27T09:26:03.707Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -557,11 +605,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T01:49:54Z",
+    "updated": "2026-06-26T21:29:49Z",
     "repo": "backblaze-b2-samples/lance-multimodal-search",
-    "fetchedAt": "2026-06-26T10:19:10.116Z"
+    "fetchedAt": "2026-06-27T09:26:03.636Z"
   },
   "lora-training-studio": {
     "archived": false,
@@ -578,14 +626,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5907,
+    "forks": 5910,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2007,
-    "stars": 26748,
-    "updated": "2026-06-26T06:19:38Z",
+    "openIssues": 2009,
+    "stars": 26741,
+    "updated": "2026-06-27T07:21:14Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-06-26T10:19:09.744Z"
+    "fetchedAt": "2026-06-27T09:26:03.728Z"
   },
   "music-tagging-search": {
     "archived": false,
@@ -617,11 +665,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 12,
+    "openIssues": 7,
     "stars": 2,
-    "updated": "2026-06-26T02:46:17Z",
+    "updated": "2026-06-26T22:02:19Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-06-26T10:19:09.660Z"
+    "fetchedAt": "2026-06-27T09:26:03.775Z"
   },
   "openhands-b2-backup": {
     "archived": false,
@@ -641,11 +689,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T01:10:17Z",
+    "updated": "2026-06-26T22:16:16Z",
     "repo": "backblaze-b2-samples/personal-video-ai-search",
-    "fetchedAt": "2026-06-26T10:19:09.951Z"
+    "fetchedAt": "2026-06-27T09:26:03.633Z"
   },
   "pixeltable-multimodal-data": {
     "archived": false,
@@ -655,9 +703,21 @@
     "license": null,
     "openIssues": 2,
     "stars": 1,
-    "updated": "2026-06-26T00:48:40Z",
+    "updated": "2026-06-26T21:12:37Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
-    "fetchedAt": "2026-06-26T10:19:09.745Z"
+    "fetchedAt": "2026-06-27T09:26:03.699Z"
+  },
+  "prompt-showdown": {
+    "archived": false,
+    "description": "Version and A/B test your LLM prompts like code: run N prompt variants across a shared input set, score every output with an LLM judge (NVIDIA NIM), and preserve each run on Backblaze B2 as a durable, queryable system of record. Next.js + FastAPI sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-25T18:19:03Z",
+    "repo": "backblaze-b2-samples/prompt-showdown",
+    "fetchedAt": "2026-06-27T09:26:03.731Z"
   },
   "sam2-mask-dataset-builder": {
     "archived": false,
@@ -677,11 +737,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 51,
+    "openIssues": 50,
     "stars": 7,
-    "updated": "2026-06-25T23:42:47Z",
+    "updated": "2026-06-26T22:41:51Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-06-26T10:19:09.925Z"
+    "fetchedAt": "2026-06-27T09:26:03.669Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -689,11 +749,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T01:54:39Z",
+    "updated": "2026-06-26T21:06:44Z",
     "repo": "backblaze-b2-samples/supervision-sports-highlights",
-    "fetchedAt": "2026-06-26T10:19:10.292Z"
+    "fetchedAt": "2026-06-27T09:26:03.679Z"
   },
   "transformerjs-background-removal": {
     "archived": false,
@@ -701,11 +761,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 0,
     "stars": 3,
-    "updated": "2026-06-25T23:39:51Z",
+    "updated": "2026-06-26T21:17:11Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-06-26T10:19:09.744Z"
+    "fetchedAt": "2026-06-27T09:26:03.666Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
@@ -713,11 +773,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 6,
+    "openIssues": 3,
     "stars": 1,
-    "updated": "2026-06-26T00:44:28Z",
+    "updated": "2026-06-26T22:28:16Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-06-26T10:19:09.691Z"
+    "fetchedAt": "2026-06-27T09:26:03.675Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -725,11 +785,11 @@
     "forks": 4,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 4,
     "stars": 10,
-    "updated": "2026-06-26T01:38:53Z",
+    "updated": "2026-06-26T21:16:16Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-06-26T10:19:09.708Z"
+    "fetchedAt": "2026-06-27T09:26:03.718Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -749,11 +809,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-26T02:11:27Z",
+    "updated": "2026-06-26T21:06:57Z",
     "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
-    "fetchedAt": "2026-06-26T10:19:09.745Z"
+    "fetchedAt": "2026-06-27T09:26:03.680Z"
   },
   "voice-memo-ai-second-brain": {
     "archived": false,
@@ -771,13 +831,13 @@
     "archived": false,
     "description": "Browser-based audio transcription using Whisper and Transformers.js, storing results in Backblaze B2 Cloud Storage.",
     "forks": 1,
-    "lang": "HTML",
+    "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 0,
     "stars": 3,
-    "updated": "2026-06-25T23:40:41Z",
+    "updated": "2026-06-26T21:18:28Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-06-26T10:19:09.744Z"
+    "fetchedAt": "2026-06-27T09:26:03.699Z"
   },
   "whisperx-diarized-archive": {
     "archived": false,
@@ -807,12 +867,12 @@
     "archived": false,
     "description": "Browser-based image classification example application using OpenAI CLIP and Transformers.js. Upload images, run zero-shot classification with custom labels directly in the browser, and store images plus results in S3-compatible Backblaze B2 cloud object storage using pre-signed uploads.",
     "forks": 1,
-    "lang": "HTML",
+    "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-06-26T00:44:19Z",
+    "updated": "2026-06-26T21:42:52Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-06-26T10:19:09.708Z"
+    "fetchedAt": "2026-06-27T09:26:03.685Z"
   }
 }
