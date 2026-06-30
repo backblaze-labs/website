@@ -233,7 +233,7 @@ function extractFirstBodyImage(html, basePageUrl) {
     // Skipping these lets the upstream walk fall through to the apex domain
     // (e.g. project marketing site) which usually does have real hero art.
     if (
-      /(?:^|\.)(?:wikimedia\.org|wikipedia\.org|img\.youtube\.com|i\.ytimg\.com|i\.vimeocdn\.com)$/i.test(
+      /(?:^|\.)(?:wikimedia\.org|wikipedia\.org|img\.youtube\.com|i\.ytimg\.com|i\.vimeocdn\.com|avatars\.githubusercontent\.com)$/i.test(
         srcHost(src, basePageUrl),
       )
     )
