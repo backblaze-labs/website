@@ -195,7 +195,13 @@ function hasIncludeTopic(r) {
 //
 // Catalog override keys (all optional, override auto-inference):
 //   url, source, tagline, description, categories, languages, language, tags,
-//   icon, featured, id, title.
+//   icon, featured, id, title, preview.
+//
+//   preview  curated image/video URL for the card. Use when the destination's
+//            auto-discovered preview is wrong (e.g. a deep-link page's
+//            auto-generated OG card instead of the project's brand banner, or
+//            a GitHub avatar). `.mp4`/`.webm`/`.mov`/`.m4v` render as autoplay
+//            video; anything else as an image. Wins over sync-previews.
 //
 // Literal "null", "none", "n/a", "tbd", and empty strings are coerced to
 // undefined so callers can use simple `meta.docs || meta.pull_request` chains.
@@ -221,6 +227,7 @@ const TRACKER_SENTINEL_KEYS = new Set([
   "featured",
   "id",
   "title",
+  "preview",
 ]);
 
 const NULLISH_VALUES = new Set(["null", "none", "n/a", "tbd", "todo", ""]);
@@ -727,6 +734,9 @@ async function draftUpstreamEntry(item) {
     icon,
     featured,
   };
+  // Curated preview override (image or video URL). Only set when provided so
+  // entries without it still fall through to sync-previews auto-discovery.
+  if (meta.preview) entry.preview = meta.preview;
   return { entry, missing };
 }
 

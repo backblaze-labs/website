@@ -165,6 +165,7 @@ If discovery's auto-inference produces something off, override per-key in the sa
 | `languages` (comma-sep) | Defaults to `python`. Legacy `language` is still accepted by discovery. |
 | `tags` (comma-sep) | Heuristic from URL host + source name + `s3-compatible`. |
 | `icon` | Defaults to `flow`. |
+| `preview` | Auto-discovered from the destination (page `<video>` → body image → og:image, walking exact URL → root → apex). Set a curated image **or** video URL when auto-discovery picks the wrong thing (a deep-link page's auto-generated OG card, a GitHub avatar, etc.). `.mp4`/`.webm`/`.mov`/`.m4v` autoplay as video; anything else renders as an image. Wins over `sync-previews`. |
 | `id` | URL host slug → `user_agent_extra` → title slug. |
 | `title` | Sub-issue title with " Integration" suffix stripped. |
 | `accent`, `featured` | `accent: red`, `featured: false`. |
