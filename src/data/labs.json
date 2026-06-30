@@ -50,6 +50,11 @@
       "id": "infra",
       "label": "Infrastructure",
       "icon": "server"
+    },
+    {
+      "id": "community",
+      "label": "Community",
+      "icon": "users"
     }
   ],
   "types": [
@@ -106,7 +111,7 @@
       "title": "MLflow",
       "tagline": "Backblaze B2 as the MLflow artifact store.",
       "description": "MLflow's tracking server supports Backblaze B2 directly via the S3-compatible API. Configure `MLFLOW_S3_ENDPOINT_URL` and your B2 credentials, and your runs, models, and artifacts persist to B2 — no extra plugin, fully documented upstream.",
-      "categories": ["ai-ml", "data-pipelines", "infra"],
+      "categories": ["ai-ml", "data-pipelines", "infra", "community"],
       "type": "integration",
       "tags": ["mlflow", "mlops", "artifact-store", "tracking", "s3-compatible"],
       "repo": "mlflow/mlflow",
@@ -123,7 +128,7 @@
       "title": "CVAT",
       "tagline": "Backblaze B2 as a cloud storage backend for CVAT.",
       "description": "CVAT — the open source computer vision annotation tool — supports Backblaze B2 as an S3-compatible cloud storage. Attach B2 buckets to your projects to store annotation source data and exported results without paying egress fees.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml", "data-pipelines", "community"],
       "type": "integration",
       "tags": ["cvat", "annotation", "computer-vision", "data-labeling", "s3-compatible"],
       "repo": "cvat-ai/cvat",
@@ -543,7 +548,7 @@
       "title": "Meltano",
       "tagline": "Backblaze B2 as a state backend for Meltano data pipelines.",
       "description": "Meltano supports Backblaze B2 as a state backend via its S3-compatible API. Configure `state_backend.uri` with your B2 bucket and credentials and your pipeline state persists to B2 between runs — no extra plugin, fully documented upstream.",
-      "categories": ["ai-ml"],
+      "categories": ["ai-ml", "community"],
       "type": "integration",
       "tags": ["meltano", "s3-compatible"],
       "repo": null,
@@ -558,7 +563,7 @@
       "title": "Pixeltable",
       "tagline": "Backblaze B2 as S3-compatible storage for Pixeltable's table stores.",
       "description": "Pixeltable is a declarative table-based system for multimodal AI data. Configure your B2 endpoint and credentials and Pixeltable persists tables, media, and computed columns to B2 — same path as the S3 / GCS / R2 backends.",
-      "categories": ["ai-ml"],
+      "categories": ["ai-ml", "community"],
       "type": "integration",
       "tags": ["pixeltable", "pixel-table", "s3-compatible"],
       "repo": null,
@@ -1357,7 +1362,7 @@
       "title": "Sveltia CMS",
       "tagline": "Git-based headless CMS with media stored in Backblaze B2.",
       "description": "Sveltia CMS is a Git-based headless CMS and a drop-in successor to Netlify/Decap CMS. Point its media library at Backblaze B2 over the S3-compatible API so editorial uploads land directly in your own bucket.",
-      "categories": ["developer-tools"],
+      "categories": ["developer-tools", "community"],
       "type": "integration",
       "languages": ["javascript"],
       "tags": ["sveltiacms", "sveltia-cms", "s3-compatible"],
@@ -1365,6 +1370,21 @@
       "source": "Sveltia CMS",
       "url": "https://sveltiacms.app/en/docs/media/backblaze-b2",
       "icon": "flow",
+      "featured": false
+    },
+    {
+      "id": "home-assistant",
+      "title": "Home Assistant",
+      "tagline": "Store Home Assistant backups in Backblaze B2.",
+      "description": "The Backblaze B2 integration lets Home Assistant store its system backups in a Backblaze B2 bucket over the S3-compatible API. Add your application key ID, application key, and bucket name (with an optional prefix) under Settings > Devices & Services, and backups upload straight to B2. Available since Home Assistant 2025.12.",
+      "categories": ["infra", "community"],
+      "type": "integration",
+      "languages": ["python"],
+      "tags": ["home-assistant", "s3-compatible"],
+      "repo": null,
+      "source": "Home Assistant",
+      "url": "https://www.home-assistant.io/integrations/backblaze_b2/",
+      "icon": "server",
       "featured": false
     }
   ]
