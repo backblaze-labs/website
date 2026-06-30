@@ -1385,7 +1385,8 @@
       "source": "Home Assistant",
       "url": "https://www.home-assistant.io/integrations/backblaze_b2/",
       "icon": "server",
-      "featured": false
+      "featured": false,
+      "preview": "https://www.home-assistant.io/images/default-social.png"
     }
   ]
 }
