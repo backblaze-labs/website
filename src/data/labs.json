@@ -1387,6 +1387,132 @@
       "icon": "server",
       "featured": false,
       "preview": "https://www.home-assistant.io/images/default-social.png"
+    },
+    {
+      "id": "rife-frame-interpolation-pipeline",
+      "title": "Rife Frame Interpolation Pipeline",
+      "tagline": "Self-hosted RIFE video frame interpolation pipeline: turn footage into smooth…",
+      "description": "Self-hosted RIFE video frame interpolation pipeline: turn footage into smooth 2x/4x/8x slow motion with on-device Practical-RIFE neural interpolation (CPU/CUDA/Apple MPS), no AI API key, storing source clips and renders in Backblaze B2 via the S3-compatible API. FastAPI + Next.js B2 sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "fastapi",
+        "ffmpeg",
+        "frame-interpolation",
+        "nextjs"
+      ],
+      "repo": "backblaze-b2-samples/rife-frame-interpolation-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/rife-frame-interpolation-pipeline",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "qwen-video-chapters",
+      "title": "Qwen Video Chapters",
+      "tagline": "AI video chapterization app that runs Qwen2.5-VL locally (no inference API…",
+      "description": "AI video chapterization app that runs Qwen2.5-VL locally (no inference API key) over ffmpeg-extracted keyframes to auto-generate chapter timestamps, titles, thumbnails, and summaries — with the source video and every derived artifact stored in Backblaze B2 via the S3-compatible API",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["ai", "backblaze-b2", "cloudstorage", "fastapi", "ffmpeg", "nextjs"],
+      "repo": "backblaze-b2-samples/qwen-video-chapters",
+      "url": "https://github.com/backblaze-b2-samples/qwen-video-chapters",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "mmaction2-action-dataset-builder",
+      "title": "Mmaction2 Action Dataset Builder",
+      "tagline": "Build labeled action-recognition datasets from raw video: segment, clip, label…",
+      "description": "Build labeled action-recognition datasets from raw video: segment, clip, label with MMAction2 (Kinetics-400), and package train/val/test splits. FastAPI + Next.js sample app storing everything on Backblaze B2 via the S3-compatible API.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "action-recognition",
+        "backblaze-b2",
+        "cloudstorage",
+        "computer-vision",
+        "deep-learning",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/mmaction2-action-dataset-builder",
+      "url": "https://github.com/backblaze-b2-samples/mmaction2-action-dataset-builder",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "bytetrack-dataset-builder",
+      "title": "Bytetrack Dataset Builder",
+      "tagline": "Turn raw video on Backblaze B2 into training-ready multi-object-tracking…",
+      "description": "Turn raw video on Backblaze B2 into training-ready multi-object-tracking datasets. ByteTrack + a keyless local detector fan one video out into per-track annotations, cropped clips, and versioned MOT-format label releases written back to B2 over the S3-compatible API. No GPU, no paid inference API.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "bytetrack",
+        "cloudstorage",
+        "computer-vision",
+        "dataset-generation",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/bytetrack-dataset-builder",
+      "url": "https://github.com/backblaze-b2-samples/bytetrack-dataset-builder",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "lerobot-b2-streaming",
+      "title": "Lerobot B2 Streaming",
+      "tagline": "Stream HuggingFace LeRobot v3 robot datasets straight from a Backblaze B2…",
+      "description": "Stream HuggingFace LeRobot v3 robot datasets straight from a Backblaze B2 bucket over the S3 API, fetching only the byte ranges you need instead of downloading the whole dataset. Record real teleoperation episodes to B2, index by task, and stream them back to train. The S3 streaming bridge LeRobot lacks (huggingface/lerobot#764).",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "datasets",
+        "fastapi",
+        "huggingface",
+        "imitation-learning"
+      ],
+      "repo": "backblaze-b2-samples/lerobot-b2-streaming",
+      "url": "https://github.com/backblaze-b2-samples/lerobot-b2-streaming",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "whisper-subtitle-pipeline",
+      "title": "Whisper Subtitle Pipeline",
+      "tagline": "Self-hosted batch video subtitling & translation built on faster-whisper and…",
+      "description": "Self-hosted batch video subtitling & translation built on faster-whisper and Backblaze B2 — transcribe and translate videos on-device (no per-minute API fees) and store source media plus SRT/VTT/JSON captions in one bucket. Next.js + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "cloudstorage", "fastapi", "faster-whisper", "nextjs", "nllb"],
+      "repo": "backblaze-b2-samples/whisper-subtitle-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/whisper-subtitle-pipeline",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "whisper-dataset-builder",
+      "title": "Whisper Dataset Builder",
+      "tagline": "Turn long-form audio on Backblaze B2 into a training-ready speech dataset:…",
+      "description": "Turn long-form audio on Backblaze B2 into a training-ready speech dataset: local pyannote VAD segmentation + faster-whisper transcription fan one recording out into many labeled clip/transcript pairs, written back to B2 as LJSpeech or HuggingFace audiofolder for ASR/TTS training.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["asr", "audio-processing", "backblaze-b2", "cloudstorage", "dataset", "fastapi"],
+      "repo": "backblaze-b2-samples/whisper-dataset-builder",
+      "url": "https://github.com/backblaze-b2-samples/whisper-dataset-builder",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
