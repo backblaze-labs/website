@@ -353,11 +353,11 @@
     "forks": 3736,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 604,
-    "stars": 16221,
-    "updated": "2026-07-03T14:20:52Z",
+    "openIssues": 602,
+    "stars": 16231,
+    "updated": "2026-07-06T10:29:48Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-05T09:38:39.839Z"
+    "fetchedAt": "2026-07-06T11:24:21.201Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -446,14 +446,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 8,
+    "forks": 9,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 79,
-    "stars": 238,
+    "stars": 255,
     "updated": "2026-07-02T14:28:34Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-05T09:38:39.839Z"
+    "fetchedAt": "2026-07-06T11:24:21.229Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -626,14 +626,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5951,
+    "forks": 5955,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2033,
-    "stars": 26867,
-    "updated": "2026-07-04T20:18:32Z",
+    "openIssues": 2030,
+    "stars": 26894,
+    "updated": "2026-07-06T09:27:47Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-05T09:38:39.848Z"
+    "fetchedAt": "2026-07-06T11:24:21.201Z"
   },
   "music-tagging-search": {
     "archived": false,
@@ -739,9 +739,9 @@
     "license": "MIT",
     "openIssues": 56,
     "stars": 7,
-    "updated": "2026-07-03T15:41:48Z",
+    "updated": "2026-07-06T11:13:41Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-07-04T09:18:15.961Z"
+    "fetchedAt": "2026-07-06T11:24:21.258Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
