@@ -1,6 +1,6 @@
 name: Discover new integrations
 
-# Runs the discovery script every Monday, merges any proposals, and commits the
+# Runs the discovery script every weekday, merges any proposals, and commits
 # generated catalog changes directly to main.
 #
 # Sources:
@@ -16,7 +16,7 @@ name: Discover new integrations
 
 on:
   schedule:
-    - cron: "0 8 * * 1" # 08:00 UTC every Monday
+    - cron: "0 8 * * 1-5" # 08:00 UTC Monday-Friday
   workflow_dispatch:
 
 permissions:
@@ -67,7 +67,7 @@ jobs:
           git config user.name  "$GIT_AUTHOR_NAME"
           git config user.email "$GIT_AUTHOR_EMAIL"
           git add src/data/labs.json
-          git commit -m "chore(catalog): weekly discovery"
+          git commit -m "chore(catalog): weekday discovery"
           git push
           echo "committed=true" >> "$GITHUB_OUTPUT"
 

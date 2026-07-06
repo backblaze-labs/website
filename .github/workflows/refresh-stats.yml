@@ -1,6 +1,6 @@
 name: Refresh GitHub stats
 
-# Pulls fresh stars / forks / last-push for every catalog entry once a day and
+# Pulls fresh stars / forks / last-push for every catalog entry every day and
 # commits the result directly to main. No PR — stats are low-risk numeric data
 # that nobody needs to review.
 #
@@ -10,7 +10,7 @@ name: Refresh GitHub stats
 
 on:
   schedule:
-    - cron: "0 7 * * *" # 07:00 UTC daily
+    - cron: "0 7 * * *" # 07:00 UTC every day
   workflow_dispatch:
 
 permissions:
