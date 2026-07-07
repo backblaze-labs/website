@@ -258,10 +258,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 8,
-    "stars": 13,
+    "stars": 14,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-04T09:18:15.915Z"
+    "fetchedAt": "2026-07-07T10:21:24.507Z"
   },
   "b2-action": {
     "archived": false,
@@ -269,11 +269,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 41,
+    "openIssues": 46,
     "stars": 7,
-    "updated": "2026-07-03T14:31:50Z",
+    "updated": "2026-07-06T23:37:47Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-07-04T09:18:15.961Z"
+    "fetchedAt": "2026-07-07T10:21:24.507Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -281,11 +281,23 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 61,
+    "openIssues": 51,
     "stars": 3,
-    "updated": "2026-07-04T02:23:22Z",
+    "updated": "2026-07-06T20:19:55Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-07-04T09:18:15.960Z"
+    "fetchedAt": "2026-07-07T10:21:24.507Z"
+  },
+  "bytetrack-dataset-builder": {
+    "archived": false,
+    "description": "Turn raw video on Backblaze B2 into training-ready multi-object-tracking datasets. ByteTrack + a keyless local detector fan one video out into per-track annotations, cropped clips, and versioned MOT-format label releases written back to B2 over the S3-compatible API. No GPU, no paid inference API.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-01T20:34:17Z",
+    "repo": "backblaze-b2-samples/bytetrack-dataset-builder",
+    "fetchedAt": "2026-07-07T10:21:25.008Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -350,14 +362,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3736,
+    "forks": 3738,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 602,
-    "stars": 16231,
-    "updated": "2026-07-06T10:29:48Z",
+    "openIssues": 607,
+    "stars": 16240,
+    "updated": "2026-07-07T10:20:27Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-06T11:24:21.201Z"
+    "fetchedAt": "2026-07-07T10:21:24.508Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -449,11 +461,11 @@
     "forks": 9,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 79,
-    "stars": 255,
-    "updated": "2026-07-02T14:28:34Z",
+    "openIssues": 77,
+    "stars": 264,
+    "updated": "2026-07-06T20:26:02Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-06T11:24:21.229Z"
+    "fetchedAt": "2026-07-07T10:21:24.508Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -611,6 +623,18 @@
     "repo": "backblaze-b2-samples/lance-multimodal-search",
     "fetchedAt": "2026-06-27T09:26:03.636Z"
   },
+  "lerobot-b2-streaming": {
+    "archived": false,
+    "description": "Stream HuggingFace LeRobot v3 robot datasets straight from a Backblaze B2 bucket over the S3 API, fetching only the byte ranges you need instead of downloading the whole dataset. Record real teleoperation episodes to B2, index by task, and stream them back to train. The S3 streaming bridge LeRobot lacks (huggingface/lerobot#764).",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-30T12:56:06Z",
+    "repo": "backblaze-b2-samples/lerobot-b2-streaming",
+    "fetchedAt": "2026-07-07T10:21:25.009Z"
+  },
   "lora-training-studio": {
     "archived": false,
     "description": "Browser-based LoRA fine-tuning studio for Stable Diffusion: upload images, caption, train, and download the .safetensors — every artifact (dataset, captions, checkpoints, samples, LoRA) versioned on Backblaze B2.",
@@ -626,14 +650,26 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5955,
+    "forks": 5962,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2030,
-    "stars": 26894,
-    "updated": "2026-07-06T09:27:47Z",
+    "openIssues": 2022,
+    "stars": 26918,
+    "updated": "2026-07-07T06:01:08Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-06T11:24:21.201Z"
+    "fetchedAt": "2026-07-07T10:21:24.948Z"
+  },
+  "mmaction2-action-dataset-builder": {
+    "archived": false,
+    "description": "Build labeled action-recognition datasets from raw video: segment, clip, label with MMAction2 (Kinetics-400), and package train/val/test splits. FastAPI + Next.js sample app storing everything on Backblaze B2 via the S3-compatible API.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-02T21:33:18Z",
+    "repo": "backblaze-b2-samples/mmaction2-action-dataset-builder",
+    "fetchedAt": "2026-07-07T10:21:25.170Z"
   },
   "music-tagging-search": {
     "archived": false,
@@ -665,11 +701,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 3,
-    "updated": "2026-07-03T13:48:14Z",
+    "updated": "2026-07-06T14:57:47Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-07-04T09:18:15.915Z"
+    "fetchedAt": "2026-07-07T10:21:24.507Z"
   },
   "openhands-b2-backup": {
     "archived": false,
@@ -719,6 +755,30 @@
     "repo": "backblaze-b2-samples/prompt-showdown",
     "fetchedAt": "2026-06-27T09:26:03.731Z"
   },
+  "qwen-video-chapters": {
+    "archived": false,
+    "description": "AI video chapterization app that runs Qwen2.5-VL locally (no inference API key) over ffmpeg-extracted keyframes to auto-generate chapter timestamps, titles, thumbnails, and summaries — with the source video and every derived artifact stored in Backblaze B2 via the S3-compatible API",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-03T14:04:00Z",
+    "repo": "backblaze-b2-samples/qwen-video-chapters",
+    "fetchedAt": "2026-07-07T10:21:24.899Z"
+  },
+  "rife-frame-interpolation-pipeline": {
+    "archived": false,
+    "description": "Self-hosted RIFE video frame interpolation pipeline: turn footage into smooth 2x/4x/8x slow motion with on-device Practical-RIFE neural interpolation (CPU/CUDA/Apple MPS), no AI API key, storing source clips and renders in Backblaze B2 via the S3-compatible API. FastAPI + Next.js B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-03T19:21:46Z",
+    "repo": "backblaze-b2-samples/rife-frame-interpolation-pipeline",
+    "fetchedAt": "2026-07-07T10:21:25.055Z"
+  },
   "sam2-mask-dataset-builder": {
     "archived": false,
     "description": "Turn a raw media archive on Backblaze B2 into a versioned segmentation dataset. Drop click/box prompts, run Meta's Segment Anything 2 (SAM 2) locally to mask images and propagate across video, and write COCO RLE, mask PNGs, and cut-outs back to B2 — no second API key.",
@@ -737,11 +797,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 56,
+    "openIssues": 54,
     "stars": 7,
-    "updated": "2026-07-06T11:13:41Z",
+    "updated": "2026-07-06T20:28:05Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-07-06T11:24:21.258Z"
+    "fetchedAt": "2026-07-07T10:21:24.507Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -826,6 +886,30 @@
     "updated": "2026-06-25T20:54:59Z",
     "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
     "fetchedAt": "2026-06-26T10:19:09.771Z"
+  },
+  "whisper-dataset-builder": {
+    "archived": false,
+    "description": "Turn long-form audio on Backblaze B2 into a training-ready speech dataset: local pyannote VAD segmentation + faster-whisper transcription fan one recording out into many labeled clip/transcript pairs, written back to B2 as LJSpeech or HuggingFace audiofolder for ASR/TTS training.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-29T12:55:35Z",
+    "repo": "backblaze-b2-samples/whisper-dataset-builder",
+    "fetchedAt": "2026-07-07T10:21:25.044Z"
+  },
+  "whisper-subtitle-pipeline": {
+    "archived": false,
+    "description": "Self-hosted batch video subtitling & translation built on faster-whisper and Backblaze B2 — transcribe and translate videos on-device (no per-minute API fees) and store source media plus SRT/VTT/JSON captions in one bucket. Next.js + FastAPI.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-06-29T16:48:51Z",
+    "repo": "backblaze-b2-samples/whisper-subtitle-pipeline",
+    "fetchedAt": "2026-07-07T10:21:25.061Z"
   },
   "whisper-transformersjs-transcriber": {
     "archived": false,
