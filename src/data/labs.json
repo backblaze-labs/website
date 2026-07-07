@@ -1513,6 +1513,48 @@
       "url": "https://github.com/backblaze-b2-samples/whisper-dataset-builder",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "nudenet-video-moderation",
+      "title": "Nudenet Video Moderation",
+      "tagline": "Self-hosted NSFW video moderation pipeline: NudeNet (local ONNX) classifies…",
+      "description": "Self-hosted NSFW video moderation pipeline: NudeNet (local ONNX) classifies ffmpeg-sampled frames, flags unsafe content, and routes it to a human-in-the-loop review queue — every video, frame crop, and report stored on Backblaze B2 via the S3-compatible API. Next.js + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "computer-vision",
+        "content-moderation",
+        "fastapi",
+        "ffmpeg"
+      ],
+      "repo": "backblaze-b2-samples/nudenet-video-moderation",
+      "url": "https://github.com/backblaze-b2-samples/nudenet-video-moderation",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "videohash-deduplication",
+      "title": "Videohash Deduplication",
+      "tagline": "Perceptual video deduplication on Backblaze B2: hash a video library with…",
+      "description": "Perceptual video deduplication on Backblaze B2: hash a video library with videohash, cluster near-duplicates by Hamming distance, and reclaim storage. Local, open-source, keyless compute — B2 holds the library, the hash index, and every cluster report.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "deduplication",
+        "fastapi",
+        "near-duplicate-detection",
+        "nextjs"
+      ],
+      "repo": "backblaze-b2-samples/videohash-deduplication",
+      "url": "https://github.com/backblaze-b2-samples/videohash-deduplication",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
