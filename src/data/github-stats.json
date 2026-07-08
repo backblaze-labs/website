@@ -269,11 +269,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 40,
+    "openIssues": 41,
     "stars": 7,
-    "updated": "2026-07-07T14:46:37Z",
+    "updated": "2026-07-08T14:29:48Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-07-08T09:22:29.113Z"
+    "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -281,11 +281,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 52,
+    "openIssues": 53,
     "stars": 3,
-    "updated": "2026-07-07T13:51:27Z",
+    "updated": "2026-07-08T14:24:56Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-07-08T09:22:29.120Z"
+    "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
   "bytetrack-dataset-builder": {
     "archived": false,
@@ -365,11 +365,11 @@
     "forks": 3739,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 606,
-    "stars": 16246,
-    "updated": "2026-07-07T20:32:09Z",
+    "openIssues": 604,
+    "stars": 16242,
+    "updated": "2026-07-08T15:22:10Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-08T09:22:29.114Z"
+    "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -395,6 +395,18 @@
     "repo": "backblaze-b2-samples/demucs-stem-archive",
     "fetchedAt": "2026-07-02T09:56:55.995Z"
   },
+  "deoldify-archive-colorizer": {
+    "archived": false,
+    "description": "Colorize black-and-white archival photos and film stills locally with DeOldify (NoGAN) and keep both the original masters and the colorized restorations in Backblaze B2 — an ingest, colorize, compare, and retain pipeline for film archives, museums, and documentary teams.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-07T22:19:04Z",
+    "repo": "backblaze-b2-samples/deoldify-archive-colorizer",
+    "fetchedAt": "2026-07-08T15:31:53.250Z"
+  },
   "docs-to-podcast": {
     "archived": false,
     "description": "NotebookLM-style podcast generator built on Backblaze B2: turn PDFs and docs into a two-host AI audio overview with OpenAI script generation and TTS, storing sources, transcripts, and episode audio in B2 cloud storage via the S3-compatible API.",
@@ -406,6 +418,18 @@
     "updated": "2026-06-25T21:14:36Z",
     "repo": "backblaze-b2-samples/docs-to-podcast",
     "fetchedAt": "2026-06-26T10:19:10.059Z"
+  },
+  "donut-receipt-parser": {
+    "archived": false,
+    "description": "OCR-free receipt & invoice parsing: runs the Donut vision model locally to extract line items, tax, and totals as structured JSON, storing every raw image and extraction in Backblaze B2 (S3-compatible) — no OCR step, no database, no second API key.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-07T12:56:39Z",
+    "repo": "backblaze-b2-samples/donut-receipt-parser",
+    "fetchedAt": "2026-07-08T15:31:52.644Z"
   },
   "duckdb-query-in-place": {
     "archived": false,
@@ -461,11 +485,11 @@
     "forks": 10,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 78,
+    "openIssues": 79,
     "stars": 267,
-    "updated": "2026-07-07T14:01:36Z",
+    "updated": "2026-07-08T13:56:30Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-08T09:22:29.143Z"
+    "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -650,14 +674,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5962,
+    "forks": 5964,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2019,
-    "stars": 26929,
-    "updated": "2026-07-08T09:14:53Z",
+    "openIssues": 2021,
+    "stars": 26930,
+    "updated": "2026-07-08T15:30:38Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-08T09:22:29.134Z"
+    "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -713,11 +737,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 3,
-    "updated": "2026-07-07T14:37:32Z",
+    "updated": "2026-07-08T13:27:31Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-07-08T09:22:29.088Z"
+    "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
   "openhands-b2-backup": {
     "archived": false,
@@ -730,6 +754,18 @@
     "updated": "2026-06-24T04:16:42Z",
     "repo": "backblaze-labs/openhands-b2-backup",
     "fetchedAt": "2026-06-24T10:18:02.531Z"
+  },
+  "paddleocr-document-archive": {
+    "archived": false,
+    "description": "Self-hosted OCR document archive: PaddleOCR turns scanned pages into searchable, structured text locally — no external OCR API — with Backblaze B2 (S3-compatible) as the single source of truth and a rebuildable SQLite index for keyword search.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-07T13:23:54Z",
+    "repo": "backblaze-b2-samples/paddleocr-document-archive",
+    "fetchedAt": "2026-07-08T15:31:53.245Z"
   },
   "personal-video-ai-search": {
     "archived": false,
@@ -809,11 +845,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 51,
+    "openIssues": 52,
     "stars": 7,
-    "updated": "2026-07-07T16:06:50Z",
+    "updated": "2026-07-08T14:25:07Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-07-08T09:22:29.159Z"
+    "fetchedAt": "2026-07-08T15:31:51.974Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -970,6 +1006,18 @@
     "updated": "2026-06-17T21:29:29Z",
     "repo": "backblaze-b2-samples/yolo11-batch-detection-pipeline",
     "fetchedAt": "2026-06-23T10:32:46.861Z"
+  },
+  "yt-dlp-vod-archiver": {
+    "archived": false,
+    "description": "Self-hosted VOD & live-stream archiver: download any yt-dlp-supported video, stream it straight to Backblaze B2 cloud storage, auto-cut highlight clips with ffmpeg, and browse it all from a Next.js + FastAPI UI. B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-07T19:43:32Z",
+    "repo": "backblaze-b2-samples/yt-dlp-vod-archiver",
+    "fetchedAt": "2026-07-08T15:31:53.256Z"
   },
   "zeroshot-image-classifier": {
     "archived": false,

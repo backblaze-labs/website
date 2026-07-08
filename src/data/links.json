@@ -2,6 +2,9 @@
   "cvat": {
     "site": "https://www.cvat.ai"
   },
+  "home-assistant": {
+    "site": "https://home-assistant.io/"
+  },
   "meltano": {
     "site": "https://meltano.com/",
     "docs": "https://docs.meltano.com/"
@@ -12,5 +15,13 @@
   "pixeltable": {
     "site": "https://pixeltable.com/",
     "docs": "https://docs.pixeltable.com/"
+  },
+  "sveltiacms": {
+    "site": "https://sveltiacms.app/",
+    "docs": "https://sveltiacms.app/en/docs/media/backblaze-b2"
+  },
+  "zenml": {
+    "site": "https://zenml.io/",
+    "docs": "https://docs.zenml.io/"
   }
 }

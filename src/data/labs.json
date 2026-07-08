@@ -1632,6 +1632,21 @@
       "url": "https://github.com/backblaze-b2-samples/donut-receipt-parser",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "zenml",
+      "title": "ZenML",
+      "tagline": "Native Backblaze B2 artifact store support for ZenML pipelines.",
+      "description": "Open-source MLOps framework for creating portable, production-ready ML pipelines across any infrastructure.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "integration",
+      "languages": ["python", "javascript"],
+      "tags": ["zenml", "s3-compatible"],
+      "repo": null,
+      "source": "ZenML",
+      "url": "https://docs.zenml.io/changelog/server-sdk",
+      "icon": "flow",
+      "featured": false
     }
   ]
 }
