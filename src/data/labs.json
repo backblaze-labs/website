@@ -1638,7 +1638,7 @@
       "title": "ZenML",
       "tagline": "Native Backblaze B2 artifact store support for ZenML pipelines.",
       "description": "Open-source MLOps framework for creating portable, production-ready ML pipelines across any infrastructure.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml", "data-pipelines", "community"],
       "type": "integration",
       "languages": ["python", "javascript"],
       "tags": ["zenml", "s3-compatible"],
