@@ -1555,6 +1555,83 @@
       "url": "https://github.com/backblaze-b2-samples/videohash-deduplication",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "deoldify-archive-colorizer",
+      "title": "Deoldify Archive Colorizer",
+      "tagline": "Colorize black-and-white archival photos and film stills locally with DeOldify…",
+      "description": "Colorize black-and-white archival photos and film stills locally with DeOldify (NoGAN) and keep both the original masters and the colorized restorations in Backblaze B2 — an ingest, colorize, compare, and retain pipeline for film archives, museums, and documentary teams.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "colorization",
+        "computer-vision",
+        "deep-learning",
+        "deoldify"
+      ],
+      "repo": "backblaze-b2-samples/deoldify-archive-colorizer",
+      "url": "https://github.com/backblaze-b2-samples/deoldify-archive-colorizer",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "yt-dlp-vod-archiver",
+      "title": "Yt Dlp Vod Archiver",
+      "tagline": "Self-hosted VOD & live-stream archiver: download any yt-dlp-supported video,…",
+      "description": "Self-hosted VOD & live-stream archiver: download any yt-dlp-supported video, stream it straight to Backblaze B2 cloud storage, auto-cut highlight clips with ffmpeg, and browse it all from a Next.js + FastAPI UI. B2 sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "cloudstorage", "fastapi", "ffmpeg", "livestream", "nextjs"],
+      "repo": "backblaze-b2-samples/yt-dlp-vod-archiver",
+      "url": "https://github.com/backblaze-b2-samples/yt-dlp-vod-archiver",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "paddleocr-document-archive",
+      "title": "Paddleocr Document Archive",
+      "tagline": "Self-hosted OCR document archive: PaddleOCR turns scanned pages into…",
+      "description": "Self-hosted OCR document archive: PaddleOCR turns scanned pages into searchable, structured text locally — no external OCR API — with Backblaze B2 (S3-compatible) as the single source of truth and a rebuildable SQLite index for keyword search.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "document-digitization",
+        "fastapi",
+        "full-text-search",
+        "nextjs"
+      ],
+      "repo": "backblaze-b2-samples/paddleocr-document-archive",
+      "url": "https://github.com/backblaze-b2-samples/paddleocr-document-archive",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "donut-receipt-parser",
+      "title": "Donut Receipt Parser",
+      "tagline": "OCR-free receipt & invoice parsing: runs the Donut vision model locally to…",
+      "description": "OCR-free receipt & invoice parsing: runs the Donut vision model locally to extract line items, tax, and totals as structured JSON, storing every raw image and extraction in Backblaze B2 (S3-compatible) — no OCR step, no database, no second API key.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "document-understanding",
+        "donut",
+        "fastapi",
+        "huggingface"
+      ],
+      "repo": "backblaze-b2-samples/donut-receipt-parser",
+      "url": "https://github.com/backblaze-b2-samples/donut-receipt-parser",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
