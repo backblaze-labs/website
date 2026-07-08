@@ -182,14 +182,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 9,
+    "forks": 10,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 8,
+    "openIssues": 9,
     "stars": 3,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-07-01T10:39:06.443Z"
+    "fetchedAt": "2026-07-08T09:22:29.148Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -206,14 +206,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 9,
+    "forks": 8,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 8,
+    "openIssues": 7,
     "stars": 4,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-06-30T10:28:45.430Z"
+    "fetchedAt": "2026-07-08T09:22:29.122Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -269,11 +269,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 46,
+    "openIssues": 40,
     "stars": 7,
-    "updated": "2026-07-06T23:37:47Z",
+    "updated": "2026-07-07T14:46:37Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-07-07T10:21:24.507Z"
+    "fetchedAt": "2026-07-08T09:22:29.113Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -281,11 +281,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 51,
+    "openIssues": 52,
     "stars": 3,
-    "updated": "2026-07-06T20:19:55Z",
+    "updated": "2026-07-07T13:51:27Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-07-07T10:21:24.507Z"
+    "fetchedAt": "2026-07-08T09:22:29.120Z"
   },
   "bytetrack-dataset-builder": {
     "archived": false,
@@ -362,14 +362,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3738,
+    "forks": 3739,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 607,
-    "stars": 16240,
-    "updated": "2026-07-07T10:20:27Z",
+    "openIssues": 606,
+    "stars": 16246,
+    "updated": "2026-07-07T20:32:09Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-07T10:21:24.508Z"
+    "fetchedAt": "2026-07-08T09:22:29.114Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -458,14 +458,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 9,
+    "forks": 10,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 77,
-    "stars": 264,
-    "updated": "2026-07-06T20:26:02Z",
+    "openIssues": 78,
+    "stars": 267,
+    "updated": "2026-07-07T14:01:36Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-07T10:21:24.508Z"
+    "fetchedAt": "2026-07-08T09:22:29.143Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -473,11 +473,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
-    "stars": 1,
-    "updated": "2026-07-01T14:23:17Z",
+    "openIssues": 4,
+    "stars": 2,
+    "updated": "2026-07-07T19:40:17Z",
     "repo": "backblaze-labs/genblaze-gen-media-multi-provider-sample",
-    "fetchedAt": "2026-07-02T09:56:55.968Z"
+    "fetchedAt": "2026-07-08T09:22:29.123Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -581,11 +581,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 2,
     "stars": 2,
-    "updated": "2026-07-01T14:40:07Z",
+    "updated": "2026-07-07T15:51:48Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-07-02T09:56:55.520Z"
+    "fetchedAt": "2026-07-08T09:22:29.070Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -653,11 +653,11 @@
     "forks": 5962,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2022,
-    "stars": 26918,
-    "updated": "2026-07-07T06:01:08Z",
+    "openIssues": 2019,
+    "stars": 26929,
+    "updated": "2026-07-08T09:14:53Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-07T10:21:24.948Z"
+    "fetchedAt": "2026-07-08T09:22:29.134Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -695,17 +695,29 @@
     "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
     "fetchedAt": "2026-07-02T09:56:55.487Z"
   },
+  "nudenet-video-moderation": {
+    "archived": false,
+    "description": "Self-hosted NSFW video moderation pipeline: NudeNet (local ONNX) classifies ffmpeg-sampled frames, flags unsafe content, and routes it to a human-in-the-loop review queue — every video, frame crop, and report stored on Backblaze B2 via the S3-compatible API. Next.js + FastAPI.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-06T19:55:34Z",
+    "repo": "backblaze-b2-samples/nudenet-video-moderation",
+    "fetchedAt": "2026-07-08T09:22:29.103Z"
+  },
   "openclaw-b2-sync-backup": {
     "archived": false,
     "description": "OpenClaw automatic backup and sync to Backblaze B2. Keep state durable across machines, restore instantly on new hardware, and roll back to previous snapshots if configs break or memory becomes corrupted.",
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 10,
+    "openIssues": 9,
     "stars": 3,
-    "updated": "2026-07-06T14:57:47Z",
+    "updated": "2026-07-07T14:37:32Z",
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
-    "fetchedAt": "2026-07-07T10:21:24.507Z"
+    "fetchedAt": "2026-07-08T09:22:29.088Z"
   },
   "openhands-b2-backup": {
     "archived": false,
@@ -726,10 +738,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-06-26T22:16:16Z",
     "repo": "backblaze-b2-samples/personal-video-ai-search",
-    "fetchedAt": "2026-06-27T09:26:03.633Z"
+    "fetchedAt": "2026-07-08T09:22:29.149Z"
   },
   "pixeltable-multimodal-data": {
     "archived": false,
@@ -797,11 +809,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 54,
+    "openIssues": 51,
     "stars": 7,
-    "updated": "2026-07-06T20:28:05Z",
+    "updated": "2026-07-07T16:06:50Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-07-07T10:21:24.507Z"
+    "fetchedAt": "2026-07-08T09:22:29.159Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -874,6 +886,18 @@
     "updated": "2026-06-26T21:06:57Z",
     "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
     "fetchedAt": "2026-06-27T09:26:03.680Z"
+  },
+  "videohash-deduplication": {
+    "archived": false,
+    "description": "Perceptual video deduplication on Backblaze B2: hash a video library with videohash, cluster near-duplicates by Hamming distance, and reclaim storage. Local, open-source, keyless compute — B2 holds the library, the hash index, and every cluster report.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-06T16:01:24Z",
+    "repo": "backblaze-b2-samples/videohash-deduplication",
+    "fetchedAt": "2026-07-08T09:22:29.017Z"
   },
   "voice-memo-ai-second-brain": {
     "archived": false,
