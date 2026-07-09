@@ -362,14 +362,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3739,
+    "forks": 3740,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 604,
-    "stars": 16243,
-    "updated": "2026-07-08T15:22:10Z",
+    "stars": 16246,
+    "updated": "2026-07-09T07:29:58Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-09T01:11:42.075Z"
+    "fetchedAt": "2026-07-09T10:19:59.329Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -485,11 +485,11 @@
     "forks": 10,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 79,
-    "stars": 266,
-    "updated": "2026-07-08T13:56:30Z",
+    "openIssues": 80,
+    "stars": 267,
+    "updated": "2026-07-09T05:43:51Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-09T01:11:42.075Z"
+    "fetchedAt": "2026-07-09T10:19:59.238Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -674,14 +674,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5966,
+    "forks": 5969,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2024,
-    "stars": 26936,
-    "updated": "2026-07-09T00:14:42Z",
+    "openIssues": 2027,
+    "stars": 26942,
+    "updated": "2026-07-09T09:13:12Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-09T01:11:42.075Z"
+    "fetchedAt": "2026-07-09T10:19:59.393Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
