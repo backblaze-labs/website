@@ -24,15 +24,15 @@ export const GET: APIRoute = ({ site }) => {
   //
   // `_external_urls` is a JSON-Feed `_` extension (per the spec, any
   // underscore-prefixed top-level key is treated as a custom extension and
-  // passed through to consumers untouched). We carry `site` / `docs` / `demo`
-  // here so feed readers / IDE plugins / dashboards can deep-link into the
-  // project's own pages — even though the website card UI itself only
-  // surfaces a single destination link.
+  // passed through to consumers untouched). We carry `site` / `docs` /
+  // `example` / `demo` here so feed readers / IDE plugins / dashboards can
+  // deep-link into the project's own pages.
   const items = sortIntegrations(catalog.integrations).map((i) => {
     const stats = statsFor(i.id);
     const external: Record<string, string> = {};
     if (i.site) external.site = i.site;
     if (i.docs) external.docs = i.docs;
+    if (i.example) external.example = i.example;
     if (i.demo) external.demo = i.demo;
     return {
       id: `${baseUrl}${path}/#${i.id}`,

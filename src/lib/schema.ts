@@ -73,6 +73,7 @@ export function itemListSchema(
       const sameAs = [
         item.site,
         item.docs,
+        item.example,
         item.demo,
         item.repo ? `https://github.com/${item.repo}` : null,
       ]

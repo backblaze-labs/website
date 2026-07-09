@@ -1,5 +1,6 @@
 import statsRaw from "~/data/github-stats.json";
 import labsRaw from "~/data/labs.json";
+import linksRaw from "~/data/links.json";
 import previewsRaw from "~/data/previews.json";
 
 export interface Category {
@@ -41,9 +42,25 @@ export interface Integration {
   site?: string | null;
   docs?: string | null;
   demo?: string | null;
+  example?: string | null;
   preview?: string | null;
   icon?: string;
   featured?: boolean;
+}
+
+interface CompanionLinks {
+  site?: string;
+  docs?: string;
+  demo?: string;
+  example?: string;
+  repo?: string;
+}
+
+export interface IntegrationLink {
+  kind: "primary" | "docs" | "example" | "demo" | "site" | "repo";
+  label: string;
+  url: string;
+  primary: boolean;
 }
 
 export interface LabsCatalog {
@@ -79,11 +96,85 @@ export interface GitHubStats {
 
 const labs = labsRaw as unknown as LabsCatalog;
 const stats = statsRaw as unknown as Record<string, GitHubStats>;
+const companionLinks = linksRaw as Record<string, CompanionLinks>;
 
 export const catalog: LabsCatalog = labs;
 
 export function statsFor(id: string): GitHubStats | undefined {
   return stats[id];
+}
+
+function normalizeUrl(value: string): string {
+  try {
+    const u = new URL(value);
+    u.hash = "";
+    const path = u.pathname.replace(/\/+$/, "") || "/";
+    return `${u.protocol}//${u.host}${path}${u.search}`;
+  } catch {
+    return value.replace(/\/+$/, "");
+  }
+}
+
+function isDocsUrl(value: string): boolean {
+  try {
+    const u = new URL(value);
+    return /^docs?\./i.test(u.host) || /(^|\/)docs?(\/|$)/i.test(u.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function isGitHubUrl(value: string): boolean {
+  try {
+    return /^(www\.)?github\.com$/i.test(new URL(value).host);
+  } catch {
+    return false;
+  }
+}
+
+function primaryLinkLabel(item: Integration, companion: CompanionLinks): IntegrationLink["label"] {
+  if (item.example && normalizeUrl(item.url) === normalizeUrl(item.example)) return "Example";
+  if (item.demo && normalizeUrl(item.url) === normalizeUrl(item.demo)) return "Demo";
+  const docsUrl = item.docs ?? companion.docs;
+  if (docsUrl && normalizeUrl(item.url) === normalizeUrl(docsUrl)) return "Docs";
+  if (isDocsUrl(item.url)) return docsUrl ? "Guide" : "Docs";
+  if (isGitHubUrl(item.url)) return "Repo";
+  return "Open";
+}
+
+export function integrationLinks(item: Integration): IntegrationLink[] {
+  const companion = companionLinks[item.id] ?? {};
+  const links: IntegrationLink[] = [];
+  const seen = new Set<string>();
+  const add = (
+    kind: IntegrationLink["kind"],
+    label: string,
+    url: string | null | undefined,
+    primary = false,
+  ) => {
+    if (!url) return;
+    const key = normalizeUrl(url);
+    if (seen.has(key)) return;
+    seen.add(key);
+    links.push({ kind, label, url, primary });
+  };
+
+  add("primary", primaryLinkLabel(item, companion), item.url, true);
+  add("docs", "Docs", item.docs ?? companion.docs);
+  add("example", "Example", item.example ?? companion.example);
+  add("demo", "Demo", item.demo ?? companion.demo);
+  add("site", "Site", item.site ?? companion.site);
+  add(
+    "repo",
+    "Repo",
+    item.repo
+      ? `https://github.com/${item.repo}`
+      : companion.repo
+        ? `https://github.com/${companion.repo}`
+        : null,
+  );
+
+  return links;
 }
 
 const previews = previewsRaw as Record<string, string>;

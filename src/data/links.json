@@ -16,6 +16,10 @@
     "site": "https://pixeltable.com/",
     "docs": "https://docs.pixeltable.com/"
   },
+  "ray-train": {
+    "site": "https://ray.io/",
+    "docs": "https://docs.ray.io/"
+  },
   "sveltiacms": {
     "site": "https://sveltiacms.app/",
     "docs": "https://sveltiacms.app/en/docs/media/backblaze-b2"

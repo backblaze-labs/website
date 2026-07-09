@@ -93,6 +93,7 @@
           "site": { "type": ["string", "null"], "format": "uri" },
           "docs": { "type": ["string", "null"], "format": "uri" },
           "demo": { "type": ["string", "null"], "format": "uri" },
+          "example": { "type": ["string", "null"], "format": "uri" },
           "preview": { "type": ["string", "null"] },
           "icon": { "type": "string" },
           "featured": { "type": "boolean" }

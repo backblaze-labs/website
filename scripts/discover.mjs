@@ -9,7 +9,8 @@
  * Tracker sub-issue labels control where the implementation lives:
  *   B2 Documentation  → upstream entry (someone else's docs)
  *   B2 Tool/Plugin    → matching repo in backblaze-labs/* (handled by source 1)
- *   B2 Example        → matching repo in backblaze-b2-samples/* (handled by source 2)
+ *   B2 Example        → example URL for the upstream card, unless a matching
+ *                       repo/plugin is explicitly listed in the body
  *
  * Each candidate is drafted with a `_complete` flag indicating whether every
  * field came from explicit upstream metadata. Both complete and incomplete
@@ -187,6 +188,7 @@ function hasIncludeTopic(r) {
 //   pull_request           upstream PR URL — used as fallback destination
 //   pull_request_rejected  rejected/superseded PR URL — last-resort destination
 //   docs                   upstream docs URL — preferred destination
+//   example                tutorial / notebook / sample URL attached to the card
 //   plugin                 backblaze-labs/* or backblaze-b2-samples/* repo URL.
 //                          When present, repo discovery handles it — we skip the
 //                          tracker entry to avoid duplicate cards.
@@ -213,6 +215,7 @@ const TRACKER_SENTINEL_KEYS = new Set([
   "pull_request",
   "pull_request_rejected",
   "docs",
+  "example",
   "plugin",
   "user_agent_extra",
   "url",
@@ -734,6 +737,8 @@ async function draftUpstreamEntry(item) {
     icon,
     featured,
   };
+  if (meta.docs) entry.docs = meta.docs;
+  if (meta.example) entry.example = meta.example;
   // Curated preview override (image or video URL). Only set when provided so
   // entries without it still fall through to sync-previews auto-discovery.
   if (meta.preview) entry.preview = meta.preview;
@@ -825,9 +830,11 @@ for (const r of taggedRepos) {
 //
 // Two ways a tracker entry can resolve to "implementation lives in our orgs":
 //
-//   1. Labels — `B2 Tool/Plugin` or `B2 Example` mean a backblaze-labs/* or
-//      backblaze-b2-samples/* repo owns the integration; repo discovery handles
-//      the card.
+//   1. Labels — `B2 Tool/Plugin` means a backblaze-labs/* repo owns the
+//      integration; repo discovery handles the card. `B2 Example` only skips
+//      tracker-card generation when there is no published upstream docs URL,
+//      because some upstream integrations have a docs page plus a notebook
+//      example that should live together on one catalog card.
 //   2. `plugin:` field in the body — defense in depth when labels are missing
 //      but the body explicitly points at one of our repos.
 //
@@ -856,7 +863,9 @@ const upstreamDrafts = await Promise.all(
     const featuredIntent = labels.includes(FEATURE_LABEL);
     const meta = parseTrackerBody(item.body);
 
-    const livesInOurOrgs = labels.includes("b2 tool/plugin") || labels.includes("b2 example");
+    const docsBackedExample = Boolean(meta?.docs || meta?.url);
+    const livesInOurOrgs =
+      labels.includes("b2 tool/plugin") || (labels.includes("b2 example") && !docsBackedExample);
     const pluginInOurOrgs = meta?.plugin && PLUGIN_OUR_ORGS_RE.test(meta.plugin);
 
     // Record featured intent for the repo-driven catalog entry. The plugin

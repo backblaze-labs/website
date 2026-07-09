@@ -1647,6 +1647,30 @@
       "url": "https://docs.zenml.io/changelog/server-sdk",
       "icon": "flow",
       "featured": false
+    },
+    {
+      "id": "ray-train",
+      "title": "Ray Train",
+      "tagline": "Ray Train persistent storage on Backblaze B2.",
+      "description": "Ray Train writes persistent checkpoints and artifacts to Backblaze B2 via the S3-compatible storage configuration in Ray.",
+      "categories": ["ai-ml", "data-pipelines", "notebooks", "community"],
+      "type": "integration",
+      "languages": ["python"],
+      "tags": [
+        "ray",
+        "ray-train",
+        "distributed-training",
+        "checkpoints",
+        "s3-compatible",
+        "notebook"
+      ],
+      "repo": null,
+      "source": "Ray",
+      "url": "https://docs.ray.io/en/latest/train/user-guides/persistent-storage.html#s3-compatible-storage-backblaze-b2-minio-etc",
+      "icon": "flow",
+      "featured": false,
+      "docs": "https://docs.ray.io/en/latest/train/user-guides/persistent-storage.html#s3-compatible-storage-backblaze-b2-minio-etc",
+      "example": "https://github.com/backblaze-b2-samples/notebooks/tree/main/ray-train-tune-checkpoints"
     }
   ]
 }

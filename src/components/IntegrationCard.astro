@@ -1,7 +1,7 @@
 ---
 import Icon from "~/components/Icon.astro";
 import PreviewPlaceholder from "~/components/PreviewPlaceholder.astro";
-import { catalog, previewUrl, statsFor, type Integration } from "~/lib/labs";
+import { catalog, integrationLinks, previewUrl, statsFor, type Integration } from "~/lib/labs";
 
 interface Props {
   item: Integration;
@@ -24,14 +24,13 @@ const isVideo = customPreview ? /\.(mp4|webm|mov|m4v)(?:[?#]|$)/i.test(customPre
 
 // Stats are first-party only — upstream integrations don't have a `repo`.
 const stats = item.repo ? statsFor(item.id) : undefined;
+const actionLinks = integrationLinks(item);
+const showActionLinks = actionLinks.length > 1;
 
 const delay = `${Math.min(index, 7) * 60}ms`;
 const initiallyHidden = index >= 12;
 ---
-<a
-  href={item.url}
-  target="_blank"
-  rel="noopener"
+<article
   class="card-glow group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border"
   style={`border-color: var(--border); background: var(--bg-card); animation: var(--animate-fade-up); animation-delay: ${delay};`}
   data-card
@@ -39,70 +38,102 @@ const initiallyHidden = index >= 12;
   data-categories={item.categories.join(" ")}
   data-type={item.type}
   data-languages={item.languages.join(" ")}
-  data-search={`${item.title} ${item.tagline} ${item.description} ${item.tags.join(" ")} ${item.languages.join(" ")} ${languageLabels.join(" ")} ${item.repo ?? item.source ?? ""}`.toLowerCase()}
+  data-search={`${item.title} ${item.tagline} ${item.description} ${item.tags.join(" ")} ${item.languages.join(" ")} ${languageLabels.join(" ")} ${item.repo ?? item.source ?? ""} ${actionLinks.map((link) => `${link.label} ${link.url}`).join(" ")}`.toLowerCase()}
   data-featured={item.featured ? "1" : "0"}
-  data-track="card_click"
-  data-track-id={item.id}
-  data-track-type={item.type}
-  data-track-languages={item.languages.join(",")}
-  data-track-source={item.repo ? "labs" : "upstream"}
   hidden={initiallyHidden}
 >
-  <div class="card-preview" aria-hidden="true">
-    {customPreview ? (
-      isVideo ? (
-        <video
-          src={customPreview}
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-        />
+  <a
+    href={item.url}
+    target="_blank"
+    rel="noopener"
+    class="card-main flex flex-1 flex-col overflow-hidden"
+    data-track="card_click"
+    data-track-id={item.id}
+    data-track-type={item.type}
+    data-track-languages={item.languages.join(",")}
+    data-track-source={item.repo ? "labs" : "upstream"}
+  >
+    <div class="card-preview" aria-hidden="true">
+      {customPreview ? (
+        isVideo ? (
+          <video
+            src={customPreview}
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+          />
+        ) : (
+          <img
+            src={customPreview}
+            alt=""
+            width="640"
+            height="240"
+            sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+            loading="lazy"
+            decoding="async"
+          />
+        )
       ) : (
-        <img
-          src={customPreview}
-          alt=""
-          width="640"
-          height="240"
-          sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
-          loading="lazy"
-          decoding="async"
-        />
-      )
-    ) : (
-      <PreviewPlaceholder />
-    )}
-    {item.featured && (
-      <span class="card-badge card-badge-featured">★ Featured</span>
-    )}
-    {stats?.stars != null && stats.stars > 0 && (
-      <span class="card-badge card-badge-stars">★ {stats.stars}</span>
-    )}
-  </div>
-
-  <div class="flex flex-1 flex-col gap-3 p-4 md:p-5">
-    <div class="flex items-start gap-3">
-      <div
-        class="flex size-9 shrink-0 items-center justify-center rounded-lg"
-        style="background: linear-gradient(135deg, color-mix(in oklab, var(--color-red-50) 22%, transparent), color-mix(in oklab, var(--color-purple-70) 22%, transparent)); color: var(--icon-on-surface);"
-      >
-        <Icon name={item.icon ?? "sparkle"} size={18} />
-      </div>
-      <div class="min-w-0 flex-1">
-        <h3 class="truncate font-display text-base font-semibold leading-tight md:text-lg">{item.title}</h3>
-        <p class="line-clamp-2 text-[13px]" style="color: var(--fg-muted);">{item.tagline}</p>
-      </div>
+        <PreviewPlaceholder />
+      )}
+      {item.featured && (
+        <span class="card-badge card-badge-featured">★ Featured</span>
+      )}
+      {stats?.stars != null && stats.stars > 0 && (
+        <span class="card-badge card-badge-stars">★ {stats.stars}</span>
+      )}
     </div>
 
-    <div class="flex flex-wrap items-center gap-1.5">
-      <span class="chip">{typeLabel}</span>
-      {languageLabels.map((label) => <span class="chip">{label}</span>)}
+    <div class="flex flex-1 flex-col gap-3 p-4 md:p-5">
+      <div class="flex items-start gap-3">
+        <div
+          class="flex size-9 shrink-0 items-center justify-center rounded-lg"
+          style="background: linear-gradient(135deg, color-mix(in oklab, var(--color-red-50) 22%, transparent), color-mix(in oklab, var(--color-purple-70) 22%, transparent)); color: var(--icon-on-surface);"
+        >
+          <Icon name={item.icon ?? "sparkle"} size={18} />
+        </div>
+        <div class="min-w-0 flex-1">
+          <h3 class="truncate font-display text-base font-semibold leading-tight md:text-lg">{item.title}</h3>
+          <p class="line-clamp-2 text-[13px]" style="color: var(--fg-muted);">{item.tagline}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-1.5">
+        <span class="chip">{typeLabel}</span>
+        {languageLabels.map((label) => <span class="chip">{label}</span>)}
+      </div>
     </div>
-  </div>
-</a>
+  </a>
+
+  {showActionLinks && (
+    <div class="card-actions px-4 pb-4 md:px-5 md:pb-5">
+      {actionLinks.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener"
+          class:list={["card-action-pill", link.primary && "is-primary"]}
+          aria-label={`${item.title}: open ${link.label}`}
+          data-track="card_link_click"
+          data-track-id={item.id}
+          data-track-link={link.kind}
+        >
+          <span>{link.label}</span>
+          <Icon name="external" size={13} />
+        </a>
+      ))}
+    </div>
+  )}
+</article>
 
 <style>
+  .card-main {
+    color: inherit;
+    text-decoration: none;
+    min-height: 0;
+  }
   /* Solid theme-aware background — transparent PNGs (like MLflow's logo) get
      a clean, predictable backdrop instead of the previous red/purple gradient
      bleeding through. Opaque images (CVAT card, README screenshots) cover it. */
@@ -123,11 +154,49 @@ const initiallyHidden = index >= 12;
     display: block;
     transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  a:hover .card-preview :global(img),
-  a:hover .card-preview :global(video),
-  a:focus-visible .card-preview :global(img),
-  a:focus-visible .card-preview :global(video) {
+  .card-main:hover .card-preview :global(img),
+  .card-main:hover .card-preview :global(video),
+  .card-main:focus-visible .card-preview :global(img),
+  .card-main:focus-visible .card-preview :global(video) {
     transform: scale(1.04);
+  }
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: -0.1rem;
+  }
+  .card-action-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 1.85rem;
+    padding: 0.32rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--bg-elevated) 78%, transparent);
+    color: var(--fg-muted);
+    font-size: 0.73rem;
+    font-weight: 650;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      border-color 0.18s ease,
+      color 0.18s ease,
+      background 0.18s ease,
+      transform 0.18s ease;
+  }
+  .card-action-pill:hover,
+  .card-action-pill:focus-visible {
+    border-color: var(--border-strong);
+    background: var(--bg-elevated);
+    color: var(--fg);
+    transform: translateY(-1px);
+    outline: none;
+  }
+  .card-action-pill.is-primary {
+    border-color: color-mix(in oklab, var(--color-red-50) 42%, var(--border));
+    color: var(--fg);
   }
   .card-badge {
     position: absolute;
