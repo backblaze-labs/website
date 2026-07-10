@@ -206,14 +206,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 8,
+    "forks": 9,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 7,
-    "stars": 4,
+    "openIssues": 8,
+    "stars": 5,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-07-08T09:22:29.122Z"
+    "fetchedAt": "2026-07-10T10:18:57.735Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -254,14 +254,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 11,
+    "forks": 12,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 8,
+    "openIssues": 9,
     "stars": 14,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-07T10:21:24.507Z"
+    "fetchedAt": "2026-07-10T10:18:57.876Z"
   },
   "b2-action": {
     "archived": false,
@@ -365,11 +365,11 @@
     "forks": 3740,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 604,
-    "stars": 16246,
-    "updated": "2026-07-09T07:29:58Z",
+    "openIssues": 607,
+    "stars": 16256,
+    "updated": "2026-07-10T08:05:50Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-09T10:19:59.329Z"
+    "fetchedAt": "2026-07-10T10:18:57.721Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -482,14 +482,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 10,
+    "forks": 11,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 80,
-    "stars": 267,
+    "openIssues": 82,
+    "stars": 274,
     "updated": "2026-07-09T05:43:51Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-09T10:19:59.238Z"
+    "fetchedAt": "2026-07-10T10:18:57.732Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -674,14 +674,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 5969,
+    "forks": 5976,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2027,
-    "stars": 26942,
-    "updated": "2026-07-09T09:13:12Z",
+    "openIssues": 2036,
+    "stars": 26962,
+    "updated": "2026-07-10T03:35:15Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-09T10:19:59.393Z"
+    "fetchedAt": "2026-07-10T10:18:57.585Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -870,10 +870,10 @@
     "lang": "HTML",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 3,
+    "stars": 4,
     "updated": "2026-07-01T14:26:24Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-07-02T09:56:55.487Z"
+    "fetchedAt": "2026-07-10T10:18:57.682Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
