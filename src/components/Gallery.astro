@@ -205,14 +205,67 @@ const sorted = sortIntegrations(catalog.integrations);
   // Set by apply(): whether unrendered matches remain to reveal on scroll.
   let hasMore = false;
 
-  // Pre-populate search from `?q=` so the Schema.org SearchAction template
-  // (configured in BaseLayout to point at `?q={search_term_string}`) actually
-  // works when Google or another consumer hits the URL.
-  if (search) {
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get("q");
-    if (q) search.value = q;
+  const filterParams = {
+    category: { canonical: "category", aliases: ["category", "categories", "cat"] },
+    type: { canonical: "type", aliases: ["type", "types"] },
+    language: { canonical: "language", aliases: ["language", "languages", "lang"] },
+  };
+  const allFilterParamNames = [
+    "q",
+    "search",
+    ...Object.values(filterParams).flatMap((config) => config.aliases),
+  ];
+
+  function splitParamValue(value) {
+    return value
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean);
   }
+
+  function valuesForParams(params, names) {
+    const values = [];
+    for (const name of names) {
+      for (const raw of params.getAll(name)) values.push(...splitParamValue(raw));
+    }
+    return values;
+  }
+
+  function applyUrlState() {
+    const params = new URLSearchParams(window.location.search);
+    if (search) search.value = params.get("q") ?? params.get("search") ?? "";
+    for (const cb of checkboxes) cb.checked = false;
+    for (const [kind, config] of Object.entries(filterParams)) {
+      const requested = new Set(valuesForParams(params, config.aliases));
+      if (requested.size === 0) continue;
+      for (const cb of checkboxes) {
+        if (cb.dataset.filter === kind && requested.has(cb.value)) cb.checked = true;
+      }
+    }
+  }
+
+  function updateUrlState() {
+    const url = new URL(window.location.href);
+    for (const name of allFilterParamNames) url.searchParams.delete(name);
+
+    const q = (search?.value || "").trim();
+    if (q) url.searchParams.set("q", q);
+
+    const active = getActive();
+    for (const [kind, config] of Object.entries(filterParams)) {
+      for (const value of [...active[kind]].sort()) {
+        url.searchParams.append(config.canonical, value);
+      }
+    }
+
+    const next = `${url.pathname}${url.search}${url.hash}`;
+    const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (next !== current) window.history.replaceState({ galleryFilters: true }, "", next);
+  }
+
+  // Pre-populate filter state from query params so URLs like
+  // `?q=ray&category=notebooks&type=integration&language=python` are shareable.
+  applyUrlState();
 
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
@@ -293,6 +346,7 @@ const sorted = sortIntegrations(catalog.integrations);
     for (const cb of checkboxes) cb.checked = false;
     if (search) search.value = "";
     pageLimit = PAGE_SIZE;
+    updateUrlState();
     apply();
     fill();
   }
@@ -317,6 +371,7 @@ const sorted = sortIntegrations(catalog.integrations);
   for (const cb of checkboxes) {
     cb.addEventListener("change", () => {
       pageLimit = PAGE_SIZE;
+      updateUrlState();
       apply();
       fill();
       if (window.bbTrack && cb.checked) {
@@ -328,6 +383,7 @@ const sorted = sortIntegrations(catalog.integrations);
   if (search) {
     search.addEventListener("input", () => {
       pageLimit = PAGE_SIZE;
+      updateUrlState();
       apply();
       fill();
       // Debounce search-term events so we don't fire on every keystroke.
@@ -341,6 +397,13 @@ const sorted = sortIntegrations(catalog.integrations);
     });
   }
   document.querySelectorAll("[data-filter-clear]").forEach((b) => b.addEventListener("click", clearAll));
+
+  window.addEventListener("popstate", () => {
+    applyUrlState();
+    pageLimit = PAGE_SIZE;
+    apply();
+    fill();
+  });
 
   // First paint: render the initial page slice, then top up to fill tall
   // viewports. Deferred until idle so the initial filter pass doesn't compete
