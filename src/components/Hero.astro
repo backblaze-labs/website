@@ -7,6 +7,10 @@ const stats = {
   categories: catalog.categories.length,
   languages: catalog.languages.length,
 };
+
+// Query param name expected by chat.backblazelabs.com
+const CHAT_URL = "https://chat.backblazelabs.com/";
+const CHAT_PARAM = "q";
 ---
 <section class="relative overflow-hidden">
   <!-- Heatmap-style ambient layer + sparks. Per brand: red + orange + purple over navy. -->
@@ -37,19 +41,31 @@ const stats = {
     <div class="spark" style="left:8%;top:30%;animation-delay:-3.7s;"></div>
   </div>
 
-  <div class="container-page relative pt-14 pb-10 md:pt-24 md:pb-16">
-    <div class="max-w-3xl">
-      <span class="chip mb-5">
+  <div class="container-page relative pt-10 pb-8 md:pt-16 md:pb-12">
+    <!--
+      Explicit row placement on lg puts the CTA buttons in the same grid row
+      so they align regardless of how the paragraph or heading wraps.
+      DOM order is left-column-first → clean single-column stacking on mobile.
+    -->
+    <div class="grid grid-cols-1 items-start gap-x-14 lg:grid-cols-2">
+
+      <!-- ── Left column ── -->
+
+      <span class="chip mb-4 w-fit lg:col-start-1 lg:row-start-1">
         <span class="inline-block size-1.5 rounded-full" style="background: var(--color-red-50); box-shadow: 0 0 8px var(--color-red-50);"></span>
         Open source · built on B2
       </span>
-      <h1 class="font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+
+      <h1 class="font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:col-start-1 lg:row-start-2 lg:text-6xl">
         Build with <span class="hero-mark">Backblaze B2</span>
       </h1>
-      <p class="mt-5 max-w-2xl text-base md:text-lg" style="color: var(--fg-muted);">
+
+      <p class="mt-4 max-w-xl text-base md:text-lg lg:col-start-1 lg:row-start-3" style="color: var(--fg-muted);">
         {catalog.meta.tagline} Find SDKs, agent skills, IDE extensions, notebooks, and reference pipelines — all open source, all built on Backblaze B2.
       </p>
-      <div class="mt-8 flex flex-wrap items-center gap-3">
+
+      <!-- Row 4 left: hero CTAs -->
+      <div class="mt-7 flex flex-wrap items-center gap-3 lg:col-start-1 lg:mt-0 lg:row-start-4">
         <a href="#integrations" class="btn-primary" data-track="cta_click" data-track-cta="browse">
           Browse integrations
           <Icon name="arrow-right" size={14} />
@@ -58,7 +74,8 @@ const stats = {
           <Icon name="github" size={16} /> View on GitHub
         </a>
       </div>
-      <dl class="mt-10 grid max-w-md grid-cols-3 gap-4">
+
+      <dl class="mt-8 grid max-w-sm grid-cols-3 gap-4 lg:col-start-1 lg:row-start-5">
         <div class="stat">
           <dt class="text-xs uppercase tracking-wider" style="color: var(--fg-dim);">Projects</dt>
           <dd class="font-display text-2xl font-semibold md:text-3xl">{stats.integrations}</dd>
@@ -72,6 +89,102 @@ const stats = {
           <dd class="font-display text-2xl font-semibold md:text-3xl">{stats.languages}</dd>
         </div>
       </dl>
+
+      <!-- ── Right column (after left in DOM → correct mobile stacking order) ── -->
+
+      <!-- Row 3 right: prompt heading + textarea -->
+      <div class="mt-10 lg:col-start-2 lg:mt-0 lg:row-start-3">
+        <p class="font-display text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+          What do you want to build?
+        </p>
+        <!--
+          data-chat-url / data-chat-param live on the form so the submit
+          handler can read them directly via form.dataset.
+        -->
+        <form
+          id="chat-form"
+          class="mt-3"
+          data-chat-url={CHAT_URL}
+          data-chat-param={CHAT_PARAM}
+          novalidate
+        >
+          <textarea
+            id="chat-prompt"
+            class="prompt-input"
+            placeholder="Describe your use case — e.g. &quot;an automatic backup pipeline for B2&hellip;&quot;"
+            rows="3"
+            maxlength="2000"
+            aria-label="Describe what you want to build"
+          ></textarea>
+        </form>
+      </div>
+
+      <!-- Row 4 right: submit CTA — shares row with browse buttons above -->
+      <button
+        type="submit"
+        form="chat-form"
+        class="btn-primary mt-3 w-fit lg:col-start-2 lg:mt-0 lg:row-start-4 lg:self-start"
+        data-track="cta_click"
+        data-track-cta="chat_prompt"
+      >
+        Start building
+        <Icon name="arrow-right" size={14} />
+      </button>
+
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("chat-form") as HTMLFormElement | null;
+  const chatUrl = form?.dataset.chatUrl ?? "https://chat.backblazelabs.com/";
+  const chatParam = form?.dataset.chatParam ?? "q";
+
+  function submit() {
+    const input = document.getElementById("chat-prompt") as HTMLTextAreaElement | null;
+    const prompt = input?.value.trim() ?? "";
+    if (!prompt) return;
+    const url = new URL(chatUrl);
+    url.searchParams.set(chatParam, prompt);
+    window.open(url.toString(), "_blank", "noopener,noreferrer");
+  }
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submit();
+  });
+
+  // Cmd+Enter / Ctrl+Enter submits without leaving the textarea
+  document.getElementById("chat-prompt")?.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "Enter") submit();
+  });
+</script>
+
+<style>
+  .prompt-input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    color: var(--fg);
+    resize: vertical;
+    min-height: 0;
+    line-height: 1.55;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: var(--fg-dim);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-red-50);
+      box-shadow: 0 0 0 3px rgba(226, 6, 38, 0.12);
+    }
+  }
+</style>

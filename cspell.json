@@ -30,6 +30,8 @@
     "src/data/preview-sources.json",
     "src/data/labs.discovered.json",
     "research/**",
+    "PRODUCT.md",
+    "DESIGN.md",
     "*.min.*",
     "*.map",
     "LICENSE",
