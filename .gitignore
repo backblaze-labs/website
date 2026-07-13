@@ -26,6 +26,11 @@ src/data/labs.discovered.json
 .vscode/
 .idea/
 
+# Impeccable design skill — local context files, not part of the deploy
+PRODUCT.md
+DESIGN.md
+.impeccable/
+
 # OS
 .DS_Store
 Thumbs.db
