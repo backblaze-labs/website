@@ -55,6 +55,20 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!-- Google tag (gtag.js). Loaded eagerly (no consent gate) by request.
+         `is:inline` keeps Astro from bundling these so they run verbatim.
+         NOTE: this is the single GA loader — leave PUBLIC_GA_ID unset so the
+         consent-gated <Analytics /> below doesn't also load GA and double-count. -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-KKNKYMVB92"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KKNKYMVB92');
+    </script>
+
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#04050f" media="(prefers-color-scheme: dark)" />
