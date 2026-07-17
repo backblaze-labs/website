@@ -1671,6 +1671,41 @@
       "featured": false,
       "docs": "https://docs.ray.io/en/latest/train/user-guides/persistent-storage.html#s3-compatible-storage-backblaze-b2-minio-etc",
       "example": "https://github.com/backblaze-b2-samples/notebooks/tree/main/ray-train-tune-checkpoints"
+    },
+    {
+      "id": "ai-saas-starter-kit",
+      "title": "Ai Saas Starter Kit",
+      "tagline": "Production-ready AI SaaS starter kit: a Next.js 16 + FastAPI monorepo with…",
+      "description": "Production-ready AI SaaS starter kit: a Next.js 16 + FastAPI monorepo with Supabase auth, Stripe billing, text-to-image AI generation (NVIDIA NIM flux.1-dev), an admin console, and a Backblaze B2 file manager — an MIT-licensed, agent-optimized template that skips auth, billing, and storage boilerplate.",
+      "categories": ["ai-ml"],
+      "type": "tool",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["ai-saas", "backblaze-b2", "cloudstorage", "fastapi", "generative-ai", "monorepo"],
+      "repo": "backblaze-labs/ai-saas-starter-kit",
+      "url": "https://github.com/backblaze-labs/ai-saas-starter-kit",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "rembg-product-background-removal",
+      "title": "Rembg Product Background Removal",
+      "tagline": "Batch product-image background removal for e-commerce catalogs: runs the…",
+      "description": "Batch product-image background removal for e-commerce catalogs: runs the open-source rembg (U²-Net) locally to turn photos into transparent-PNG cutouts, with Backblaze B2 as both the ingest zone and system of record. No paid API, no second key, no database.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "background-removal",
+        "cloudstorage",
+        "computer-vision",
+        "ecommerce",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/rembg-product-background-removal",
+      "url": "https://github.com/backblaze-b2-samples/rembg-product-background-removal",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
