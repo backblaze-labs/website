@@ -246,10 +246,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 2,
+    "stars": 3,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-07-16T09:09:33.572Z"
+    "fetchedAt": "2026-07-17T09:05:05.945Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -257,11 +257,11 @@
     "forks": 13,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 10,
+    "openIssues": 11,
     "stars": 14,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-13T10:19:09.033Z"
+    "fetchedAt": "2026-07-17T09:05:05.945Z"
   },
   "b2-action": {
     "archived": false,
@@ -269,11 +269,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 46,
+    "openIssues": 47,
     "stars": 7,
-    "updated": "2026-07-13T23:37:41Z",
+    "updated": "2026-07-16T17:22:29Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-07-14T09:01:22.554Z"
+    "fetchedAt": "2026-07-17T09:05:05.944Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -362,14 +362,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3762,
+    "forks": 3765,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 596,
-    "stars": 16303,
-    "updated": "2026-07-16T08:45:51Z",
+    "openIssues": 601,
+    "stars": 16319,
+    "updated": "2026-07-17T05:48:50Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-16T09:09:33.680Z"
+    "fetchedAt": "2026-07-17T09:05:05.946Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -482,14 +482,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 12,
+    "forks": 14,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 38,
-    "stars": 322,
-    "updated": "2026-07-16T05:43:58Z",
+    "stars": 333,
+    "updated": "2026-07-16T21:51:22Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-16T09:09:33.902Z"
+    "fetchedAt": "2026-07-17T09:05:05.945Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -674,14 +674,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6004,
+    "forks": 6015,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2054,
-    "stars": 27054,
-    "updated": "2026-07-16T07:56:06Z",
+    "openIssues": 2071,
+    "stars": 27072,
+    "updated": "2026-07-17T07:44:18Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-16T09:09:33.738Z"
+    "fetchedAt": "2026-07-17T09:05:05.946Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -845,11 +845,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 47,
+    "openIssues": 48,
     "stars": 8,
-    "updated": "2026-07-13T18:09:47Z",
+    "updated": "2026-07-16T16:43:50Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-07-14T09:01:22.577Z"
+    "fetchedAt": "2026-07-17T09:05:05.944Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
