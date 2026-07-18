@@ -107,6 +107,18 @@
     "repo": "backblaze-b2-samples/ai-product-photo-studio",
     "fetchedAt": "2026-06-26T10:19:10.303Z"
   },
+  "ai-saas-starter-kit": {
+    "archived": false,
+    "description": "Production-ready AI SaaS starter kit: a Next.js 16 + FastAPI monorepo with Supabase auth, Stripe billing, text-to-image AI generation (NVIDIA NIM flux.1-dev), an admin console, and a Backblaze B2 file manager — an MIT-licensed, agent-optimized template that skips auth, billing, and storage boilerplate.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 1,
+    "stars": 0,
+    "updated": "2026-07-17T19:51:18Z",
+    "repo": "backblaze-labs/ai-saas-starter-kit",
+    "fetchedAt": "2026-07-18T08:45:28.505Z"
+  },
   "ai-shorts-generator": {
     "archived": false,
     "description": "Open-source AI shorts generator: turn one long video into vertical 9:16 clips with burned-in captions. Transcribes with Whisper, uses an LLM to pick the best moments, renders with ffmpeg — every source, transcript, and clip stored on Backblaze B2. Next.js + FastAPI sample app.",
@@ -362,14 +374,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3765,
+    "forks": 3768,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 601,
-    "stars": 16319,
-    "updated": "2026-07-17T05:48:50Z",
+    "openIssues": 599,
+    "stars": 16325,
+    "updated": "2026-07-17T13:37:29Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-17T09:05:05.946Z"
+    "fetchedAt": "2026-07-18T08:45:28.037Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -485,11 +497,11 @@
     "forks": 14,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 38,
-    "stars": 333,
-    "updated": "2026-07-16T21:51:22Z",
+    "openIssues": 44,
+    "stars": 343,
+    "updated": "2026-07-17T16:15:42Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-17T09:05:05.945Z"
+    "fetchedAt": "2026-07-18T08:45:28.033Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -674,14 +686,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6015,
+    "forks": 6019,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2071,
-    "stars": 27072,
-    "updated": "2026-07-17T07:44:18Z",
+    "openIssues": 2070,
+    "stars": 27086,
+    "updated": "2026-07-18T05:37:27Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-17T09:05:05.946Z"
+    "fetchedAt": "2026-07-18T08:45:28.037Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -814,6 +826,18 @@
     "updated": "2026-07-03T14:04:00Z",
     "repo": "backblaze-b2-samples/qwen-video-chapters",
     "fetchedAt": "2026-07-07T10:21:24.899Z"
+  },
+  "rembg-product-background-removal": {
+    "archived": false,
+    "description": "Batch product-image background removal for e-commerce catalogs: runs the open-source rembg (U²-Net) locally to turn photos into transparent-PNG cutouts, with Backblaze B2 as both the ingest zone and system of record. No paid API, no second key, no database.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-16T21:02:35Z",
+    "repo": "backblaze-b2-samples/rembg-product-background-removal",
+    "fetchedAt": "2026-07-18T08:45:28.491Z"
   },
   "rife-frame-interpolation-pipeline": {
     "archived": false,
