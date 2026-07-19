@@ -270,10 +270,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 11,
-    "stars": 14,
+    "stars": 15,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-17T09:05:05.945Z"
+    "fetchedAt": "2026-07-19T09:02:15.265Z"
   },
   "b2-action": {
     "archived": false,
@@ -374,14 +374,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3768,
+    "forks": 3769,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 599,
-    "stars": 16325,
-    "updated": "2026-07-17T13:37:29Z",
+    "openIssues": 601,
+    "stars": 16328,
+    "updated": "2026-07-19T08:43:15Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-18T08:45:28.037Z"
+    "fetchedAt": "2026-07-19T09:02:15.276Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -497,11 +497,11 @@
     "forks": 14,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 44,
-    "stars": 343,
+    "openIssues": 45,
+    "stars": 351,
     "updated": "2026-07-17T16:15:42Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-18T08:45:28.033Z"
+    "fetchedAt": "2026-07-19T09:02:15.275Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -686,14 +686,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6019,
+    "forks": 6021,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2070,
-    "stars": 27086,
-    "updated": "2026-07-18T05:37:27Z",
+    "openIssues": 2072,
+    "stars": 27098,
+    "updated": "2026-07-18T21:45:38Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-18T08:45:28.037Z"
+    "fetchedAt": "2026-07-19T09:02:15.276Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
