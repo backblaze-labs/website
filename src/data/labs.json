@@ -1706,6 +1706,27 @@
       "url": "https://github.com/backblaze-b2-samples/rembg-product-background-removal",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "lama-batch-inpainting",
+      "title": "Lama Batch Inpainting",
+      "tagline": "Batch image inpainting with the LaMa model, run locally at $0 inference cost —…",
+      "description": "Batch image inpainting with the LaMa model, run locally at $0 inference cost — erase watermarks and unwanted objects from large image collections and store the results in Backblaze B2 (S3-compatible). Next.js + FastAPI sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "batch-processing",
+        "cloudstorage",
+        "computer-vision",
+        "fastapi",
+        "image-inpainting"
+      ],
+      "repo": "backblaze-b2-samples/lama-batch-inpainting",
+      "url": "https://github.com/backblaze-b2-samples/lama-batch-inpainting",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
