@@ -374,14 +374,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3769,
+    "forks": 3771,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 601,
-    "stars": 16328,
-    "updated": "2026-07-19T08:43:15Z",
+    "openIssues": 600,
+    "stars": 16337,
+    "updated": "2026-07-20T09:40:24Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-19T09:02:15.276Z"
+    "fetchedAt": "2026-07-20T09:54:05.260Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -498,10 +498,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 45,
-    "stars": 351,
+    "stars": 353,
     "updated": "2026-07-17T16:15:42Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-19T09:02:15.275Z"
+    "fetchedAt": "2026-07-20T09:54:05.288Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -686,14 +686,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6021,
+    "forks": 6025,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2072,
-    "stars": 27098,
-    "updated": "2026-07-18T21:45:38Z",
+    "openIssues": 2071,
+    "stars": 27111,
+    "updated": "2026-07-20T01:34:03Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-19T09:02:15.276Z"
+    "fetchedAt": "2026-07-20T09:54:05.287Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
