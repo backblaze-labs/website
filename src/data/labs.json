@@ -1727,6 +1727,62 @@
       "url": "https://github.com/backblaze-b2-samples/lama-batch-inpainting",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "clip-visual-product-search",
+      "title": "Clip Visual Product Search",
+      "tagline": "Self-hosted visual and cross-modal product search for e-commerce catalogs:…",
+      "description": "Self-hosted visual and cross-modal product search for e-commerce catalogs: embed images and text with OpenAI CLIP, search a local FAISS index, and store every product image, embedding, and index in Backblaze B2 over the S3-compatible API. No managed vector database, no second API key. Next.js + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "clip", "cloudstorage", "ecommerce", "faiss", "fastapi"],
+      "repo": "backblaze-b2-samples/clip-visual-product-search",
+      "url": "https://github.com/backblaze-b2-samples/clip-visual-product-search",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "depth-anything-v2-dataset",
+      "title": "Depth Anything V2 Dataset",
+      "tagline": "Depth Anything V2 dataset generator: turn large RGB image collections into…",
+      "description": "Depth Anything V2 dataset generator: turn large RGB image collections into dense depth maps locally, then store each source image with its depth map as a training-ready dataset on Backblaze B2, read over the S3-compatible API.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "computer-vision",
+        "dataset",
+        "depth-anything",
+        "depth-estimation"
+      ],
+      "repo": "backblaze-b2-samples/depth-anything-v2-dataset",
+      "url": "https://github.com/backblaze-b2-samples/depth-anything-v2-dataset",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "clip-nsfw-image-moderation",
+      "title": "Clip Nsfw Image Moderation",
+      "tagline": "Self-hosted, on-device NSFW image moderation pipeline: scores images 0–1 with…",
+      "description": "Self-hosted, on-device NSFW image moderation pipeline: scores images 0–1 with LAION's CLIP-based detector (CLIP ViT-L/14) and auto-routes them to approved/quarantine — images never leave your infrastructure. Full-stack Next.js + FastAPI sample, with Backblaze B2 (S3-compatible) for staging, routing, and audit logs.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "clip",
+        "cloudstorage",
+        "computer-vision",
+        "content-moderation",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/clip-nsfw-image-moderation",
+      "url": "https://github.com/backblaze-b2-samples/clip-nsfw-image-moderation",
+      "icon": "sparkle",
+      "featured": false
     }
   ]
 }
