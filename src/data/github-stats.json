@@ -113,11 +113,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 1,
     "stars": 0,
-    "updated": "2026-07-22T03:28:25Z",
+    "updated": "2026-07-22T16:26:48Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-07-22T09:23:22.842Z"
+    "fetchedAt": "2026-07-23T09:21:23.888Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -126,10 +126,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-06-24T14:39:08Z",
     "repo": "backblaze-b2-samples/ai-shorts-generator",
-    "fetchedAt": "2026-06-29T11:54:35.041Z"
+    "fetchedAt": "2026-07-23T09:21:23.587Z"
   },
   "ai-sticker-pack-generator": {
     "archived": false,
@@ -206,14 +206,14 @@
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 5,
+    "forks": 6,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 3,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-06-26T10:19:09.709Z"
+    "fetchedAt": "2026-07-23T09:21:23.226Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -270,10 +270,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 11,
-    "stars": 16,
+    "stars": 17,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-21T09:24:06.222Z"
+    "fetchedAt": "2026-07-23T09:21:23.226Z"
   },
   "b2-action": {
     "archived": false,
@@ -317,11 +317,11 @@
     "forks": 2,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 2,
     "stars": 39,
-    "updated": "2026-07-16T01:30:54Z",
+    "updated": "2026-07-22T09:44:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-07-16T09:09:33.743Z"
+    "fetchedAt": "2026-07-23T09:21:23.227Z"
   },
   "cline-b2-backup": {
     "archived": false,
@@ -334,6 +334,30 @@
     "updated": "2026-06-24T04:16:40Z",
     "repo": "backblaze-labs/cline-b2-backup",
     "fetchedAt": "2026-06-24T10:18:02.580Z"
+  },
+  "clip-nsfw-image-moderation": {
+    "archived": false,
+    "description": "Self-hosted, on-device NSFW image moderation pipeline: scores images 0–1 with LAION's CLIP-based detector (CLIP ViT-L/14) and auto-routes them to approved/quarantine — images never leave your infrastructure. Full-stack Next.js + FastAPI sample, with Backblaze B2 (S3-compatible) for staging, routing, and audit logs.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-21T13:22:08Z",
+    "repo": "backblaze-b2-samples/clip-nsfw-image-moderation",
+    "fetchedAt": "2026-07-23T09:21:23.753Z"
+  },
+  "clip-visual-product-search": {
+    "archived": false,
+    "description": "Self-hosted visual and cross-modal product search for e-commerce catalogs: embed images and text with OpenAI CLIP, search a local FAISS index, and store every product image, embedding, and index in Backblaze B2 over the S3-compatible API. No managed vector database, no second API key. Next.js + FastAPI.",
+    "forks": 0,
+    "lang": null,
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-22T00:42:30Z",
+    "repo": "backblaze-b2-samples/clip-visual-product-search",
+    "fetchedAt": "2026-07-23T09:21:23.653Z"
   },
   "comfyui-cloud-storage": {
     "archived": false,
@@ -353,11 +377,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": null,
-    "openIssues": 4,
+    "openIssues": 6,
     "stars": 0,
-    "updated": "2026-07-21T12:59:37Z",
+    "updated": "2026-07-23T03:05:47Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-07-22T09:23:22.842Z"
+    "fetchedAt": "2026-07-23T09:21:23.227Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -377,11 +401,11 @@
     "forks": 3770,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 607,
-    "stars": 16359,
-    "updated": "2026-07-22T09:12:00Z",
+    "openIssues": 610,
+    "stars": 16366,
+    "updated": "2026-07-23T08:53:05Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-22T09:23:22.850Z"
+    "fetchedAt": "2026-07-23T09:21:23.227Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -413,11 +437,23 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
+    "openIssues": 2,
+    "stars": 0,
+    "updated": "2026-07-23T03:18:04Z",
+    "repo": "backblaze-b2-samples/deoldify-archive-colorizer",
+    "fetchedAt": "2026-07-23T09:21:23.685Z"
+  },
+  "depth-anything-v2-dataset": {
+    "archived": false,
+    "description": "Depth Anything V2 dataset generator: turn large RGB image collections into dense depth maps locally, then store each source image with its depth map as a training-ready dataset on Backblaze B2, read over the S3-compatible API.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-07-07T22:19:04Z",
-    "repo": "backblaze-b2-samples/deoldify-archive-colorizer",
-    "fetchedAt": "2026-07-08T15:31:53.250Z"
+    "updated": "2026-07-21T21:40:13Z",
+    "repo": "backblaze-b2-samples/depth-anything-v2-dataset",
+    "fetchedAt": "2026-07-23T09:21:23.731Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -494,14 +530,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 15,
+    "forks": 16,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 37,
-    "stars": 379,
-    "updated": "2026-07-22T03:34:25Z",
+    "openIssues": 40,
+    "stars": 386,
+    "updated": "2026-07-23T05:54:48Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-22T09:23:22.842Z"
+    "fetchedAt": "2026-07-23T09:21:23.227Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -698,14 +734,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6039,
+    "forks": 6044,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2079,
-    "stars": 27153,
-    "updated": "2026-07-22T06:27:12Z",
+    "openIssues": 2083,
+    "stars": 27176,
+    "updated": "2026-07-23T08:59:41Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-22T09:23:22.838Z"
+    "fetchedAt": "2026-07-23T09:21:23.227Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -811,9 +847,9 @@
     "license": null,
     "openIssues": 10,
     "stars": 1,
-    "updated": "2026-07-22T00:58:10Z",
+    "updated": "2026-07-22T23:45:46Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
-    "fetchedAt": "2026-07-22T09:23:22.713Z"
+    "fetchedAt": "2026-07-23T09:21:23.226Z"
   },
   "prompt-showdown": {
     "archived": false,
@@ -929,11 +965,11 @@
     "forks": 4,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 3,
     "stars": 11,
-    "updated": "2026-07-20T19:15:36Z",
+    "updated": "2026-07-22T13:28:42Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-07-21T09:24:06.385Z"
+    "fetchedAt": "2026-07-23T09:21:23.226Z"
   },
   "video-semantic-search": {
     "archived": false,
