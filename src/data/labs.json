@@ -1783,6 +1783,48 @@
       "url": "https://github.com/backblaze-b2-samples/clip-nsfw-image-moderation",
       "icon": "sparkle",
       "featured": false
+    },
+    {
+      "id": "audiosr-batch",
+      "title": "Audiosr Batch",
+      "tagline": "Batch audio super-resolution on Backblaze B2: ingest degraded audio, run the…",
+      "description": "Batch audio super-resolution on Backblaze B2: ingest degraded audio, run the open-source AudioSR model locally to upscale it to 48 kHz WAV, and store originals plus enhanced renditions in B2. Next.js + FastAPI sample app, S3-compatible, no GPU required.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "audio-processing",
+        "audio-restoration",
+        "audio-super-resolution",
+        "audiosr",
+        "backblaze-b2",
+        "cloudstorage"
+      ],
+      "repo": "backblaze-b2-samples/audiosr-batch",
+      "url": "https://github.com/backblaze-b2-samples/audiosr-batch",
+      "icon": "sparkle",
+      "featured": false
+    },
+    {
+      "id": "fastdup-dataset-cleaning",
+      "title": "Fastdup Dataset Cleaning",
+      "tagline": "Clean image training datasets stored in Backblaze B2 — scan for exact/near…",
+      "description": "Clean image training datasets stored in Backblaze B2 — scan for exact/near duplicates, outliers, and broken files with fastdup (local, CPU-only), then quarantine flagged files without ever deleting originals. Full-stack Next.js 16 + FastAPI sample over the S3-compatible API.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "computer-vision",
+        "data-quality",
+        "dataset-cleaning",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/fastdup-dataset-cleaning",
+      "url": "https://github.com/backblaze-b2-samples/fastdup-dataset-cleaning",
+      "icon": "sparkle",
+      "featured": false
     }
   ]
 }
