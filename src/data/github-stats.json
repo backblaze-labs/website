@@ -2,14 +2,14 @@
   "agent-backup-core": {
     "archived": false,
     "description": "Reusable engine to back up AI coding agent state to Backblaze B2 — encrypted, incremental, WAL-safe SQLite snapshots.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-06-24T04:16:56Z",
     "repo": "backblaze-labs/agent-backup-core",
-    "fetchedAt": "2026-06-24T10:18:02.542Z"
+    "fetchedAt": "2026-07-24T09:16:42.697Z"
   },
   "agentic-rag-vector-starter-kit": {
     "archived": false,
@@ -110,14 +110,14 @@
   "ai-saas-starter-kit": {
     "archived": false,
     "description": "Production-ready AI SaaS starter kit: a Next.js 16 + FastAPI monorepo with Supabase auth, Stripe billing, text-to-image AI generation (NVIDIA NIM flux.1-dev), an admin console, and a Backblaze B2 file manager — an MIT-licensed, agent-optimized template that skips auth, billing, and storage boilerplate.",
-    "forks": 0,
+    "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
     "updated": "2026-07-22T16:26:48Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-07-23T09:21:23.888Z"
+    "fetchedAt": "2026-07-24T09:16:42.608Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -146,14 +146,14 @@
   "ai-video-upscaler-restore": {
     "archived": false,
     "description": "AI video & image upscaler and restorer: run Real-ESRGAN 4×/8× super-resolution and optional GFPGAN face restoration locally, storing degraded sources and restored outputs side by side on Backblaze B2. Next.js + FastAPI sample app with a before/after browser and no database — the B2 bucket is the system of record.",
-    "forks": 1,
+    "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 1,
     "updated": "2026-06-25T16:12:16Z",
     "repo": "backblaze-b2-samples/ai-video-upscaler-restore",
-    "fetchedAt": "2026-06-30T10:28:45.387Z"
+    "fetchedAt": "2026-07-24T09:16:42.588Z"
   },
   "aider-b2-backup": {
     "archived": false,
@@ -190,6 +190,18 @@
     "updated": "2026-06-25T20:56:52Z",
     "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
     "fetchedAt": "2026-06-26T10:19:09.848Z"
+  },
+  "audiosr-batch": {
+    "archived": false,
+    "description": "Batch audio super-resolution on Backblaze B2: ingest degraded audio, run the open-source AudioSR model locally to upscale it to 48 kHz WAV, and store originals plus enhanced renditions in B2. Next.js + FastAPI sample app, S3-compatible, no GPU required.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 1,
+    "stars": 0,
+    "updated": "2026-07-23T03:36:16Z",
+    "repo": "backblaze-b2-samples/audiosr-batch",
+    "fetchedAt": "2026-07-24T09:16:42.699Z"
   },
   "awesome-agent-infrastructure": {
     "archived": false,
@@ -278,14 +290,14 @@
   "b2-action": {
     "archived": false,
     "description": "Backblaze-maintained B2 Cloud Storage GitHub Action, currently incubating in Backblaze-Labs",
-    "forks": 1,
+    "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 53,
     "stars": 7,
     "updated": "2026-07-20T23:38:09Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-07-21T09:24:06.352Z"
+    "fetchedAt": "2026-07-24T09:16:42.634Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -314,14 +326,14 @@
   "claude-skill-b2": {
     "archived": false,
     "description": "Claude Skill for Backblaze B2 Cloud Storage management from the terminal. Manage buckets, list and search files, audit storage usage, detect stale or large objects, review security posture, and safely clean up data using natural language. Built on the Agent Skills specification and compatible with Claude Code and other skills-based agents.",
-    "forks": 2,
+    "forks": 3,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 2,
     "stars": 39,
     "updated": "2026-07-22T09:44:31Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-07-23T09:21:23.227Z"
+    "fetchedAt": "2026-07-24T09:16:42.680Z"
   },
   "cline-b2-backup": {
     "archived": false,
@@ -350,14 +362,14 @@
   "clip-visual-product-search": {
     "archived": false,
     "description": "Self-hosted visual and cross-modal product search for e-commerce catalogs: embed images and text with OpenAI CLIP, search a local FAISS index, and store every product image, embedding, and index in Backblaze B2 over the S3-compatible API. No managed vector database, no second API key. Next.js + FastAPI.",
-    "forks": 0,
+    "forks": 1,
     "lang": null,
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-07-22T00:42:30Z",
     "repo": "backblaze-b2-samples/clip-visual-product-search",
-    "fetchedAt": "2026-07-23T09:21:23.653Z"
+    "fetchedAt": "2026-07-24T09:16:42.772Z"
   },
   "comfyui-cloud-storage": {
     "archived": false,
@@ -398,14 +410,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3770,
+    "forks": 3773,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 610,
-    "stars": 16366,
-    "updated": "2026-07-23T08:53:05Z",
+    "openIssues": 616,
+    "stars": 16373,
+    "updated": "2026-07-24T08:52:23Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-23T09:21:23.227Z"
+    "fetchedAt": "2026-07-24T09:16:42.618Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -450,10 +462,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-07-21T21:40:13Z",
     "repo": "backblaze-b2-samples/depth-anything-v2-dataset",
-    "fetchedAt": "2026-07-23T09:21:23.731Z"
+    "fetchedAt": "2026-07-24T09:16:42.696Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -503,6 +515,18 @@
     "repo": "backblaze-b2-samples/eval-vault",
     "fetchedAt": "2026-06-27T09:26:03.677Z"
   },
+  "fastdup-dataset-cleaning": {
+    "archived": false,
+    "description": "Clean image training datasets stored in Backblaze B2 — scan for exact/near duplicates, outliers, and broken files with fastdup (local, CPU-only), then quarantine flagged files without ever deleting originals. Full-stack Next.js 16 + FastAPI sample over the S3-compatible API.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-07-22T14:00:10Z",
+    "repo": "backblaze-b2-samples/fastdup-dataset-cleaning",
+    "fetchedAt": "2026-07-24T09:16:42.734Z"
+  },
   "firewatch-agent": {
     "archived": false,
     "description": "FireWatch is an AI-powered wildfire detection and alerting pipeline using OpenClaw, Nemotron, and Backblaze B2 to process satellite hotspot data, live weather, and explainable risk scores for faster wildfire response.",
@@ -530,26 +554,26 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 16,
+    "forks": 18,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 40,
-    "stars": 386,
-    "updated": "2026-07-23T05:54:48Z",
+    "openIssues": 39,
+    "stars": 402,
+    "updated": "2026-07-23T20:11:40Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-23T09:21:23.227Z"
+    "fetchedAt": "2026-07-24T09:16:42.599Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
     "description": null,
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 2,
     "stars": 5,
     "updated": "2026-07-21T13:05:54Z",
     "repo": "backblaze-labs/genblaze-gen-media-multi-provider-sample",
-    "fetchedAt": "2026-07-22T09:23:22.845Z"
+    "fetchedAt": "2026-07-24T09:16:42.708Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -614,14 +638,14 @@
   "hermes-b2-backup": {
     "archived": false,
     "description": "Back up your Hermes Agent (Nous Research) state, memory, and skills to Backblaze B2 — encrypted, incremental, offsite.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-06-24T04:16:46Z",
     "repo": "backblaze-labs/hermes-b2-backup",
-    "fetchedAt": "2026-06-24T10:18:02.388Z"
+    "fetchedAt": "2026-07-24T09:16:42.597Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -655,9 +679,9 @@
     "license": "MIT",
     "openIssues": 2,
     "stars": 2,
-    "updated": "2026-07-07T15:51:48Z",
+    "updated": "2026-07-23T18:30:14Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-07-08T09:22:29.070Z"
+    "fetchedAt": "2026-07-24T09:16:42.547Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -686,26 +710,26 @@
   "lama-batch-inpainting": {
     "archived": false,
     "description": "Batch image inpainting with the LaMa model, run locally at $0 inference cost — erase watermarks and unwanted objects from large image collections and store the results in Backblaze B2 (S3-compatible). Next.js + FastAPI sample app.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-07-17T19:52:10Z",
     "repo": "backblaze-b2-samples/lama-batch-inpainting",
-    "fetchedAt": "2026-07-21T09:24:06.349Z"
+    "fetchedAt": "2026-07-24T09:16:42.699Z"
   },
   "lance-multimodal-search": {
     "archived": false,
     "description": "Multimodal semantic search over images and PDFs with no vector-database server: the LanceDB vector store and ANN index live directly on Backblaze B2. Local CLIP embeddings, S3-only.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-06-26T21:29:49Z",
     "repo": "backblaze-b2-samples/lance-multimodal-search",
-    "fetchedAt": "2026-06-27T09:26:03.636Z"
+    "fetchedAt": "2026-07-24T09:16:42.740Z"
   },
   "lerobot-b2-streaming": {
     "archived": false,
@@ -734,38 +758,38 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6044,
+    "forks": 6051,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2083,
-    "stars": 27176,
-    "updated": "2026-07-23T08:59:41Z",
+    "openIssues": 2076,
+    "stars": 27189,
+    "updated": "2026-07-24T09:07:26Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-23T09:21:23.227Z"
+    "fetchedAt": "2026-07-24T09:16:42.734Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
     "description": "Build labeled action-recognition datasets from raw video: segment, clip, label with MMAction2 (Kinetics-400), and package train/val/test splits. FastAPI + Next.js sample app storing everything on Backblaze B2 via the S3-compatible API.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-07-02T21:33:18Z",
     "repo": "backblaze-b2-samples/mmaction2-action-dataset-builder",
-    "fetchedAt": "2026-07-07T10:21:25.170Z"
+    "fetchedAt": "2026-07-24T09:16:42.720Z"
   },
   "music-tagging-search": {
     "archived": false,
     "description": "Self-hosted semantic music search and audio tagging over a catalog on Backblaze B2. Essentia extracts BPM, key, genre, and mood; CLAP embeddings power find-similar and plain-English text-to-audio search. All local OSS models — B2 is the only credential.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-06-22T20:32:08Z",
     "repo": "backblaze-b2-samples/music-tagging-search",
-    "fetchedAt": "2026-06-24T10:18:02.606Z"
+    "fetchedAt": "2026-07-24T09:16:42.668Z"
   },
   "nemotron-genblaze-b2": {
     "archived": false,
@@ -782,14 +806,14 @@
   "nudenet-video-moderation": {
     "archived": false,
     "description": "Self-hosted NSFW video moderation pipeline: NudeNet (local ONNX) classifies ffmpeg-sampled frames, flags unsafe content, and routes it to a human-in-the-loop review queue — every video, frame crop, and report stored on Backblaze B2 via the S3-compatible API. Next.js + FastAPI.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-07-06T19:55:34Z",
     "repo": "backblaze-b2-samples/nudenet-video-moderation",
-    "fetchedAt": "2026-07-08T09:22:29.103Z"
+    "fetchedAt": "2026-07-24T09:16:42.790Z"
   },
   "openclaw-b2-sync-backup": {
     "archived": false,
@@ -818,26 +842,26 @@
   "paddleocr-document-archive": {
     "archived": false,
     "description": "Self-hosted OCR document archive: PaddleOCR turns scanned pages into searchable, structured text locally — no external OCR API — with Backblaze B2 (S3-compatible) as the single source of truth and a rebuildable SQLite index for keyword search.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-07-07T13:23:54Z",
     "repo": "backblaze-b2-samples/paddleocr-document-archive",
-    "fetchedAt": "2026-07-08T15:31:53.245Z"
+    "fetchedAt": "2026-07-24T09:16:42.826Z"
   },
   "personal-video-ai-search": {
     "archived": false,
     "description": "AI-powered semantic search over your personal video archive on Backblaze B2. Indexes every clip on three signals — Whisper transcripts, multimodal scene captions, and locally clustered faces — then answers natural-language queries with playable clips. No database: the search and face indexes are JSON in the bucket.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 1,
     "updated": "2026-06-26T22:16:16Z",
     "repo": "backblaze-b2-samples/personal-video-ai-search",
-    "fetchedAt": "2026-07-08T09:22:29.149Z"
+    "fetchedAt": "2026-07-24T09:16:42.822Z"
   },
   "pixeltable-multimodal-data": {
     "archived": false,
@@ -914,14 +938,14 @@
   "sdk-typescript": {
     "archived": false,
     "description": "Backblaze-maintained TypeScript and JavaScript SDK for B2 Cloud Storage, currently incubating in Backblaze-Labs",
-    "forks": 1,
+    "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 47,
+    "openIssues": 52,
     "stars": 8,
-    "updated": "2026-07-20T18:49:09Z",
+    "updated": "2026-07-24T01:51:26Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-07-21T09:24:06.351Z"
+    "fetchedAt": "2026-07-24T09:16:42.749Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
@@ -950,14 +974,14 @@
   "transformers-video-object-detection": {
     "archived": false,
     "description": "Real-time video object detection monitoring demo using Transformers.js and Backblaze B2 Cloud Storage. Runs YOLOv9 fully in the browser with automatic capture intervals, no server or GPU required. Detected snapshots and metadata are stored in low cost, scalable B2 storage for analysis and retention.",
-    "forks": 1,
+    "forks": 2,
     "lang": "HTML",
     "license": "MIT",
     "openIssues": 2,
     "stars": 1,
     "updated": "2026-07-01T14:32:20Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-07-02T09:56:55.487Z"
+    "fetchedAt": "2026-07-24T09:16:42.703Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -974,26 +998,26 @@
   "video-semantic-search": {
     "archived": false,
     "description": "Chat with your video: a full-stack TypeScript + Python sample app that transcribes long-form video with Whisper, embeds it, and returns the exact timestamped moments that answer a natural-language question. Backblaze B2 is the sole data store — source, audio, transcript, and vector index — with no separate database.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
     "updated": "2026-06-25T21:10:20Z",
     "repo": "backblaze-b2-samples/video-semantic-search",
-    "fetchedAt": "2026-06-26T10:19:09.857Z"
+    "fetchedAt": "2026-07-24T09:16:42.603Z"
   },
   "video-to-insights-nvidia-parakeet-llama": {
     "archived": false,
     "description": "AI-powered video analysis pipeline that downloads YouTube videos, stores durable artifacts in Backblaze B2, transcribes audio with NVIDIA Parakeet, generates timestamped insights with Llama 3.3, and serves interactive seekable video playback.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
     "updated": "2026-06-26T21:06:57Z",
     "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
-    "fetchedAt": "2026-06-27T09:26:03.680Z"
+    "fetchedAt": "2026-07-24T09:16:42.703Z"
   },
   "videohash-deduplication": {
     "archived": false,
@@ -1094,13 +1118,13 @@
   "zeroshot-image-classifier": {
     "archived": false,
     "description": "Browser-based image classification example application using OpenAI CLIP and Transformers.js. Upload images, run zero-shot classification with custom labels directly in the browser, and store images plus results in S3-compatible Backblaze B2 cloud object storage using pre-signed uploads.",
-    "forks": 1,
+    "forks": 2,
     "lang": "JavaScript",
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
     "updated": "2026-07-01T14:26:55Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-07-02T09:56:55.487Z"
+    "fetchedAt": "2026-07-24T09:16:42.696Z"
   }
 }
