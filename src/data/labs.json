@@ -1825,6 +1825,69 @@
       "url": "https://github.com/backblaze-b2-samples/fastdup-dataset-cleaning",
       "icon": "sparkle",
       "featured": false
+    },
+    {
+      "id": "dejavu-audio-dedup",
+      "title": "Dejavu Audio Dedup",
+      "tagline": "Deduplicate large audio catalogs before ingest using Dejavu acoustic…",
+      "description": "Deduplicate large audio catalogs before ingest using Dejavu acoustic fingerprinting locally, with Backblaze B2 as durable storage for the raw audio and fingerprint artifacts. Full-stack Next.js + FastAPI reference app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "acoustic-fingerprinting",
+        "audio-fingerprinting",
+        "audio-processing",
+        "backblaze-b2",
+        "cloudstorage",
+        "deduplication"
+      ],
+      "repo": "backblaze-b2-samples/dejavu-audio-dedup",
+      "url": "https://github.com/backblaze-b2-samples/dejavu-audio-dedup",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "deepfilternet-batch-speech-enhancement",
+      "title": "Deepfilternet Batch Speech Enhancement",
+      "tagline": "Batch speech enhancement / audio denoising with DeepFilterNet — cleans noisy…",
+      "description": "Batch speech enhancement / audio denoising with DeepFilterNet — cleans noisy recordings (WAV/MP3/FLAC/OGG) into 48 kHz WAV on-device, storing sources, outputs, and per-batch JSONL logs on Backblaze B2 (S3-compatible). Next.js 16 + FastAPI sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "audio-denoising",
+        "audio-processing",
+        "backblaze-b2",
+        "cloudstorage",
+        "deepfilternet",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/deepfilternet-batch-speech-enhancement",
+      "url": "https://github.com/backblaze-b2-samples/deepfilternet-batch-speech-enhancement",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "speechbrain-call-center-analytics",
+      "title": "Speechbrain Call Center Analytics",
+      "tagline": "On-device SpeechBrain call-center analytics: transcription, diarization &…",
+      "description": "On-device SpeechBrain call-center analytics: transcription, diarization & sentiment, all stored on Backblaze B2",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "call-center",
+        "cloudstorage",
+        "fastapi",
+        "nextjs",
+        "object-storage"
+      ],
+      "repo": "backblaze-b2-samples/speechbrain-call-center-analytics",
+      "url": "https://github.com/backblaze-b2-samples/speechbrain-call-center-analytics",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
