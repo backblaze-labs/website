@@ -206,14 +206,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 10,
+    "forks": 11,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 3,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-07-08T09:22:29.148Z"
+    "fetchedAt": "2026-07-27T10:36:47.473Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -293,11 +293,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 53,
+    "openIssues": 54,
     "stars": 7,
     "updated": "2026-07-20T23:38:09Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-07-24T09:16:42.634Z"
+    "fetchedAt": "2026-07-27T10:36:47.444Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -410,14 +410,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3775,
+    "forks": 3776,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 617,
-    "stars": 16385,
-    "updated": "2026-07-24T13:48:50Z",
+    "openIssues": 612,
+    "stars": 16393,
+    "updated": "2026-07-27T10:30:26Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-26T09:08:15.152Z"
+    "fetchedAt": "2026-07-27T10:36:47.474Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -554,14 +554,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 19,
+    "forks": 20,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 42,
-    "stars": 440,
+    "openIssues": 54,
+    "stars": 456,
     "updated": "2026-07-23T20:11:40Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-26T09:08:15.151Z"
+    "fetchedAt": "2026-07-27T10:36:47.474Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -758,14 +758,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6057,
+    "forks": 6059,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2086,
-    "stars": 27214,
-    "updated": "2026-07-26T09:07:40Z",
+    "openIssues": 2080,
+    "stars": 27227,
+    "updated": "2026-07-27T09:32:01Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-26T09:08:15.152Z"
+    "fetchedAt": "2026-07-27T10:36:47.474Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
