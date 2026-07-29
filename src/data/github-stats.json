@@ -218,14 +218,14 @@
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 6,
+    "forks": 7,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 4,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-07-25T09:33:56.561Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -278,14 +278,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 13,
+    "forks": 14,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 11,
-    "stars": 18,
+    "openIssues": 12,
+    "stars": 19,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-26T09:08:15.152Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "b2-action": {
     "archived": false,
@@ -410,14 +410,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3778,
+    "forks": 3780,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 609,
-    "stars": 16397,
-    "updated": "2026-07-28T09:18:25Z",
+    "openIssues": 593,
+    "stars": 16411,
+    "updated": "2026-07-29T09:16:25Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-28T09:32:14.269Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -578,14 +578,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 20,
+    "forks": 22,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 47,
-    "stars": 472,
-    "updated": "2026-07-27T20:17:12Z",
+    "openIssues": 41,
+    "stars": 480,
+    "updated": "2026-07-28T20:47:36Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-28T09:32:14.269Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -701,11 +701,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 4,
     "stars": 2,
-    "updated": "2026-07-28T00:17:08Z",
+    "updated": "2026-07-28T19:23:06Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-07-28T09:32:14.267Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -782,14 +782,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6068,
+    "forks": 6073,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2079,
-    "stars": 27243,
-    "updated": "2026-07-28T09:16:00Z",
+    "openIssues": 2076,
+    "stars": 27260,
+    "updated": "2026-07-29T06:50:05Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-28T09:32:14.269Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1013,11 +1013,11 @@
     "forks": 2,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 1,
-    "updated": "2026-07-01T14:32:20Z",
+    "updated": "2026-07-29T00:42:01Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-07-24T09:16:42.703Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
@@ -1025,11 +1025,11 @@
     "forks": 4,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 8,
     "stars": 12,
-    "updated": "2026-07-27T21:09:02Z",
+    "updated": "2026-07-28T21:49:06Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-07-28T09:32:14.267Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -1109,11 +1109,11 @@
     "forks": 1,
     "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 3,
-    "updated": "2026-07-01T14:24:13Z",
+    "updated": "2026-07-29T02:07:05Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-07-02T09:56:55.487Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   },
   "whisperx-diarized-archive": {
     "archived": false,
@@ -1157,10 +1157,10 @@
     "forks": 2,
     "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 0,
-    "updated": "2026-07-01T14:26:55Z",
+    "updated": "2026-07-29T01:34:17Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-07-24T09:16:42.696Z"
+    "fetchedAt": "2026-07-29T09:33:59.320Z"
   }
 }
