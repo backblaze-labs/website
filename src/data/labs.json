@@ -1888,6 +1888,20 @@
       "url": "https://github.com/backblaze-b2-samples/speechbrain-call-center-analytics",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "remotion-promo-video-pipeline",
+      "title": "Remotion Promo Video Pipeline",
+      "tagline": "Remotion + ffmpeg promo-video render pipeline: storyboard a release promo,…",
+      "description": "Remotion + ffmpeg promo-video render pipeline: storyboard a release promo, render it frame by frame, and re-render per-platform cutdowns — storing every PNG frame, MP4 variant and delivery manifest in Backblaze B2 over the S3-compatible API. No database, no GPU, no second API key. Next.js 16 + FastAPI sample app.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "cloudstorage", "fastapi", "ffmpeg", "nextjs", "object-storage"],
+      "repo": "backblaze-b2-samples/remotion-promo-video-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/remotion-promo-video-pipeline",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
