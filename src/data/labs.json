@@ -1902,6 +1902,27 @@
       "url": "https://github.com/backblaze-b2-samples/remotion-promo-video-pipeline",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "colpali-pdf-search",
+      "title": "Colpali Pdf Search",
+      "tagline": "Visual PDF search with ColPali vision embeddings — no OCR.",
+      "description": "Visual PDF search with ColPali vision embeddings — no OCR. Renders PDF pages to images, embeds them with ColPali, indexes with FAISS, and returns the matching page for a natural-language query. Next.js + FastAPI sample storing every page, embedding, and index on Backblaze B2 (S3-compatible).",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "colpali",
+        "document-retrieval",
+        "embeddings",
+        "faiss"
+      ],
+      "repo": "backblaze-b2-samples/colpali-pdf-search",
+      "url": "https://github.com/backblaze-b2-samples/colpali-pdf-search",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
