@@ -1923,6 +1923,62 @@
       "url": "https://github.com/backblaze-b2-samples/colpali-pdf-search",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "dspy-compiled-program-versioning",
+      "title": "Dspy Compiled Program Versioning",
+      "tagline": "Version, evaluate, diff, and roll back compiled DSPy programs — a…",
+      "description": "Version, evaluate, diff, and roll back compiled DSPy programs — a prompt-optimization workflow that stores every run as an append-only artifact bundle on Backblaze B2 (S3-compatible object storage), running fully offline against a local Ollama LLM.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["javascript", "typescript", "python"],
+      "tags": ["backblaze-b2", "boto3", "cloudstorage", "dspy", "experiment-tracking", "fastapi"],
+      "repo": "backblaze-b2-samples/dspy-compiled-program-versioning",
+      "url": "https://github.com/backblaze-b2-samples/dspy-compiled-program-versioning",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "docling-rag-ingestion",
+      "title": "Docling Rag Ingestion",
+      "tagline": "Docling RAG ingestion pipeline on Backblaze B2 — parse PDFs, DOCX, PPTX and…",
+      "description": "Docling RAG ingestion pipeline on Backblaze B2 — parse PDFs, DOCX, PPTX and HTML into clean Markdown and token-aware chunks written back to B2 over the S3-compatible API. Next.js + FastAPI, on-device models, no second API key.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "chunking",
+        "cloudstorage",
+        "docling",
+        "document-ingestion",
+        "document-processing"
+      ],
+      "repo": "backblaze-b2-samples/docling-rag-ingestion",
+      "url": "https://github.com/backblaze-b2-samples/docling-rag-ingestion",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "unsloth-lora-checkpoint-versioning",
+      "title": "Unsloth Lora Checkpoint Versioning",
+      "tagline": "Unsloth LoRA/QLoRA fine-tuning with full checkpoint versioning on Backblaze B2…",
+      "description": "Unsloth LoRA/QLoRA fine-tuning with full checkpoint versioning on Backblaze B2 — every dataset, per-epoch checkpoint, adapter, config, and metric is keyed under runs/<run_id>/. Real local fine-tunes of Llama/Qwen/Gemma on GPU (Unsloth) or CPU (transformers+PEFT); $0 per run, only B2 credentials.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "experiment-tracking",
+        "fastapi",
+        "fine-tuning",
+        "llm"
+      ],
+      "repo": "backblaze-b2-samples/unsloth-lora-checkpoint-versioning",
+      "url": "https://github.com/backblaze-b2-samples/unsloth-lora-checkpoint-versioning",
+      "icon": "sparkle",
+      "featured": false
     }
   ]
 }
