@@ -218,14 +218,14 @@
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 7,
+    "forks": 8,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 3,
     "stars": 4,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-07-29T09:33:59.320Z"
+    "fetchedAt": "2026-08-01T09:01:49.123Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -422,14 +422,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3783,
+    "forks": 3784,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 596,
-    "stars": 16432,
-    "updated": "2026-07-31T09:28:19Z",
+    "openIssues": 600,
+    "stars": 16437,
+    "updated": "2026-07-31T20:57:46Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-07-31T09:38:40.751Z"
+    "fetchedAt": "2026-08-01T09:01:49.159Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -503,6 +503,18 @@
     "repo": "backblaze-b2-samples/depth-anything-v2-dataset",
     "fetchedAt": "2026-07-28T09:32:14.783Z"
   },
+  "docling-rag-ingestion": {
+    "archived": false,
+    "description": "Docling RAG ingestion pipeline on Backblaze B2 — parse PDFs, DOCX, PPTX and HTML into clean Markdown and token-aware chunks written back to B2 over the S3-compatible API. Next.js + FastAPI, on-device models, no second API key.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 3,
+    "updated": "2026-07-30T22:24:18Z",
+    "repo": "backblaze-b2-samples/docling-rag-ingestion",
+    "fetchedAt": "2026-08-01T09:01:49.048Z"
+  },
   "docs-to-podcast": {
     "archived": false,
     "description": "NotebookLM-style podcast generator built on Backblaze B2: turn PDFs and docs into a two-host AI audio overview with OpenAI script generation and TTS, storing sources, transcripts, and episode audio in B2 cloud storage via the S3-compatible API.",
@@ -526,6 +538,18 @@
     "updated": "2026-07-28T07:44:52Z",
     "repo": "backblaze-b2-samples/donut-receipt-parser",
     "fetchedAt": "2026-07-28T09:32:14.693Z"
+  },
+  "dspy-compiled-program-versioning": {
+    "archived": false,
+    "description": "Version, evaluate, diff, and roll back compiled DSPy programs — a prompt-optimization workflow that stores every run as an append-only artifact bundle on Backblaze B2 (S3-compatible object storage), running fully offline against a local Ollama LLM.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-07-31T00:40:49Z",
+    "repo": "backblaze-b2-samples/dspy-compiled-program-versioning",
+    "fetchedAt": "2026-08-01T09:01:49.193Z"
   },
   "duckdb-query-in-place": {
     "archived": false,
@@ -590,14 +614,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 24,
+    "forks": 23,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 47,
-    "stars": 496,
+    "stars": 508,
     "updated": "2026-07-30T05:54:48Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-07-31T09:38:40.751Z"
+    "fetchedAt": "2026-08-01T09:01:49.091Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -713,11 +737,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 5,
     "stars": 2,
-    "updated": "2026-07-28T19:23:06Z",
+    "updated": "2026-07-31T16:06:55Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-07-29T09:33:59.320Z"
+    "fetchedAt": "2026-08-01T09:01:49.079Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -794,14 +818,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6090,
+    "forks": 6099,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2092,
-    "stars": 27295,
-    "updated": "2026-07-31T09:09:22Z",
+    "openIssues": 2093,
+    "stars": 27312,
+    "updated": "2026-08-01T07:34:22Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-07-31T09:38:40.751Z"
+    "fetchedAt": "2026-08-01T09:01:49.097Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1042,6 +1066,18 @@
     "updated": "2026-07-29T00:42:01Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
     "fetchedAt": "2026-07-29T09:33:59.320Z"
+  },
+  "unsloth-lora-checkpoint-versioning": {
+    "archived": false,
+    "description": "Unsloth LoRA/QLoRA fine-tuning with full checkpoint versioning on Backblaze B2 — every dataset, per-epoch checkpoint, adapter, config, and metric is keyed under runs/<run_id>/. Real local fine-tunes of Llama/Qwen/Gemma on GPU (Unsloth) or CPU (transformers+PEFT); $0 per run, only B2 credentials.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-07-30T17:18:12Z",
+    "repo": "backblaze-b2-samples/unsloth-lora-checkpoint-versioning",
+    "fetchedAt": "2026-08-01T09:01:49.087Z"
   },
   "vibe-coding-starter-kit": {
     "archived": false,
