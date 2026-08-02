@@ -59,7 +59,7 @@
   "overrides": {
     "vite": "^8.0.13",
     "esbuild": "^0.28.1",
-    "fast-uri": "^3.1.2",
+    "fast-uri": "^3.1.5",
     "js-yaml": "^4.2.0",
     "markdown-it": "^14.2.0",
     "yaml": "^2.9.0"
