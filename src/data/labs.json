@@ -1979,6 +1979,27 @@
       "url": "https://github.com/backblaze-b2-samples/unsloth-lora-checkpoint-versioning",
       "icon": "sparkle",
       "featured": false
+    },
+    {
+      "id": "nemo-curator-training-data",
+      "title": "Nemo Curator Training Data",
+      "tagline": "Curate LLM pretraining and fine-tuning data with NVIDIA NeMo Curator — a…",
+      "description": "Curate LLM pretraining and fine-tuning data with NVIDIA NeMo Curator — a multi-stage deduplicate, quality-filter, and PII-redact pipeline that writes versioned, lineage-tracked JSONL corpora to Backblaze B2 over the S3-compatible API. FastAPI + Next.js sample app.",
+      "categories": ["data-pipelines"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "data-curation",
+        "data-pipeline",
+        "deduplication",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/nemo-curator-training-data",
+      "url": "https://github.com/backblaze-b2-samples/nemo-curator-training-data",
+      "icon": "flow",
+      "featured": false
     }
   ]
 }
