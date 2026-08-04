@@ -2000,6 +2000,55 @@
       "url": "https://github.com/backblaze-b2-samples/nemo-curator-training-data",
       "icon": "flow",
       "featured": false
+    },
+    {
+      "id": "yolo-drone-footage-detection",
+      "title": "Yolo Drone Footage Detection",
+      "tagline": "Full-stack Backblaze B2 sample app that runs Ultralytics YOLO object detection…",
+      "description": "Full-stack Backblaze B2 sample app that runs Ultralytics YOLO object detection on drone and dashcam video, maps each detection against its GPS track, and stores the source video, annotated keyframes, per-frame JSON, and GeoJSON track in B2 over the S3-compatible API. Next.js + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "cloudstorage", "computer-vision", "drone", "fastapi", "geospatial"],
+      "repo": "backblaze-b2-samples/yolo-drone-footage-detection",
+      "url": "https://github.com/backblaze-b2-samples/yolo-drone-footage-detection",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "clip-video-scene-search",
+      "title": "Clip Video Scene Search",
+      "tagline": "CLIP-powered semantic video scene search on Backblaze B2 — segment videos with…",
+      "description": "CLIP-powered semantic video scene search on Backblaze B2 — segment videos with PySceneDetect, embed keyframes with OpenCLIP, and query scenes by text or image over a FAISS index, no external API key.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["backblaze-b2", "clip", "cloudstorage", "faiss", "fastapi", "multimodal-search"],
+      "repo": "backblaze-b2-samples/clip-video-scene-search",
+      "url": "https://github.com/backblaze-b2-samples/clip-video-scene-search",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "ffmpeg-hls-vod-transcoder",
+      "title": "Ffmpeg Hls Vod Transcoder",
+      "tagline": "Self-hosted HLS video-on-demand (VOD) transcoder: upload a source video and…",
+      "description": "Self-hosted HLS video-on-demand (VOD) transcoder: upload a source video and FFmpeg fans it out into a multi-bitrate adaptive-bitrate ladder (360p/720p/1080p) plus thumbnail sprites, stored on Backblaze B2 and streamed in-browser with hls.js. A Mux / Cloudflare Stream-style pipeline at object-storage cost. Next.js 16 + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "adaptive-bitrate-streaming",
+        "backblaze-b2",
+        "cloudstorage",
+        "fastapi",
+        "ffmpeg",
+        "hls"
+      ],
+      "repo": "backblaze-b2-samples/ffmpeg-hls-vod-transcoder",
+      "url": "https://github.com/backblaze-b2-samples/ffmpeg-hls-vod-transcoder",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
