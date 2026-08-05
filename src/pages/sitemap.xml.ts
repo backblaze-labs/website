@@ -28,8 +28,9 @@ export const GET: APIRoute = ({ site }) => {
   // Detail pages are explicitly opt-in. Entries without `detail` content never
   // appear here and do not receive a static route.
   for (const item of detailedIntegrations()) {
+    // `item` is a DetailedIntegration, so projectDetailPath always returns a
+    // string here (the non-null overload) — no null guard needed.
     const detailPath = projectDetailPath(item, path);
-    if (!detailPath) continue;
     urls.push({
       loc: `${baseUrl}${detailPath}`,
       lastmod: today,

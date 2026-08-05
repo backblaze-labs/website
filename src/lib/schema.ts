@@ -1,4 +1,4 @@
-import { catalog, projectDetailPath, type DetailedIntegration, type Integration } from "~/lib/labs";
+import { catalog, type DetailedIntegration, type Integration, projectDetailPath } from "~/lib/labs";
 
 /**
  * Schema.org JSON-LD generators. Output is consumed by `BaseLayout.astro`
@@ -57,6 +57,7 @@ export function itemListSchema(
   name: string,
   items: Integration[],
   pageUrl: string,
+  base = "",
 ) {
   return {
     "@context": "https://schema.org",
@@ -70,7 +71,7 @@ export function itemListSchema(
       // (repo, docs, marketing site, demo). The card UI only links the
       // primary `url`; the rest live in structured data so Google / Schema.org
       // consumers can still discover them.
-      const detailPath = projectDetailPath(item);
+      const detailPath = projectDetailPath(item, base);
       const itemUrl = detailPath ? new URL(detailPath, siteUrl).toString() : item.url;
       const sameAs = [
         item.url,

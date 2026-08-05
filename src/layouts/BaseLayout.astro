@@ -51,8 +51,11 @@ const canonical = new URL(canonicalPath ?? Astro.url.pathname, origin).toString(
 
 // Default to the site-wide 1200×630 social card (see scripts/gen-og-assets.mjs).
 // Detail pages may override it with project imagery and matching dimensions.
+// A custom ogImage is a root-relative path (e.g. "/og/foo.jpg"); prefix `base`
+// so it resolves correctly under a subpath deployment, matching the default
+// og.jpg branch. Absolute URLs are passed through untouched.
 const ogUrl = ogImage
-  ? new URL(ogImage, origin).toString()
+  ? new URL(/^https?:\/\//.test(ogImage) ? ogImage : `${base}${ogImage}`, origin).toString()
   : new URL(`${base}/og.jpg`, origin).toString();
 const ogImageAlt = customOgImageAlt ?? `${catalog.meta.title} — ${catalog.meta.tagline}`;
 
@@ -62,7 +65,9 @@ const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblazelabs.com")
   .replace(/\/$/, "");
 const pageUrl = canonical;
 
-const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items, pageUrl) : null;
+const ldList = itemList
+  ? itemListSchema(siteUrl, itemList.name, itemList.items, pageUrl, base)
+  : null;
 const pageLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const ldDocuments = [
   organizationSchema(siteUrl),

@@ -45,7 +45,21 @@ function imageMimeType(src: string): string {
   return "image/jpeg";
 }
 
-const ogImageType = imageMimeType(primaryScreenshot.src);
+// Dedicated 1200×630 social card when present; BaseLayout falls back to the
+// site-wide og.jpg otherwise. The 640×240 preview thumbnail is deliberately
+// NOT used as og:image — it's a WebP (Facebook/LinkedIn crawlers don't render
+// WebP previews) and far below the recommended social-card size.
+const ogCard = detail.ogImage;
+// Spread only when present so the absent keys fall back to BaseLayout's
+// defaults (site og.jpg, image/jpeg, 1200×630) under exactOptionalPropertyTypes.
+const ogProps = ogCard
+  ? {
+      ogImage: ogCard.src,
+      ogImageType: imageMimeType(ogCard.src),
+      ogImageWidth: ogCard.width,
+      ogImageHeight: ogCard.height,
+    }
+  : {};
 
 const screenshotUrls = detail.screenshots.map((screenshot) =>
   new URL(screenshot.src, origin).toString(),
@@ -64,10 +78,7 @@ const evaluationContext =
   title={item.title}
   description={detail.metaDescription}
   canonicalPath={canonicalPath}
-  ogImage={primaryScreenshot.src}
-  ogImageType={ogImageType}
-  ogImageWidth={primaryScreenshot.width}
-  ogImageHeight={primaryScreenshot.height}
+  {...ogProps}
   ogImageAlt={primaryScreenshot.alt}
   jsonLd={softwareSchema}
 >
@@ -204,7 +215,6 @@ const evaluationContext =
                     alt={screenshot.alt}
                     width={screenshot.width}
                     height={screenshot.height}
-                    sizes="(min-width: 1280px) 1120px, calc(100vw - 2.5rem)"
                     loading="lazy"
                     decoding="async"
                   />

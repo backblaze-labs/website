@@ -152,6 +152,16 @@
                   }
                 }
               },
+              "ogImage": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["src", "width", "height"],
+                "properties": {
+                  "src": { "type": "string" },
+                  "width": { "type": "integer", "minimum": 1 },
+                  "height": { "type": "integer", "minimum": 1 }
+                }
+              },
               "capabilities": {
                 "type": "array",
                 "minItems": 1,

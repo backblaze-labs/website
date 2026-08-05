@@ -416,13 +416,18 @@
             "height": 240
           },
           {
-            "src": "https://raw.githubusercontent.com/backblaze-b2-samples/vibe-coding-starter-kit/main/docs/images/b2-starterkit-fileview2.png",
+            "src": "/screenshots/vibe-coding-starter-kit-fileview.webp",
             "alt": "Vibe Coding Starter Kit file browser with a file tree and actions to preview, download, and delete files.",
             "caption": "The file browser includes tree navigation and common file actions backed by B2.",
-            "width": 2826,
-            "height": 1574
+            "width": 1600,
+            "height": 891
           }
         ],
+        "ogImage": {
+          "src": "/og/vibe-coding-starter-kit.jpg",
+          "width": 1200,
+          "height": 630
+        },
         "capabilities": [
           {
             "title": "Working dashboard foundation",

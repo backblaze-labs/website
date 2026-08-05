@@ -72,7 +72,7 @@ const CHAT_PARAM = "q";
     if (form.dataset.promptReady === "true") continue;
     form.dataset.promptReady = "true";
 
-    const inputId = form.getAttribute("aria-controls") ?? form.querySelector("textarea")?.id;
+    const inputId = form.querySelector("textarea")?.id;
     const input = inputId
       ? (document.getElementById(inputId) as HTMLTextAreaElement | null)
       : null;
