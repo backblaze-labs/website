@@ -95,7 +95,20 @@ async function requestEndpoint(baseUrl, endpoint, userAgent) {
   }
 }
 
-function printSummary(baseUrl, outputPath, results) {
+function summarize(results) {
+  const successful = results.filter(
+    (row) => row.statusCode !== null && row.statusCode >= 200 && row.statusCode < 300,
+  ).length;
+  const networkErrors = results.filter((row) => row.statusCode === null).length;
+  return {
+    total: results.length,
+    successful,
+    nonSuccessful: results.length - successful - networkErrors,
+    networkErrors,
+  };
+}
+
+function printSummary(baseUrl, outputPath, results, summary) {
   const endpointWidth = Math.max("ENDPOINT".length, ...results.map((row) => row.endpoint.length));
   const userAgentWidth = Math.max(
     "USER AGENT".length,
@@ -117,17 +130,13 @@ function printSummary(baseUrl, outputPath, results) {
     console.log(
       `${row.endpoint.padEnd(endpointWidth)}  ${row.userAgent.padEnd(userAgentWidth)}  ${status.padEnd(statusWidth)}  ${row.timestamp}`,
     );
-    if (row.error) console.log(`${" ".repeat(endpointWidth + userAgentWidth + 6)}${row.error}`);
+    if (row.error)
+      console.log(`${" ".repeat(endpointWidth + userAgentWidth + statusWidth + 6)}${row.error}`);
   }
 
-  const successful = results.filter(
-    (row) => row.statusCode !== null && row.statusCode >= 200 && row.statusCode < 300,
-  ).length;
-  const networkErrors = results.filter((row) => row.statusCode === null).length;
-  const nonSuccessful = results.length - successful - networkErrors;
   console.log("");
   console.log(
-    `Summary: ${results.length} requests; ${successful} 2xx; ${nonSuccessful} non-2xx; ${networkErrors} network errors.`,
+    `Summary: ${summary.total} requests; ${summary.successful} 2xx; ${summary.nonSuccessful} non-2xx; ${summary.networkErrors} network errors.`,
   );
   console.log(`JSON report: ${path.relative(root, outputPath)}`);
 }
@@ -148,10 +157,7 @@ async function main() {
   }
 
   const completedAt = new Date().toISOString();
-  const successful = results.filter(
-    (row) => row.statusCode !== null && row.statusCode >= 200 && row.statusCode < 300,
-  ).length;
-  const networkErrors = results.filter((row) => row.statusCode === null).length;
+  const summary = summarize(results);
   const report = {
     schemaVersion: 1,
     baseUrl,
@@ -159,18 +165,13 @@ async function main() {
     completedAt,
     endpoints: ENDPOINTS,
     userAgents: USER_AGENTS,
-    summary: {
-      total: results.length,
-      successful,
-      nonSuccessful: results.length - successful - networkErrors,
-      networkErrors,
-    },
+    summary,
     results,
   };
 
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
   await fs.writeFile(outputPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
-  printSummary(baseUrl, outputPath, results);
+  printSummary(baseUrl, outputPath, results, summary);
 }
 
 await main();

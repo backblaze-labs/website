@@ -12,7 +12,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Local and CI probe output (uploaded by the retrieval-agent workflow).
-artifacts/
+/artifacts/
 
 # environment
 .env
