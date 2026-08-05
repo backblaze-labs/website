@@ -46,6 +46,7 @@ ${catalog.meta.description}
 - [GitHub](${catalog.meta.github}): Source for the Backblaze Labs projects.
 - [JSON Feed](${home}/feed.json): Machine-readable catalog (JSON Feed 1.1).
 - [Sitemap](${home}/sitemap.xml): All crawlable pages.
+- [Crawler policy](${home}/robots.txt): Public catalog — every crawler is welcome, including AI search, retrieval, and training crawlers.
 
 ${sections.join("\n\n")}
 `;
