@@ -2049,6 +2049,27 @@
       "url": "https://github.com/backblaze-b2-samples/ffmpeg-hls-vod-transcoder",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "monai-dicom-segmentation",
+      "title": "Monai Dicom Segmentation",
+      "tagline": "Full-stack sample app that runs MONAI medical-image segmentation on…",
+      "description": "Full-stack sample app that runs MONAI medical-image segmentation on DICOM/NIfTI volumes and stores the source scans, segmentation masks, and preview slices in Backblaze B2 via the S3-compatible API. Next.js 16 + FastAPI; models run on-device (CPU by default, GPU auto-detected).",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "dicom",
+        "fastapi",
+        "image-segmentation",
+        "medical-image-segmentation"
+      ],
+      "repo": "backblaze-b2-samples/monai-dicom-segmentation",
+      "url": "https://github.com/backblaze-b2-samples/monai-dicom-segmentation",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
