@@ -139,11 +139,12 @@ src/
 │   └── github-stats.json   stars/forks/last-push, refreshed by `npm run sync-stats`
 ├── lib/
 │   ├── labs.ts            typed loader: catalog, statsFor(id), previewUrl(item)
-│   └── schema.ts          Schema.org JSON-LD generators (Organization / WebSite / ItemList)
+│   └── schema.ts          Schema.org JSON-LD generators (site, lists, source code)
 ├── pages/
 │   ├── index.astro            landing page (Hero + Gallery)
 │   ├── 404.astro
 │   ├── category/[id].astro    category landing pages
+│   ├── projects/[id].astro    opt-in project detail pages
 │   ├── og.png.ts              site-wide Open Graph image (Satori → resvg → PNG)
 │   ├── feed.json.ts           JSON Feed 1.1 syndication endpoint
 │   ├── sitemap.xml.ts         single-file sitemap
@@ -220,7 +221,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 
 ## OG images
 
-[`src/pages/og.png.ts`](src/pages/og.png.ts) generates a single 1200×630 PNG used as the site-wide `og:image` / `twitter:image` (set in `BaseLayout.astro`). One image for the whole site — we don't generate per-page variants since cards link straight to upstream and there are no per-integration pages.
+[`src/pages/og.png.ts`](src/pages/og.png.ts) generates the default 1200×630 PNG used as the site-wide `og:image` / `twitter:image` (set in `BaseLayout.astro`). Opt-in project detail pages may override it with project-specific catalog imagery.
 
 To customize:
 

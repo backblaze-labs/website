@@ -63,6 +63,7 @@ genblaze
 colab
 duckdb
 headshot
+vcsk
 
 # AI / ML domain
 llms

@@ -3,11 +3,20 @@ import Logo from "~/components/Logo.astro";
 import ThemeSwitcher from "~/components/ThemeSwitcher.astro";
 import Icon from "~/components/Icon.astro";
 import { catalog } from "~/lib/labs";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 <header class="nav-shell sticky top-0 z-50">
   <div class="nav-inner container-page flex h-14 items-center gap-4 md:h-16">
     <Logo />
     <nav class="ml-auto flex items-center gap-1.5 md:gap-2">
+      <a
+        href={`${base || "/"}#integrations`}
+        class="hidden md:inline-flex items-center px-3 py-2 rounded-full hover:bg-[var(--bg-elevated)] transition text-sm"
+        style="color: var(--fg-muted);"
+      >
+        Projects
+      </a>
       <a
         href={catalog.meta.github}
         target="_blank"

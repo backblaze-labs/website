@@ -1,4 +1,4 @@
-import { catalog, type Integration } from "~/lib/labs";
+import { catalog, projectDetailPath, type DetailedIntegration, type Integration } from "~/lib/labs";
 
 /**
  * Schema.org JSON-LD generators. Output is consumed by `BaseLayout.astro`
@@ -70,25 +70,74 @@ export function itemListSchema(
       // (repo, docs, marketing site, demo). The card UI only links the
       // primary `url`; the rest live in structured data so Google / Schema.org
       // consumers can still discover them.
+      const detailPath = projectDetailPath(item);
+      const itemUrl = detailPath ? new URL(detailPath, siteUrl).toString() : item.url;
       const sameAs = [
+        item.url,
         item.site,
         item.docs,
         item.example,
         item.demo,
         item.repo ? `https://github.com/${item.repo}` : null,
-      ]
-        .filter((u): u is string => Boolean(u))
-        .filter((u) => u !== item.url);
+      ].filter((u): u is string => Boolean(u) && u !== itemUrl);
+      const uniqueSameAs = [...new Set(sameAs)];
       return {
         "@type": "ListItem",
         position: idx + 1,
-        url: item.url,
+        url: itemUrl,
         name: item.title,
         description: item.tagline,
-        ...(sameAs.length > 0 ? { sameAs } : {}),
+        ...(uniqueSameAs.length > 0 ? { sameAs: uniqueSameAs } : {}),
       };
     }),
     // Pin the parent WebSite so Google groups items under our site.
     isPartOf: { "@type": "WebSite", url: siteUrl },
+  };
+}
+
+export function softwareSourceCodeSchema(
+  siteUrl: string,
+  item: DetailedIntegration,
+  pageUrl: string,
+  imageUrls: string[],
+  dateModified?: string,
+) {
+  const programmingLanguage = item.languages.map(
+    (id) => catalog.languages.find((language) => language.id === id)?.label ?? id,
+  );
+  const codeRepository = item.repo ? `https://github.com/${item.repo}` : item.url;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: item.title,
+    description: item.detail.metaDescription,
+    url: pageUrl,
+    mainEntityOfPage: pageUrl,
+    codeRepository,
+    programmingLanguage,
+    license: item.detail.license.url,
+    audience: {
+      "@type": "Audience",
+      audienceType: item.detail.audience,
+    },
+    image: imageUrls,
+    keywords: item.tags.join(", "),
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: siteUrl,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: siteUrl,
+    },
+    ...(dateModified ? { dateModified } : {}),
   };
 }

@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { catalog } from "~/lib/labs";
+import { catalog, detailedIntegrations, projectDetailPath } from "~/lib/labs";
 
 /**
  * Single-file sitemap. We control every URL on this site (it's all derivable
@@ -12,8 +12,6 @@ export const GET: APIRoute = ({ site }) => {
   const path = import.meta.env.BASE_URL.replace(/\/$/, "");
   const today = new Date().toISOString().slice(0, 10);
 
-  // No per-integration URLs — cards link straight to the upstream destination.
-  // The gallery and category pages are the only crawlable pages we own.
   const urls: { loc: string; lastmod: string; priority?: string; changefreq?: string }[] = [
     { loc: `${baseUrl}${path}/`, lastmod: today, priority: "1.0", changefreq: "weekly" },
   ];
@@ -24,6 +22,19 @@ export const GET: APIRoute = ({ site }) => {
       lastmod: today,
       priority: "0.7",
       changefreq: "weekly",
+    });
+  }
+
+  // Detail pages are explicitly opt-in. Entries without `detail` content never
+  // appear here and do not receive a static route.
+  for (const item of detailedIntegrations()) {
+    const detailPath = projectDetailPath(item, path);
+    if (!detailPath) continue;
+    urls.push({
+      loc: `${baseUrl}${detailPath}`,
+      lastmod: today,
+      priority: "0.8",
+      changefreq: "monthly",
     });
   }
 

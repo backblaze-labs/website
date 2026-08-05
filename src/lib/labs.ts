@@ -19,6 +19,27 @@ export interface Language {
   label: string;
 }
 
+export interface ProjectDetail {
+  metaDescription: string;
+  audience: string;
+  license: { name: string; url: string };
+  techStack: { name: string; role: string }[];
+  screenshots: {
+    src: string;
+    alt: string;
+    caption: string;
+    width: number;
+    height: number;
+  }[];
+  capabilities: { title: string; description: string }[];
+  useWhen: string[];
+  avoidWhen: string[];
+  maturity: {
+    status: string;
+    support: string;
+  };
+}
+
 export interface Integration {
   id: string;
   title: string;
@@ -46,7 +67,14 @@ export interface Integration {
   preview?: string | null;
   icon?: string;
   featured?: boolean;
+  /**
+   * Opt-in long-form content. Only integrations with this object receive a
+   * site-owned `/projects/{id}/` detail page.
+   */
+  detail?: ProjectDetail;
 }
+
+export type DetailedIntegration = Integration & { detail: ProjectDetail };
 
 interface CompanionLinks {
   site?: string;
@@ -99,6 +127,22 @@ const stats = statsRaw as unknown as Record<string, GitHubStats>;
 const companionLinks = linksRaw as Record<string, CompanionLinks>;
 
 export const catalog: LabsCatalog = labs;
+
+export function hasProjectDetail(item: Integration): item is DetailedIntegration {
+  return item.detail !== undefined;
+}
+
+export function detailedIntegrations(): DetailedIntegration[] {
+  return catalog.integrations.filter(hasProjectDetail);
+}
+
+export function projectDetailPath(item: DetailedIntegration, base?: string): string;
+export function projectDetailPath(item: Integration, base?: string): string | null;
+export function projectDetailPath(item: Integration, base = ""): string | null {
+  if (!hasProjectDetail(item)) return null;
+  const normalizedBase = base.replace(/\/$/, "");
+  return `${normalizedBase}/projects/${item.id}/`;
+}
 
 export function statsFor(id: string): GitHubStats | undefined {
   return stats[id];
