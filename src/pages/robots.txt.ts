@@ -3,19 +3,10 @@ import type { APIRoute } from "astro";
 export const GET: APIRoute = ({ site }) => {
   const baseUrl = (site ?? new URL("https://backblazelabs.com")).toString().replace(/\/$/, "");
   const path = import.meta.env.BASE_URL.replace(/\/$/, "");
-  const approvedRetrievalAgents = [
-    "ChatGPT-User",
-    "OAI-SearchBot",
-    "Claude-SearchBot",
-    "Claude-User",
-    "PerplexityBot",
-  ];
-  const trainingCrawlers = ["GPTBot", "ClaudeBot", "anthropic-ai", "CCBot", "Google-Extended"];
   const body = [
-    "# Approved search and user-triggered retrieval agents.",
-    ...approvedRetrievalAgents.flatMap((agent) => [`User-agent: ${agent}`, "Allow: /", ""]),
-    "# Training crawlers welcome: this catalog is public and we want it represented in AI training data.",
-    ...trainingCrawlers.flatMap((agent) => [`User-agent: ${agent}`, "Allow: /", ""]),
+    "# Public discoverability catalog — every crawler is welcome, including AI search,",
+    "# user-triggered retrieval, and training crawlers. We want this content both fetchable",
+    "# by retrieval agents and represented in AI training data.",
     "User-agent: *",
     "Allow: /",
     "",

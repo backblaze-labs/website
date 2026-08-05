@@ -47,37 +47,32 @@ uploads the JSON report as a 30-day artifact named for the workflow run.
 
 ## Crawler policy
 
-The generated `/robots.txt` explicitly allows these search and user-triggered agents:
-`ChatGPT-User`, `OAI-SearchBot`, `Claude-SearchBot`, `Claude-User`, and `PerplexityBot`. It also
-welcomes training-oriented crawlers including `GPTBot`, `ClaudeBot`, `anthropic-ai`, `CCBot`, and
-`Google-Extended`: this is a public discoverability catalog, so we want its content represented in AI
-training data. The generated `/llms.txt` links to that policy while exposing only public catalog
-metadata.
+This is a fully public discoverability catalog, so the generated `/robots.txt` welcomes every crawler
+— AI search, user-triggered retrieval, and training crawlers alike — with a single `User-agent: *` /
+`Allow: /`. We want the catalog both fetchable by retrieval agents (`ChatGPT-User`, `OAI-SearchBot`,
+`Claude-SearchBot`, `Claude-User`, `PerplexityBot`) and represented in AI training data (`GPTBot`,
+`ClaudeBot`, `anthropic-ai`, `CCBot`, `Google-Extended`, and any others). The generated `/llms.txt`
+links to that policy while exposing only public catalog metadata.
 
 `robots.txt` is a voluntary crawler policy, not authentication. The probe deliberately sends no
 cookies or authorization headers and must remain limited to public site surfaces.
 
-## Operational WAF change (out of band)
+## Operational WAF / Cloudflare posture (out of band)
 
-The corresponding Cloudflare change is intentionally not represented by repository code. Because this
-is a fully public catalog and we welcome AI access, the managed bot / AI-crawler control must not
-block well-behaved AI crawlers here — both the search / user-triggered retrieval agents and the
-training crawlers listed under Crawler policy. Constrain the change to the following:
+The corresponding Cloudflare posture is intentionally not represented by repository code. Because this
+is a fully public catalog and we want maximum AI visibility, Cloudflare's managed bot / AI-crawler
+control must **not** block AI crawlers on `backblazelabs.com` — neither the search / user-triggered
+retrieval agents nor the training crawlers. There is no per-User-Agent allow-list to maintain: the
+goal is simply that well-behaved AI crawlers are not blocked here.
 
-- Hostname exactly `backblazelabs.com`.
-- HTTP methods `GET` and `HEAD` only.
-- The exact User-Agent strings listed under Crawler policy (retrieval agents and training crawlers).
-  Use Cloudflare/provider bot verification in addition to the User-Agent match when it is available;
-  a User-Agent string alone is spoofable.
-- Only the managed bot or AI-crawler control that is blocking these crawlers. Keep rate limiting,
-  application security rules, authentication controls, and every unrelated WAF rule active.
+- Scope any change to hostname `backblazelabs.com`.
+- If a managed bot or AI-crawler rule is returning 4xx/5xx to AI crawlers, disable that specific
+  control (or exempt the AI-crawler bot category) for this hostname.
+- Keep every generic protection active: rate limiting, DDoS mitigation, application-security rules,
+  and authentication controls. Those are unrelated to the AI-crawler block and should stay on.
 
-Retrieval agents fetch the public catalog surfaces this probe exercises; training crawlers
-legitimately fetch the whole public catalog, so do not path-limit them below the full public site.
-After the operational change, run the workflow manually and retain the before/after artifacts as the
-regression baseline.
-
-Rollback is to disable or remove only this WAF exception (or restore its prior Cloudflare rule
-version), leaving all other controls intact. Then run the workflow manually again and compare its
-artifact with the pre-change baseline. The probe and crawler-policy files should remain in the
-repository so the intended scope and any later regressions stay visible.
+After the change, run the workflow manually and retain the before/after artifacts as the regression
+baseline. Rollback is to re-enable the managed AI-crawler control (or restore its prior Cloudflare
+rule version), leaving all other controls intact; then run the workflow again and compare against the
+pre-change baseline. The probe and crawler-policy files should remain in the repository so the
+intended posture and any later regressions stay visible.
