@@ -409,11 +409,11 @@
         ],
         "screenshots": [
           {
-            "src": "/previews/vibe-coding-starter-kit-a2fc3038c6f3.webp",
+            "src": "/screenshots/vibe-coding-starter-kit-dashboard.webp",
             "alt": "Vibe Coding Starter Kit dashboard with storage metrics, upload activity, and recent uploads.",
             "caption": "The dashboard provides storage metrics, upload activity, and recent files out of the box.",
-            "width": 640,
-            "height": 240
+            "width": 1600,
+            "height": 886
           },
           {
             "src": "/screenshots/vibe-coding-starter-kit-fileview.webp",

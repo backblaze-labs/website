@@ -37,8 +37,15 @@ const ASSETS = [
     ogSource:
       "https://raw.githubusercontent.com/backblaze-b2-samples/vibe-coding-starter-kit/main/docs/images/b2-starterkit-dashboard1.png",
     // Full-size in-page screenshots, localized (kept readable, not cropped to
-    // thumbnails).
+    // thumbnails). The dashboard doubles as the high-res hero shot; the card
+    // thumbnail in public/previews/ (built by sync-previews) is unaffected.
     screenshots: [
+      {
+        source:
+          "https://raw.githubusercontent.com/backblaze-b2-samples/vibe-coding-starter-kit/main/docs/images/b2-starterkit-dashboard1.png",
+        out: "vibe-coding-starter-kit-dashboard.webp",
+        width: 1600,
+      },
       {
         source:
           "https://raw.githubusercontent.com/backblaze-b2-samples/vibe-coding-starter-kit/main/docs/images/b2-starterkit-fileview2.png",
