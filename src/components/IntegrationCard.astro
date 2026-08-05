@@ -1,7 +1,14 @@
 ---
 import Icon from "~/components/Icon.astro";
 import PreviewPlaceholder from "~/components/PreviewPlaceholder.astro";
-import { catalog, integrationLinks, previewUrl, statsFor, type Integration } from "~/lib/labs";
+import {
+  catalog,
+  integrationLinks,
+  previewUrl,
+  projectDetailPath,
+  statsFor,
+  type Integration,
+} from "~/lib/labs";
 
 interface Props {
   item: Integration;
@@ -25,7 +32,8 @@ const isVideo = customPreview ? /\.(mp4|webm|mov|m4v)(?:[?#]|$)/i.test(customPre
 // Stats are first-party only — upstream integrations don't have a `repo`.
 const stats = item.repo ? statsFor(item.id) : undefined;
 const actionLinks = integrationLinks(item);
-const showActionLinks = actionLinks.length > 1;
+const detailUrl = projectDetailPath(item, base);
+const showActionLinks = actionLinks.length > 1 || detailUrl !== null;
 
 const delay = `${Math.min(index, 7) * 60}ms`;
 const initiallyHidden = index >= 12;
@@ -124,6 +132,19 @@ const initiallyHidden = index >= 12;
           <Icon name="external" size={13} />
         </a>
       ))}
+      {detailUrl && (
+        <a
+          href={detailUrl}
+          class="card-action-pill"
+          aria-label={`${item.title}: view project details`}
+          data-track="card_link_click"
+          data-track-id={item.id}
+          data-track-link="details"
+        >
+          <span>Project details</span>
+          <Icon name="arrow-right" size={13} />
+        </a>
+      )}
     </div>
   )}
 </article>

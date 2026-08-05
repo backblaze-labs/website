@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { catalog, sortIntegrations } from "~/lib/labs";
+import { catalog, projectDetailPath, sortIntegrations } from "~/lib/labs";
 
 /**
  * /llms.txt — https://llmstxt.org/
@@ -9,8 +9,9 @@ import { catalog, sortIntegrations } from "~/lib/labs";
  * so it never drifts. Format: H1, a blockquote summary, then one section per
  * category listing each project as `[title](url): tagline`.
  *
- * Project links point straight to each integration's upstream destination
- * (matching the gallery cards); site-owned resources are listed under "Resources".
+ * Project links point to an opt-in site-owned detail page when one exists, and
+ * otherwise straight to the integration's upstream destination. Site-owned
+ * resources are listed under "Resources".
  */
 export const GET: APIRoute = ({ site }) => {
   const baseUrl = (site ?? new URL("https://backblazelabs.com")).toString().replace(/\/$/, "");
@@ -24,7 +25,11 @@ export const GET: APIRoute = ({ site }) => {
         catalog.integrations.filter((i) => i.categories.includes(c.id)),
       );
       if (items.length === 0) return null;
-      const lines = items.map((i) => `- [${i.title}](${i.url}): ${i.tagline}`);
+      const lines = items.map((i) => {
+        const detailPath = projectDetailPath(i, path);
+        const url = detailPath ? `${baseUrl}${detailPath}` : i.url;
+        return `- [${i.title}](${url}): ${i.tagline}`;
+      });
       return `## ${c.label}\n\n${lines.join("\n")}`;
     })
     .filter((s): s is string => s !== null);

@@ -1,0 +1,131 @@
+---
+import Icon from "~/components/Icon.astro";
+
+interface Props {
+  formId: string;
+  inputId: string;
+  heading?: string;
+  placeholder?: string;
+  ariaLabel?: string;
+  buttonLabel?: string;
+  wrapperClass?: string;
+  buttonClass?: string;
+  trackingId?: string;
+  context?: string;
+}
+
+const {
+  formId,
+  inputId,
+  heading = "What do you want to build?",
+  placeholder = 'Describe your use case — e.g. "an automatic backup pipeline for B2…"',
+  ariaLabel = "Describe what you want to build",
+  buttonLabel = "Start building",
+  wrapperClass = "",
+  buttonClass = "btn-primary mt-3 w-fit",
+  trackingId = "chat_prompt",
+  context,
+} = Astro.props;
+
+// Query parameter expected by chat.backblazelabs.com. The optional context is
+// added only by project pages; omitting it preserves the homepage query exactly.
+const CHAT_URL = "https://chat.backblazelabs.com/";
+const CHAT_PARAM = "q";
+---
+<div class={wrapperClass}>
+  <p class="font-display text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+    {heading}
+  </p>
+  <form
+    id={formId}
+    class="mt-3"
+    data-build-prompt
+    data-chat-url={CHAT_URL}
+    data-chat-param={CHAT_PARAM}
+    data-chat-context={context}
+    novalidate
+  >
+    <textarea
+      id={inputId}
+      class="prompt-input"
+      placeholder={placeholder}
+      rows="3"
+      maxlength="2000"
+      aria-label={ariaLabel}
+    ></textarea>
+  </form>
+</div>
+
+<button
+  type="submit"
+  form={formId}
+  class={buttonClass}
+  data-track="cta_click"
+  data-track-cta={trackingId}
+>
+  {buttonLabel}
+  <Icon name="arrow-right" size={14} />
+</button>
+
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>("form[data-build-prompt]")) {
+    if (form.dataset.promptReady === "true") continue;
+    form.dataset.promptReady = "true";
+
+    const inputId = form.querySelector("textarea")?.id;
+    const input = inputId
+      ? (document.getElementById(inputId) as HTMLTextAreaElement | null)
+      : null;
+    const chatUrl = form.dataset.chatUrl ?? "https://chat.backblazelabs.com/";
+    const chatParam = form.dataset.chatParam ?? "q";
+    const context = form.dataset.chatContext?.trim() ?? "";
+
+    function submit() {
+      const prompt = input?.value.trim() ?? "";
+      if (!prompt) return;
+      const query = context ? `${context}\n\nVisitor use case:\n${prompt}` : prompt;
+      const url = new URL(chatUrl);
+      url.searchParams.set(chatParam, query);
+      window.open(url.toString(), "_blank", "noopener,noreferrer");
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      submit();
+    });
+
+    // Cmd+Enter / Ctrl+Enter submits without leaving the textarea.
+    input?.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "Enter") submit();
+    });
+  }
+</script>
+
+<style>
+  .prompt-input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    color: var(--fg);
+    resize: vertical;
+    min-height: 0;
+    line-height: 1.55;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: var(--fg-dim);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-red-50);
+      box-shadow: 0 0 0 3px rgba(226, 6, 38, 0.12);
+    }
+  }
+</style>

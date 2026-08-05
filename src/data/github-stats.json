@@ -114,10 +114,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 4,
+    "stars": 5,
     "updated": "2026-07-27T20:16:53Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-08-04T09:36:00.417Z"
+    "fetchedAt": "2026-08-05T09:31:34.589Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -258,10 +258,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-06-18T11:06:12.220Z"
+    "fetchedAt": "2026-08-05T09:31:34.173Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -293,11 +293,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 62,
+    "openIssues": 46,
     "stars": 7,
-    "updated": "2026-08-04T09:29:30Z",
+    "updated": "2026-08-04T19:50:14Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-08-04T09:36:00.103Z"
+    "fetchedAt": "2026-08-05T09:31:34.172Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -358,6 +358,18 @@
     "updated": "2026-07-28T03:22:21Z",
     "repo": "backblaze-b2-samples/clip-nsfw-image-moderation",
     "fetchedAt": "2026-07-28T09:32:14.677Z"
+  },
+  "clip-video-scene-search": {
+    "archived": false,
+    "description": "CLIP-powered semantic video scene search on Backblaze B2 — segment videos with PySceneDetect, embed keyframes with OpenCLIP, and query scenes by text or image over a FAISS index, no external API key.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-08-03T16:20:01Z",
+    "repo": "backblaze-b2-samples/clip-video-scene-search",
+    "fetchedAt": "2026-08-05T09:31:34.724Z"
   },
   "clip-visual-product-search": {
     "archived": false,
@@ -422,14 +434,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3786,
+    "forks": 3789,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 601,
-    "stars": 16451,
-    "updated": "2026-08-04T09:27:22Z",
+    "stars": 16458,
+    "updated": "2026-08-05T07:56:37Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-04T09:36:00.104Z"
+    "fetchedAt": "2026-08-05T09:31:34.173Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -587,6 +599,18 @@
     "repo": "backblaze-b2-samples/fastdup-dataset-cleaning",
     "fetchedAt": "2026-07-28T09:32:14.820Z"
   },
+  "ffmpeg-hls-vod-transcoder": {
+    "archived": false,
+    "description": "Self-hosted HLS video-on-demand (VOD) transcoder: upload a source video and FFmpeg fans it out into a multi-bitrate adaptive-bitrate ladder (360p/720p/1080p) plus thumbnail sprites, stored on Backblaze B2 and streamed in-browser with hls.js. A Mux / Cloudflare Stream-style pipeline at object-storage cost. Next.js 16 + FastAPI.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-08-03T12:44:51Z",
+    "repo": "backblaze-b2-samples/ffmpeg-hls-vod-transcoder",
+    "fetchedAt": "2026-08-05T09:31:34.739Z"
+  },
   "firewatch-agent": {
     "archived": false,
     "description": "FireWatch is an AI-powered wildfire detection and alerting pipeline using OpenClaw, Nemotron, and Backblaze B2 to process satellite hotspot data, live weather, and explainable risk scores for faster wildfire response.",
@@ -617,11 +641,11 @@
     "forks": 25,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 65,
-    "stars": 566,
+    "openIssues": 66,
+    "stars": 567,
     "updated": "2026-08-03T17:35:16Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-04T09:36:00.103Z"
+    "fetchedAt": "2026-08-05T09:31:34.173Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -818,14 +842,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6110,
+    "forks": 6108,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2092,
-    "stars": 27355,
-    "updated": "2026-08-04T08:19:50Z",
+    "openIssues": 2093,
+    "stars": 27373,
+    "updated": "2026-08-05T09:29:17Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-04T09:36:00.104Z"
+    "fetchedAt": "2026-08-05T09:31:34.173Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -943,9 +967,9 @@
     "license": null,
     "openIssues": 10,
     "stars": 1,
-    "updated": "2026-07-22T23:45:46Z",
+    "updated": "2026-08-04T14:57:15Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
-    "fetchedAt": "2026-07-23T09:21:23.226Z"
+    "fetchedAt": "2026-08-05T09:31:34.172Z"
   },
   "prompt-showdown": {
     "archived": false,
@@ -1099,9 +1123,9 @@
     "license": "MIT",
     "openIssues": 17,
     "stars": 14,
-    "updated": "2026-08-03T19:58:36Z",
+    "updated": "2026-08-05T00:39:55Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-08-04T09:36:00.103Z"
+    "fetchedAt": "2026-08-05T09:31:34.172Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -1198,6 +1222,18 @@
     "updated": "2026-07-28T02:09:06Z",
     "repo": "backblaze-b2-samples/whisperx-diarized-archive",
     "fetchedAt": "2026-07-28T09:32:14.366Z"
+  },
+  "yolo-drone-footage-detection": {
+    "archived": false,
+    "description": "Full-stack Backblaze B2 sample app that runs Ultralytics YOLO object detection on drone and dashcam video, maps each detection against its GPS track, and stores the source video, annotated keyframes, per-frame JSON, and GeoJSON track in B2 over the S3-compatible API. Next.js + FastAPI.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-08-03T20:17:39Z",
+    "repo": "backblaze-b2-samples/yolo-drone-footage-detection",
+    "fetchedAt": "2026-08-05T09:31:34.695Z"
   },
   "yolo11-batch-detection-pipeline": {
     "archived": false,
