@@ -19,7 +19,6 @@ const REQUEST_TIMEOUT_MS = 20_000;
 
 const ENDPOINTS = [
   "/",
-  "/projects/vibe-coding-starter-kit/",
   "/category/developer-tools/",
   "/feed.json",
   "/llms.txt",

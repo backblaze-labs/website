@@ -19,18 +19,17 @@ RETRIEVAL_PROBE_BASE_URL=http://localhost:4321 npm run probe:retrieval
 The JSON report is written to `artifacts/retrieval-probe/results.json` by default. Override that path
 with `RETRIEVAL_PROBE_OUTPUT`; relative paths resolve from the repository root.
 
-Each run sends every User-Agent to every endpoint, producing 35 result rows. The two columns below
+Each run sends every User-Agent to every endpoint, producing 30 result rows. The two columns below
 are independent sets whose Cartesian product forms the request matrix; rows are not endpoint/agent
 pairs.
 
 | Endpoints | User-Agents |
 | --- | --- |
 | `/` | `ChatGPT-User` |
-| `/projects/vibe-coding-starter-kit/` | `OAI-SearchBot` |
-| `/category/developer-tools/` | `Claude-SearchBot` |
-| `/feed.json` | `Claude-User` |
-| `/llms.txt` | `PerplexityBot` |
-| `/robots.txt` | |
+| `/category/developer-tools/` | `OAI-SearchBot` |
+| `/feed.json` | `Claude-SearchBot` |
+| `/llms.txt` | `Claude-User` |
+| `/robots.txt` | `PerplexityBot` |
 | `/sitemap.xml` | |
 
 Every result contains `endpoint`, `userAgent`, nullable `statusCode`, and an ISO `timestamp`. A
@@ -65,7 +64,7 @@ operational allow exception should be narrowly constrained to all of the followi
 - HTTP methods `GET` and `HEAD` only.
 - The five exact User-Agent strings listed above. Use Cloudflare/provider bot verification in
   addition to the User-Agent match when it is available; a User-Agent string alone is spoofable.
-- Only the seven paths in this probe.
+- Only the six paths in this probe.
 - Only the managed bot or AI-crawler control that is blocking these approved requests. Keep rate
   limiting, application security rules, authentication controls, and every unrelated WAF rule
   active.
