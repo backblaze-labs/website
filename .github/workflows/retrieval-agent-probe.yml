@@ -1,0 +1,47 @@
+name: Retrieval agent probe
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # 09:17 UTC every day
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Public site base URL to probe
+        required: false
+        default: https://backblazelabs.com
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: retrieval-agent-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      RETRIEVAL_PROBE_BASE_URL: ${{ inputs.base_url || 'https://backblazelabs.com' }}
+      RETRIEVAL_PROBE_OUTPUT: artifacts/retrieval-probe/results.json
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Probe public catalog surfaces
+        run: npm run probe:retrieval
+
+      - name: Upload probe results
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: retrieval-agent-probe-${{ github.run_id }}
+          path: artifacts/retrieval-probe/results.json
+          if-no-files-found: warn
+          retention-days: 30

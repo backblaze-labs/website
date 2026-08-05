@@ -59,6 +59,19 @@ npm run build    # → ./dist/
 npm run preview  # serve the production build locally
 ```
 
+### Retrieval agent regression probe
+
+Run the public catalog probe with no credentials:
+
+```bash
+npm run probe:retrieval
+```
+
+It writes the complete endpoint × User-Agent matrix to
+`artifacts/retrieval-probe/results.json`. Set `RETRIEVAL_PROBE_BASE_URL` to test a preview or local
+deployment. See [the retrieval agent probe runbook](docs/retrieval-agent-probe.md) for the endpoint
+list, crawler policy, GitHub Actions runner, and the operational WAF scope and rollback.
+
 ## Quality checks
 
 A single command runs everything CI runs:
@@ -76,6 +89,7 @@ npm run fix      # biome check --write (lint+format autofix) + typecheck + valid
 | `npm run format:check` | Biome format check (no writes). |
 | `npm run typecheck` | `astro check` (TS + Astro diagnostics under the stricter tsconfig). |
 | `npm run validate` | JSON-schema-validates `labs.json` (ajv) + cross-field rules. |
+| `npm run probe:retrieval` | Probe public catalog surfaces with approved retrieval-agent User-Agents and write a JSON report. |
 | `npm run docs:lint` | markdownlint over every `.md` outside `node_modules` / `dist`. |
 | `npm run spellcheck` | cspell over source files; project dictionary lives in `.cspell/`. |
 | `npm run checks` | All six gates above, fail-fast. Also the pre-commit hook. |
