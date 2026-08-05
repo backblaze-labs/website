@@ -1,5 +1,4 @@
 ---
-import BuildPrompt from "~/components/BuildPrompt.astro";
 import Icon from "~/components/Icon.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import {
@@ -71,8 +70,6 @@ const softwareSchema = softwareSourceCodeSchema(
   screenshotUrls,
   stats?.updated,
 );
-const evaluationContext =
-  "Evaluate whether the Backblaze Vibe Coding Starter Kit (VCSK) is a good fit for this use case. Compare the use case with its Next.js, React, FastAPI, and Backblaze B2 stack; identify fit, gaps, security or production work, and practical next steps. Make clear that VCSK is an unsupported open source reference template with no SLA.";
 ---
 <BaseLayout
   title={item.title}
@@ -257,29 +254,6 @@ const evaluationContext =
         </div>
         <p>{detail.maturity.support}</p>
       </section>
-
-      <section class="prompt-section" aria-label="Evaluate your use case with the B2 Assistant">
-        <div class="prompt-intro">
-          <span class="prompt-icon" aria-hidden="true"><Icon name="bot" size={21} /></span>
-          <p>
-            Describe your idea. The B2 Assistant will evaluate VCSK against your use case,
-            including gaps and production work to plan for.
-          </p>
-        </div>
-        <div class="prompt-grid">
-          <BuildPrompt
-            formId="vcsk-chat-form"
-            inputId="vcsk-chat-prompt"
-            placeholder='Describe your app — e.g. "a client portal for uploading and reviewing media…"'
-            ariaLabel="Describe the application you want to evaluate for VCSK"
-            buttonLabel="Evaluate with B2 Assistant"
-            wrapperClass="prompt-form"
-            buttonClass="btn-primary mt-3 w-fit"
-            trackingId="vcsk_chat_prompt"
-            context={evaluationContext}
-          />
-        </div>
-      </section>
     </div>
   </article>
 </BaseLayout>
@@ -432,8 +406,7 @@ const evaluationContext =
   }
 
   .section-heading p,
-  .support-section > p,
-  .prompt-intro p {
+  .support-section > p {
     margin-top: 0.75rem;
     max-width: 66ch;
     color: var(--fg-muted);
@@ -488,8 +461,7 @@ const evaluationContext =
     border-bottom: 1px solid var(--border);
   }
 
-  .capability-icon,
-  .prompt-icon {
+  .capability-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -582,27 +554,8 @@ const evaluationContext =
     margin-top: 0.8rem;
   }
 
-  .prompt-section {
-    border-bottom: 0 !important;
-  }
-
-  .prompt-intro {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    margin-bottom: 1.75rem;
-  }
-
-  .prompt-intro p {
-    margin-top: 0.1rem;
-  }
-
-  .prompt-grid {
-    max-width: 48rem;
-    padding: clamp(1.25rem, 4vw, 2rem);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: var(--bg-card);
+  .project-body > section:last-child {
+    border-bottom: 0;
   }
 
   @media (min-width: 768px) {
