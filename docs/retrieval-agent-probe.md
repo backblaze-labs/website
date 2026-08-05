@@ -19,7 +19,7 @@ RETRIEVAL_PROBE_BASE_URL=http://localhost:4321 npm run probe:retrieval
 The JSON report is written to `artifacts/retrieval-probe/results.json` by default. Override that path
 with `RETRIEVAL_PROBE_OUTPUT`; relative paths resolve from the repository root.
 
-Each run sends every User-Agent to every endpoint, producing 30 result rows. The two columns below
+Each run sends every User-Agent to every endpoint, producing 35 result rows. The two columns below
 are independent sets whose Cartesian product forms the request matrix; rows are not endpoint/agent
 pairs.
 
@@ -27,9 +27,10 @@ pairs.
 | --- | --- |
 | `/` | `ChatGPT-User` |
 | `/category/developer-tools/` | `OAI-SearchBot` |
-| `/feed.json` | `Claude-SearchBot` |
-| `/llms.txt` | `Claude-User` |
-| `/robots.txt` | `PerplexityBot` |
+| `/projects/vibe-coding-starter-kit/` | `Claude-SearchBot` |
+| `/feed.json` | `Claude-User` |
+| `/llms.txt` | `PerplexityBot` |
+| `/robots.txt` | |
 | `/sitemap.xml` | |
 
 Every result contains `endpoint`, `userAgent`, nullable `statusCode`, and an ISO `timestamp`. A
