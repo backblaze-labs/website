@@ -14,8 +14,8 @@ export const GET: APIRoute = ({ site }) => {
   const body = [
     "# Approved search and user-triggered retrieval agents.",
     ...approvedRetrievalAgents.flatMap((agent) => [`User-agent: ${agent}`, "Allow: /", ""]),
-    "# Training crawlers remain disallowed.",
-    ...trainingCrawlers.flatMap((agent) => [`User-agent: ${agent}`, "Disallow: /", ""]),
+    "# Training crawlers welcome: this catalog is public and we want it represented in AI training data.",
+    ...trainingCrawlers.flatMap((agent) => [`User-agent: ${agent}`, "Allow: /", ""]),
     "User-agent: *",
     "Allow: /",
     "",

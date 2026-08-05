@@ -48,9 +48,10 @@ uploads the JSON report as a 30-day artifact named for the workflow run.
 ## Crawler policy
 
 The generated `/robots.txt` explicitly allows these search and user-triggered agents:
-`ChatGPT-User`, `OAI-SearchBot`, `Claude-SearchBot`, `Claude-User`, and `PerplexityBot`. It continues
-to disallow training-oriented crawlers including `GPTBot`, `ClaudeBot`, `anthropic-ai`, `CCBot`, and
-`Google-Extended`. The generated `/llms.txt` links to that policy while exposing only public catalog
+`ChatGPT-User`, `OAI-SearchBot`, `Claude-SearchBot`, `Claude-User`, and `PerplexityBot`. It also
+welcomes training-oriented crawlers including `GPTBot`, `ClaudeBot`, `anthropic-ai`, `CCBot`, and
+`Google-Extended`: this is a public discoverability catalog, so we want its content represented in AI
+training data. The generated `/llms.txt` links to that policy while exposing only public catalog
 metadata.
 
 `robots.txt` is a voluntary crawler policy, not authentication. The probe deliberately sends no
@@ -58,20 +59,23 @@ cookies or authorization headers and must remain limited to public site surfaces
 
 ## Operational WAF change (out of band)
 
-The corresponding Cloudflare change is intentionally not represented by repository code. The
-operational allow exception should be narrowly constrained to all of the following:
+The corresponding Cloudflare change is intentionally not represented by repository code. Because this
+is a fully public catalog and we welcome AI access, the managed bot / AI-crawler control must not
+block well-behaved AI crawlers here — both the search / user-triggered retrieval agents and the
+training crawlers listed under Crawler policy. Constrain the change to the following:
 
 - Hostname exactly `backblazelabs.com`.
 - HTTP methods `GET` and `HEAD` only.
-- The five exact User-Agent strings listed above. Use Cloudflare/provider bot verification in
-  addition to the User-Agent match when it is available; a User-Agent string alone is spoofable.
-- Only the six paths in this probe.
-- Only the managed bot or AI-crawler control that is blocking these approved requests. Keep rate
-  limiting, application security rules, authentication controls, and every unrelated WAF rule
-  active.
+- The exact User-Agent strings listed under Crawler policy (retrieval agents and training crawlers).
+  Use Cloudflare/provider bot verification in addition to the User-Agent match when it is available;
+  a User-Agent string alone is spoofable.
+- Only the managed bot or AI-crawler control that is blocking these crawlers. Keep rate limiting,
+  application security rules, authentication controls, and every unrelated WAF rule active.
 
-Do not add training-crawler User-Agents to the exception. After the operational change, run the
-workflow manually and retain the before/after artifacts as the regression baseline.
+Retrieval agents fetch the public catalog surfaces this probe exercises; training crawlers
+legitimately fetch the whole public catalog, so do not path-limit them below the full public site.
+After the operational change, run the workflow manually and retain the before/after artifacts as the
+regression baseline.
 
 Rollback is to disable or remove only this WAF exception (or restore its prior Cloudflare rule
 version), leaving all other controls intact. Then run the workflow manually again and compare its
