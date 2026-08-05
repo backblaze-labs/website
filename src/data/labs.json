@@ -373,7 +373,100 @@
       "url": "https://github.com/backblaze-b2-samples/vibe-coding-starter-kit",
       "icon": "wrench",
       "featured": false,
-      "languages": ["typescript", "python", "javascript"]
+      "languages": ["typescript", "python", "javascript"],
+      "detail": {
+        "metaDescription": "Evaluate the Vibe Coding Starter Kit, an open source Next.js and FastAPI template with secure Backblaze B2 uploads, file browsing, and agent-ready docs.",
+        "audience": "Developers and AI-assisted builders who want a working full-stack foundation for an application centered on file uploads and object storage.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching and cache management"
+          },
+          {
+            "name": "FastAPI + Pydantic",
+            "role": "Typed Python API and configuration validation"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage access"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/vibe-coding-starter-kit-dashboard.webp",
+            "alt": "Vibe Coding Starter Kit dashboard with storage metrics, upload activity, and recent uploads.",
+            "caption": "The dashboard provides storage metrics, upload activity, and recent files out of the box.",
+            "width": 1600,
+            "height": 886
+          },
+          {
+            "src": "/screenshots/vibe-coding-starter-kit-fileview.webp",
+            "alt": "Vibe Coding Starter Kit file browser with a file tree and actions to preview, download, and delete files.",
+            "caption": "The file browser includes tree navigation and common file actions backed by B2.",
+            "width": 1600,
+            "height": 891
+          }
+        ],
+        "ogImage": {
+          "src": "/og/vibe-coding-starter-kit.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Working dashboard foundation",
+            "description": "Start with responsive navigation, storage statistics, upload activity, recent files, and a reusable design system instead of a blank application shell."
+          },
+          {
+            "title": "B2-backed file workflows",
+            "description": "Upload with progress, browse stored objects, preview supported files, download content, delete objects, and extract useful file metadata."
+          },
+          {
+            "title": "Typed frontend and API",
+            "description": "A Next.js frontend and layered FastAPI service provide a checked API contract, startup validation, and contained B2 SDK access."
+          },
+          {
+            "title": "Agent-ready repository context",
+            "description": "Bounded agent instructions, architecture documentation, feature contracts, and mechanically enforced boundaries help coding agents make safer changes."
+          },
+          {
+            "title": "Operational starting points",
+            "description": "Health and metrics endpoints, structured request logging, rate limiting, upload validation, tests, and verification commands establish a practical baseline."
+          }
+        ],
+        "useWhen": [
+          "Your application needs uploads, file browsing, or object storage as a central workflow.",
+          "You want a full-stack TypeScript and Python starting point instead of assembling a dashboard and storage layer from scratch.",
+          "You plan to extend the product with an AI coding agent and value explicit repository context and enforced architecture boundaries.",
+          "You are prepared to review and adapt a reference implementation for your own deployment and security requirements."
+        ],
+        "avoidWhen": [
+          "You need a supported product, guaranteed maintenance, or a service-level agreement.",
+          "A static site, a single script, or a framework without a Python service would be a better fit.",
+          "You need production authentication, multi-tenancy, authorization policies, or compliance controls to work without further engineering.",
+          "You cannot operate both a Next.js frontend and a FastAPI backend or do not want a monorepo."
+        ],
+        "maturity": {
+          "status": "Reference template",
+          "support": "This is an unsupported open source template provided as a starting point. It has no service-level agreement (SLA) or guaranteed support. Review, test, secure, and operate your adapted application for your own requirements."
+        }
+      }
     },
     {
       "id": "agentic-rag-vector-starter-kit",

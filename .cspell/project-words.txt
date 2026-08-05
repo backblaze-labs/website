@@ -63,6 +63,7 @@ genblaze
 colab
 duckdb
 headshot
+vcsk
 
 # AI / ML domain
 llms
@@ -249,3 +250,4 @@ unhides
 crc32
 sha1
 sha256
+fileview

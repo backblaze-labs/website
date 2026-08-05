@@ -1,11 +1,13 @@
 ---
 import Logo from "~/components/Logo.astro";
 import Icon from "~/components/Icon.astro";
-import { catalog } from "~/lib/labs";
+import { catalog, detailedIntegrations, projectDetailPath } from "~/lib/labs";
 
 const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
 const gtmId = import.meta.env.PUBLIC_GTM_ID as string | undefined;
 const analyticsConfigured = (!!gaId && /^G-[A-Z0-9]+$/i.test(gaId)) || (!!gtmId && /^GTM-[A-Z0-9]+$/i.test(gtmId));
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const detailProjects = detailedIntegrations();
 ---
 <footer class="mt-24 border-t" style="border-color: var(--border);">
   <div class="container-page py-10 md:py-14">
@@ -19,6 +21,14 @@ const analyticsConfigured = (!!gaId && /^G-[A-Z0-9]+$/i.test(gaId)) || (!!gtmId 
       <div>
         <h4 class="mb-3 text-xs uppercase tracking-wider" style="color: var(--fg-dim);">Build</h4>
         <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-[var(--link)]" href={`${base || "/"}#integrations`}>All projects</a></li>
+          {detailProjects.map((project) => (
+            <li>
+              <a class="hover:text-[var(--link)]" href={projectDetailPath(project, base)}>
+                {project.title}
+              </a>
+            </li>
+          ))}
           <li><a class="hover:text-[var(--link)]" href={catalog.meta.github} target="_blank" rel="noopener">GitHub org</a></li>
         </ul>
       </div>

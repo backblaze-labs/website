@@ -18,28 +18,46 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogImageType?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageAlt?: string;
+  canonicalPath?: string;
   /** When set, an ItemList JSON-LD document is emitted for SEO. */
   itemList?: { name: string; items: Integration[] };
+  /** Additional page-specific Schema.org documents. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title = catalog.meta.homeTitle,
   description = catalog.meta.description,
   ogImage,
+  ogImageType = "image/jpeg",
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
+  ogImageAlt: customOgImageAlt,
+  canonicalPath,
   itemList,
+  jsonLd,
 } = Astro.props;
 
 // The homepage uses the long SEO `homeTitle` standalone; every other page
 // passes a short title that we suffix with the brand for context in the SERP.
 const fullTitle = title === catalog.meta.homeTitle ? title : `${title} · ${catalog.meta.title}`;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://backblazelabs.com").toString();
+const origin = Astro.site ?? new URL("https://backblazelabs.com");
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, origin).toString();
 
-// Single site-wide OG image — a 1200×630 social card (see scripts/gen-og-assets.mjs).
-// We don't generate per-page variants: the site is a single gallery and detail pages
-// were dropped in favor of direct upstream links. Pages may still override via `ogImage`.
-const ogUrl = ogImage ?? new URL(`${base}/og.jpg`, Astro.site ?? "https://backblazelabs.com").toString();
-const ogImageAlt = `${catalog.meta.title} — ${catalog.meta.tagline}`;
+// Default to the site-wide 1200×630 social card (see scripts/gen-og-assets.mjs).
+// Detail pages may override it with project imagery and matching dimensions.
+// A custom ogImage is a root-relative path (e.g. "/og/foo.jpg"); prefix `base`
+// so it resolves correctly under a subpath deployment, matching the default
+// og.jpg branch. Absolute URLs are passed through untouched.
+const ogUrl = ogImage
+  ? new URL(/^https?:\/\//.test(ogImage) ? ogImage : `${base}${ogImage}`, origin).toString()
+  : new URL(`${base}/og.jpg`, origin).toString();
+const ogImageAlt = customOgImageAlt ?? `${catalog.meta.title} — ${catalog.meta.tagline}`;
 
 // Site root for schema docs. e.g. https://backblazelabs.com
 const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblazelabs.com")
@@ -47,8 +65,16 @@ const siteUrl = new URL(`${base}/`, Astro.site ?? "https://backblazelabs.com")
   .replace(/\/$/, "");
 const pageUrl = canonical;
 
-const ldSite = [organizationSchema(siteUrl), websiteSchema(siteUrl)];
-const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items, pageUrl) : null;
+const ldList = itemList
+  ? itemListSchema(siteUrl, itemList.name, itemList.items, pageUrl, base)
+  : null;
+const pageLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const ldDocuments = [
+  organizationSchema(siteUrl),
+  websiteSchema(siteUrl),
+  ...(ldList ? [ldList] : []),
+  ...pageLd,
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -93,9 +119,9 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Backblaze Labs" />
     <meta property="og:image" content={ogUrl} />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content={ogImageType} />
+    <meta property="og:image:width" content={String(ogImageWidth)} />
+    <meta property="og:image:height" content={String(ogImageHeight)} />
     <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
@@ -107,12 +133,9 @@ const ldList = itemList ? itemListSchema(siteUrl, itemList.name, itemList.items,
     <link rel="alternate" type="application/feed+json" title="Backblaze Labs" href={`${base}/feed.json`} />
 
     <!-- Schema.org JSON-LD: WebSite + Organization site-wide; ItemList per page. -->
-    {ldSite.map((doc) => (
+    {ldDocuments.map((doc) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(doc)} />
     ))}
-    {ldList && (
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(ldList)} />
-    )}
 
     <!-- Preload critical fonts so they download in parallel with the CSS — without
          this they're discovered late in the chain and add ~300ms to LCP. -->

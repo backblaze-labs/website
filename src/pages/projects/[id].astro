@@ -1,0 +1,604 @@
+---
+import Icon from "~/components/Icon.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import {
+  catalog,
+  detailedIntegrations,
+  statsFor,
+  type DetailedIntegration,
+} from "~/lib/labs";
+import { softwareSourceCodeSchema } from "~/lib/schema";
+
+export function getStaticPaths() {
+  return detailedIntegrations().map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+interface Props {
+  item: DetailedIntegration;
+}
+
+const { item } = Astro.props;
+const { detail } = item;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const origin = Astro.site ?? new URL("https://backblazelabs.com");
+const siteUrl = new URL(`${base}/`, origin).toString().replace(/\/$/, "");
+const canonicalPath = `${base}/projects/${item.id}/`;
+const canonicalUrl = new URL(canonicalPath, origin).toString();
+const repoUrl = item.repo ? `https://github.com/${item.repo}` : item.url;
+const stats = statsFor(item.id);
+const typeLabel = catalog.types.find((type) => type.id === item.type)?.label ?? item.type;
+const primaryScreenshot = detail.screenshots[0];
+
+if (!primaryScreenshot) {
+  throw new Error(`Project detail "${item.id}" requires at least one screenshot.`);
+}
+
+function imageMimeType(src: string): string {
+  const path = src.toLowerCase().split(/[?#]/, 1)[0] ?? "";
+  if (path.endsWith(".webp")) return "image/webp";
+  if (path.endsWith(".png")) return "image/png";
+  if (path.endsWith(".gif")) return "image/gif";
+  return "image/jpeg";
+}
+
+// Dedicated 1200×630 social card when present; BaseLayout falls back to the
+// site-wide og.jpg otherwise. The 640×240 preview thumbnail is deliberately
+// NOT used as og:image — it's a WebP (Facebook/LinkedIn crawlers don't render
+// WebP previews) and far below the recommended social-card size.
+const ogCard = detail.ogImage;
+// Spread only when present so the absent keys fall back to BaseLayout's
+// defaults (site og.jpg, image/jpeg, 1200×630) under exactOptionalPropertyTypes.
+const ogProps = ogCard
+  ? {
+      ogImage: ogCard.src,
+      ogImageType: imageMimeType(ogCard.src),
+      ogImageWidth: ogCard.width,
+      ogImageHeight: ogCard.height,
+    }
+  : {};
+
+const screenshotUrls = detail.screenshots.map((screenshot) =>
+  new URL(screenshot.src, origin).toString(),
+);
+const softwareSchema = softwareSourceCodeSchema(
+  siteUrl,
+  item,
+  canonicalUrl,
+  screenshotUrls,
+  stats?.updated,
+);
+---
+<BaseLayout
+  title={item.title}
+  description={detail.metaDescription}
+  canonicalPath={canonicalPath}
+  {...ogProps}
+  ogImageAlt={primaryScreenshot.alt}
+  jsonLd={softwareSchema}
+>
+  <article>
+    <header class="project-hero relative overflow-hidden border-b">
+      <div class="orb-bg" aria-hidden="true">
+        <div class="project-orb project-orb-red"></div>
+        <div class="project-orb project-orb-purple"></div>
+        <div class="absolute inset-0 grid-fade opacity-40"></div>
+      </div>
+
+      <div class="container-page relative py-10 md:py-16 lg:py-20">
+        <a
+          href={`${base || "/"}#integrations`}
+          class="back-link inline-flex items-center gap-1.5 text-sm"
+        >
+          <Icon name="arrow-right" size={14} class="rotate-180" /> All projects
+        </a>
+
+        <div class="hero-grid mt-7">
+          <div class="hero-copy">
+            <div class="flex flex-wrap gap-2">
+              <span class="chip">{typeLabel}</span>
+              <span class="status-chip">{detail.maturity.status}</span>
+              <span class="chip">Unsupported · no SLA</span>
+            </div>
+
+            <h1 class="mt-5 font-display text-4xl font-semibold leading-[1.02] tracking-tight md:text-5xl lg:text-6xl">
+              {item.title}
+            </h1>
+            <p class="hero-summary mt-5 text-lg md:text-xl">{item.description}</p>
+
+            <div class="audience mt-6">
+              <Icon name="users" size={19} />
+              <p><strong>Built for:</strong> {detail.audience}</p>
+            </div>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={repoUrl}
+                target="_blank"
+                rel="noopener"
+                class="btn-primary"
+                data-track="cta_click"
+                data-track-cta="vcsk_use_template"
+              >
+                <Icon name="github" size={17} /> Use this template
+              </a>
+              <a
+                href="#fit"
+                class="btn-secondary"
+                data-track="cta_click"
+                data-track-cta="vcsk_check_fit"
+              >
+                Check project fit
+                <Icon name="arrow-right" size={14} />
+              </a>
+            </div>
+
+            <p class="repo-meta mt-5 text-sm">
+              {detail.license.name} licensed
+              {stats?.stars != null && stats.stars > 0 ? ` · ${stats.stars} GitHub stars` : ""}
+              {stats?.updated ? ` · Updated ${new Date(stats.updated).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}
+            </p>
+          </div>
+
+          <figure class="hero-shot">
+            <a href={primaryScreenshot.src} target="_blank" rel="noopener">
+              <img
+                src={primaryScreenshot.src}
+                alt={primaryScreenshot.alt}
+                width={primaryScreenshot.width}
+                height={primaryScreenshot.height}
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </a>
+            <figcaption>{primaryScreenshot.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-page project-body">
+      <section class="stack-section" aria-labelledby="stack-heading">
+        <div class="section-heading">
+          <h2 id="stack-heading">A full stack, already connected</h2>
+          <p>
+            The template pairs a modern web interface with a typed Python service and
+            S3-compatible B2 storage.
+          </p>
+        </div>
+        <dl class="stack-list">
+          {detail.techStack.map((technology) => (
+            <div>
+              <dt>{technology.name}</dt>
+              <dd>{technology.role}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section class="capabilities-section" aria-labelledby="capabilities-heading">
+        <div class="section-heading">
+          <h2 id="capabilities-heading">Core capabilities</h2>
+          <p>Useful scaffolding stays in place while you build the parts unique to your app.</p>
+        </div>
+        <ul class="capability-list">
+          {detail.capabilities.map((capability) => (
+            <li>
+              <span class="capability-icon" aria-hidden="true"><Icon name="sparkle" size={17} /></span>
+              <div>
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {detail.screenshots.length > 1 && (
+        <section class="screenshots-section" aria-labelledby="screenshots-heading">
+          <div class="section-heading">
+            <h2 id="screenshots-heading">File workflows included</h2>
+            <p>The starting UI covers the path from storage overview to individual objects.</p>
+          </div>
+          <div class="screenshot-grid">
+            {detail.screenshots.slice(1).map((screenshot) => (
+              <figure>
+                <a href={screenshot.src} target="_blank" rel="noopener">
+                  <img
+                    src={screenshot.src}
+                    alt={screenshot.alt}
+                    width={screenshot.width}
+                    height={screenshot.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>{screenshot.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section id="fit" class="fit-section" aria-labelledby="fit-heading">
+        <div class="section-heading">
+          <h2 id="fit-heading">Choose it for the right job</h2>
+          <p>
+            VCSK is a strong head start for a specific shape of application, not a universal
+            production platform.
+          </p>
+        </div>
+        <div class="fit-grid">
+          <div class="fit-panel fit-yes">
+            <h3><span aria-hidden="true">✓</span> Use VCSK when</h3>
+            <ul>
+              {detail.useWhen.map((boundary) => <li>{boundary}</li>)}
+            </ul>
+          </div>
+          <div class="fit-panel fit-no">
+            <h3><span aria-hidden="true">×</span> Choose another path when</h3>
+            <ul>
+              {detail.avoidWhen.map((boundary) => <li>{boundary}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-section" aria-labelledby="support-heading">
+        <div>
+          <span class="status-chip">{detail.maturity.status}</span>
+          <h2 id="support-heading">Template status and support</h2>
+        </div>
+        <p>{detail.maturity.support}</p>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .project-hero {
+    border-color: var(--border);
+  }
+
+  .project-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.42;
+  }
+
+  .project-orb-red {
+    width: 34rem;
+    height: 34rem;
+    left: -12rem;
+    top: -18rem;
+    background: var(--color-red-50);
+  }
+
+  .project-orb-purple {
+    width: 30rem;
+    height: 30rem;
+    right: -11rem;
+    bottom: -18rem;
+    background: var(--color-purple-70);
+  }
+
+  .back-link,
+  .repo-meta {
+    color: var(--fg-muted);
+  }
+
+  .back-link {
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .back-link:hover {
+    color: var(--link);
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .hero-summary {
+    max-width: 65ch;
+    color: var(--fg-muted);
+    text-wrap: pretty;
+  }
+
+  .audience {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    max-width: 64ch;
+    color: var(--fg-muted);
+  }
+
+  .audience :global(svg) {
+    flex: 0 0 auto;
+    margin-top: 0.18rem;
+    color: var(--color-red-30);
+  }
+
+  .audience strong {
+    color: var(--fg);
+  }
+
+  .status-chip {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--color-red-50) 16%, var(--bg-elevated));
+    color: var(--fg);
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  .hero-shot,
+  .screenshot-grid figure {
+    overflow: hidden;
+    margin: 0;
+    border-radius: 14px;
+    background: var(--preview-bg);
+  }
+
+  .hero-shot {
+    box-shadow: 0 8px 0 color-mix(in oklab, var(--color-red-50) 45%, var(--bg-deep));
+  }
+
+  .hero-shot a,
+  .screenshot-grid a {
+    display: block;
+    overflow: hidden;
+  }
+
+  .hero-shot img,
+  .screenshot-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .hero-shot a:hover img,
+  .screenshot-grid a:hover img {
+    transform: scale(1.015);
+  }
+
+  .hero-shot figcaption,
+  .screenshot-grid figcaption {
+    padding: 0.8rem 1rem;
+    color: var(--fg-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .project-body {
+    max-width: 1180px;
+  }
+
+  .project-body > section {
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-heading {
+    max-width: 46rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading h2,
+  .support-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .section-heading p,
+  .support-section > p {
+    margin-top: 0.75rem;
+    max-width: 66ch;
+    color: var(--fg-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .stack-section {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .stack-list {
+    margin: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .stack-list > div {
+    display: grid;
+    gap: 0.35rem;
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stack-list dt {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  .stack-list dd {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+  }
+
+  .capability-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .capability-list li {
+    display: flex;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .capability-list li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .capability-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 10px;
+    background: color-mix(in oklab, var(--color-purple-70) 18%, var(--bg-elevated));
+    color: var(--icon-on-surface);
+  }
+
+  .capability-list h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .capability-list p {
+    max-width: 64ch;
+    margin-top: 0.35rem;
+    color: var(--fg-muted);
+    line-height: 1.65;
+  }
+
+  .screenshot-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .screenshot-grid figure {
+    border: 1px solid var(--border);
+  }
+
+  .fit-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .fit-panel {
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border-radius: 14px;
+    background: var(--bg-card);
+  }
+
+  .fit-yes {
+    border: 1px solid color-mix(in oklab, var(--color-purple-40) 45%, var(--border));
+  }
+
+  .fit-no {
+    border: 1px solid color-mix(in oklab, var(--color-red-40) 42%, var(--border));
+  }
+
+  .fit-panel h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .fit-panel h3 span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: var(--bg-elevated);
+  }
+
+  .fit-panel ul {
+    display: grid;
+    gap: 0.9rem;
+    margin: 1.25rem 0 0;
+    padding-left: 1.15rem;
+    color: var(--fg-muted);
+  }
+
+  .fit-panel li {
+    padding-left: 0.2rem;
+    line-height: 1.6;
+  }
+
+  .support-section {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .support-section h2 {
+    margin-top: 0.8rem;
+  }
+
+  .project-body > section:last-child {
+    border-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .stack-section,
+    .support-section {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 4rem;
+    }
+
+    .stack-section .section-heading {
+      margin-bottom: 0;
+    }
+
+    .stack-list > div {
+      grid-template-columns: minmax(9rem, 0.8fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+    }
+
+    .capability-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 3rem;
+    }
+
+    .capability-list li:nth-last-child(2) {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(25rem, 0.95fr);
+      gap: clamp(3rem, 6vw, 5.5rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-shot img,
+    .screenshot-grid img {
+      transition: none;
+    }
+  }
+</style>

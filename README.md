@@ -43,6 +43,11 @@ Available `categories`, `types`, and `languages` are enumerated at the top of `l
 
 A JSON Schema is published alongside at [`src/data/labs.schema.json`](src/data/labs.schema.json) — point your editor at it for autocomplete + validation.
 
+Project detail pages are opt-in. Add a schema-validated `detail` object to an
+integration only when the catalog owns enough long-form content to evaluate it;
+entries without `detail` remain catalog cards and do not generate a `/projects/`
+route. The Vibe Coding Starter Kit entry is the reference implementation.
+
 ## Local development
 
 This project pins **Node 24**. The conda env on the maintainer's machine is named `node`:
