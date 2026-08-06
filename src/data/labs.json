@@ -2163,6 +2163,41 @@
       "url": "https://github.com/backblaze-b2-samples/monai-dicom-segmentation",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "open3d-point-cloud-pipeline",
+      "title": "Open3d Point Cloud Pipeline",
+      "tagline": "Open3D point-cloud pipeline that ingests LiDAR/photogrammetry scans…",
+      "description": "Open3D point-cloud pipeline that ingests LiDAR/photogrammetry scans (PLY/PCD/LAS/LAZ) into Backblaze B2, then downsamples, registers, meshes, and renders them, writing every artifact back to B2. Local and CPU-only over the S3-compatible API; no database and no second API key.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": ["3d-reconstruction", "backblaze-b2", "cloudstorage", "fastapi", "lidar", "nextjs"],
+      "repo": "backblaze-b2-samples/open3d-point-cloud-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/open3d-point-cloud-pipeline",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "birdnet-passive-acoustic-monitoring",
+      "title": "Birdnet Passive Acoustic Monitoring",
+      "tagline": "BirdNET passive acoustic monitoring sample app: detect and clip bird species…",
+      "description": "BirdNET passive acoustic monitoring sample app: detect and clip bird species in field recordings with the official on-device BirdNET-Analyzer, then browse a per-recording detection timeline. Raw audio, detections, and event clips stored on Backblaze B2. Next.js + FastAPI + TensorFlow.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "audio-classification",
+        "backblaze-b2",
+        "bioacoustics",
+        "bird-detection",
+        "birdnet",
+        "cloudstorage"
+      ],
+      "repo": "backblaze-b2-samples/birdnet-passive-acoustic-monitoring",
+      "url": "https://github.com/backblaze-b2-samples/birdnet-passive-acoustic-monitoring",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
