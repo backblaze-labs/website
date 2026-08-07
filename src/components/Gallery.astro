@@ -9,6 +9,16 @@ import { catalog, sortIntegrations } from "~/lib/labs";
 // of branded preview artwork loads in the visible region before the
 // placeholder-gradient cards drop in below.
 const sorted = sortIntegrations(catalog.integrations);
+const sortModes = [
+  {
+    id: "featured",
+    label: "Featured",
+    description: "Featured projects first, then preview cards, then A-Z; awesome lists last.",
+  },
+  { id: "stars", label: "Most stars", description: "GitHub stars, descending." },
+  { id: "name", label: "Name A-Z", description: "Project title, alphabetical." },
+  { id: "updated", label: "Recently updated", description: "GitHub updated date, newest first." },
+];
 ---
 <section id="integrations" class="container-page mt-12 md:mt-16">
   <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -49,9 +59,24 @@ const sorted = sortIntegrations(catalog.integrations);
       <Filters />
     </div>
     <div>
-      <div class="mb-3 flex items-center justify-between text-sm" style="color: var(--fg-muted);">
+      <div class="mb-3 flex items-center justify-between gap-3 text-sm" style="color: var(--fg-muted);">
         <span><span data-result-count>{catalog.integrations.length}</span> shown</span>
-        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then with previews · awesome lists last</span>
+        <div class="sort-control">
+          <label for="sort-select" class="sort-label">Sort</label>
+          <div class="sort-field">
+            <select id="sort-select" data-sort aria-describedby="sort-help">
+              {sortModes.map((mode) => (
+                <option value={mode.id} title={mode.description} data-description={mode.description}>
+                  {mode.label}
+                </option>
+              ))}
+            </select>
+            <svg class="sort-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </div>
+          <span id="sort-help" class="sr-only">
+            Featured sorts featured projects first, then preview cards, then A-Z; awesome lists last.
+          </span>
+        </div>
       </div>
       <div class="mb-3 hidden flex-wrap gap-1.5 sm:flex">
         <span class="text-xs" style="color: var(--fg-dim);">Quick filters:</span>
@@ -176,6 +201,41 @@ const sorted = sortIntegrations(catalog.integrations);
     border: 1px dashed var(--border);
     border-radius: var(--radius-card);
   }
+  .sort-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .sort-label { color: var(--fg-dim); }
+  .sort-field { position: relative; display: inline-flex; align-items: center; }
+  .sort-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0.4rem 1.7rem 0.4rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .sort-field select:hover { border-color: var(--border-strong); }
+  .sort-field select:focus-visible {
+    outline: none;
+    border-color: var(--color-red-50);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-red-50) 25%, transparent);
+  }
+  .sort-caret {
+    position: absolute;
+    right: 0.65rem;
+    color: var(--fg-muted);
+    pointer-events: none;
+  }
 </style>
 
 <script is:inline>
@@ -195,6 +255,81 @@ const sorted = sortIntegrations(catalog.integrations);
   const pagerStatus = document.querySelector("[data-pager-status]");
   const pagerShown = document.querySelector("[data-pager-shown]");
   const pagerTotal = document.querySelector("[data-pager-total]");
+  const sortSelect = document.querySelector("[data-sort]");
+
+  // Client-side sort. Cards render in build-time `sortIntegrations` order (the
+  // "Featured" default, captured as data-order); other modes reorder the card
+  // DOM so the filter/pagination pass reveals matches in the chosen order.
+  const orderOf = (el) => Number.parseInt(el.dataset.order || "0", 10);
+  const numOr = (v, fallback) => {
+    const n = Number.parseFloat(v);
+    return Number.isFinite(n) ? n : fallback;
+  };
+  const timeOr = (v, fallback) => {
+    const t = Date.parse(v || "");
+    return Number.isNaN(t) ? fallback : t;
+  };
+  const statsGroup = (el) => {
+    if (el.dataset.hasRepo !== "1") return 2;
+    return el.dataset.hasStats === "1" ? 0 : 1;
+  };
+  const compareStatsField = (a, b, valueOf) => {
+    // Known stats sort first. Repos awaiting stats keep Featured order, ahead
+    // of upstream integrations with no repo/stats by design.
+    const groupDiff = statsGroup(a) - statsGroup(b);
+    if (groupDiff !== 0) return groupDiff;
+    if (statsGroup(a) !== 0) return orderOf(a) - orderOf(b);
+    const d = valueOf(b) - valueOf(a);
+    return d !== 0 ? d : orderOf(a) - orderOf(b);
+  };
+  const SORT_COMPARATORS = {
+    featured: (a, b) => orderOf(a) - orderOf(b),
+    stars: (a, b) => compareStatsField(a, b, (el) => numOr(el.dataset.stars, 0)),
+    name: (a, b) => {
+      const d = (a.dataset.name || "").localeCompare(b.dataset.name || "");
+      return d !== 0 ? d : orderOf(a) - orderOf(b);
+    },
+    updated: (a, b) => compareStatsField(a, b, (el) => timeOr(el.dataset.updated, 0)),
+  };
+  const SORT_KEYS = new Set(Object.keys(SORT_COMPARATORS));
+  const renderedSortKeys = sortSelect ? Array.from(sortSelect.options).map((option) => option.value) : [];
+
+  function validateSortConfig() {
+    if (!sortSelect) return;
+    const rendered = new Set(renderedSortKeys);
+    const missingComparators = renderedSortKeys.filter((key) => !SORT_KEYS.has(key));
+    const missingOptions = [...SORT_KEYS].filter((key) => !rendered.has(key));
+    if (missingComparators.length || missingOptions.length) {
+      console.error(
+        `Gallery sort configuration mismatch: options without comparators [${missingComparators.join(", ")}]; comparators without options [${missingOptions.join(", ")}].`
+      );
+    }
+  }
+
+  function sortModeOrDefault(mode) {
+    return SORT_KEYS.has(mode) ? mode : "featured";
+  }
+
+  function updateSortDescription() {
+    if (!sortSelect) return;
+    const description = sortSelect.selectedOptions[0]?.dataset.description;
+    if (description) sortSelect.title = description;
+  }
+
+  function sortCards(mode) {
+    const sortMode = sortModeOrDefault(mode);
+    if (sortMode === "featured" && currentSortMode === "featured") return;
+    cards.sort(SORT_COMPARATORS[sortMode]);
+    const frag = document.createDocumentFragment();
+    for (const card of cards) frag.appendChild(card);
+    root.appendChild(frag);
+    currentSortMode = sortMode;
+  }
+
+  function renderSortedPage(mode) {
+    sortCards(mode);
+    apply();
+  }
 
   // How many filtered-matching cards to render at once. Filter + search apply
   // across the FULL set; only the slice that's actually visible is rendered.
@@ -204,6 +339,12 @@ const sorted = sortIntegrations(catalog.integrations);
   let pageLimit = PAGE_SIZE;
   // Set by apply(): whether unrendered matches remain to reveal on scroll.
   let hasMore = false;
+  const canUseInfiniteScroll = Boolean(sentinel && "IntersectionObserver" in window);
+  let currentSortMode = "featured";
+
+  function resetPageLimit() {
+    pageLimit = canUseInfiniteScroll ? PAGE_SIZE : cards.length;
+  }
 
   const filterParams = {
     category: { canonical: "category", aliases: ["category", "categories", "cat"] },
@@ -213,6 +354,7 @@ const sorted = sortIntegrations(catalog.integrations);
   const allFilterParamNames = [
     "q",
     "search",
+    "sort",
     ...Object.values(filterParams).flatMap((config) => config.aliases),
   ];
 
@@ -231,6 +373,11 @@ const sorted = sortIntegrations(catalog.integrations);
     return values;
   }
 
+  function hasGalleryUrlState() {
+    const params = new URLSearchParams(window.location.search);
+    return allFilterParamNames.some((name) => params.has(name));
+  }
+
   function applyUrlState() {
     const params = new URLSearchParams(window.location.search);
     if (search) search.value = params.get("q") ?? params.get("search") ?? "";
@@ -242,9 +389,14 @@ const sorted = sortIntegrations(catalog.integrations);
         if (cb.dataset.filter === kind && requested.has(cb.value)) cb.checked = true;
       }
     }
+    if (sortSelect) {
+      const sortParam = params.get("sort");
+      sortSelect.value = sortParam ? sortModeOrDefault(sortParam) : "featured";
+      updateSortDescription();
+    }
   }
 
-  function updateUrlState() {
+  function updateUrlState(historyMode = "replace") {
     const url = new URL(window.location.href);
     for (const name of allFilterParamNames) url.searchParams.delete(name);
 
@@ -258,14 +410,32 @@ const sorted = sortIntegrations(catalog.integrations);
       }
     }
 
+    const sortVal = sortSelect?.value || "featured";
+    if (sortVal !== "featured") url.searchParams.set("sort", sortVal);
+
     const next = `${url.pathname}${url.search}${url.hash}`;
     const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-    if (next !== current) window.history.replaceState({ galleryFilters: true }, "", next);
+    if (next !== current) {
+      const method = historyMode === "push" ? "pushState" : "replaceState";
+      window.history[method]({ galleryFilters: true }, "", next);
+    }
   }
+
+  validateSortConfig();
 
   // Pre-populate filter state from query params so URLs like
   // `?q=ray&category=notebooks&type=integration&language=python` are shareable.
   applyUrlState();
+  resetPageLimit();
+
+  const initialSortMode = sortSelect?.value || "featured";
+  const needsSyncInitialRender = initialSortMode !== "featured" || hasGalleryUrlState() || !canUseInfiniteScroll;
+  if (needsSyncInitialRender) {
+    // Apply URL sort and visibility together so shared filter/sort URLs never
+    // show mismatched SSR visibility after the client reorders cards.
+    if (sortSelect) renderSortedPage(initialSortMode);
+    else apply();
+  }
 
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
@@ -345,7 +515,7 @@ const sorted = sortIntegrations(catalog.integrations);
   function clearAll() {
     for (const cb of checkboxes) cb.checked = false;
     if (search) search.value = "";
-    pageLimit = PAGE_SIZE;
+    resetPageLimit();
     updateUrlState();
     apply();
     fill();
@@ -354,7 +524,7 @@ const sorted = sortIntegrations(catalog.integrations);
   // Infinite scroll: reveal the next page whenever the sentinel nears the
   // viewport. Falls back to rendering everything up front if the browser lacks
   // IntersectionObserver, so the full catalog stays reachable without JS paging.
-  if (sentinel && "IntersectionObserver" in window) {
+  if (canUseInfiniteScroll) {
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) fill();
@@ -363,14 +533,15 @@ const sorted = sortIntegrations(catalog.integrations);
     );
     io.observe(sentinel);
   } else {
-    pageLimit = cards.length;
+    resetPageLimit();
+    apply();
   }
 
   // When filters or search change, reset to the first page — otherwise the
   // revealed-page count from a previous filter would leak through.
   for (const cb of checkboxes) {
     cb.addEventListener("change", () => {
-      pageLimit = PAGE_SIZE;
+      resetPageLimit();
       updateUrlState();
       apply();
       fill();
@@ -382,7 +553,7 @@ const sorted = sortIntegrations(catalog.integrations);
   let searchTimer = 0;
   if (search) {
     search.addEventListener("input", () => {
-      pageLimit = PAGE_SIZE;
+      resetPageLimit();
       updateUrlState();
       apply();
       fill();
@@ -398,24 +569,35 @@ const sorted = sortIntegrations(catalog.integrations);
   }
   document.querySelectorAll("[data-filter-clear]").forEach((b) => b.addEventListener("click", clearAll));
 
+  if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+      updateSortDescription();
+      resetPageLimit();
+      updateUrlState("push");
+      renderSortedPage(sortSelect.value);
+      fill();
+      if (window.bbTrack) window.bbTrack("sort_change", { sort: sortSelect.value });
+    });
+  }
+
   window.addEventListener("popstate", () => {
     applyUrlState();
-    pageLimit = PAGE_SIZE;
-    apply();
+    resetPageLimit();
+    if (sortSelect) renderSortedPage(sortSelect.value);
+    else apply();
     fill();
   });
 
-  // First paint: render the initial page slice, then top up to fill tall
-  // viewports. Deferred until idle so the initial filter pass doesn't compete
-  // with the browser's first paint — significant TBT win on slower CPUs.
-  const firstPaint = () => {
-    apply();
+  // Top up to fill tall viewports. Deferred until idle so the post-render
+  // measurement loop doesn't compete with the browser's first paint.
+  const topUpViewport = () => {
+    if (!needsSyncInitialRender) apply();
     fill();
   };
   if ("requestIdleCallback" in window) {
-    requestIdleCallback(firstPaint, { timeout: 200 });
+    requestIdleCallback(topUpViewport, { timeout: 200 });
   } else {
-    setTimeout(firstPaint, 0);
+    setTimeout(topUpViewport, 0);
   }
 
   // "/" focuses search.

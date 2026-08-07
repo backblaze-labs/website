@@ -13,9 +13,9 @@
         "homeTitle": { "type": "string" },
         "tagline": { "type": "string" },
         "description": { "type": "string" },
-        "github": { "type": "string", "format": "uri" },
-        "homepage": { "type": "string", "format": "uri" },
-        "b2": { "type": "string", "format": "uri" }
+        "github": { "type": "string", "format": "uri", "pattern": "^https?://" },
+        "homepage": { "type": "string", "format": "uri", "pattern": "^https?://" },
+        "b2": { "type": "string", "format": "uri", "pattern": "^https?://" }
       }
     },
     "categories": {
@@ -89,11 +89,11 @@
           },
           "repo": { "type": ["string", "null"], "pattern": "^[\\w.-]+/[\\w.-]+$" },
           "source": { "type": ["string", "null"] },
-          "url": { "type": "string", "format": "uri" },
-          "site": { "type": ["string", "null"], "format": "uri" },
-          "docs": { "type": ["string", "null"], "format": "uri" },
-          "demo": { "type": ["string", "null"], "format": "uri" },
-          "example": { "type": ["string", "null"], "format": "uri" },
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "site": { "type": ["string", "null"], "format": "uri", "pattern": "^https?://" },
+          "docs": { "type": ["string", "null"], "format": "uri", "pattern": "^https?://" },
+          "demo": { "type": ["string", "null"], "format": "uri", "pattern": "^https?://" },
+          "example": { "type": ["string", "null"], "format": "uri", "pattern": "^https?://" },
           "preview": { "type": ["string", "null"] },
           "icon": { "type": "string" },
           "featured": { "type": "boolean" },
@@ -120,7 +120,7 @@
                 "required": ["name", "url"],
                 "properties": {
                   "name": { "type": "string" },
-                  "url": { "type": "string", "format": "uri" }
+                  "url": { "type": "string", "format": "uri", "pattern": "^https?://" }
                 }
               },
               "techStack": {

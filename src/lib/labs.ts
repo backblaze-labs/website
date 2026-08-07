@@ -2,6 +2,9 @@ import statsRaw from "~/data/github-stats.json";
 import labsRaw from "~/data/labs.json";
 import linksRaw from "~/data/links.json";
 import previewsRaw from "~/data/previews.json";
+import { isHttpUrl } from "~/lib/url-safety.mjs";
+
+export { isHttpUrl };
 
 export interface Category {
   id: string;
@@ -206,7 +209,7 @@ export function integrationLinks(item: Integration): IntegrationLink[] {
     url: string | null | undefined,
     primary = false,
   ) => {
-    if (!url) return;
+    if (typeof url !== "string" || !isHttpUrl(url)) return;
     const key = normalizeUrl(url);
     if (seen.has(key)) return;
     seen.add(key);

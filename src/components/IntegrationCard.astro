@@ -48,6 +48,12 @@ const initiallyHidden = index >= 12;
   data-languages={item.languages.join(" ")}
   data-search={`${item.title} ${item.tagline} ${item.description} ${item.tags.join(" ")} ${item.languages.join(" ")} ${languageLabels.join(" ")} ${item.repo ?? item.source ?? ""} ${actionLinks.map((link) => `${link.label} ${link.url}`).join(" ")}`.toLowerCase()}
   data-featured={item.featured ? "1" : "0"}
+  data-order={index}
+  data-stars={stats?.stars ?? ""}
+  data-updated={stats?.updated ?? ""}
+  data-has-repo={item.repo ? "1" : "0"}
+  data-has-stats={stats ? "1" : "0"}
+  data-name={item.title.toLowerCase()}
   hidden={initiallyHidden}
 >
   <a
