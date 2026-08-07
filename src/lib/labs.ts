@@ -158,6 +158,16 @@ export function statsFor(id: string): GitHubStats | undefined {
   return stats[id];
 }
 
+export function isHttpUrl(value: string | null | undefined): value is string {
+  if (!value) return false;
+  try {
+    const u = new URL(value);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 function normalizeUrl(value: string): string {
   try {
     const u = new URL(value);
@@ -206,7 +216,7 @@ export function integrationLinks(item: Integration): IntegrationLink[] {
     url: string | null | undefined,
     primary = false,
   ) => {
-    if (!url) return;
+    if (!isHttpUrl(url)) return;
     const key = normalizeUrl(url);
     if (seen.has(key)) return;
     seen.add(key);

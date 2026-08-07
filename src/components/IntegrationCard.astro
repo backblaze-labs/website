@@ -51,6 +51,8 @@ const initiallyHidden = index >= 12;
   data-order={index}
   data-stars={stats?.stars ?? ""}
   data-updated={stats?.updated ?? ""}
+  data-has-repo={item.repo ? "1" : "0"}
+  data-has-stats={stats ? "1" : "0"}
   data-name={item.title.toLowerCase()}
   hidden={initiallyHidden}
 >

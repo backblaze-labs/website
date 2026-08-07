@@ -2,13 +2,31 @@
 import Filters from "~/components/Filters.astro";
 import IntegrationCard from "~/components/IntegrationCard.astro";
 import Icon from "~/components/Icon.astro";
-import { catalog, sortIntegrations } from "~/lib/labs";
+import { catalog, sortIntegrations, statsFor } from "~/lib/labs";
 
 // Sort order: featured → has-real-image → alphabetical, with awesome lists
 // (type "list") always sunk to the bottom. The "image first" tier means a wall
 // of branded preview artwork loads in the visible region before the
 // placeholder-gradient cards drop in below.
 const sorted = sortIntegrations(catalog.integrations);
+const missingStats = sorted.filter((item) => item.repo && !statsFor(item.id));
+if (missingStats.length > 0) {
+  console.warn(
+    `Backblaze Labs: ${missingStats.length} catalogued repos have no github-stats entry: ${missingStats
+      .map((item) => item.id)
+      .join(", ")}`,
+  );
+}
+const sortModes = [
+  {
+    id: "featured",
+    label: "Featured",
+    description: "Featured projects first, then preview cards, then A-Z; awesome lists last.",
+  },
+  { id: "stars", label: "Most stars", description: "GitHub stars, descending." },
+  { id: "name", label: "Name A-Z", description: "Project title, alphabetical." },
+  { id: "updated", label: "Recently updated", description: "GitHub updated date, newest first." },
+];
 ---
 <section id="integrations" class="container-page mt-12 md:mt-16">
   <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -54,14 +72,18 @@ const sorted = sortIntegrations(catalog.integrations);
         <div class="sort-control">
           <label for="sort-select" class="sort-label">Sort</label>
           <div class="sort-field">
-            <select id="sort-select" data-sort>
-              <option value="featured">Featured</option>
-              <option value="stars">Most stars</option>
-              <option value="name">Name A-Z</option>
-              <option value="updated">Recently updated</option>
+            <select id="sort-select" data-sort aria-describedby="sort-help">
+              {sortModes.map((mode) => (
+                <option value={mode.id} title={mode.description} data-description={mode.description}>
+                  {mode.label}
+                </option>
+              ))}
             </select>
             <svg class="sort-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </div>
+          <span id="sort-help" class="sr-only">
+            Featured sorts featured projects first, then preview cards, then A-Z; awesome lists last.
+          </span>
         </div>
       </div>
       <div class="mb-3 hidden flex-wrap gap-1.5 sm:flex">
@@ -255,22 +277,52 @@ const sorted = sortIntegrations(catalog.integrations);
     const t = Date.parse(v || "");
     return Number.isNaN(t) ? fallback : t;
   };
+  const statsGroup = (el) => {
+    if (el.dataset.hasRepo !== "1") return 2;
+    return el.dataset.hasStats === "1" ? 0 : 1;
+  };
+  const compareStatsField = (a, b, valueOf) => {
+    // Known stats sort first. Repos awaiting stats keep Featured order, ahead
+    // of upstream integrations with no repo/stats by design.
+    const groupDiff = statsGroup(a) - statsGroup(b);
+    if (groupDiff !== 0) return groupDiff;
+    if (statsGroup(a) !== 0) return orderOf(a) - orderOf(b);
+    const d = valueOf(b) - valueOf(a);
+    return d !== 0 ? d : orderOf(a) - orderOf(b);
+  };
   const SORT_COMPARATORS = {
     featured: (a, b) => orderOf(a) - orderOf(b),
-    stars: (a, b) => {
-      const d = numOr(b.dataset.stars, -1) - numOr(a.dataset.stars, -1);
-      return d !== 0 ? d : orderOf(a) - orderOf(b);
-    },
+    stars: (a, b) => compareStatsField(a, b, (el) => numOr(el.dataset.stars, 0)),
     name: (a, b) => (a.dataset.name || "").localeCompare(b.dataset.name || ""),
-    updated: (a, b) => {
-      const d = timeOr(b.dataset.updated, -1) - timeOr(a.dataset.updated, -1);
-      return d !== 0 ? d : orderOf(a) - orderOf(b);
-    },
+    updated: (a, b) => compareStatsField(a, b, (el) => timeOr(el.dataset.updated, 0)),
   };
   const SORT_KEYS = new Set(Object.keys(SORT_COMPARATORS));
+  const renderedSortKeys = sortSelect ? Array.from(sortSelect.options).map((option) => option.value) : [];
+
+  function validateSortConfig() {
+    if (!sortSelect) return;
+    const rendered = new Set(renderedSortKeys);
+    const missingComparators = renderedSortKeys.filter((key) => !SORT_KEYS.has(key));
+    const missingOptions = [...SORT_KEYS].filter((key) => !rendered.has(key));
+    if (missingComparators.length || missingOptions.length) {
+      console.error(
+        `Gallery sort configuration mismatch: options without comparators [${missingComparators.join(", ")}]; comparators without options [${missingOptions.join(", ")}].`
+      );
+    }
+  }
+
+  function sortModeOrDefault(mode) {
+    return SORT_KEYS.has(mode) ? mode : "featured";
+  }
+
+  function updateSortDescription() {
+    if (!sortSelect) return;
+    const description = sortSelect.selectedOptions[0]?.dataset.description;
+    if (description) sortSelect.title = description;
+  }
 
   function sortCards(mode) {
-    cards.sort(SORT_COMPARATORS[mode] || SORT_COMPARATORS.featured);
+    cards.sort(SORT_COMPARATORS[sortModeOrDefault(mode)]);
     const frag = document.createDocumentFragment();
     for (const card of cards) frag.appendChild(card);
     root.appendChild(frag);
@@ -325,11 +377,12 @@ const sorted = sortIntegrations(catalog.integrations);
     }
     if (sortSelect) {
       const sortParam = params.get("sort");
-      sortSelect.value = sortParam && SORT_KEYS.has(sortParam) ? sortParam : "featured";
+      sortSelect.value = sortParam ? sortModeOrDefault(sortParam) : "featured";
+      updateSortDescription();
     }
   }
 
-  function updateUrlState() {
+  function updateUrlState(historyMode = "replace") {
     const url = new URL(window.location.href);
     for (const name of allFilterParamNames) url.searchParams.delete(name);
 
@@ -348,8 +401,13 @@ const sorted = sortIntegrations(catalog.integrations);
 
     const next = `${url.pathname}${url.search}${url.hash}`;
     const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-    if (next !== current) window.history.replaceState({ galleryFilters: true }, "", next);
+    if (next !== current) {
+      const method = historyMode === "push" ? "pushState" : "replaceState";
+      window.history[method]({ galleryFilters: true }, "", next);
+    }
   }
+
+  validateSortConfig();
 
   // Pre-populate filter state from query params so URLs like
   // `?q=ray&category=notebooks&type=integration&language=python` are shareable.
@@ -491,9 +549,10 @@ const sorted = sortIntegrations(catalog.integrations);
 
   if (sortSelect) {
     sortSelect.addEventListener("change", () => {
+      updateSortDescription();
       sortCards(sortSelect.value);
       pageLimit = PAGE_SIZE;
-      updateUrlState();
+      updateUrlState("push");
       apply();
       fill();
       if (window.bbTrack) window.bbTrack("sort_change", { sort: sortSelect.value });
@@ -508,11 +567,13 @@ const sorted = sortIntegrations(catalog.integrations);
     fill();
   });
 
-  // First paint: render the initial page slice, then top up to fill tall
-  // viewports. Deferred until idle so the initial filter pass doesn't compete
-  // with the browser's first paint — significant TBT win on slower CPUs.
+  // Render the initial page slice synchronously so shared filter/sort URLs
+  // never show mismatched SSR visibility after the client reorders cards.
+  apply();
+
+  // Then top up to fill tall viewports. Deferred until idle so the post-render
+  // measurement loop doesn't compete with the browser's first paint.
   const firstPaint = () => {
-    apply();
     fill();
   };
   if ("requestIdleCallback" in window) {
