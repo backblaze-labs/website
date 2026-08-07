@@ -2198,6 +2198,27 @@
       "url": "https://github.com/backblaze-b2-samples/birdnet-passive-acoustic-monitoring",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "colmap-gaussian-splatting-pipeline",
+      "title": "Colmap Gaussian Splatting Pipeline",
+      "tagline": "End-to-end photogrammetry pipeline: turn photos or a video into a COLMAP…",
+      "description": "End-to-end photogrammetry pipeline: turn photos or a video into a COLMAP structure-from-motion reconstruction and a Nerfstudio/gsplat-ready bundle for 3D Gaussian Splatting and NeRF, with every capture artifact versioned on Backblaze B2. Sparse SfM runs on CPU (no GPU); Next.js + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "3d-reconstruction",
+        "backblaze-b2",
+        "cloudstorage",
+        "colmap",
+        "fastapi",
+        "gaussian-splatting"
+      ],
+      "repo": "backblaze-b2-samples/colmap-gaussian-splatting-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/colmap-gaussian-splatting-pipeline",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
