@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { catalog, previewUrl, sortIntegrations, statsFor } from "~/lib/labs";
+import { catalog, previewUrl, projectDetailPath, sortIntegrations, statsFor } from "~/lib/labs";
 
 /**
  * JSON Feed 1.1 — https://www.jsonfeed.org/
@@ -18,9 +18,10 @@ export const GET: APIRoute = ({ site }) => {
   const path = import.meta.env.BASE_URL.replace(/\/$/, "");
   const buildTime = new Date().toISOString();
 
-  // Each item points straight to the integration's destination (Marketplace / PyPI /
-  // GitHub / etc.) — there's no detail page to route through. The id anchors back to
-  // the gallery for clients that want to deep-link into the catalog UI.
+  // Catalog-only items point straight to their external destination (Marketplace /
+  // PyPI / GitHub / etc.). Items with a site-owned detail page use that canonical
+  // landing for both `id` and `url`, while preserving the repository in
+  // `_external_urls.repository`.
   //
   // `_external_urls` is a JSON-Feed `_` extension (per the spec, any
   // underscore-prefixed top-level key is treated as a custom extension and
@@ -29,18 +30,23 @@ export const GET: APIRoute = ({ site }) => {
   // deep-link into the project's own pages.
   const items = sortIntegrations(catalog.integrations).map((i) => {
     const stats = statsFor(i.id);
+    const detailPath = projectDetailPath(i, path);
+    const itemUrl = detailPath ? new URL(detailPath, `${baseUrl}/`).toString() : i.url;
+    const preview = previewUrl(i, path);
+    const imageUrl = preview ? new URL(preview, `${baseUrl}/`).toString() : null;
     const external: Record<string, string> = {};
+    if (detailPath && i.repo) external.repository = `https://github.com/${i.repo}`;
     if (i.site) external.site = i.site;
     if (i.docs) external.docs = i.docs;
     if (i.example) external.example = i.example;
     if (i.demo) external.demo = i.demo;
     return {
-      id: `${baseUrl}${path}/#${i.id}`,
-      url: i.url,
+      id: detailPath ? itemUrl : `${baseUrl}${path}/#${i.id}`,
+      url: itemUrl,
       title: i.title,
       summary: i.tagline,
       content_text: i.description,
-      image: previewUrl(i),
+      ...(imageUrl ? { image: imageUrl } : {}),
       tags: [...i.categories, ...i.tags, i.type, ...i.languages],
       date_modified: stats?.updated ?? buildTime,
       ...(Object.keys(external).length > 0 ? { _external_urls: external } : {}),

@@ -48,6 +48,11 @@ integration only when the catalog owns enough long-form content to evaluate it;
 entries without `detail` remain catalog cards and do not generate a `/projects/`
 route. The Vibe Coding Starter Kit entry is the reference implementation.
 
+The JSON Feed uses each detail page as that project's canonical `id` and `url`,
+keeps the upstream repository in `_external_urls.repository`, and emits absolute
+preview-image URLs. Catalog-only entries continue to route directly to their
+external destination.
+
 ## Local development
 
 This project pins **Node 24**. The conda env on the maintainer's machine is named `node`:
