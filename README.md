@@ -165,6 +165,7 @@ The [`<Analytics />`](src/components/Analytics.astro) component installs a small
 | `theme_change` | Theme switcher button is pressed | `theme` (`light` / `system` / `dark`) |
 | `filter_change` | A category / type / language filter checkbox toggles on | `filter` (`category` / `type` / `language`), `value` |
 | `search` | Gallery search input changes (debounced 700ms, min 2 chars) | `search_term` (capped at 80 chars) |
+| `sort_change` | Gallery sort dropdown changes | `sort` (`featured` / `stars` / `name` / `updated`) |
 | `outbound_click` | Any external link (`<a target="_blank">`) is clicked | `host`, `url`, `text` |
 | `page_view` | Pageview (auto, GA4 default) | (auto) |
 

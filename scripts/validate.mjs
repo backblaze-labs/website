@@ -13,6 +13,7 @@ import path from "node:path";
 import url from "node:url";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
+import { isHttpUrl } from "../src/lib/url-safety.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -20,11 +21,13 @@ const dataPath = path.join(root, "src/data/labs.json");
 const schemaPath = path.join(root, "src/data/labs.schema.json");
 const statsPath = path.join(root, "src/data/github-stats.json");
 const linksPath = path.join(root, "src/data/links.json");
+const galleryPath = path.join(root, "src/components/Gallery.astro");
 
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
 const stats = JSON.parse(fs.readFileSync(statsPath, "utf8"));
 const links = JSON.parse(fs.readFileSync(linksPath, "utf8"));
+const gallerySource = fs.readFileSync(galleryPath, "utf8");
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
@@ -33,19 +36,31 @@ const validate = ajv.compile(schema);
 const errors = [];
 const warnings = [];
 
-function isHttpUrl(value) {
-  if (!value) return false;
-  try {
-    const u = new URL(value);
-    return u.protocol === "http:" || u.protocol === "https:";
-  } catch {
-    return false;
-  }
-}
-
 function requireHttpUrl(context, value) {
   if (value != null && !isHttpUrl(value)) {
     errors.push(`${context}: must use an http(s) URL`);
+  }
+}
+
+function assertGallerySortConfig() {
+  const sortModesMatch = gallerySource.match(/const sortModes = \[([\s\S]*?)\];/);
+  const comparatorsMatch = gallerySource.match(/const SORT_COMPARATORS = \{([\s\S]*?)^ {2}\};/m);
+  if (!sortModesMatch || !comparatorsMatch) {
+    errors.push("Gallery.astro: unable to validate sort mode/comparator configuration");
+    return;
+  }
+  const modeIds = [...sortModesMatch[1].matchAll(/id: "([^"]+)"/g)].map((match) => match[1]);
+  const comparatorIds = [...comparatorsMatch[1].matchAll(/^ {4}([a-z][\w-]*):/gm)].map(
+    (match) => match[1],
+  );
+  const missingComparators = modeIds.filter((id) => !comparatorIds.includes(id));
+  const missingModes = comparatorIds.filter((id) => !modeIds.includes(id));
+  if (missingComparators.length || missingModes.length) {
+    errors.push(
+      `Gallery.astro: sort options/comparators mismatch; missing comparators [${missingComparators.join(
+        ", ",
+      )}], missing options [${missingModes.join(", ")}]`,
+    );
   }
 }
 
@@ -56,6 +71,8 @@ for (const unsafe of [
 ]) {
   if (isHttpUrl(unsafe)) errors.push(`url safety: accepted unsafe scheme "${unsafe}"`);
 }
+
+assertGallerySortConfig();
 
 if (!validate(data)) {
   for (const e of validate.errors ?? []) {

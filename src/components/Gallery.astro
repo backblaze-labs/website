@@ -2,21 +2,13 @@
 import Filters from "~/components/Filters.astro";
 import IntegrationCard from "~/components/IntegrationCard.astro";
 import Icon from "~/components/Icon.astro";
-import { catalog, sortIntegrations, statsFor } from "~/lib/labs";
+import { catalog, sortIntegrations } from "~/lib/labs";
 
 // Sort order: featured → has-real-image → alphabetical, with awesome lists
 // (type "list") always sunk to the bottom. The "image first" tier means a wall
 // of branded preview artwork loads in the visible region before the
 // placeholder-gradient cards drop in below.
 const sorted = sortIntegrations(catalog.integrations);
-const missingStats = sorted.filter((item) => item.repo && !statsFor(item.id));
-if (missingStats.length > 0) {
-  console.warn(
-    `Backblaze Labs: ${missingStats.length} catalogued repos have no github-stats entry: ${missingStats
-      .map((item) => item.id)
-      .join(", ")}`,
-  );
-}
 const sortModes = [
   {
     id: "featured",
@@ -325,10 +317,13 @@ const sortModes = [
   }
 
   function sortCards(mode) {
-    cards.sort(SORT_COMPARATORS[sortModeOrDefault(mode)]);
+    const sortMode = sortModeOrDefault(mode);
+    if (sortMode === "featured" && currentSortMode === "featured") return;
+    cards.sort(SORT_COMPARATORS[sortMode]);
     const frag = document.createDocumentFragment();
     for (const card of cards) frag.appendChild(card);
     root.appendChild(frag);
+    currentSortMode = sortMode;
   }
 
   function renderSortedPage(mode) {
@@ -344,6 +339,12 @@ const sortModes = [
   let pageLimit = PAGE_SIZE;
   // Set by apply(): whether unrendered matches remain to reveal on scroll.
   let hasMore = false;
+  const canUseInfiniteScroll = Boolean(sentinel && "IntersectionObserver" in window);
+  let currentSortMode = "featured";
+
+  function resetPageLimit() {
+    pageLimit = canUseInfiniteScroll ? PAGE_SIZE : cards.length;
+  }
 
   const filterParams = {
     category: { canonical: "category", aliases: ["category", "categories", "cat"] },
@@ -370,6 +371,11 @@ const sortModes = [
       for (const raw of params.getAll(name)) values.push(...splitParamValue(raw));
     }
     return values;
+  }
+
+  function hasGalleryUrlState() {
+    const params = new URLSearchParams(window.location.search);
+    return allFilterParamNames.some((name) => params.has(name));
   }
 
   function applyUrlState() {
@@ -420,11 +426,16 @@ const sortModes = [
   // Pre-populate filter state from query params so URLs like
   // `?q=ray&category=notebooks&type=integration&language=python` are shareable.
   applyUrlState();
+  resetPageLimit();
 
-  // Apply URL sort and visibility together so shared filter/sort URLs never
-  // show mismatched SSR visibility after the client reorders cards.
-  if (sortSelect) renderSortedPage(sortSelect.value);
-  else apply();
+  const initialSortMode = sortSelect?.value || "featured";
+  const needsSyncInitialRender = initialSortMode !== "featured" || hasGalleryUrlState() || !canUseInfiniteScroll;
+  if (needsSyncInitialRender) {
+    // Apply URL sort and visibility together so shared filter/sort URLs never
+    // show mismatched SSR visibility after the client reorders cards.
+    if (sortSelect) renderSortedPage(initialSortMode);
+    else apply();
+  }
 
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
@@ -504,7 +515,7 @@ const sortModes = [
   function clearAll() {
     for (const cb of checkboxes) cb.checked = false;
     if (search) search.value = "";
-    pageLimit = PAGE_SIZE;
+    resetPageLimit();
     updateUrlState();
     apply();
     fill();
@@ -513,7 +524,7 @@ const sortModes = [
   // Infinite scroll: reveal the next page whenever the sentinel nears the
   // viewport. Falls back to rendering everything up front if the browser lacks
   // IntersectionObserver, so the full catalog stays reachable without JS paging.
-  if (sentinel && "IntersectionObserver" in window) {
+  if (canUseInfiniteScroll) {
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) fill();
@@ -522,14 +533,15 @@ const sortModes = [
     );
     io.observe(sentinel);
   } else {
-    pageLimit = cards.length;
+    resetPageLimit();
+    apply();
   }
 
   // When filters or search change, reset to the first page — otherwise the
   // revealed-page count from a previous filter would leak through.
   for (const cb of checkboxes) {
     cb.addEventListener("change", () => {
-      pageLimit = PAGE_SIZE;
+      resetPageLimit();
       updateUrlState();
       apply();
       fill();
@@ -541,7 +553,7 @@ const sortModes = [
   let searchTimer = 0;
   if (search) {
     search.addEventListener("input", () => {
-      pageLimit = PAGE_SIZE;
+      resetPageLimit();
       updateUrlState();
       apply();
       fill();
@@ -560,7 +572,7 @@ const sortModes = [
   if (sortSelect) {
     sortSelect.addEventListener("change", () => {
       updateSortDescription();
-      pageLimit = PAGE_SIZE;
+      resetPageLimit();
       updateUrlState("push");
       renderSortedPage(sortSelect.value);
       fill();
@@ -570,7 +582,7 @@ const sortModes = [
 
   window.addEventListener("popstate", () => {
     applyUrlState();
-    pageLimit = PAGE_SIZE;
+    resetPageLimit();
     if (sortSelect) renderSortedPage(sortSelect.value);
     else apply();
     fill();
@@ -578,13 +590,14 @@ const sortModes = [
 
   // Top up to fill tall viewports. Deferred until idle so the post-render
   // measurement loop doesn't compete with the browser's first paint.
-  const firstPaint = () => {
+  const topUpViewport = () => {
+    if (!needsSyncInitialRender) apply();
     fill();
   };
   if ("requestIdleCallback" in window) {
-    requestIdleCallback(firstPaint, { timeout: 200 });
+    requestIdleCallback(topUpViewport, { timeout: 200 });
   } else {
-    setTimeout(firstPaint, 0);
+    setTimeout(topUpViewport, 0);
   }
 
   // "/" focuses search.
