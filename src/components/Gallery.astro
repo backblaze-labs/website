@@ -293,7 +293,10 @@ const sortModes = [
   const SORT_COMPARATORS = {
     featured: (a, b) => orderOf(a) - orderOf(b),
     stars: (a, b) => compareStatsField(a, b, (el) => numOr(el.dataset.stars, 0)),
-    name: (a, b) => (a.dataset.name || "").localeCompare(b.dataset.name || ""),
+    name: (a, b) => {
+      const d = (a.dataset.name || "").localeCompare(b.dataset.name || "");
+      return d !== 0 ? d : orderOf(a) - orderOf(b);
+    },
     updated: (a, b) => compareStatsField(a, b, (el) => timeOr(el.dataset.updated, 0)),
   };
   const SORT_KEYS = new Set(Object.keys(SORT_COMPARATORS));
@@ -415,6 +418,9 @@ const sortModes = [
 
   // Apply the sort mode from the URL (or default) before the first render.
   if (sortSelect) sortCards(sortSelect.value);
+  // Render the initial page slice synchronously so shared filter/sort URLs
+  // never show mismatched SSR visibility after the client reorders cards.
+  apply();
 
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
@@ -567,11 +573,7 @@ const sortModes = [
     fill();
   });
 
-  // Render the initial page slice synchronously so shared filter/sort URLs
-  // never show mismatched SSR visibility after the client reorders cards.
-  apply();
-
-  // Then top up to fill tall viewports. Deferred until idle so the post-render
+  // Top up to fill tall viewports. Deferred until idle so the post-render
   // measurement loop doesn't compete with the browser's first paint.
   const firstPaint = () => {
     fill();
