@@ -331,6 +331,11 @@ const sortModes = [
     root.appendChild(frag);
   }
 
+  function renderSortedPage(mode) {
+    sortCards(mode);
+    apply();
+  }
+
   // How many filtered-matching cards to render at once. Filter + search apply
   // across the FULL set; only the slice that's actually visible is rendered.
   // Additional pages are revealed automatically as the sentinel scrolls into
@@ -416,11 +421,10 @@ const sortModes = [
   // `?q=ray&category=notebooks&type=integration&language=python` are shareable.
   applyUrlState();
 
-  // Apply the sort mode from the URL (or default) before the first render.
-  if (sortSelect) sortCards(sortSelect.value);
-  // Render the initial page slice synchronously so shared filter/sort URLs
-  // never show mismatched SSR visibility after the client reorders cards.
-  apply();
+  // Apply URL sort and visibility together so shared filter/sort URLs never
+  // show mismatched SSR visibility after the client reorders cards.
+  if (sortSelect) renderSortedPage(sortSelect.value);
+  else apply();
 
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
@@ -556,10 +560,9 @@ const sortModes = [
   if (sortSelect) {
     sortSelect.addEventListener("change", () => {
       updateSortDescription();
-      sortCards(sortSelect.value);
       pageLimit = PAGE_SIZE;
       updateUrlState("push");
-      apply();
+      renderSortedPage(sortSelect.value);
       fill();
       if (window.bbTrack) window.bbTrack("sort_change", { sort: sortSelect.value });
     });
@@ -567,9 +570,9 @@ const sortModes = [
 
   window.addEventListener("popstate", () => {
     applyUrlState();
-    if (sortSelect) sortCards(sortSelect.value);
     pageLimit = PAGE_SIZE;
-    apply();
+    if (sortSelect) renderSortedPage(sortSelect.value);
+    else apply();
     fill();
   });
 
