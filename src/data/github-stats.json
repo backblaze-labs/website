@@ -282,10 +282,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 13,
-    "stars": 19,
+    "stars": 20,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-07-30T09:26:30.300Z"
+    "fetchedAt": "2026-08-07T08:09:43.538Z"
   },
   "b2-action": {
     "archived": false,
@@ -293,11 +293,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 46,
+    "openIssues": 49,
     "stars": 7,
-    "updated": "2026-08-04T19:50:14Z",
+    "updated": "2026-08-06T19:16:25Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-08-05T09:31:34.172Z"
+    "fetchedAt": "2026-08-07T08:09:43.538Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -310,6 +310,18 @@
     "updated": "2026-07-25T10:39:50Z",
     "repo": "backblaze-labs/b2-vscode",
     "fetchedAt": "2026-07-26T09:08:15.152Z"
+  },
+  "birdnet-passive-acoustic-monitoring": {
+    "archived": false,
+    "description": "BirdNET passive acoustic monitoring sample app: detect and clip bird species in field recordings with the official on-device BirdNET-Analyzer, then browse a per-recording detection timeline. Raw audio, detections, and event clips stored on Backblaze B2. Next.js + FastAPI + TensorFlow.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-08-05T15:16:07Z",
+    "repo": "backblaze-b2-samples/birdnet-passive-acoustic-monitoring",
+    "fetchedAt": "2026-08-07T08:09:43.939Z"
   },
   "bytetrack-dataset-builder": {
     "archived": false,
@@ -415,9 +427,9 @@
     "license": null,
     "openIssues": 7,
     "stars": 0,
-    "updated": "2026-08-05T23:05:01Z",
+    "updated": "2026-08-07T02:57:00Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-08-06T09:35:58.446Z"
+    "fetchedAt": "2026-08-07T08:09:43.538Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -434,14 +446,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3790,
+    "forks": 3793,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 600,
-    "stars": 16465,
-    "updated": "2026-08-06T09:28:11Z",
+    "openIssues": 605,
+    "stars": 16474,
+    "updated": "2026-08-07T07:50:06Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-06T09:35:58.447Z"
+    "fetchedAt": "2026-08-07T08:09:43.539Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -642,10 +654,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 68,
-    "stars": 565,
+    "stars": 564,
     "updated": "2026-08-06T05:45:42Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-06T09:35:58.447Z"
+    "fetchedAt": "2026-08-07T08:09:43.539Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -761,11 +773,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 4,
     "stars": 2,
-    "updated": "2026-07-31T16:06:55Z",
+    "updated": "2026-08-06T22:07:05Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-08-01T09:01:49.079Z"
+    "fetchedAt": "2026-08-07T08:09:43.538Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -842,14 +854,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6115,
+    "forks": 6118,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2090,
-    "stars": 27394,
-    "updated": "2026-08-06T09:10:39Z",
+    "openIssues": 2076,
+    "stars": 27404,
+    "updated": "2026-08-07T06:36:05Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-06T09:35:58.447Z"
+    "fetchedAt": "2026-08-07T08:09:43.539Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -922,6 +934,18 @@
     "updated": "2026-07-27T17:58:24Z",
     "repo": "backblaze-b2-samples/nudenet-video-moderation",
     "fetchedAt": "2026-07-28T09:32:14.637Z"
+  },
+  "open3d-point-cloud-pipeline": {
+    "archived": false,
+    "description": "Open3D point-cloud pipeline that ingests LiDAR/photogrammetry scans (PLY/PCD/LAS/LAZ) into Backblaze B2, then downsamples, registers, meshes, and renders them, writing every artifact back to B2. Local and CPU-only over the S3-compatible API; no database and no second API key.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-08-05T23:15:04Z",
+    "repo": "backblaze-b2-samples/open3d-point-cloud-pipeline",
+    "fetchedAt": "2026-08-07T08:09:43.938Z"
   },
   "openclaw-b2-sync-backup": {
     "archived": false,
@@ -1061,11 +1085,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 67,
+    "openIssues": 68,
     "stars": 8,
     "updated": "2026-08-03T11:12:36Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-04T09:36:00.103Z"
+    "fetchedAt": "2026-08-07T08:09:43.538Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
@@ -1133,11 +1157,11 @@
     "forks": 4,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 17,
+    "openIssues": 16,
     "stars": 14,
-    "updated": "2026-08-05T21:25:38Z",
+    "updated": "2026-08-06T22:28:46Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-08-06T09:35:58.447Z"
+    "fetchedAt": "2026-08-07T08:09:43.538Z"
   },
   "video-semantic-search": {
     "archived": false,
