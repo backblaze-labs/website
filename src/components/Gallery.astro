@@ -49,9 +49,20 @@ const sorted = sortIntegrations(catalog.integrations);
       <Filters />
     </div>
     <div>
-      <div class="mb-3 flex items-center justify-between text-sm" style="color: var(--fg-muted);">
+      <div class="mb-3 flex items-center justify-between gap-3 text-sm" style="color: var(--fg-muted);">
         <span><span data-result-count>{catalog.integrations.length}</span> shown</span>
-        <span class="hidden sm:inline" style="color: var(--fg-dim);">Sorted by featured · then with previews · awesome lists last</span>
+        <div class="sort-control">
+          <label for="sort-select" class="sort-label">Sort</label>
+          <div class="sort-field">
+            <select id="sort-select" data-sort>
+              <option value="featured">Featured</option>
+              <option value="stars">Most stars</option>
+              <option value="name">Name A-Z</option>
+              <option value="updated">Recently updated</option>
+            </select>
+            <svg class="sort-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </div>
+        </div>
       </div>
       <div class="mb-3 hidden flex-wrap gap-1.5 sm:flex">
         <span class="text-xs" style="color: var(--fg-dim);">Quick filters:</span>
@@ -176,6 +187,41 @@ const sorted = sortIntegrations(catalog.integrations);
     border: 1px dashed var(--border);
     border-radius: var(--radius-card);
   }
+  .sort-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .sort-label { color: var(--fg-dim); }
+  .sort-field { position: relative; display: inline-flex; align-items: center; }
+  .sort-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0.4rem 1.7rem 0.4rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .sort-field select:hover { border-color: var(--border-strong); }
+  .sort-field select:focus-visible {
+    outline: none;
+    border-color: var(--color-red-50);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-red-50) 25%, transparent);
+  }
+  .sort-caret {
+    position: absolute;
+    right: 0.65rem;
+    color: var(--fg-muted);
+    pointer-events: none;
+  }
 </style>
 
 <script is:inline>
@@ -195,6 +241,40 @@ const sorted = sortIntegrations(catalog.integrations);
   const pagerStatus = document.querySelector("[data-pager-status]");
   const pagerShown = document.querySelector("[data-pager-shown]");
   const pagerTotal = document.querySelector("[data-pager-total]");
+  const sortSelect = document.querySelector("[data-sort]");
+
+  // Client-side sort. Cards render in build-time `sortIntegrations` order (the
+  // "Featured" default, captured as data-order); other modes reorder the card
+  // DOM so the filter/pagination pass reveals matches in the chosen order.
+  const orderOf = (el) => Number.parseInt(el.dataset.order || "0", 10);
+  const numOr = (v, fallback) => {
+    const n = Number.parseFloat(v);
+    return Number.isFinite(n) ? n : fallback;
+  };
+  const timeOr = (v, fallback) => {
+    const t = Date.parse(v || "");
+    return Number.isNaN(t) ? fallback : t;
+  };
+  const SORT_COMPARATORS = {
+    featured: (a, b) => orderOf(a) - orderOf(b),
+    stars: (a, b) => {
+      const d = numOr(b.dataset.stars, -1) - numOr(a.dataset.stars, -1);
+      return d !== 0 ? d : orderOf(a) - orderOf(b);
+    },
+    name: (a, b) => (a.dataset.name || "").localeCompare(b.dataset.name || ""),
+    updated: (a, b) => {
+      const d = timeOr(b.dataset.updated, -1) - timeOr(a.dataset.updated, -1);
+      return d !== 0 ? d : orderOf(a) - orderOf(b);
+    },
+  };
+  const SORT_KEYS = new Set(Object.keys(SORT_COMPARATORS));
+
+  function sortCards(mode) {
+    cards.sort(SORT_COMPARATORS[mode] || SORT_COMPARATORS.featured);
+    const frag = document.createDocumentFragment();
+    for (const card of cards) frag.appendChild(card);
+    root.appendChild(frag);
+  }
 
   // How many filtered-matching cards to render at once. Filter + search apply
   // across the FULL set; only the slice that's actually visible is rendered.
@@ -213,6 +293,7 @@ const sorted = sortIntegrations(catalog.integrations);
   const allFilterParamNames = [
     "q",
     "search",
+    "sort",
     ...Object.values(filterParams).flatMap((config) => config.aliases),
   ];
 
@@ -242,6 +323,10 @@ const sorted = sortIntegrations(catalog.integrations);
         if (cb.dataset.filter === kind && requested.has(cb.value)) cb.checked = true;
       }
     }
+    if (sortSelect) {
+      const sortParam = params.get("sort");
+      sortSelect.value = sortParam && SORT_KEYS.has(sortParam) ? sortParam : "featured";
+    }
   }
 
   function updateUrlState() {
@@ -258,6 +343,9 @@ const sorted = sortIntegrations(catalog.integrations);
       }
     }
 
+    const sortVal = sortSelect?.value || "featured";
+    if (sortVal !== "featured") url.searchParams.set("sort", sortVal);
+
     const next = `${url.pathname}${url.search}${url.hash}`;
     const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     if (next !== current) window.history.replaceState({ galleryFilters: true }, "", next);
@@ -266,6 +354,9 @@ const sorted = sortIntegrations(catalog.integrations);
   // Pre-populate filter state from query params so URLs like
   // `?q=ray&category=notebooks&type=integration&language=python` are shareable.
   applyUrlState();
+
+  // Apply the sort mode from the URL (or default) before the first render.
+  if (sortSelect) sortCards(sortSelect.value);
 
   // Mobile show/hide filters.
   if (filtersToggle && filtersWrap) {
@@ -398,8 +489,20 @@ const sorted = sortIntegrations(catalog.integrations);
   }
   document.querySelectorAll("[data-filter-clear]").forEach((b) => b.addEventListener("click", clearAll));
 
+  if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+      sortCards(sortSelect.value);
+      pageLimit = PAGE_SIZE;
+      updateUrlState();
+      apply();
+      fill();
+      if (window.bbTrack) window.bbTrack("sort_change", { sort: sortSelect.value });
+    });
+  }
+
   window.addEventListener("popstate", () => {
     applyUrlState();
+    if (sortSelect) sortCards(sortSelect.value);
     pageLimit = PAGE_SIZE;
     apply();
     fill();
