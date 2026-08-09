@@ -458,14 +458,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3793,
+    "forks": 3794,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 607,
-    "stars": 16480,
+    "openIssues": 608,
+    "stars": 16486,
     "updated": "2026-08-07T16:38:51Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-08T07:43:16.719Z"
+    "fetchedAt": "2026-08-09T07:49:02.329Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -666,10 +666,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 68,
-    "stars": 564,
+    "stars": 563,
     "updated": "2026-08-06T05:45:42Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-07T08:09:43.539Z"
+    "fetchedAt": "2026-08-09T07:49:02.277Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -866,14 +866,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6122,
+    "forks": 6129,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2059,
-    "stars": 27416,
-    "updated": "2026-08-08T03:44:04Z",
+    "openIssues": 2058,
+    "stars": 27427,
+    "updated": "2026-08-09T07:27:35Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-08T07:43:16.723Z"
+    "fetchedAt": "2026-08-09T07:49:02.327Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1097,11 +1097,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 68,
+    "openIssues": 82,
     "stars": 8,
-    "updated": "2026-08-03T11:12:36Z",
+    "updated": "2026-08-09T00:18:18Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-07T08:09:43.538Z"
+    "fetchedAt": "2026-08-09T07:49:02.248Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
