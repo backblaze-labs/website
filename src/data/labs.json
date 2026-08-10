@@ -2219,6 +2219,48 @@
       "url": "https://github.com/backblaze-b2-samples/colmap-gaussian-splatting-pipeline",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "clam-wsi-feature-extraction",
+      "title": "Clam Wsi Feature Extraction",
+      "tagline": "Backblaze B2 sample app: a CLAM-style whole-slide-image (WSI)…",
+      "description": "Backblaze B2 sample app: a CLAM-style whole-slide-image (WSI) feature-extraction pipeline for digital pathology — tile, tissue-segment, and CNN-embed gigapixel slides with OpenSlide + ResNet50, storing raw slides, patches, and embeddings on B2 via the S3 API. Next.js + FastAPI, runs on CPU.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "computational-pathology",
+        "digital-pathology",
+        "embeddings",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/clam-wsi-feature-extraction",
+      "url": "https://github.com/backblaze-b2-samples/clam-wsi-feature-extraction",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "img2dataset-webdataset-object-storage",
+      "title": "Img2dataset Webdataset Object Storage",
+      "tagline": "Bulk-download image-text datasets into Backblaze B2 as reproducible WebDataset…",
+      "description": "Bulk-download image-text datasets into Backblaze B2 as reproducible WebDataset tar shards with img2dataset — no local staging disk. Sample app (FastAPI + Next.js) that streams shards to S3-compatible object storage, validates download yield, and streams them back for PyTorch/JAX training.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloudstorage",
+        "dataset",
+        "fastapi",
+        "img2dataset",
+        "machine-learning"
+      ],
+      "repo": "backblaze-b2-samples/img2dataset-webdataset-object-storage",
+      "url": "https://github.com/backblaze-b2-samples/img2dataset-webdataset-object-storage",
+      "icon": "sparkle",
+      "featured": false
     }
   ]
 }
