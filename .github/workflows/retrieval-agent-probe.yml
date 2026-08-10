@@ -39,7 +39,7 @@ jobs:
 
       - name: Upload probe results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: retrieval-agent-probe-${{ github.run_id }}
           path: artifacts/retrieval-probe/results.json
