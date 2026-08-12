@@ -449,11 +449,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": null,
-    "openIssues": 7,
+    "openIssues": 9,
     "stars": 0,
-    "updated": "2026-08-09T15:16:42Z",
+    "updated": "2026-08-12T05:33:18Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-08-10T08:23:08.253Z"
+    "fetchedAt": "2026-08-12T07:31:08.856Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -470,14 +470,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3797,
+    "forks": 3799,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 606,
-    "stars": 16496,
-    "updated": "2026-08-11T07:09:14Z",
+    "openIssues": 602,
+    "stars": 16508,
+    "updated": "2026-08-11T17:39:53Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-11T07:27:19.331Z"
+    "fetchedAt": "2026-08-12T07:31:08.857Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -803,6 +803,18 @@
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
     "fetchedAt": "2026-08-10T08:23:08.253Z"
   },
+  "image-to-3d-asset-library": {
+    "archived": false,
+    "description": "Turn a single image into a 3D mesh, textures, and preview render with a local open-source engine (TripoSR) and store every artifact in Backblaze B2 as a versioned, content-addressed 3D asset library — a full-stack Next.js 16 + FastAPI sample that runs on B2 credentials only, no extra API key, GPU optional",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-08-10T18:12:04Z",
+    "repo": "backblaze-b2-samples/image-to-3d-asset-library",
+    "fetchedAt": "2026-08-12T07:31:09.247Z"
+  },
   "img2dataset-webdataset-object-storage": {
     "archived": false,
     "description": "Bulk-download image-text datasets into Backblaze B2 as reproducible WebDataset tar shards with img2dataset — no local staging disk. Sample app (FastAPI + Next.js) that streams shards to S3-compatible object storage, validates download yield, and streams them back for PyTorch/JAX training.",
@@ -893,11 +905,11 @@
     "forks": 6140,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2052,
-    "stars": 27460,
-    "updated": "2026-08-11T06:03:43Z",
+    "openIssues": 2032,
+    "stars": 27475,
+    "updated": "2026-08-12T07:25:09Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-11T07:27:19.334Z"
+    "fetchedAt": "2026-08-12T07:31:08.857Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -970,6 +982,18 @@
     "updated": "2026-07-27T17:58:24Z",
     "repo": "backblaze-b2-samples/nudenet-video-moderation",
     "fetchedAt": "2026-07-28T09:32:14.637Z"
+  },
+  "nuscenes-sensor-data-lake": {
+    "archived": false,
+    "description": "Backblaze B2 as an S3-compatible data lake for autonomous-vehicle multi-sensor datasets: keep nuScenes camera, LiDAR & radar blobs + annotations in B2 and stream keyframes into 3D-perception training on demand via the real nuScenes devkit. Next.js + FastAPI sample.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-08-10T15:37:41Z",
+    "repo": "backblaze-b2-samples/nuscenes-sensor-data-lake",
+    "fetchedAt": "2026-08-12T07:31:09.343Z"
   },
   "open3d-point-cloud-pipeline": {
     "archived": false,
@@ -1195,9 +1219,9 @@
     "license": "MIT",
     "openIssues": 17,
     "stars": 14,
-    "updated": "2026-08-07T23:30:01Z",
+    "updated": "2026-08-11T19:55:41Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-08-08T07:43:16.535Z"
+    "fetchedAt": "2026-08-12T07:31:08.856Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -1246,6 +1270,18 @@
     "updated": "2026-07-28T04:49:44Z",
     "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
     "fetchedAt": "2026-07-28T09:32:14.267Z"
+  },
+  "webdataset-streaming-pytorch-training": {
+    "archived": false,
+    "description": "Stream WebDataset shards straight from Backblaze B2 object storage into PyTorch training — no local staging disk. A FastAPI + Next.js sample app that packs media into .tar shards, writes them to B2, and streams them back as an IterableDataset with live throughput and a distributed worker/node shard split.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-08-10T23:29:38Z",
+    "repo": "backblaze-b2-samples/webdataset-streaming-pytorch-training",
+    "fetchedAt": "2026-08-12T07:31:09.366Z"
   },
   "whisper-dataset-builder": {
     "archived": false,
