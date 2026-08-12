@@ -30,11 +30,15 @@ const canonicalUrl = new URL(canonicalPath, origin).toString();
 const repoUrl = item.repo ? `https://github.com/${item.repo}` : item.url;
 const stats = statsFor(item.id);
 const typeLabel = catalog.types.find((type) => type.id === item.type)?.label ?? item.type;
+// Optional per-project override; the default reads correctly for any project.
+// Trim so a blank label can never leave the CTA without an accessible name —
+// the icon beside it is aria-hidden, so the text is all a screen reader gets.
+const ctaLabel = detail.ctaLabel?.trim() || "Get the code";
+// The schema requires at least one screenshot, so an absent one means a record
+// slipped past `npm run validate`. Degrade this one page rather than throwing:
+// `astro build` runs over every page at once, so a throw here 404s the whole
+// site — homepage, catalog, sitemap and feed included.
 const primaryScreenshot = detail.screenshots[0];
-
-if (!primaryScreenshot) {
-  throw new Error(`Project detail "${item.id}" requires at least one screenshot.`);
-}
 
 function imageMimeType(src: string): string {
   const path = src.toLowerCase().split(/[?#]/, 1)[0] ?? "";
@@ -59,6 +63,9 @@ const ogProps = ogCard
       ogImageHeight: ogCard.height,
     }
   : {};
+// Same conditional-spread reason: under exactOptionalPropertyTypes a possibly
+// undefined `ogImageAlt` is a type error, and BaseLayout has its own fallback.
+const altProps = primaryScreenshot ? { ogImageAlt: primaryScreenshot.alt } : {};
 
 const screenshotUrls = detail.screenshots.map((screenshot) =>
   new URL(screenshot.src, origin).toString(),
@@ -76,7 +83,7 @@ const softwareSchema = softwareSourceCodeSchema(
   description={detail.metaDescription}
   canonicalPath={canonicalPath}
   {...ogProps}
-  ogImageAlt={primaryScreenshot.alt}
+  {...altProps}
   jsonLd={softwareSchema}
 >
   <article>
@@ -95,7 +102,7 @@ const softwareSchema = softwareSourceCodeSchema(
           <Icon name="arrow-right" size={14} class="rotate-180" /> All projects
         </a>
 
-        <div class="hero-grid mt-7">
+        <div class:list={["hero-grid", "mt-7", !primaryScreenshot && "hero-grid-solo"]}>
           <div class="hero-copy">
             <div class="flex flex-wrap gap-2">
               <span class="chip">{typeLabel}</span>
@@ -120,15 +127,18 @@ const softwareSchema = softwareSourceCodeSchema(
                 rel="noopener"
                 class="btn-primary"
                 data-track="cta_click"
-                data-track-cta="vcsk_use_template"
+                data-track-cta="project_repo"
+                data-track-id={item.id}
+                data-track-type={item.type}
               >
-                <Icon name="github" size={17} /> Use this template
+                <Icon name="github" size={17} /> {ctaLabel}
               </a>
               <a
                 href="#fit"
                 class="btn-secondary"
                 data-track="cta_click"
-                data-track-cta="vcsk_check_fit"
+                data-track-cta="project_fit"
+                data-track-id={item.id}
               >
                 Check project fit
                 <Icon name="arrow-right" size={14} />
@@ -142,20 +152,22 @@ const softwareSchema = softwareSourceCodeSchema(
             </p>
           </div>
 
-          <figure class="hero-shot">
-            <a href={primaryScreenshot.src} target="_blank" rel="noopener">
-              <img
-                src={primaryScreenshot.src}
-                alt={primaryScreenshot.alt}
-                width={primaryScreenshot.width}
-                height={primaryScreenshot.height}
-                loading="eager"
-                decoding="async"
-                fetchpriority="high"
-              />
-            </a>
-            <figcaption>{primaryScreenshot.caption}</figcaption>
-          </figure>
+          {primaryScreenshot && (
+            <figure class="hero-shot">
+              <a href={primaryScreenshot.src} target="_blank" rel="noopener">
+                <img
+                  src={primaryScreenshot.src}
+                  alt={primaryScreenshot.alt}
+                  width={primaryScreenshot.width}
+                  height={primaryScreenshot.height}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </a>
+              <figcaption>{primaryScreenshot.caption}</figcaption>
+            </figure>
+          )}
         </div>
       </div>
     </header>
@@ -163,11 +175,8 @@ const softwareSchema = softwareSourceCodeSchema(
     <div class="container-page project-body">
       <section class="stack-section" aria-labelledby="stack-heading">
         <div class="section-heading">
-          <h2 id="stack-heading">A full stack, already connected</h2>
-          <p>
-            The template pairs a modern web interface with a typed Python service and
-            S3-compatible B2 storage.
-          </p>
+          <h2 id="stack-heading">What it's built with</h2>
+          <p>Each piece of the stack, and the job it does in this project.</p>
         </div>
         <dl class="stack-list">
           {detail.techStack.map((technology) => (
@@ -182,7 +191,7 @@ const softwareSchema = softwareSourceCodeSchema(
       <section class="capabilities-section" aria-labelledby="capabilities-heading">
         <div class="section-heading">
           <h2 id="capabilities-heading">Core capabilities</h2>
-          <p>Useful scaffolding stays in place while you build the parts unique to your app.</p>
+          <p>What the project does out of the box, before you write any code of your own.</p>
         </div>
         <ul class="capability-list">
           {detail.capabilities.map((capability) => (
@@ -200,8 +209,8 @@ const softwareSchema = softwareSourceCodeSchema(
       {detail.screenshots.length > 1 && (
         <section class="screenshots-section" aria-labelledby="screenshots-heading">
           <div class="section-heading">
-            <h2 id="screenshots-heading">File workflows included</h2>
-            <p>The starting UI covers the path from storage overview to individual objects.</p>
+            <h2 id="screenshots-heading">A closer look</h2>
+            <p>More screens from the running project.</p>
           </div>
           <div class="screenshot-grid">
             {detail.screenshots.slice(1).map((screenshot) => (
@@ -227,13 +236,13 @@ const softwareSchema = softwareSourceCodeSchema(
         <div class="section-heading">
           <h2 id="fit-heading">Choose it for the right job</h2>
           <p>
-            VCSK is a strong head start for a specific shape of application, not a universal
-            production platform.
+            {item.title} is a head start for a specific shape of project, not a supported,
+            general-purpose product.
           </p>
         </div>
         <div class="fit-grid">
           <div class="fit-panel fit-yes">
-            <h3><span aria-hidden="true">✓</span> Use VCSK when</h3>
+            <h3><span aria-hidden="true">✓</span> Use it when</h3>
             <ul>
               {detail.useWhen.map((boundary) => <li>{boundary}</li>)}
             </ul>
@@ -250,7 +259,7 @@ const softwareSchema = softwareSourceCodeSchema(
       <section class="support-section" aria-labelledby="support-heading">
         <div>
           <span class="status-chip">{detail.maturity.status}</span>
-          <h2 id="support-heading">Template status and support</h2>
+          <h2 id="support-heading">Project status and support</h2>
         </div>
         <p>{detail.maturity.support}</p>
       </section>
@@ -592,6 +601,12 @@ const softwareSchema = softwareSourceCodeSchema(
     .hero-grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(25rem, 0.95fr);
       gap: clamp(3rem, 6vw, 5.5rem);
+    }
+
+    /* No hero image: reclaim the empty second column. Declared after
+       .hero-grid so equal specificity resolves in source order. */
+    .hero-grid-solo {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 

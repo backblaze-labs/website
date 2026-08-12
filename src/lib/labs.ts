@@ -25,6 +25,11 @@ export interface Language {
 export interface ProjectDetail {
   metaDescription: string;
   audience: string;
+  /**
+   * Label for the primary repository CTA button. Defaults to "Get the code".
+   * Keep it short — it renders inside a button next to the GitHub icon.
+   */
+  ctaLabel?: string;
   license: { name: string; url: string };
   techStack: { name: string; role: string }[];
   screenshots: {

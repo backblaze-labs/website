@@ -251,3 +251,4 @@ crc32
 sha1
 sha256
 fileview
+exif

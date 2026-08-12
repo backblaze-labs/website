@@ -114,6 +114,7 @@
             "properties": {
               "metaDescription": { "type": "string", "maxLength": 180 },
               "audience": { "type": "string" },
+              "ctaLabel": { "type": "string", "pattern": "\\S", "maxLength": 32 },
               "license": {
                 "type": "object",
                 "additionalProperties": false,
