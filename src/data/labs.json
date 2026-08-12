@@ -2324,6 +2324,48 @@
       "url": "https://github.com/backblaze-b2-samples/nuscenes-sensor-data-lake",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "titiler-cog-map-tiles",
+      "title": "Titiler Cog Map Tiles",
+      "tagline": "Serve dynamic XYZ map tiles on demand from Cloud-Optimized GeoTIFFs (COGs) in…",
+      "description": "Serve dynamic XYZ map tiles on demand from Cloud-Optimized GeoTIFFs (COGs) in Backblaze B2 — a full-stack TiTiler + FastAPI + Leaflet sample that reads only the COG byte-ranges it needs over the S3 API, with no second tile server and no data duplication.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "backblaze-b2",
+        "cloud-optimized-geotiff",
+        "cloudstorage",
+        "fastapi",
+        "gdal",
+        "geospatial"
+      ],
+      "repo": "backblaze-b2-samples/titiler-cog-map-tiles",
+      "url": "https://github.com/backblaze-b2-samples/titiler-cog-map-tiles",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "opendronemap-photogrammetry-pipeline",
+      "title": "Opendronemap Photogrammetry Pipeline",
+      "tagline": "Full-stack OpenDroneMap photogrammetry pipeline that turns overlapping drone…",
+      "description": "Full-stack OpenDroneMap photogrammetry pipeline that turns overlapping drone photos into orthomosaics, DEMs, point clouds, and textured 3D meshes, storing both inputs and far-larger outputs on Backblaze B2 via the S3-compatible API — a sample app for surveying, agriculture, and GIS teams.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "3d-reconstruction",
+        "aerial-mapping",
+        "backblaze-b2",
+        "cloudstorage",
+        "drone",
+        "fastapi"
+      ],
+      "repo": "backblaze-b2-samples/opendronemap-photogrammetry-pipeline",
+      "url": "https://github.com/backblaze-b2-samples/opendronemap-photogrammetry-pipeline",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
