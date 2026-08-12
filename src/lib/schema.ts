@@ -122,7 +122,7 @@ export function softwareSourceCodeSchema(
       "@type": "Audience",
       audienceType: item.detail.audience,
     },
-    image: imageUrls,
+    ...(imageUrls.length > 0 ? { image: imageUrls } : {}),
     keywords: item.tags.join(", "),
     author: {
       "@type": "Organization",

@@ -48,6 +48,24 @@ integration only when the catalog owns enough long-form content to evaluate it;
 entries without `detail` remain catalog cards and do not generate a `/projects/`
 route. The Vibe Coding Starter Kit entry is the reference implementation.
 
+Detail pages carry images from `public/screenshots/` and `public/og/`, declared in
+`labs.json` with their exact pixel dimensions (`npm run validate` re-measures every
+file and fails on a mismatch). Regenerate the curated set with
+`npm run gen-detail-assets`, or generate one project's assets from explicit sources:
+
+```bash
+node scripts/gen-detail-assets.mjs --id <catalog-id> \
+  [--og <url|path>] --shot <url|path> [--shot <url|path> ...]
+```
+
+That mode writes progress to stderr and one JSON object to stdout, so a publishing
+script can paste the measured values straight into a `detail` record:
+
+```json
+{"id":"my-sample","ogImage":{"src":"/og/my-sample.jpg","width":1200,"height":630},
+ "screenshots":[{"src":"/screenshots/my-sample-1.webp","width":1600,"height":887}]}
+```
+
 The JSON Feed uses each detail page as that project's canonical `id` and `url`,
 keeps the upstream repository in `_external_urls.repository`, and emits absolute
 preview-image URLs. Catalog-only entries continue to route directly to their

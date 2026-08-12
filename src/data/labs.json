@@ -377,6 +377,7 @@
       "detail": {
         "metaDescription": "Evaluate the Vibe Coding Starter Kit, an open source Next.js and FastAPI template with secure Backblaze B2 uploads, file browsing, and agent-ready docs.",
         "audience": "Developers and AI-assisted builders who want a working full-stack foundation for an application centered on file uploads and object storage.",
+        "ctaLabel": "Use this template",
         "license": {
           "name": "MIT",
           "url": "https://opensource.org/license/mit"

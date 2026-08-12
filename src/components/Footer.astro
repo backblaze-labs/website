@@ -7,7 +7,15 @@ const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
 const gtmId = import.meta.env.PUBLIC_GTM_ID as string | undefined;
 const analyticsConfigured = (!!gaId && /^G-[A-Z0-9]+$/i.test(gaId)) || (!!gtmId && /^GTM-[A-Z0-9]+$/i.test(gtmId));
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const detailProjects = detailedIntegrations();
+// The Build column highlights a handful; "All projects" carries the rest.
+// Detail pages are generated per sample and will reach 80+ — never enumerate them.
+const FOOTER_PROJECT_LIMIT = 4;
+const detailProjects = [...detailedIntegrations()]
+  .sort(
+    (a, b) =>
+      Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || a.title.localeCompare(b.title),
+  )
+  .slice(0, FOOTER_PROJECT_LIMIT);
 ---
 <footer class="mt-24 border-t" style="border-color: var(--border);">
   <div class="container-page py-10 md:py-14">

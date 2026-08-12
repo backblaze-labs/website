@@ -7,6 +7,7 @@
  *   - integration.languages[] all reference an id in `languages`
  *   - integration.id is unique across the array
  *   - rendered external links use only http(s) URLs
+ *   - detail images exist under public/ and match their declared pixel dimensions
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -36,9 +37,50 @@ const validate = ajv.compile(schema);
 const errors = [];
 const warnings = [];
 
+const publicDir = path.join(root, "public");
+
+// sharp is a native binary reaching us transitively through astro. Its absence
+// is fatal in CI — the dimension check is the only thing standing between
+// labs.json and a fabricated width/height — but only a warning locally, so a
+// broken native install can't block every commit.
+let sharp = null;
+try {
+  ({ default: sharp } = await import("sharp"));
+} catch (err) {
+  const message = `detail images: sharp unavailable (${err.message}); pixel dimensions not verified`;
+  if (process.env.CI) errors.push(message);
+  else warnings.push(message);
+}
+
 function requireHttpUrl(context, value) {
   if (value != null && !isHttpUrl(value)) {
     errors.push(`${context}: must use an http(s) URL`);
+  }
+}
+
+// Declared dimensions drive the rendered <img width/height>, and nothing else
+// re-derives them — so a wrong number ships as silent layout shift.
+async function assertDetailImage(context, asset) {
+  if (!asset || typeof asset.src !== "string") return; // the schema already reported it
+  if (!asset.src.startsWith("/")) {
+    errors.push(`${context}: src must be a root-relative path under public/`);
+    return;
+  }
+  const file = path.join(publicDir, asset.src.slice(1));
+  if (!file.startsWith(publicDir + path.sep)) {
+    errors.push(`${context}: src escapes public/`);
+    return;
+  }
+  if (!fs.existsSync(file)) {
+    errors.push(`${context}: ${asset.src} does not exist under public/`);
+    return;
+  }
+  if (!sharp) return;
+  const { width, height } = await sharp(file).metadata();
+  if (width !== asset.width || height !== asset.height) {
+    errors.push(
+      `${context}: declares ${asset.width}×${asset.height} but ${asset.src} is ${width}×${height}`,
+    );
   }
 }
 
@@ -93,6 +135,13 @@ for (const i of data.integrations ?? []) {
     requireHttpUrl(`integrations[${i.id}].${field}`, i[field]);
   }
   requireHttpUrl(`integrations[${i.id}].detail.license.url`, i.detail?.license?.url);
+
+  if (i.detail) {
+    for (const [n, shot] of (i.detail.screenshots ?? []).entries()) {
+      await assertDetailImage(`integrations[${i.id}].detail.screenshots[${n}]`, shot);
+    }
+    await assertDetailImage(`integrations[${i.id}].detail.ogImage`, i.detail.ogImage);
+  }
 
   for (const c of i.categories ?? []) {
     if (!validCategoryIds.has(c)) errors.push(`integrations[${i.id}]: unknown category "${c}"`);
