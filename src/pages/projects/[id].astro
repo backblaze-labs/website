@@ -31,7 +31,9 @@ const repoUrl = item.repo ? `https://github.com/${item.repo}` : item.url;
 const stats = statsFor(item.id);
 const typeLabel = catalog.types.find((type) => type.id === item.type)?.label ?? item.type;
 // Optional per-project override; the default reads correctly for any project.
-const ctaLabel = detail.ctaLabel ?? "Get the code";
+// Trim so a blank label can never leave the CTA without an accessible name —
+// the icon beside it is aria-hidden, so the text is all a screen reader gets.
+const ctaLabel = detail.ctaLabel?.trim() || "Get the code";
 // The schema requires at least one screenshot, so an absent one means a record
 // slipped past `npm run validate`. Degrade this one page rather than throwing:
 // `astro build` runs over every page at once, so a throw here 404s the whole

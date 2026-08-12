@@ -58,16 +58,27 @@ function requireHttpUrl(context, value) {
   }
 }
 
+// The template renders `src` as a URL while this check resolves it as a file
+// path, and the two disagree on strings like "//host/x.webp" (a path under
+// public/, but a protocol-relative URL to another origin in the browser). So
+// the accepted shape is pinned to exactly what gen-detail-assets emits, and
+// anything else is refused rather than interpreted.
+const DETAIL_IMAGE_SHAPES = {
+  screenshot: /^\/screenshots\/[a-z0-9][a-z0-9._-]*\.webp$/,
+  ogImage: /^\/og\/[a-z0-9][a-z0-9._-]*\.jpg$/,
+};
+const EXPECTED_FORMAT = { screenshot: "webp", ogImage: "jpeg" };
+
 // Declared dimensions drive the rendered <img width/height>, and nothing else
 // re-derives them — so a wrong number ships as silent layout shift.
-async function assertDetailImage(context, asset) {
+async function assertDetailImage(context, kind, asset) {
   if (!asset || typeof asset.src !== "string") return; // the schema already reported it
-  if (!asset.src.startsWith("/")) {
-    errors.push(`${context}: src must be a root-relative path under public/`);
+  if (!DETAIL_IMAGE_SHAPES[kind].test(asset.src)) {
+    errors.push(`${context}: src must match ${DETAIL_IMAGE_SHAPES[kind]} (got "${asset.src}")`);
     return;
   }
   const file = path.join(publicDir, asset.src.slice(1));
-  if (!file.startsWith(publicDir + path.sep)) {
+  if (path.relative(publicDir, file).startsWith("..")) {
     errors.push(`${context}: src escapes public/`);
     return;
   }
@@ -76,11 +87,28 @@ async function assertDetailImage(context, asset) {
     return;
   }
   if (!sharp) return;
-  const { width, height } = await sharp(file).metadata();
-  if (width !== asset.width || height !== asset.height) {
+  let meta;
+  try {
+    meta = await sharp(file).metadata();
+  } catch (err) {
+    errors.push(`${context}: ${asset.src} is unreadable or not a supported image (${err.message})`);
+    return;
+  }
+  if (meta.width !== asset.width || meta.height !== asset.height) {
     errors.push(
-      `${context}: declares ${asset.width}×${asset.height} but ${asset.src} is ${width}×${height}`,
+      `${context}: declares ${asset.width}×${asset.height} but ${asset.src} is ${meta.width}×${meta.height}`,
     );
+  }
+  // The extension alone drives the advertised og:image MIME type, so the real
+  // bytes have to agree with it.
+  if (meta.format !== EXPECTED_FORMAT[kind]) {
+    errors.push(
+      `${context}: ${asset.src} contains ${meta.format} data, not ${EXPECTED_FORMAT[kind]}`,
+    );
+  }
+  // Social cards below the standard size get cropped or ignored by link crawlers.
+  if (kind === "ogImage" && (asset.width !== 1200 || asset.height !== 630)) {
+    errors.push(`${context}: social cards must be 1200×630 (got ${asset.width}×${asset.height})`);
   }
 }
 
@@ -138,9 +166,9 @@ for (const i of data.integrations ?? []) {
 
   if (i.detail) {
     for (const [n, shot] of (i.detail.screenshots ?? []).entries()) {
-      await assertDetailImage(`integrations[${i.id}].detail.screenshots[${n}]`, shot);
+      await assertDetailImage(`integrations[${i.id}].detail.screenshots[${n}]`, "screenshot", shot);
     }
-    await assertDetailImage(`integrations[${i.id}].detail.ogImage`, i.detail.ogImage);
+    await assertDetailImage(`integrations[${i.id}].detail.ogImage`, "ogImage", i.detail.ogImage);
   }
 
   for (const c of i.categories ?? []) {
