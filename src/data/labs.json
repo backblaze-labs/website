@@ -2579,7 +2579,7 @@
       "title": "IfcOpenShell BIM Archive",
       "tagline": "BIM digital-twin archive on B2, powered by IfcOpenShell.",
       "description": "A full-stack BIM digital-twin archive for AEC teams. Create a project per building, ingest discipline-specific IFC models, and run IfcOpenShell locally to parse the entity tree, extract geometry to OBJ meshes, and analyze the model. Every source model and derived artifact is archived on Backblaze B2 via the S3-compatible API and indexed by a per-project manifest.",
-      "categories": ["data-pipelines", "developer-tools"],
+      "categories": ["developer-tools"],
       "type": "sample",
       "tags": ["ifcopenshell", "bim", "ifc", "aec", "digital-twin"],
       "languages": ["typescript", "python", "javascript"],
