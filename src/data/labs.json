@@ -2430,6 +2430,149 @@
       "url": "https://github.com/backblaze-b2-samples/panns-audioset-tagging",
       "icon": "sparkle",
       "featured": false
+    },
+    {
+      "id": "mmdetection3d-lidar-dataset",
+      "title": "MMDetection3D LiDAR Dataset",
+      "tagline": "Build 3D LiDAR detection & segmentation datasets on B2 with MMDetection3D.",
+      "description": "Full-stack pipeline that turns raw LiDAR point clouds into 3D object-detection and segmentation datasets with the real MMDetection3D engine — raw scans, per-frame annotations, dataset manifests, and model checkpoints stored on Backblaze B2 over the S3-compatible API. Next.js + FastAPI; runs on local OSS with B2 credentials only.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "languages": ["typescript", "python", "javascript"],
+      "tags": [
+        "lidar",
+        "point-cloud",
+        "3d-object-detection",
+        "mmdetection3d",
+        "openmmlab",
+        "computer-vision",
+        "autonomous-driving",
+        "robotics",
+        "kitti",
+        "cloudstorage"
+      ],
+      "url": "https://github.com/backblaze-b2-samples/mmdetection3d-lidar-dataset",
+      "repo": "backblaze-b2-samples/mmdetection3d-lidar-dataset",
+      "detail": {
+        "metaDescription": "Open-source Next.js + FastAPI pipeline that turns raw LiDAR point clouds into 3D detection and segmentation datasets with MMDetection3D, stored on Backblaze B2.",
+        "audience": "Autonomous-vehicle and robotics teams building 3D object-detection and segmentation datasets from raw LiDAR point clouds, who want Backblaze B2 as the storage layer for scans, annotations, checkpoints, and dataset manifests.",
+        "ctaLabel": "Get the code",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui + Recharts",
+            "role": "Design tokens, interface primitives, and charts"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching and cache management"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API and configuration validation"
+          },
+          {
+            "name": "MMDetection3D (OpenMMLab) + PyTorch",
+            "role": "Local 3D-detection engine, opt-in and lazily imported"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage access"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/mmdetection3d-lidar-dataset-1.webp",
+            "alt": "Dashboard with LiDAR dataset metrics, per-class distribution, and recent detection runs",
+            "caption": "The dashboard gives a LiDAR overview — frames ingested, runs completed, 3D boxes, write amplification, and storage used — with a per-class box distribution and a recent-runs table.",
+            "width": 1600,
+            "height": 1301
+          },
+          {
+            "src": "/screenshots/mmdetection3d-lidar-dataset-2.webp",
+            "alt": "Ingest page for uploading raw LiDAR frames to Backblaze B2",
+            "caption": "Upload raw KITTI .bin / .pcd LiDAR frames to B2 as a named sensor log, alongside a full-bucket drag-and-drop uploader.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/mmdetection3d-lidar-dataset-3.webp",
+            "alt": "Detection Runs page with a create form and the runs library table",
+            "caption": "Create a run against a sensor log and browse the runs library, where each run shows its model, task, status, frame count, and 3D-box total.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/mmdetection3d-lidar-dataset-4.webp",
+            "alt": "Run detail with per-frame BEV previews and 3D-box annotations",
+            "caption": "Run detail shows per-frame bird's-eye-view previews and 3D-box annotations with train/val split and write amplification, plus a downloadable dataset manifest and checkpoint record.",
+            "width": 1600,
+            "height": 1370
+          },
+          {
+            "src": "/screenshots/mmdetection3d-lidar-dataset-5.webp",
+            "alt": "Dataset explorer grouping B2 objects by pipeline stage",
+            "caption": "A sample-scoped B2 explorer that groups every object by pipeline stage: raw scans, preprocessed tensors, annotations, dataset manifests, and checkpoints.",
+            "width": 1600,
+            "height": 3370
+          }
+        ],
+        "ogImage": {
+          "src": "/og/mmdetection3d-lidar-dataset.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "End-to-end LiDAR dataset pipeline",
+            "description": "Ingest raw scans, run detection/segmentation, produce per-frame annotations, and emit a dataset manifest — every stage backed by Backblaze B2 over the S3-compatible API."
+          },
+          {
+            "title": "The real MMDetection3D engine, run locally",
+            "description": "Run PointPillars, SECOND, or CenterPoint from OpenMMLab against your sensor logs. The engine is opt-in and lazily imported, CPU by default with GPU auto-detected, so the base app and its checks stay green without it."
+          },
+          {
+            "title": "Dataset manifest with train/val split",
+            "description": "Every frame is tied to its 3D-box annotation in a JSONL manifest with a train/val split, alongside archived model-checkpoint records — the dataset artifact teams actually consume."
+          },
+          {
+            "title": "Sample-scoped Dataset explorer plus full-bucket Files",
+            "description": "Browse the sample's B2 objects grouped by pipeline stage — raw scans, preprocessed tensors, annotations, manifests, checkpoints — next to a reusable full-bucket Files explorer and drag-and-drop ingest."
+          },
+          {
+            "title": "Typed full-stack scaffold, enforced by code",
+            "description": "A Next.js frontend and layered FastAPI service with a checked API contract, structural tests, import-boundary lints, and agent-ready docs so a coding agent can read the repo and extend it safely."
+          }
+        ],
+        "useWhen": [
+          "You are building 3D object-detection or segmentation datasets from raw LiDAR point clouds and want B2 as the storage layer for scans, annotations, checkpoints, and manifests.",
+          "You want to ingest raw .bin / .pcd LiDAR frames to B2 and run the real MMDetection3D engine locally to produce per-frame 3D bounding-box annotations.",
+          "You need a JSONL dataset manifest that ties every frame to its annotation and a train/val split.",
+          "You want a full-stack TypeScript and Python scaffold with enforced architecture, a checked API contract, and tests to build on."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted SaaS product, a managed training service, or a drop-in production annotation platform.",
+          "You expect the app to train models — it archives pretrained checkpoints and runs inference, it does not train.",
+          "You need a managed GPU fleet: the engine runs locally, and SECOND / CenterPoint generally need CUDA/Linux while PointPillars is the CPU-friendly default.",
+          "You need built-in user accounts, authentication, tenant isolation, or billing.",
+          "You only need generic B2-backed file upload and browsing without the LiDAR/ML pipeline — the Vibe Coding Starter Kit is a lighter starting point."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects and feature requests through the repository's GitHub Issues; this sample carries no service-level agreement (SLA)."
+        }
+      }
     }
   ]
 }
