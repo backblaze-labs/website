@@ -2436,7 +2436,7 @@
       "title": "MMDetection3D LiDAR Dataset",
       "tagline": "Build 3D LiDAR detection & segmentation datasets on B2 with MMDetection3D.",
       "description": "Full-stack pipeline that turns raw LiDAR point clouds into 3D object-detection and segmentation datasets with the real MMDetection3D engine — raw scans, per-frame annotations, dataset manifests, and model checkpoints stored on Backblaze B2 over the S3-compatible API. Next.js + FastAPI; runs on local OSS with B2 credentials only.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "type": "sample",
       "languages": ["typescript", "python", "javascript"],
       "tags": [
