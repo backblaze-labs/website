@@ -2573,6 +2573,131 @@
           "support": "Report defects and feature requests through the repository's GitHub Issues; this sample carries no service-level agreement (SLA)."
         }
       }
+    },
+    {
+      "id": "ifcopenshell-bim-archive",
+      "title": "IfcOpenShell BIM Archive",
+      "tagline": "BIM digital-twin archive on B2, powered by IfcOpenShell.",
+      "description": "A full-stack BIM digital-twin archive for AEC teams. Create a project per building, ingest discipline-specific IFC models, and run IfcOpenShell locally to parse the entity tree, extract geometry to OBJ meshes, and analyze the model. Every source model and derived artifact is archived on Backblaze B2 via the S3-compatible API and indexed by a per-project manifest.",
+      "categories": ["data-pipelines", "developer-tools"],
+      "type": "sample",
+      "tags": ["ifcopenshell", "bim", "ifc", "aec", "digital-twin"],
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/ifcopenshell-bim-archive",
+      "repo": "backblaze-b2-samples/ifcopenshell-bim-archive",
+      "detail": {
+        "metaDescription": "Full-stack BIM digital-twin archive: ingest IFC building models, parse, mesh, and analyze them locally with IfcOpenShell, and archive every artifact on Backblaze B2.",
+        "audience": "AEC data engineers, BIM managers, and AI/dev teams evaluating Backblaze B2 as the long-term store for IFC/BIM model archives with heavy derived-artifact fan-out.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui + Recharts",
+            "role": "Design tokens, interface primitives, and charts"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching, caching, dedup, and retries"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API and startup configuration validation"
+          },
+          {
+            "name": "IfcOpenShell (+ numpy, shapely)",
+            "role": "Local CPU-only IFC parsing, geometry meshing, and analysis"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage access"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/ifcopenshell-bim-archive-1.webp",
+            "alt": "Dashboard with archive-wide BIM rollup, write-amplification ratio, and B2 upload activity.",
+            "caption": "An archive-wide rollup of project, source-model, and derived-artifact counts, the headline write-amplification ratio, and B2 storage and upload activity, all measured live from the bucket.",
+            "width": 1600,
+            "height": 1056
+          },
+          {
+            "src": "/screenshots/ifcopenshell-bim-archive-2.webp",
+            "alt": "Projects library showing building-project cards with status and write-amplification.",
+            "caption": "A library of building projects, each a B2 prefix with its own manifest, showing per-project discipline, run status, and write-amplification ratio.",
+            "width": 1600,
+            "height": 1056
+          },
+          {
+            "src": "/screenshots/ifcopenshell-bim-archive-3.webp",
+            "alt": "Project detail showing the pipeline timeline, BIM stats, write-amplification panel, and asset explorer.",
+            "caption": "The Parse then Extract Geometry then Analyze pipeline, model insight, the write-amplification panel, and the project-scoped B2 asset explorer.",
+            "width": 1600,
+            "height": 2610
+          },
+          {
+            "src": "/screenshots/ifcopenshell-bim-archive-4.webp",
+            "alt": "Upload page with a drag-and-drop dropzone for direct browser-to-B2 uploads.",
+            "caption": "A drag-and-drop dropzone that presigns a direct browser-to-B2 PUT, doubling as project model ingest.",
+            "width": 1600,
+            "height": 1056
+          }
+        ],
+        "ogImage": {
+          "src": "/og/ifcopenshell-bim-archive.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Projects on B2, no database",
+            "description": "Create, browse, edit, and delete building projects. Each project is a Backblaze B2 prefix indexed by its own manifest.json, so there is no separate database to run."
+          },
+          {
+            "title": "Real IfcOpenShell pipeline",
+            "description": "Parse the entity tree, extract geometry to OBJ meshes, and analyze the model (quantity take-off plus bounding-box clash candidates), run in an isolated subprocess with a hard timeout so a heavy native pass cannot wedge the API."
+          },
+          {
+            "title": "Live write-amplification accounting",
+            "description": "See per-project and archive-wide source-versus-artifact bytes and ratio, measured live from B2, as a handful of IFC models fan out into geometry bundles, metadata JSON, and analysis reports."
+          },
+          {
+            "title": "B2 file explorer and direct upload",
+            "description": "Browse the full bucket and a project-scoped asset explorer, and drag-and-drop files that presign a direct browser-to-B2 PUT, doubling as project model ingest."
+          },
+          {
+            "title": "Typed, agent-ready full stack",
+            "description": "A Next.js frontend and a strictly layered FastAPI backend with a checked OpenAPI contract, structural tests, and agent-optimized docs make the sample safe to read and extend."
+          }
+        ],
+        "useWhen": [
+          "You want a working reference for archiving IFC/BIM model sets and their heavy derived artifacts on Backblaze B2.",
+          "You want a real local processing engine (IfcOpenShell parse, mesh, analyze) run per project and fanned out to B2, rather than a stub.",
+          "You want to watch write amplification measured live as a few source models expand into geometry, metadata, and analysis artifacts that meet or exceed the source bytes.",
+          "You want the geometry-detail setting to materially change output, with finer tessellation producing larger meshes and higher write amplification."
+        ],
+        "avoidWhen": [
+          "You need a supported, hosted BIM coordination platform or SaaS product; this is an unsupported sample with no SLA.",
+          "You need production authentication, user accounts, multi-tenant isolation, billing, or on-call operations out of the box.",
+          "You need production-grade clash detection; the clash pass is an axis-aligned bounding-box candidate check for demonstration, not a full engine.",
+          "You need GLTF geometry export today; the pipeline extracts OBJ meshes only.",
+          "You only need generic file uploads and browsing without a BIM engine, where the Vibe Coding Starter Kit is a simpler starting point."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report repository defects and feature requests through the repository's GitHub Issues; this sample is provided as-is with no SLA."
+        }
+      }
     }
   ]
 }
