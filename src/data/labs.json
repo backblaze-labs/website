@@ -2367,6 +2367,69 @@
       "url": "https://github.com/backblaze-b2-samples/opendronemap-photogrammetry-pipeline",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "macos-meeting-notes",
+      "title": "Macos Meeting Notes",
+      "tagline": "Meeting Memory is a local-first macOS menu-bar app that records, transcribes,…",
+      "description": "Meeting Memory is a local-first macOS menu-bar app that records, transcribes, and diarizes meetings, then backs up artifacts to Backblaze B2.",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "languages": ["python"],
+      "tags": [
+        "ai-notes",
+        "assemblyai",
+        "backblaze-b2",
+        "cloudstorage",
+        "google-calendar",
+        "local-first"
+      ],
+      "repo": "backblaze-labs/macos-meeting-notes",
+      "url": "https://github.com/backblaze-labs/macos-meeting-notes",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "colmap-photogrammetry-archive",
+      "title": "Colmap Photogrammetry Archive",
+      "tagline": "Full-stack COLMAP photogrammetry sample app: run structure-from-motion (SfM)…",
+      "description": "Full-stack COLMAP photogrammetry sample app: run structure-from-motion (SfM) on overlapping photos with pycolmap, then archive every photo and 3D artifact — sparse point cloud, model, manifest.json — on Backblaze B2 over the S3-compatible API for downstream NeRF / Gaussian Splatting jobs. Next.js + FastAPI.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "3d-reconstruction",
+        "backblaze-b2",
+        "cloudstorage",
+        "colmap",
+        "fastapi",
+        "gaussian-splatting"
+      ],
+      "repo": "backblaze-b2-samples/colmap-photogrammetry-archive",
+      "url": "https://github.com/backblaze-b2-samples/colmap-photogrammetry-archive",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "panns-audioset-tagging",
+      "title": "Panns Audioset Tagging",
+      "tagline": "Full-stack sample app that tags audio locally with PANNs — 527 AudioSet labels…",
+      "description": "Full-stack sample app that tags audio locally with PANNs — 527 AudioSet labels plus a 2048-dim embedding per clip — and stores every clip, tag, and dataset manifest in Backblaze B2 over the S3-compatible API. Next.js 16 + FastAPI, CPU by default.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "javascript", "python"],
+      "tags": [
+        "audio-classification",
+        "audio-tagging",
+        "audioset",
+        "backblaze-b2",
+        "cloudstorage",
+        "embeddings"
+      ],
+      "repo": "backblaze-b2-samples/panns-audioset-tagging",
+      "url": "https://github.com/backblaze-b2-samples/panns-audioset-tagging",
+      "icon": "sparkle",
+      "featured": false
     }
   ]
 }
