@@ -2704,7 +2704,7 @@
       "title": "4D Gaussian Splatting Volumetric Capture",
       "tagline": "Turn multi-camera video into a 4D Gaussian Splatting dataset on B2.",
       "description": "A capture-to-B2 pipeline for dynamic 4D reconstruction: turn synchronized multi-camera video into a hustvl/4DGaussians multipleview dataset and a trained, time-varying Gaussian-Splatting model, with every input and derived artifact versioned in Backblaze B2 over the S3-compatible API.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "type": "sample",
       "tags": [
         "4d-gaussian-splatting",
