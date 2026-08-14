@@ -233,11 +233,11 @@
     "forks": 10,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 8,
+    "openIssues": 9,
     "stars": 5,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-14T07:31:06.373Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -281,11 +281,11 @@
     "forks": 15,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 12,
+    "openIssues": 13,
     "stars": 20,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-14T07:31:06.544Z"
   },
   "b2-action": {
     "archived": false,
@@ -413,11 +413,23 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 10,
     "stars": 0,
-    "updated": "2026-08-06T17:17:11Z",
+    "updated": "2026-08-13T15:57:03Z",
     "repo": "backblaze-b2-samples/colmap-gaussian-splatting-pipeline",
-    "fetchedAt": "2026-08-08T07:43:16.683Z"
+    "fetchedAt": "2026-08-14T07:31:06.346Z"
+  },
+  "colmap-photogrammetry-archive": {
+    "archived": false,
+    "description": "Full-stack COLMAP photogrammetry sample app: run structure-from-motion (SfM) on overlapping photos with pycolmap, then archive every photo and 3D artifact — sparse point cloud, model, manifest.json — on Backblaze B2 over the S3-compatible API for downstream NeRF / Gaussian Splatting jobs. Next.js + FastAPI.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-08-12T21:17:29Z",
+    "repo": "backblaze-b2-samples/colmap-photogrammetry-archive",
+    "fetchedAt": "2026-08-14T07:31:06.322Z"
   },
   "colpali-pdf-search": {
     "archived": false,
@@ -470,14 +482,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3799,
+    "forks": 3801,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 600,
-    "stars": 16507,
-    "updated": "2026-08-12T21:21:43Z",
+    "openIssues": 606,
+    "stars": 16521,
+    "updated": "2026-08-14T07:07:23Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-14T07:31:06.453Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -678,10 +690,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 68,
-    "stars": 561,
+    "stars": 559,
     "updated": "2026-08-06T05:45:42Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-14T07:31:06.492Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -791,6 +803,18 @@
     "repo": "backblaze-b2-samples/iceberg-feature-store",
     "fetchedAt": "2026-07-28T09:32:14.362Z"
   },
+  "ifcopenshell-bim-archive": {
+    "archived": false,
+    "description": "Full-stack BIM digital-twin archive for AEC teams: ingest IFC building models, parse/mesh/analyze them locally with IfcOpenShell, and archive every source and derived artifact on Backblaze B2 via the S3-compatible API. Next.js + FastAPI sample app.",
+    "forks": 0,
+    "lang": null,
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-08-13T20:34:48Z",
+    "repo": "backblaze-b2-samples/ifcopenshell-bim-archive",
+    "fetchedAt": "2026-08-14T07:31:06.294Z"
+  },
   "image-generation-prompt-flow": {
     "archived": false,
     "description": "AI image generation prompt flow example app focused on prompt engineering and prompt optimization, comparing models GPT Image, DALL-E, Gemini Nano Banana, and Google Imagen. Shows how image prompts are structured, refined, and evolved from input to final output, with clear prompt lineage for learning and experimentation.",
@@ -821,11 +845,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 10,
+    "openIssues": 11,
     "stars": 0,
-    "updated": "2026-08-07T13:00:21Z",
+    "updated": "2026-08-14T06:45:52Z",
     "repo": "backblaze-b2-samples/img2dataset-webdataset-object-storage",
-    "fetchedAt": "2026-08-11T07:27:19.815Z"
+    "fetchedAt": "2026-08-14T07:31:06.537Z"
   },
   "jupyter-b2": {
     "archived": false,
@@ -899,17 +923,29 @@
     "repo": "backblaze-b2-samples/lora-training-studio",
     "fetchedAt": "2026-07-28T09:32:14.255Z"
   },
+  "macos-meeting-notes": {
+    "archived": false,
+    "description": "Meeting Memory is a local-first macOS menu-bar app that records, transcribes, and diarizes meetings, then backs up artifacts to Backblaze B2.",
+    "forks": 0,
+    "lang": "Python",
+    "license": "MIT",
+    "openIssues": 0,
+    "stars": 0,
+    "updated": "2026-08-13T16:07:46Z",
+    "repo": "backblaze-labs/macos-meeting-notes",
+    "fetchedAt": "2026-08-14T07:31:06.424Z"
+  },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6147,
+    "forks": 6154,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2016,
-    "stars": 27495,
-    "updated": "2026-08-13T07:24:16Z",
+    "openIssues": 2021,
+    "stars": 27510,
+    "updated": "2026-08-14T07:22:22Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-14T07:31:06.350Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -922,6 +958,18 @@
     "updated": "2026-07-02T21:33:18Z",
     "repo": "backblaze-b2-samples/mmaction2-action-dataset-builder",
     "fetchedAt": "2026-07-24T09:16:42.720Z"
+  },
+  "mmdetection3d-lidar-dataset": {
+    "archived": false,
+    "description": "Full-stack pipeline that turns raw LiDAR point clouds into 3D object-detection and segmentation datasets with the real MMDetection3D engine — frames, annotations, and model checkpoints stored on Backblaze B2 over the S3-compatible API. For autonomous-vehicle and robotics teams; Next.js + FastAPI, B2 credentials only.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-08-13T16:57:17Z",
+    "repo": "backblaze-b2-samples/mmdetection3d-lidar-dataset",
+    "fetchedAt": "2026-08-14T07:31:06.204Z"
   },
   "monai-dicom-segmentation": {
     "archived": false,
@@ -1054,6 +1102,18 @@
     "updated": "2026-07-27T21:05:20Z",
     "repo": "backblaze-b2-samples/paddleocr-document-archive",
     "fetchedAt": "2026-07-28T09:32:14.692Z"
+  },
+  "panns-audioset-tagging": {
+    "archived": false,
+    "description": "Full-stack sample app that tags audio locally with PANNs — 527 AudioSet labels plus a 2048-dim embedding per clip — and stores every clip, tag, and dataset manifest in Backblaze B2 over the S3-compatible API. Next.js 16 + FastAPI, CPU by default.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-08-12T16:24:16Z",
+    "repo": "backblaze-b2-samples/panns-audioset-tagging",
+    "fetchedAt": "2026-08-14T07:31:06.484Z"
   },
   "personal-video-ai-search": {
     "archived": false,
@@ -1243,9 +1303,9 @@
     "license": "MIT",
     "openIssues": 16,
     "stars": 14,
-    "updated": "2026-08-12T20:50:53Z",
+    "updated": "2026-08-13T22:33:24Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-14T07:31:06.528Z"
   },
   "video-semantic-search": {
     "archived": false,
