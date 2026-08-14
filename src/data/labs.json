@@ -2698,6 +2698,137 @@
           "support": "Report repository defects and feature requests through the repository's GitHub Issues; this sample is provided as-is with no SLA."
         }
       }
+    },
+    {
+      "id": "4d-gaussian-splatting-volumetric-capture",
+      "title": "4D Gaussian Splatting Volumetric Capture",
+      "tagline": "Turn multi-camera video into a 4D Gaussian Splatting dataset on B2.",
+      "description": "A capture-to-B2 pipeline for dynamic 4D reconstruction: turn synchronized multi-camera video into a hustvl/4DGaussians multipleview dataset and a trained, time-varying Gaussian-Splatting model, with every input and derived artifact versioned in Backblaze B2 over the S3-compatible API.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "4d-gaussian-splatting",
+        "gaussian-splatting",
+        "volumetric-capture",
+        "volumetric-video",
+        "neural-rendering",
+        "3d-reconstruction",
+        "computer-vision",
+        "cloudstorage"
+      ],
+      "icon": "flow",
+      "featured": false,
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/4d-gaussian-splatting-volumetric-capture",
+      "repo": "backblaze-b2-samples/4d-gaussian-splatting-volumetric-capture",
+      "detail": {
+        "metaDescription": "Next.js 16 + FastAPI template that turns synchronized multi-camera video into a 4D Gaussian Splatting dataset and trained splat, all versioned in Backblaze B2.",
+        "audience": "Engineers and AI-assisted builders creating a dynamic 4D or volumetric-capture reconstruction pipeline who need durable, cheap, S3-compatible storage for large capture, training, and export artifacts.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web app and dashboard UI (Tailwind v4, shadcn/ui, Recharts, TanStack Query)"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API with a layered, contract-checked backend"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for every capture and training artifact"
+          },
+          {
+            "name": "NumPy, Pillow, imageio-ffmpeg, plyfile",
+            "role": "CPU capture pipeline: frame extraction, calibration, dataset staging, and .ply handling"
+          },
+          {
+            "name": "hustvl/4DGaussians",
+            "role": "Local, keyless CUDA engine for the 4D training tail"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/4d-gaussian-splatting-volumetric-capture-1.webp",
+            "alt": "Dashboard showing session stat cards, a per-session write-amplification bar chart, and recent-session cards.",
+            "caption": "The dashboard surfaces session stats, a per-session B2 write-amplification chart, and recent captures.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/4d-gaussian-splatting-volumetric-capture-2.webp",
+            "alt": "Sessions page listing capture-session cards, each with scene, camera and frame counts, timestamp, and write-amplification.",
+            "caption": "Every 4D capture session as a card with its scene, camera and frame counts, and write-amplification.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/4d-gaussian-splatting-volumetric-capture-3.webp",
+            "alt": "Session detail with a multi-view contact sheet, 4D metrics, per-stage B2 storage breakdown, and a pipeline timeline where the CUDA stages are skipped.",
+            "caption": "A completed run: the synchronized multi-view contact sheet, 4D metrics, per-stage B2 storage breakdown, and a pipeline timeline with the CUDA training tail auto-gated on a non-GPU host.",
+            "width": 1600,
+            "height": 1380
+          },
+          {
+            "src": "/screenshots/4d-gaussian-splatting-volumetric-capture-4.webp",
+            "alt": "New session form with fields for session name, scene preset, cameras, frames per camera, and training quality.",
+            "caption": "Pick a synthetic scene and capture parameters — cameras, frames, training quality — before running the pipeline.",
+            "width": 1600,
+            "height": 1000
+          }
+        ],
+        "ogImage": {
+          "src": "/og/4d-gaussian-splatting-volumetric-capture.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "4D capture sessions",
+            "description": "Create, browse, edit, delete, and run 4D capture sessions through a full UI lifecycle; each session's system of record is a JSON manifest in B2, with no database."
+          },
+          {
+            "title": "Synchronized multi-view ingest",
+            "description": "Upload per-camera video or seed a fully synthetic capture, then extract frames per camera with a bundled ffmpeg."
+          },
+          {
+            "title": "Real 4DGaussians dataset staging",
+            "description": "Stage a real multipleview dataset with an init point cloud, and get the exact train.py command for the CUDA training tail — the trained splat is never faked."
+          },
+          {
+            "title": "B2 write-amplification story",
+            "description": "A write-amplification dashboard and a per-session Artifacts & Storage explorer break the capture-to-splat fan-out down by pipeline stage."
+          },
+          {
+            "title": "Reusable B2-backed surface",
+            "description": "The starter's full-bucket File Explorer and drag-and-drop presigned Upload are kept intact alongside the domain screens."
+          }
+        ],
+        "useWhen": [
+          "You are building a dynamic 4D or volumetric-capture reconstruction pipeline and want durable, cheap, S3-compatible storage for source video, extracted frames, calibration, checkpoints, and the trained splat.",
+          "You want to run the full CPU pipeline — ingest, frame extraction, calibration, dataset staging, and previews — end to end on any machine with no GPU, staging a real 4DGaussians multipleview dataset into B2.",
+          "You want the CUDA training tail to auto-gate on a non-GPU host and emit the exact train.py command to run on a GPU box, instead of a simulated result.",
+          "You value an engineering-minded scaffold with a layered backend, contract checks, and tests that an AI coding agent can read and extend."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted SaaS product or a managed 4D-reconstruction service — this ships no managed hosting, user accounts, authentication, tenant isolation, or billing.",
+          "You need the 4D training tail to run without a CUDA GPU: the 4DGaussians rasterizer and simple-knn are CUDA-only, so training is gated on CPU or MPS hosts (the CPU pipeline and all B2 I/O still run).",
+          "You need a supported product with a service-level agreement or guaranteed maintenance.",
+          "You only need a general file-upload and object-storage starter without the 4D pipeline — the Vibe Coding Starter Kit is a simpler base."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects and feature requests through the repository's GitHub Issues; this sample is provided as-is with no service-level agreement."
+        }
+      }
     }
   ]
 }
