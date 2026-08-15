@@ -1,4 +1,16 @@
 {
+  "4d-gaussian-splatting-volumetric-capture": {
+    "archived": false,
+    "description": "Next.js 16 + FastAPI template for a 4D Gaussian Splatting volumetric-capture pipeline: turn synchronized multi-camera video into a hustvl/4DGaussians dataset and trained splat model, with every frame, checkpoint, and .ply versioned in Backblaze B2 over the S3-compatible API.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-08-14T13:20:26Z",
+    "repo": "backblaze-b2-samples/4d-gaussian-splatting-volumetric-capture",
+    "fetchedAt": "2026-08-15T07:11:11.069Z"
+  },
   "agent-backup-core": {
     "archived": false,
     "description": "Reusable engine to back up AI coding agent state to Backblaze B2 — encrypted, incremental, WAL-safe SQLite snapshots.",
@@ -7,9 +19,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:56Z",
+    "updated": "2026-08-15T03:25:43Z",
     "repo": "backblaze-labs/agent-backup-core",
-    "fetchedAt": "2026-07-24T09:16:42.697Z"
+    "fetchedAt": "2026-08-15T07:11:10.529Z"
   },
   "agentic-rag-vector-starter-kit": {
     "archived": false,
@@ -114,10 +126,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 6,
+    "stars": 7,
     "updated": "2026-08-09T10:14:05Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-08-10T08:23:08.527Z"
+    "fetchedAt": "2026-08-15T07:11:10.698Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -163,9 +175,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:36Z",
+    "updated": "2026-08-15T04:02:33Z",
     "repo": "backblaze-labs/aider-b2-backup",
-    "fetchedAt": "2026-06-24T10:18:02.532Z"
+    "fetchedAt": "2026-08-15T07:11:10.550Z"
   },
   "albumentations-dataset-augmentation": {
     "archived": false,
@@ -206,14 +218,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 13,
+    "forks": 14,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 12,
+    "openIssues": 13,
     "stars": 3,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-08-11T07:27:19.327Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -230,14 +242,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 10,
+    "forks": 11,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 5,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-08-14T07:31:06.373Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -305,11 +317,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 64,
+    "openIssues": 53,
     "stars": 3,
-    "updated": "2026-07-25T10:39:50Z",
+    "updated": "2026-08-15T02:46:54Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-07-26T09:08:15.152Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "birdnet-passive-acoustic-monitoring": {
     "archived": false,
@@ -367,9 +379,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:40Z",
+    "updated": "2026-08-15T02:47:53Z",
     "repo": "backblaze-labs/cline-b2-backup",
-    "fetchedAt": "2026-06-24T10:18:02.580Z"
+    "fetchedAt": "2026-08-15T07:11:10.528Z"
   },
   "clip-nsfw-image-moderation": {
     "archived": false,
@@ -475,21 +487,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:33Z",
+    "updated": "2026-08-15T03:15:58Z",
     "repo": "backblaze-labs/continue-b2-backup",
-    "fetchedAt": "2026-06-24T10:18:02.567Z"
+    "fetchedAt": "2026-08-15T07:11:10.570Z"
   },
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3801,
+    "forks": 3803,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 606,
-    "stars": 16521,
-    "updated": "2026-08-14T07:07:23Z",
+    "openIssues": 590,
+    "stars": 16526,
+    "updated": "2026-08-14T16:41:44Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-14T07:31:06.453Z"
+    "fetchedAt": "2026-08-15T07:11:10.550Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -701,11 +713,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 6,
-    "updated": "2026-07-21T13:05:54Z",
+    "updated": "2026-08-15T03:16:06Z",
     "repo": "backblaze-labs/genblaze-gen-media-multi-provider-sample",
-    "fetchedAt": "2026-08-02T09:05:42.765Z"
+    "fetchedAt": "2026-08-15T07:11:10.529Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -713,11 +725,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 2,
-    "updated": "2026-07-22T04:13:08Z",
+    "updated": "2026-08-15T03:15:37Z",
     "repo": "backblaze-labs/genblaze-gmicloud-pipeline",
-    "fetchedAt": "2026-07-22T09:23:22.787Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "goose-b2-backup": {
     "archived": false,
@@ -727,9 +739,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:52Z",
+    "updated": "2026-08-15T02:51:20Z",
     "repo": "backblaze-labs/goose-b2-backup",
-    "fetchedAt": "2026-06-24T10:18:02.462Z"
+    "fetchedAt": "2026-08-15T07:11:10.550Z"
   },
   "gpt-realtime-2-customer-support-voice-agent": {
     "archived": false,
@@ -775,9 +787,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:46Z",
+    "updated": "2026-08-15T03:17:00Z",
     "repo": "backblaze-labs/hermes-b2-backup",
-    "fetchedAt": "2026-07-24T09:16:42.597Z"
+    "fetchedAt": "2026-08-15T07:11:10.529Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -822,10 +834,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 6,
-    "stars": 2,
+    "stars": 3,
     "updated": "2026-08-12T18:57:21Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-15T07:11:10.535Z"
   },
   "image-to-3d-asset-library": {
     "archived": false,
@@ -869,11 +881,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 2,
-    "updated": "2026-07-21T04:33:30Z",
+    "updated": "2026-08-15T03:14:41Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-07-21T09:24:06.376Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "lama-batch-inpainting": {
     "archived": false,
@@ -931,21 +943,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-08-13T16:07:46Z",
+    "updated": "2026-08-14T17:38:31Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-08-14T07:31:06.424Z"
+    "fetchedAt": "2026-08-15T07:11:11.114Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6154,
+    "forks": 6161,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2021,
-    "stars": 27510,
-    "updated": "2026-08-14T07:22:22Z",
+    "openIssues": 2027,
+    "stars": 27522,
+    "updated": "2026-08-14T16:55:19Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-14T07:31:06.350Z"
+    "fetchedAt": "2026-08-15T07:11:10.550Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1013,11 +1025,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 0,
     "stars": 0,
-    "updated": "2026-07-21T12:57:57Z",
+    "updated": "2026-08-15T03:14:42Z",
     "repo": "backblaze-labs/nvidia-nemotron-genblaze-b2",
-    "fetchedAt": "2026-07-22T09:23:22.749Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "nudenet-video-moderation": {
     "archived": false,
@@ -1087,9 +1099,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-06-24T04:16:42Z",
+    "updated": "2026-08-15T03:00:51Z",
     "repo": "backblaze-labs/openhands-b2-backup",
-    "fetchedAt": "2026-06-24T10:18:02.531Z"
+    "fetchedAt": "2026-08-15T07:11:10.550Z"
   },
   "paddleocr-document-archive": {
     "archived": false,
@@ -1217,11 +1229,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 82,
+    "openIssues": 73,
     "stars": 8,
-    "updated": "2026-08-10T11:12:17Z",
+    "updated": "2026-08-15T04:36:24Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-11T07:27:19.326Z"
+    "fetchedAt": "2026-08-15T07:11:10.529Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
@@ -1301,11 +1313,11 @@
     "forks": 4,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 16,
+    "openIssues": 15,
     "stars": 14,
-    "updated": "2026-08-13T22:33:24Z",
+    "updated": "2026-08-14T14:30:51Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-08-14T07:31:06.528Z"
+    "fetchedAt": "2026-08-15T07:11:10.549Z"
   },
   "video-semantic-search": {
     "archived": false,
