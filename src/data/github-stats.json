@@ -6,10 +6,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 10,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-08-14T13:20:26Z",
     "repo": "backblaze-b2-samples/4d-gaussian-splatting-volumetric-capture",
-    "fetchedAt": "2026-08-15T07:11:11.069Z"
+    "fetchedAt": "2026-08-16T07:12:37.487Z"
   },
   "agent-backup-core": {
     "archived": false,
@@ -218,14 +218,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 14,
+    "forks": 15,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 13,
+    "openIssues": 14,
     "stars": 3,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-08-15T07:11:10.549Z"
+    "fetchedAt": "2026-08-16T07:12:37.478Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -494,14 +494,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3803,
+    "forks": 3802,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 590,
-    "stars": 16526,
-    "updated": "2026-08-14T16:41:44Z",
+    "openIssues": 592,
+    "stars": 16528,
+    "updated": "2026-08-15T20:48:19Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-15T07:11:10.550Z"
+    "fetchedAt": "2026-08-16T07:12:37.538Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -906,10 +906,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-07-27T21:14:00Z",
     "repo": "backblaze-b2-samples/lance-multimodal-search",
-    "fetchedAt": "2026-07-28T09:32:14.272Z"
+    "fetchedAt": "2026-08-16T07:12:37.433Z"
   },
   "lerobot-b2-streaming": {
     "archived": false,
@@ -950,14 +950,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6161,
+    "forks": 6162,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2027,
-    "stars": 27522,
-    "updated": "2026-08-14T16:55:19Z",
+    "openIssues": 2029,
+    "stars": 27529,
+    "updated": "2026-08-16T05:53:52Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-15T07:11:10.550Z"
+    "fetchedAt": "2026-08-16T07:12:37.506Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1229,11 +1229,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 73,
+    "openIssues": 70,
     "stars": 8,
-    "updated": "2026-08-15T04:36:24Z",
+    "updated": "2026-08-16T05:16:50Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-15T07:11:10.529Z"
+    "fetchedAt": "2026-08-16T07:12:37.559Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
