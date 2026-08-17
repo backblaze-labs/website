@@ -2829,6 +2829,134 @@
           "support": "Report defects and feature requests through the repository's GitHub Issues; this sample is provided as-is with no service-level agreement."
         }
       }
+    },
+    {
+      "id": "nnunet-3d-medical-image-segmentation",
+      "title": "nnU-Net 3D Medical Image Segmentation",
+      "tagline": "Real nnU-Net 3D CT/MRI segmentation with artifacts stored on B2.",
+      "description": "Open source Next.js and FastAPI sample that runs real nnU-Net 3D medical-image segmentation on CT/MRI volumes and stores raw volumes, preprocessed tensors, masks, and the trained model checkpoint on Backblaze B2 over the S3-compatible API.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": ["nnunet", "medical-image-segmentation", "nifti", "pytorch", "cloudstorage"],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/nnunet-3d-medical-image-segmentation",
+      "repo": "backblaze-b2-samples/nnunet-3d-medical-image-segmentation",
+      "detail": {
+        "metaDescription": "Open source Next.js and FastAPI sample that runs real nnU-Net 3D CT/MRI segmentation and stores volumes, masks, and the model checkpoint on Backblaze B2 via the S3 API.",
+        "audience": "Developers and AI coding agents evaluating Backblaze B2 as the storage backbone for a 3D medical-imaging or segmentation pipeline.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching, caching, and retry"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API and configuration validation"
+          },
+          {
+            "name": "nnU-Net v2 (nnunetv2) + PyTorch",
+            "role": "The real 3D segmentation engine"
+          },
+          {
+            "name": "nibabel / pydicom / SimpleITK + Pillow",
+            "role": "Volume I/O and mid-slice rendering"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage access"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/nnunet-3d-medical-image-segmentation-1.webp",
+            "alt": "Dashboard with cohort metrics, storage-by-artifact breakdown, and recent segmentations",
+            "caption": "Cohort metrics (volumes, masks, jobs completed, model-on-B2 size), a storage-by-artifact-type breakdown, and recent segmentations.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/nnunet-3d-medical-image-segmentation-2.webp",
+            "alt": "Segmentations list of CT and MRI jobs with status and re-run actions",
+            "caption": "Every nnU-Net job across sites and modalities, each linked to its ingested volume, with one-click re-run.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/nnunet-3d-medical-image-segmentation-3.webp",
+            "alt": "Volumes grid of ingested CT and MRI volumes with mid-slice thumbnails",
+            "caption": "The sample-scoped explorer of ingested 3D CT/MRI volumes, with server-rendered mid-slice thumbnails and site, modality, and patient tags.",
+            "width": 1600,
+            "height": 1947
+          },
+          {
+            "src": "/screenshots/nnunet-3d-medical-image-segmentation-4.webp",
+            "alt": "Completed segmentation job showing the lesion mask overlaid on an MRI slice with metrics",
+            "caption": "A completed job's real NIfTI mask overlaid on the mid-axial slice, with per-label voxel/volume metrics and the mask's B2 key.",
+            "width": 1600,
+            "height": 1000
+          }
+        ],
+        "ogImage": {
+          "src": "/og/nnunet-3d-medical-image-segmentation.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Real nnU-Net segmentation",
+            "description": "Pick an ingested volume, run real nnunetv2 inference, and get a NIfTI mask plus a mid-axial-slice overlay preview. There is no thresholding or mock fallback: an empty or missing model fails the run rather than faking a mask."
+          },
+          {
+            "title": "The model lives on B2",
+            "description": "A genuine short nnU-Net training run at seed time mints the checkpoint, which is archived to B2 and pulled on demand so any host can serve inference without re-training."
+          },
+          {
+            "title": "Every artifact on B2 over the S3 API",
+            "description": "Raw volumes, preprocessed tensors, masks, and the checkpoint all land on Backblaze B2 through the S3-compatible API with a custom user agent. B2 is the only store, with no separate database."
+          },
+          {
+            "title": "Two explorers and a dashboard",
+            "description": "A domain-scoped Volumes view with server-rendered mid-slice thumbnails, a full-bucket file browser, and a dashboard of cohort metrics and storage by artifact type."
+          },
+          {
+            "title": "Full segmentation-job lifecycle",
+            "description": "Create, read, edit, delete, and re-run segmentation jobs, each stored as a B2 JSON record, with honest staged progress reported during the run."
+          }
+        ],
+        "useWhen": [
+          "You want to evaluate Backblaze B2 as the single store for a write-amplifying imaging pipeline that ingests, preprocesses, trains, segments, and serves.",
+          "You need a working end-to-end example of real nnU-Net 3D CT/MRI inference producing a NIfTI mask and a mid-slice overlay, not a mock.",
+          "You want the trained model checkpoint to live on object storage so any host can serve inference without re-training.",
+          "You are scaffolding a segmentation app with an AI coding agent and value a CPU-only demo that trains and infers in minutes."
+        ],
+        "avoidWhen": [
+          "You need a hosted, validated clinical product: this has no authentication, no tenant isolation, and no clinical validation or regulatory clearance.",
+          "You want to point it at real patient data as-is; the demo segments a synthetic lesion and you must add auth, per-tenant scoping, and PHI governance first.",
+          "You need the nnU-Net API to run serverless; torch and nnU-Net exceed serverless size and RAM limits and need real, optionally GPU, compute.",
+          "You only need generic file uploads and object storage without any ML, in which case the Vibe Coding Starter Kit is a simpler fit."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects through the repository's GitHub Issues; this open source sample has no service-level agreement and no guaranteed support."
+        }
+      }
     }
   ]
 }
