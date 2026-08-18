@@ -2957,6 +2957,154 @@
           "support": "Report defects through the repository's GitHub Issues; this open source sample has no service-level agreement and no guaranteed support."
         }
       }
+    },
+    {
+      "id": "immich-object-storage-backend",
+      "title": "Immich B2 Backend",
+      "tagline": "Immich-style photo-library backend that stores everything on Backblaze B2.",
+      "description": "Self-hosted, Immich-style photo-library backend that stores originals, thumbnails, CLIP embeddings, smart tags, and EXIF sidecars on Backblaze B2 via the S3-compatible API. CLIP semantic search and smart tags are powered by real OpenCLIP (ViT-B-32/openai). FastAPI + Next.js sample.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": [
+        "immich",
+        "photo-library",
+        "clip",
+        "semantic-search",
+        "object-storage",
+        "self-hosted"
+      ],
+      "languages": ["typescript", "python", "javascript"],
+      "icon": "flow",
+      "featured": false,
+      "url": "https://github.com/backblaze-b2-samples/immich-object-storage-backend",
+      "repo": "backblaze-b2-samples/immich-object-storage-backend",
+      "detail": {
+        "metaDescription": "Self-hosted, Immich-style photo-library backend that stores originals, thumbnails, CLIP embeddings, smart tags and EXIF sidecars on Backblaze B2, with CLIP semantic search.",
+        "audience": "Privacy-conscious self-hosters who want full ownership plus unlimited archival capacity on B2, and AI engineers who want a reference for a media pipeline whose storage layer is Backblaze B2.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web frontend for the library, search, upload, and dashboard screens"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching, caching, dedup, and retry"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API with a layered architecture and validated boundaries"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage access, isolated in the repo layer"
+          },
+          {
+            "name": "Pillow",
+            "role": "EXIF/metadata extraction and thumbnail generation"
+          },
+          {
+            "name": "OpenCLIP (open-clip-torch, ViT-B-32/openai) + torch",
+            "role": "Optional on-device engine for CLIP embeddings, smart tags, and semantic search"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/immich-object-storage-backend-1.webp",
+            "alt": "Dashboard with photo count, write-amplification ratio, storage-by-prefix breakdown and ML status",
+            "caption": "The dashboard shows the photo count, total bytes on B2, the write-amplification ratio, a storage-by-prefix breakdown, and CLIP ML status.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/immich-object-storage-backend-2.webp",
+            "alt": "Library gallery of photos scoped to the library/ prefix",
+            "caption": "The Library gallery is scoped to the library/ prefix, with every card marked \"AI tagged\" and favorites flagged.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/immich-object-storage-backend-3.webp",
+            "alt": "Asset detail dialog with original, smart tags, EXIF, description and embedding",
+            "caption": "Asset detail shows the original, CLIP smart tags with scores, EXIF, an editable description and tags, and the ViT-B-32/openai embedding, all living on B2.",
+            "width": 1600,
+            "height": 1556
+          },
+          {
+            "src": "/screenshots/immich-object-storage-backend-4.webp",
+            "alt": "Semantic search results ranked by CLIP similarity score",
+            "caption": "Semantic search embeds a natural-language query with the same on-device CLIP model and cosine-ranks it against the embeddings stored in B2, with a score on each result.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/immich-object-storage-backend-5.webp",
+            "alt": "Upload page with a drag-and-drop dropzone for photos",
+            "caption": "Upload is drag-and-drop ingest that sends each original straight to B2, then fans it out into thumbnails, an EXIF sidecar, a CLIP embedding, and smart tags.",
+            "width": 1600,
+            "height": 1000
+          }
+        ],
+        "ogImage": {
+          "src": "/og/immich-object-storage-backend.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Photo ingest with a real B2 fan-out",
+            "description": "Each uploaded original goes straight to B2, then fans out into thumbnails and an EXIF sidecar (always), plus a CLIP embedding and smart tags when the optional ML layer is installed — every derivative landing under Immich-style structured prefixes."
+          },
+          {
+            "title": "CLIP semantic search and smart tags",
+            "description": "Natural-language search and zero-shot smart tags run on real OpenCLIP (open-clip-torch, model ViT-B-32/openai) — Immich's own default model — cosine-ranked against embeddings stored in B2."
+          },
+          {
+            "title": "Library gallery with full asset detail",
+            "description": "A library/-scoped gallery opens each photo to its original, thumbnails, tags, EXIF, and embedding status, with edit, re-run ML, and delete actions."
+          },
+          {
+            "title": "B2 as the single source of truth",
+            "description": "Originals, ML artifacts, previews, and metadata all persist to B2 over the S3-compatible API, with no separate database — the library is reconstructed by listing the sidecar/ prefix."
+          },
+          {
+            "title": "Write-amplification dashboard and file explorer",
+            "description": "The dashboard surfaces the exact write-amplification ratio and storage-by-prefix breakdown, and a reusable full-bucket file explorer browses every prefix."
+          },
+          {
+            "title": "Layered, agent-ready reference",
+            "description": "A strictly layered FastAPI backend with structural tests, a checked OpenAPI contract, and agent-optimized docs so an AI coding agent can read the repo and start contributing immediately."
+          }
+        ],
+        "useWhen": [
+          "You want a working reference for a media pipeline whose storage layer is B2: ingest, derivative fan-out, on-device ML, and semantic search, all persisting over the S3-compatible API.",
+          "You want to store a whole photo library — originals plus thumbnails, ML artifacts, and metadata sidecars — on B2 rather than in a database or on local disk.",
+          "You want semantic search and smart tags on your library from a real OpenCLIP engine you run yourself, on CPU by default with GPU/MPS auto-detected.",
+          "You want a faithful, minimal model of how Immich uses external object storage, with production-minded controls (strict architecture, contract checks, tests) to build on."
+        ],
+        "avoidWhen": [
+          "You need a complete, hosted photo service: this provides no managed hosting, user accounts, or authentication, and is single-tenant (user_id=\"demo\").",
+          "You need face recognition, video transcoding, or multi-tenant isolation out of the box — these are documented extension points, deliberately scoped out.",
+          "You expect production security, operations, capacity, and compliance decisions to be made for you rather than owned before you adapt it.",
+          "You only need generic file uploads and object storage without the ML pipeline — the Vibe Coding Starter Kit is a lighter starting point."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report issues through GitHub Issues on the repository; this sample is provided as-is with no service-level agreement."
+        }
+      }
     }
   ]
 }
