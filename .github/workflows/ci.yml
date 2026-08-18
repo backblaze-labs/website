@@ -1,10 +1,15 @@
 name: CI
 
-# Runs on every pull request and push (except main, which is covered by deploy.yml).
-# Dependabot PRs are intentionally skipped to avoid spending CI minutes on
-# automated update branches that are reviewed and consolidated manually.
+# Runs on every pull request and push (except main, which is covered by
+# deploy.yml, and dependabot branches).
 # Single job: lint + format + typecheck + JSON-schema validate + build smoke.
 # Catches regressions before they hit main.
+#
+# Dependabot PRs NEVER run CI. The `checks` job is gated on both the run actor
+# and the PR author, so a dependabot PR stays skipped even when a human re-runs
+# it (github.actor becomes the human, but the PR author is still dependabot).
+# Dependabot updates are reviewed and consolidated manually. Any NEW workflow
+# that triggers on `pull_request` MUST replicate this guard.
 
 on:
   pull_request:
@@ -20,7 +25,7 @@ concurrency:
 
 jobs:
   checks:
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
