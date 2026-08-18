@@ -3105,6 +3105,132 @@
           "support": "Report issues through GitHub Issues on the repository; this sample is provided as-is with no service-level agreement."
         }
       }
+    },
+    {
+      "id": "datacomp-image-text-filtering",
+      "title": "DataComp Image-Text Filtering",
+      "tagline": "Curate VLM pretraining datasets on B2 with CLIP-score filtering",
+      "description": "DataComp-style image-text dataset filtering on Backblaze B2: stream WebDataset shards from object storage, score image-text alignment with CLIP, and write filtered shards plus quality metrics back to B2 — no local staging, no database. Full-stack Next.js + FastAPI sample for VLM-pretraining data curation.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "datacomp",
+        "clip",
+        "vision-language-model",
+        "dataset-curation",
+        "webdataset",
+        "object-storage"
+      ],
+      "languages": ["python", "typescript"],
+      "url": "https://github.com/backblaze-b2-samples/datacomp-image-text-filtering",
+      "repo": "backblaze-b2-samples/datacomp-image-text-filtering",
+      "detail": {
+        "metaDescription": "DataComp-style image-text filtering on Backblaze B2: stream WebDataset shards, score image-text alignment with CLIP, and write filtered shards + metrics back to B2.",
+        "audience": "ML engineers and data curators building vision-language-model pretraining datasets, and teams evaluating Backblaze B2 as the storage layer for large-scale data curation.",
+        "license": {
+          "name": "MIT",
+          "url": "https://github.com/backblaze-b2-samples/datacomp-image-text-filtering/blob/main/LICENSE"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Frontend — App Router, Tailwind v4, shadcn/ui"
+          },
+          {
+            "name": "FastAPI",
+            "role": "Python 3.12 backend with a strict layered architecture"
+          },
+          {
+            "name": "open_clip (CLIP ViT-B-32)",
+            "role": "On-device image-text alignment scoring engine"
+          },
+          {
+            "name": "WebDataset",
+            "role": ".tar shard format streamed from and written back to B2"
+          },
+          {
+            "name": "Backblaze B2",
+            "role": "Sole storage layer via the S3-compatible API"
+          }
+        ],
+        "capabilities": [
+          {
+            "title": "DataComp-style CLIP-score filtering",
+            "description": "Stream shards from B2, score image-text alignment with CLIP, and keep the top-percentile pairs (DataComp's clip_score baseline)."
+          },
+          {
+            "title": "Configurable baseline filters",
+            "description": "CLIP-score percentile, min image resolution, caption-length bounds, and near-duplicate removal — the clip_score / basic / image_based / text_based families, chosen on the Run form."
+          },
+          {
+            "title": "Filter Runs, full lifecycle in the UI",
+            "description": "Create, read, edit, delete, and run filter jobs. B2 manifests are the sole store — no database."
+          },
+          {
+            "title": "Pool Explorer",
+            "description": "Open a WebDataset shard to inspect the image-text pairs inside it: thumbnail, caption, CLIP score, and kept/dropped."
+          },
+          {
+            "title": "Bucket Explorer",
+            "description": "Browse every object in the bucket (pool, filtered, manifests, metrics) with preview, download, and delete."
+          }
+        ],
+        "useWhen": [
+          "You want a working reference for a DataComp-style CLIP-score filtering pipeline that streams WebDataset shards from object storage.",
+          "You want to run real CLIP scoring over an image-text pool and inspect which pairs were kept vs dropped and why.",
+          "You're evaluating Backblaze B2 as the sole storage layer for vision-language-model pretraining data curation — no database."
+        ],
+        "avoidWhen": [
+          "You need petabyte-scale throughput as-is — the demo holds each shard in memory; production would stream via WebDataset's S3 reader and run the engine on a GPU fleet.",
+          "You need multi-tenant access control — the UI is unauthenticated and operates bucket-wide (single-tenant demo)."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Community sample with no SLA — file issues on the GitHub repository, but support is best-effort only."
+        },
+        "ogImage": {
+          "src": "/og/datacomp-image-text-filtering.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "screenshots": [
+          {
+            "src": "/screenshots/datacomp-image-text-filtering-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with run totals, pairs-kept, and average-reduction stats above a recent-runs table",
+            "caption": "Filter-run totals, pairs kept, and average storage reduction, over a table of the most recent runs."
+          },
+          {
+            "src": "/screenshots/datacomp-image-text-filtering-2.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Filter Runs list showing each run's strategy, status, kept-vs-in counts, and reduction",
+            "caption": "Every CLIP filter job with its strategy, status, kept/in counts, and reduction, plus the full create/run/delete lifecycle."
+          },
+          {
+            "src": "/screenshots/datacomp-image-text-filtering-3.webp",
+            "width": 1600,
+            "height": 1491,
+            "alt": "Run detail with configuration, results, per-shard metrics, and per-pair CLIP-score decisions",
+            "caption": "A completed run's configuration and results alongside per-shard metrics and the per-pair CLIP scores with kept/dropped decisions."
+          },
+          {
+            "src": "/screenshots/datacomp-image-text-filtering-4.webp",
+            "width": 1600,
+            "height": 2098,
+            "alt": "Pool Explorer showing a grid of image-text pairs from a raw WebDataset shard",
+            "caption": "Open a WebDataset shard to inspect the image-text pairs inside it: thumbnail, caption, and resolution."
+          },
+          {
+            "src": "/screenshots/datacomp-image-text-filtering-5.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Ingest page with a drag-and-drop zone for direct-to-B2 uploads",
+            "caption": "Upload raw WebDataset shards or image-text assets straight into B2 with a presigned, direct-to-bucket PUT."
+          }
+        ]
+      }
     }
   ]
 }
