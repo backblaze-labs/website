@@ -3111,7 +3111,7 @@
       "title": "DataComp Image-Text Filtering",
       "tagline": "Curate VLM pretraining datasets on B2 with CLIP-score filtering",
       "description": "DataComp-style image-text dataset filtering on Backblaze B2: stream WebDataset shards from object storage, score image-text alignment with CLIP, and write filtered shards plus quality metrics back to B2 — no local staging, no database. Full-stack Next.js + FastAPI sample for VLM-pretraining data curation.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "type": "sample",
       "tags": [
         "datacomp",
