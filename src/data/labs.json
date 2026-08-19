@@ -3231,6 +3231,90 @@
           }
         ]
       }
+    },
+    {
+      "id": "b2-mcp",
+      "title": "B2 Mcp",
+      "tagline": "MCP server for Backblaze B2 — full B2 native API + a minimal S3-compatible set…",
+      "description": "MCP server for Backblaze B2 — full B2 native API + a minimal S3-compatible set (only operations with no native equivalent)",
+      "categories": ["agent-skills"],
+      "type": "tool",
+      "languages": ["typescript", "javascript"],
+      "tags": ["b2", "mcp", "mcp-server"],
+      "repo": "backblaze-labs/b2-mcp",
+      "url": "https://github.com/backblaze-labs/b2-mcp",
+      "icon": "bot",
+      "featured": false
+    },
+    {
+      "id": "data-encryption",
+      "title": "Data Encryption",
+      "tagline": "Sample Python code showing the different encryption options available in…",
+      "description": "Sample Python code showing the different encryption options available in Backblaze B2.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["markdown"],
+      "tags": ["backblaze-b2", "cloudstorage"],
+      "repo": "backblaze-b2-samples/b2-data-encryption",
+      "url": "https://github.com/backblaze-b2-samples/b2-data-encryption",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "event-broker",
+      "title": "Event Broker",
+      "tagline": "Forward Backblaze B2 Event Notification messages to multiple subscribers",
+      "description": "Forward Backblaze B2 Event Notification messages to multiple subscribers",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["javascript"],
+      "tags": ["backblaze-b2", "cloudstorage"],
+      "repo": "backblaze-b2-samples/b2-event-broker",
+      "url": "https://github.com/backblaze-b2-samples/b2-event-broker",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "iconik-plugin",
+      "title": "Iconik Plugin",
+      "tagline": "Optimize your iconik and LucidLink storage with B2",
+      "description": "Optimize your iconik and LucidLink storage with B2",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["python"],
+      "tags": ["backblaze-b2", "cloudstorage"],
+      "repo": "backblaze-b2-samples/b2-iconik-plugin",
+      "url": "https://github.com/backblaze-b2-samples/b2-iconik-plugin",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "browser-upload",
+      "title": "Browser Upload",
+      "tagline": "Demonstrates uploading files from JavaScript in the browser to Backblaze B2…",
+      "description": "Demonstrates uploading files from JavaScript in the browser to Backblaze B2 using both the B2 Native and S3-Compatible APIs",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["javascript"],
+      "tags": ["backblaze-b2", "cloudstorage"],
+      "repo": "backblaze-b2-samples/b2-browser-upload",
+      "url": "https://github.com/backblaze-b2-samples/b2-browser-upload",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "ai-rag-examples",
+      "title": "Ai Rag Examples",
+      "tagline": "Code samples showing how to include data stored in Backblaze B2 in a RAG…",
+      "description": "Code samples showing how to include data stored in Backblaze B2 in a RAG application",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["markdown"],
+      "tags": ["backblaze-b2", "cloudstorage"],
+      "repo": "backblaze-b2-samples/ai-rag-examples",
+      "url": "https://github.com/backblaze-b2-samples/ai-rag-examples",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
