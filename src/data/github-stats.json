@@ -31,9 +31,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 2,
-    "updated": "2026-08-18T05:39:37Z",
+    "updated": "2026-08-18T08:45:05Z",
     "repo": "backblaze-b2-samples/agentic-rag-vector-starter-kit",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.927Z"
   },
   "ai-audiobook-generator": {
     "archived": false,
@@ -53,11 +53,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 1,
-    "updated": "2026-08-18T05:31:13Z",
+    "updated": "2026-08-18T08:26:41Z",
     "repo": "backblaze-b2-samples/ai-avatar-video-generator",
-    "fetchedAt": "2026-08-18T07:15:59.360Z"
+    "fetchedAt": "2026-08-19T07:16:07.915Z"
   },
   "ai-headshot-studio": {
     "archived": false,
@@ -77,11 +77,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 3,
     "stars": 0,
-    "updated": "2026-08-18T04:21:41Z",
+    "updated": "2026-08-18T08:26:50Z",
     "repo": "backblaze-b2-samples/ai-meeting-notes",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.926Z"
   },
   "ai-moodboard-generator": {
     "archived": false,
@@ -101,11 +101,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 1,
-    "updated": "2026-08-18T04:22:11Z",
+    "updated": "2026-08-18T08:41:21Z",
     "repo": "backblaze-b2-samples/ai-music-studio",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.926Z"
   },
   "ai-product-photo-studio": {
     "archived": false,
@@ -282,10 +282,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 3,
+    "stars": 4,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-07-17T09:05:05.945Z"
+    "fetchedAt": "2026-08-19T07:16:07.927Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -307,9 +307,9 @@
     "license": "MIT",
     "openIssues": 51,
     "stars": 7,
-    "updated": "2026-08-18T05:01:21Z",
+    "updated": "2026-08-18T15:21:03Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.926Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -319,9 +319,9 @@
     "license": "MIT",
     "openIssues": 53,
     "stars": 3,
-    "updated": "2026-08-15T02:46:54Z",
+    "updated": "2026-08-18T15:18:47Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-08-15T07:11:10.549Z"
+    "fetchedAt": "2026-08-19T07:16:07.933Z"
   },
   "birdnet-passive-acoustic-monitoring": {
     "archived": false,
@@ -367,9 +367,9 @@
     "license": "MIT",
     "openIssues": 2,
     "stars": 40,
-    "updated": "2026-07-22T09:44:31Z",
+    "updated": "2026-08-18T15:20:16Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-08-13T07:30:45.303Z"
+    "fetchedAt": "2026-08-19T07:16:07.934Z"
   },
   "cline-b2-backup": {
     "archived": false,
@@ -494,14 +494,26 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3805,
+    "forks": 3803,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 591,
-    "stars": 16539,
-    "updated": "2026-08-17T18:45:04Z",
+    "openIssues": 588,
+    "stars": 16543,
+    "updated": "2026-08-18T19:28:08Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.935Z"
+  },
+  "datacomp-image-text-filtering": {
+    "archived": false,
+    "description": "DataComp-style image-text dataset filtering on Backblaze B2: stream WebDataset shards from object storage, score image-text alignment with CLIP (open_clip), write filtered shards + quality metrics back to B2 — no local staging, no database. Full-stack Next.js + FastAPI sample for VLM-pretraining data curation",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-08-18T19:11:16Z",
+    "repo": "backblaze-b2-samples/datacomp-image-text-filtering",
+    "fetchedAt": "2026-08-19T07:16:08.346Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -702,10 +714,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 68,
-    "stars": 559,
-    "updated": "2026-08-06T05:45:42Z",
+    "stars": 560,
+    "updated": "2026-08-18T15:22:51Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.935Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -834,10 +846,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 3,
+    "stars": 4,
     "updated": "2026-08-18T04:52:50Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.926Z"
   },
   "image-to-3d-asset-library": {
     "archived": false,
@@ -863,17 +875,29 @@
     "repo": "backblaze-b2-samples/img2dataset-webdataset-object-storage",
     "fetchedAt": "2026-08-18T07:15:59.928Z"
   },
+  "immich-object-storage-backend": {
+    "archived": false,
+    "description": "Self-hosted, Immich-style photo-library backend that stores originals, thumbnails, CLIP embeddings, smart tags and EXIF sidecars on Backblaze B2 via the S3-compatible API — with CLIP semantic search and smart tags powered by real OpenCLIP (ViT-B-32). FastAPI + Next.js sample.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-08-18T15:25:53Z",
+    "repo": "backblaze-b2-samples/immich-object-storage-backend",
+    "fetchedAt": "2026-08-19T07:16:08.351Z"
+  },
   "jupyter-b2": {
     "archived": false,
     "description": null,
     "forks": 0,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 0,
     "stars": 2,
-    "updated": "2026-03-26T00:20:36Z",
+    "updated": "2026-08-18T15:37:04Z",
     "repo": "backblaze-labs/jupyter-b2",
-    "fetchedAt": "2026-06-17T03:51:23.343Z"
+    "fetchedAt": "2026-08-19T07:16:07.934Z"
   },
   "jupyterlab-b2": {
     "archived": false,
@@ -883,9 +907,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 2,
-    "updated": "2026-08-17T13:22:22Z",
+    "updated": "2026-08-18T15:16:53Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.933Z"
   },
   "lama-batch-inpainting": {
     "archived": false,
@@ -950,14 +974,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6172,
+    "forks": 6178,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2033,
-    "stars": 27556,
-    "updated": "2026-08-18T05:55:19Z",
+    "openIssues": 2042,
+    "stars": 27573,
+    "updated": "2026-08-19T05:18:06Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.935Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1241,11 +1265,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 65,
+    "openIssues": 54,
     "stars": 8,
-    "updated": "2026-08-18T07:15:33Z",
+    "updated": "2026-08-18T15:16:29Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-19T07:16:07.926Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
