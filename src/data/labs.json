@@ -3315,6 +3315,149 @@
       "url": "https://github.com/backblaze-b2-samples/ai-rag-examples",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "mmpose-video-keypoint-extraction",
+      "title": "MMPose Video Keypoint Extraction",
+      "tagline": "Turn a video library into a pose-keypoint dataset on Backblaze B2.",
+      "description": "Extract 2D/3D skeleton keypoints from video frames with a local MMPose engine and store per-frame keypoint JSON, skeleton-overlay images, and a keypoints_index.jsonl dataset manifest on Backblaze B2 — a Next.js + FastAPI sample for building pose datasets that training and analytics pipelines read straight from object storage.",
+      "categories": ["ai-ml", "data-pipelines", "developer-tools"],
+      "type": "sample",
+      "tags": [
+        "mmpose",
+        "openmmlab",
+        "pose-estimation",
+        "keypoint-detection",
+        "computer-vision",
+        "video-processing",
+        "python"
+      ],
+      "languages": ["python", "typescript"],
+      "url": "https://github.com/backblaze-b2-samples/mmpose-video-keypoint-extraction",
+      "repo": "backblaze-b2-samples/mmpose-video-keypoint-extraction",
+      "detail": {
+        "metaDescription": "Extract 2D/3D pose keypoints from video with a local MMPose engine and store per-frame JSON, skeleton overlays, and a JSONL dataset manifest on Backblaze B2.",
+        "audience": "Sports-science teams and fitness-app developers who need pose data at dataset scale to train pose classifiers, rep-counting models, and biomechanical pipelines.",
+        "ctaLabel": "Get the code",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web UI: dashboard, ingest, runs, library, and full-bucket file browser"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query + Recharts",
+            "role": "Client-side data fetching and dashboard charts"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API with a checked OpenAPI contract"
+          },
+          {
+            "name": "MMPose / MMDetection / MMCV",
+            "role": "On-device 2D top-down and 3D lifting pose engine (opt-in install)"
+          },
+          {
+            "name": "torch",
+            "role": "Model runtime, CPU by default with CUDA auto-detect"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for frames, keypoints, overlays, and the manifest"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/mmpose-video-keypoint-extraction-1.webp",
+            "alt": "Dashboard showing pose metrics, write-amplification, and recent runs",
+            "caption": "The dashboard leads with the B2 write-amplification headline, pose keypoint metrics, a runs-per-day chart, and recent extraction runs.",
+            "width": 1600,
+            "height": 1021
+          },
+          {
+            "src": "/screenshots/mmpose-video-keypoint-extraction-2.webp",
+            "alt": "Ingest page with a drag-and-drop upload dropzone",
+            "caption": "Drag-and-drop upload of source frames and clips straight to Backblaze B2, organized by session.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/mmpose-video-keypoint-extraction-3.webp",
+            "alt": "Extraction runs list with status and lifecycle actions",
+            "caption": "The Extraction Run list shows session, model, frame count, status, and full lifecycle actions.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/mmpose-video-keypoint-extraction-4.webp",
+            "alt": "Run detail showing the skeleton-overlay gallery and per-frame keypoints",
+            "caption": "Run detail presents a skeleton-overlay gallery, the per-frame keypoint table, and one-click manifest download.",
+            "width": 1600,
+            "height": 2671
+          },
+          {
+            "src": "/screenshots/mmpose-video-keypoint-extraction-5.webp",
+            "alt": "Library view scoped to the sample prefix, grouped into sessions and runs",
+            "caption": "The Library is a sample-scoped view of every object written to B2, grouped into ingested sessions and extraction runs.",
+            "width": 1600,
+            "height": 1000
+          }
+        ],
+        "ogImage": {
+          "src": "/og/mmpose-video-keypoint-extraction.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "On-device MMPose engine",
+            "description": "A real 2D top-down and 3D lifting pose engine runs per frame and writes back keypoint JSON and skeleton-overlay images. It runs on CPU by default and auto-detects CUDA, natively on macOS arm64 with no container."
+          },
+          {
+            "title": "Extraction runs as B2 manifests",
+            "description": "The Extraction Run entity has a full lifecycle — create, read, edit, delete, and execute — persisted as a Backblaze B2 manifest with no database to operate."
+          },
+          {
+            "title": "The manifest is the dataset index",
+            "description": "Every source frame maps to its derived keypoint JSON and overlay in a keypoints_index.jsonl manifest, so a training job streams the dataset straight from B2."
+          },
+          {
+            "title": "Full-stack UI over object storage",
+            "description": "A Next.js dashboard, ingest, runs, run detail, session library, and a full-bucket file browser cover the whole ingest-to-dataset workflow."
+          },
+          {
+            "title": "Agent-first, contract-checked backend",
+            "description": "A layered FastAPI service with structural tests, a checked OpenAPI contract, and agent-optimized docs so a coding agent can read the repo and extend it safely."
+          }
+        ],
+        "useWhen": [
+          "You need to turn a video or frame library into a pose-keypoint dataset on B2 — per-frame keypoint JSON, skeleton-overlay images, and a JSONL manifest.",
+          "You want to run pose estimation on local open-source models, with your B2 credentials as the only keys required.",
+          "You want a full-stack Next.js + FastAPI scaffold with the extraction-run lifecycle already wired to object storage.",
+          "You plan to stream the dataset into a training or analytics pipeline directly from B2 over the S3-compatible API."
+        ],
+        "avoidWhen": [
+          "You need a hosted SaaS with managed hosting, accounts, authentication, tenant isolation, or an SLA.",
+          "You need real-time streaming pose tracking or a clinical-grade biomechanics product.",
+          "You cannot run a machine with CPU or GPU compute for the engine — it does not run on Vercel serverless, so extractions run on a box with the engine installed.",
+          "You only need generic file uploads and object-storage workflows without pose estimation — the Vibe Coding Starter Kit is a simpler starting point."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects through the repository's GitHub Issues; this is an unsupported Backblaze sample provided as-is with no SLA."
+        }
+      }
     }
   ]
 }
