@@ -3321,7 +3321,7 @@
       "title": "MMPose Video Keypoint Extraction",
       "tagline": "Turn a video library into a pose-keypoint dataset on Backblaze B2.",
       "description": "Extract 2D/3D skeleton keypoints from video frames with a local MMPose engine and store per-frame keypoint JSON, skeleton-overlay images, and a keypoints_index.jsonl dataset manifest on Backblaze B2 — a Next.js + FastAPI sample for building pose datasets that training and analytics pipelines read straight from object storage.",
-      "categories": ["ai-ml", "data-pipelines", "developer-tools"],
+      "categories": ["ai-ml"],
       "type": "sample",
       "tags": [
         "mmpose",
