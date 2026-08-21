@@ -138,10 +138,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 7,
+    "stars": 8,
     "updated": "2026-08-09T10:14:05Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-08-15T07:11:10.698Z"
+    "fetchedAt": "2026-08-21T07:17:38.704Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -290,14 +290,14 @@
   "awesome-physical-ai": {
     "archived": false,
     "description": "A curated list of physical AI tools: robotics foundation models, world models, simulators, teleoperation, sim-to-real, and embodied AI datasets for robot learning and autonomous systems.",
-    "forks": 0,
+    "forks": 1,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 0,
-    "stars": 4,
+    "stars": 5,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-08-19T07:16:07.927Z"
+    "fetchedAt": "2026-08-21T07:17:38.403Z"
   },
   "awesome-video-generation": {
     "archived": false,
@@ -325,15 +325,15 @@
   },
   "b2-mcp": {
     "archived": false,
-    "description": "MCP server for Backblaze B2 — full B2 native API + a minimal S3-compatible set (only operations with no native equivalent)",
+    "description": "MCP server for Backblaze B2 Cloud Storage: a focused, safe 40-tool surface (17 native B2 SDK, 19 S3 data-plane, 4 analytics) for any MCP-compatible AI client.",
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 18,
+    "openIssues": 16,
     "stars": 1,
-    "updated": "2026-08-19T23:28:40Z",
+    "updated": "2026-08-21T04:54:48Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-08-20T07:17:21.093Z"
+    "fetchedAt": "2026-08-21T07:17:38.633Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -530,14 +530,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3805,
+    "forks": 3809,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 587,
-    "stars": 16552,
-    "updated": "2026-08-19T16:44:33Z",
+    "openIssues": 592,
+    "stars": 16559,
+    "updated": "2026-08-20T22:41:11Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-20T07:17:20.712Z"
+    "fetchedAt": "2026-08-21T07:17:38.647Z"
   },
   "data-encryption": {
     "archived": false,
@@ -774,10 +774,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 69,
-    "stars": 560,
+    "stars": 561,
     "updated": "2026-08-20T05:53:43Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-20T07:17:20.712Z"
+    "fetchedAt": "2026-08-21T07:17:38.584Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1039,21 +1039,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-08-17T18:59:44Z",
+    "updated": "2026-08-20T16:02:58Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-08-18T07:15:59.913Z"
+    "fetchedAt": "2026-08-21T07:17:38.685Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6189,
+    "forks": 6195,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2054,
-    "stars": 27592,
-    "updated": "2026-08-20T00:54:28Z",
+    "openIssues": 2060,
+    "stars": 27600,
+    "updated": "2026-08-21T03:56:20Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-20T07:17:20.712Z"
+    "fetchedAt": "2026-08-21T07:17:38.638Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1078,6 +1078,18 @@
     "updated": "2026-08-17T18:37:35Z",
     "repo": "backblaze-b2-samples/mmdetection3d-lidar-dataset",
     "fetchedAt": "2026-08-18T07:15:59.965Z"
+  },
+  "mmpose-video-keypoint-extraction": {
+    "archived": false,
+    "description": "Extract 2D/3D pose keypoints from video with a local MMPose engine and store per-frame JSON, skeleton overlays, and a JSONL dataset manifest on Backblaze B2 — a Next.js + FastAPI sample for building pose datasets.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-08-20T15:48:55Z",
+    "repo": "backblaze-b2-samples/mmpose-video-keypoint-extraction",
+    "fetchedAt": "2026-08-21T07:17:38.585Z"
   },
   "monai-dicom-segmentation": {
     "archived": false,
@@ -1337,11 +1349,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 62,
+    "openIssues": 66,
     "stars": 8,
-    "updated": "2026-08-20T00:24:55Z",
+    "updated": "2026-08-21T05:59:15Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-20T07:17:20.698Z"
+    "fetchedAt": "2026-08-21T07:17:38.673Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
