@@ -317,11 +317,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 52,
+    "openIssues": 53,
     "stars": 7,
     "updated": "2026-08-19T22:58:26Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-08-20T07:17:20.699Z"
+    "fetchedAt": "2026-08-22T07:12:55.394Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 16,
+    "openIssues": 10,
     "stars": 1,
-    "updated": "2026-08-21T04:54:48Z",
+    "updated": "2026-08-22T00:20:44Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-08-21T07:17:38.633Z"
+    "fetchedAt": "2026-08-22T07:12:55.839Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -341,11 +341,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 53,
+    "openIssues": 63,
     "stars": 3,
-    "updated": "2026-08-18T15:18:47Z",
+    "updated": "2026-08-22T02:23:40Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-08-19T07:16:07.933Z"
+    "fetchedAt": "2026-08-22T07:12:55.394Z"
   },
   "birdnet-passive-acoustic-monitoring": {
     "archived": false,
@@ -510,10 +510,10 @@
     "lang": "TypeScript",
     "license": null,
     "openIssues": 2,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-08-18T04:42:52Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-08-20T07:17:20.698Z"
+    "fetchedAt": "2026-08-22T07:12:55.393Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -533,11 +533,11 @@
     "forks": 3809,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 592,
-    "stars": 16559,
-    "updated": "2026-08-20T22:41:11Z",
+    "openIssues": 588,
+    "stars": 16568,
+    "updated": "2026-08-21T13:28:58Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-21T07:17:38.647Z"
+    "fetchedAt": "2026-08-22T07:12:55.394Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1039,21 +1039,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-08-20T16:02:58Z",
+    "updated": "2026-08-21T13:36:33Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-08-21T07:17:38.685Z"
+    "fetchedAt": "2026-08-22T07:12:55.773Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6195,
+    "forks": 6203,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2060,
-    "stars": 27600,
-    "updated": "2026-08-21T03:56:20Z",
+    "openIssues": 2063,
+    "stars": 27615,
+    "updated": "2026-08-22T06:24:37Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-21T07:17:38.638Z"
+    "fetchedAt": "2026-08-22T07:12:55.394Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1349,11 +1349,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 66,
+    "openIssues": 54,
     "stars": 8,
-    "updated": "2026-08-21T05:59:15Z",
+    "updated": "2026-08-21T17:24:48Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-21T07:17:38.673Z"
+    "fetchedAt": "2026-08-22T07:12:55.394Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
@@ -1398,10 +1398,10 @@
     "lang": "HTML",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 4,
+    "stars": 5,
     "updated": "2026-08-17T08:33:25Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-22T07:12:55.394Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
