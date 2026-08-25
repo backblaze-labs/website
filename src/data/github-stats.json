@@ -138,10 +138,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 8,
+    "stars": 9,
     "updated": "2026-08-09T10:14:05Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-08-21T07:17:38.704Z"
+    "fetchedAt": "2026-08-25T07:18:01.362Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -317,23 +317,23 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 53,
+    "openIssues": 59,
     "stars": 7,
-    "updated": "2026-08-19T22:58:26Z",
+    "updated": "2026-08-24T23:37:21Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-08-22T07:12:55.394Z"
+    "fetchedAt": "2026-08-25T07:18:01.362Z"
   },
   "b2-mcp": {
     "archived": false,
     "description": "MCP server for Backblaze B2 Cloud Storage: a focused, safe 40-tool surface (17 native B2 SDK, 19 S3 data-plane, 4 analytics) for any MCP-compatible AI client.",
-    "forks": 0,
+    "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 23,
+    "openIssues": 33,
     "stars": 1,
-    "updated": "2026-08-24T02:04:46Z",
+    "updated": "2026-08-25T05:31:51Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-08-24T07:24:01.233Z"
+    "fetchedAt": "2026-08-25T07:18:01.540Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -450,10 +450,10 @@
     "lang": null,
     "license": "MIT",
     "openIssues": 2,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-07-27T17:58:41Z",
     "repo": "backblaze-b2-samples/clip-visual-product-search",
-    "fetchedAt": "2026-07-28T09:32:14.631Z"
+    "fetchedAt": "2026-08-25T07:18:01.465Z"
   },
   "colmap-gaussian-splatting-pipeline": {
     "archived": false,
@@ -530,14 +530,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3813,
+    "forks": 3815,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 590,
-    "stars": 16583,
-    "updated": "2026-08-24T06:49:32Z",
+    "openIssues": 589,
+    "stars": 16590,
+    "updated": "2026-08-25T07:16:43Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-24T07:24:00.917Z"
+    "fetchedAt": "2026-08-25T07:18:01.408Z"
   },
   "data-encryption": {
     "archived": false,
@@ -774,10 +774,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 69,
-    "stars": 561,
+    "stars": 560,
     "updated": "2026-08-20T05:53:43Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-21T07:17:38.584Z"
+    "fetchedAt": "2026-08-25T07:18:01.352Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1046,14 +1046,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6210,
+    "forks": 6216,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2075,
-    "stars": 27639,
-    "updated": "2026-08-24T07:21:35Z",
+    "openIssues": 2078,
+    "stars": 27664,
+    "updated": "2026-08-25T06:31:05Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-24T07:24:00.917Z"
+    "fetchedAt": "2026-08-25T07:18:01.507Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1349,23 +1349,23 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 40,
+    "openIssues": 34,
     "stars": 8,
-    "updated": "2026-08-24T02:08:22Z",
+    "updated": "2026-08-25T03:01:26Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-24T07:24:00.897Z"
+    "fetchedAt": "2026-08-25T07:18:01.506Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
     "description": "On-device SpeechBrain call-center analytics: transcription, diarization & sentiment, all stored on Backblaze B2",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
     "updated": "2026-07-24T15:05:54Z",
     "repo": "backblaze-b2-samples/speechbrain-call-center-analytics",
-    "fetchedAt": "2026-07-28T09:32:14.770Z"
+    "fetchedAt": "2026-08-25T07:18:01.582Z"
   },
   "supervision-sports-highlights": {
     "archived": false,
