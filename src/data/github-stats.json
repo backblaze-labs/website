@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 15,
+    "forks": 14,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 14,
+    "openIssues": 12,
     "stars": 4,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-08-18T07:15:59.361Z"
+    "fetchedAt": "2026-08-28T10:31:01.160Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -305,11 +305,11 @@
     "forks": 18,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 15,
+    "openIssues": 14,
     "stars": 24,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-08-26T07:17:46.134Z"
+    "fetchedAt": "2026-08-28T10:31:01.160Z"
   },
   "b2-action": {
     "archived": false,
@@ -319,9 +319,9 @@
     "license": "MIT",
     "openIssues": 59,
     "stars": 7,
-    "updated": "2026-08-24T23:37:21Z",
+    "updated": "2026-08-27T16:19:52Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-08-25T07:18:01.362Z"
+    "fetchedAt": "2026-08-28T10:31:01.156Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -331,9 +331,9 @@
     "license": "MIT",
     "openIssues": 26,
     "stars": 1,
-    "updated": "2026-08-27T07:18:14Z",
+    "updated": "2026-08-27T14:51:28Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-08-27T10:16:29.780Z"
+    "fetchedAt": "2026-08-28T10:31:01.635Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -343,9 +343,9 @@
     "license": "MIT",
     "openIssues": 63,
     "stars": 3,
-    "updated": "2026-08-22T02:23:40Z",
+    "updated": "2026-08-27T16:20:59Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-08-22T07:12:55.394Z"
+    "fetchedAt": "2026-08-28T10:31:01.160Z"
   },
   "birdnet-passive-acoustic-monitoring": {
     "archived": false,
@@ -438,10 +438,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 11,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-08-03T16:20:01Z",
     "repo": "backblaze-b2-samples/clip-video-scene-search",
-    "fetchedAt": "2026-08-05T09:31:34.724Z"
+    "fetchedAt": "2026-08-28T10:31:01.181Z"
   },
   "clip-visual-product-search": {
     "archived": false,
@@ -530,14 +530,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3817,
+    "forks": 3819,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 589,
-    "stars": 16605,
-    "updated": "2026-08-27T10:12:05Z",
+    "openIssues": 595,
+    "stars": 16615,
+    "updated": "2026-08-28T10:18:11Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-08-27T10:16:29.300Z"
+    "fetchedAt": "2026-08-28T10:31:01.160Z"
   },
   "data-encryption": {
     "archived": false,
@@ -774,10 +774,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 69,
-    "stars": 560,
+    "stars": 559,
     "updated": "2026-08-20T05:53:43Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-08-27T10:16:29.299Z"
+    "fetchedAt": "2026-08-28T10:31:01.160Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1046,14 +1046,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6229,
+    "forks": 6230,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2063,
-    "stars": 27690,
-    "updated": "2026-08-27T10:07:47Z",
+    "openIssues": 2058,
+    "stars": 27706,
+    "updated": "2026-08-28T10:07:19Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-08-27T10:16:29.300Z"
+    "fetchedAt": "2026-08-28T10:31:01.160Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1110,10 +1110,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-08-17T13:04:17Z",
     "repo": "backblaze-b2-samples/music-tagging-search",
-    "fetchedAt": "2026-08-18T07:15:59.360Z"
+    "fetchedAt": "2026-08-28T10:31:01.139Z"
   },
   "nemo-curator-training-data": {
     "archived": false,
@@ -1351,9 +1351,9 @@
     "license": "MIT",
     "openIssues": 30,
     "stars": 8,
-    "updated": "2026-08-25T18:12:35Z",
+    "updated": "2026-08-27T14:44:53Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-08-26T07:17:46.115Z"
+    "fetchedAt": "2026-08-28T10:31:01.156Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
