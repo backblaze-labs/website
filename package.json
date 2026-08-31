@@ -49,13 +49,13 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.2",
-    "@types/node": "^26.1.0",
+    "@biomejs/biome": "^2.5.11",
+    "@types/node": "^26.4.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "cspell": "^10.0.1",
-    "markdownlint-cli2": "^0.23.0",
-    "sharp": "^0.35.3",
+    "cspell": "^10.1.1",
+    "markdownlint-cli2": "^0.23.2",
+    "sharp": "^0.35.4",
     "simple-git-hooks": "^2.13.1"
   },
   "overrides": {
