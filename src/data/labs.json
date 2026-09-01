@@ -3458,6 +3458,152 @@
           "support": "Report defects through the repository's GitHub Issues; this is an unsupported Backblaze sample provided as-is with no SLA."
         }
       }
+    },
+    {
+      "id": "openclip-batch-embeddings",
+      "title": "OpenCLIP Batch Embeddings",
+      "tagline": "Batch-embed image corpora with local OpenCLIP and search them on B2.",
+      "description": "Batch-embed large image corpora with on-device OpenCLIP into a per-job FAISS vector index for text-to-image semantic search. Source images, .npy embedding shards, and the index all live on Backblaze B2 over the S3-compatible API, with no database and no external inference key.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": [
+        "openclip",
+        "embeddings",
+        "faiss",
+        "semantic-search",
+        "vector-search",
+        "image-embeddings"
+      ],
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/openclip-batch-embeddings",
+      "repo": "backblaze-b2-samples/openclip-batch-embeddings",
+      "detail": {
+        "metaDescription": "Batch-embed image corpora with on-device OpenCLIP into a per-job FAISS index for text-to-image semantic search, with images, embedding shards, and the index on Backblaze B2.",
+        "audience": "Developers and ML engineers building semantic image search, near-duplicate removal, or dataset clustering who want Backblaze B2 as the durable store for the media, the embedding shards, and the vector index, with local key-free inference.",
+        "ctaLabel": "Get the code",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Dashboard, jobs, search, corpus, files, and upload UI"
+          },
+          {
+            "name": "Tailwind CSS + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching and cache management"
+          },
+          {
+            "name": "FastAPI + Pydantic",
+            "role": "Typed, layered Python API and configuration validation"
+          },
+          {
+            "name": "OpenCLIP (open_clip_torch + torch)",
+            "role": "On-device image and text embedding, no API key"
+          },
+          {
+            "name": "FAISS (faiss-cpu)",
+            "role": "Per-job vector index build and top-k search"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for images, shards, and indexes"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/openclip-batch-embeddings-1.webp",
+            "alt": "Dashboard with corpus, vector, shard, and index metrics, a write-amplification table, a throughput chart, and a recent-jobs table.",
+            "caption": "The dashboard shows corpus, vector, shard, and index metrics, a write-amplification projection at scale, an embedding-throughput chart, and recent jobs.",
+            "width": 1600,
+            "height": 1134
+          },
+          {
+            "src": "/screenshots/openclip-batch-embeddings-2.webp",
+            "alt": "Embedding Jobs list showing each job's status, model, vector count, and run duration.",
+            "caption": "The Jobs page lists every embedding job with its model, precision, vector count, and run duration.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/openclip-batch-embeddings-3.webp",
+            "alt": "Job detail with configuration, run artifacts, and the B2 shard and index keys.",
+            "caption": "Job detail pairs one job's configuration with the run artifacts it wrote to B2: the .npy shards and the FAISS index key.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/openclip-batch-embeddings-4.webp",
+            "alt": "Semantic search results for a text query, each card scored by cosine similarity.",
+            "caption": "Semantic search embeds a text query into the same OpenCLIP space and ranks it against a job's FAISS index, streaming every image from B2.",
+            "width": 1600,
+            "height": 1789
+          },
+          {
+            "src": "/screenshots/openclip-batch-embeddings-5.webp",
+            "alt": "Corpus gallery of the source images stored under the corpus prefix in B2.",
+            "caption": "The Corpus page is a gallery of the source images the pipeline embeds, under the corpus/ prefix in B2.",
+            "width": 1600,
+            "height": 4407
+          }
+        ],
+        "ogImage": {
+          "src": "/og/openclip-batch-embeddings.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Embedding jobs you can run",
+            "description": "Create, edit, delete, and run batch embedding jobs, each with its own OpenCLIP model and float32 or float16 precision, locked once the job has run."
+          },
+          {
+            "title": "On-device batch CLIP pipeline",
+            "description": "Stream images from B2, encode them locally with OpenCLIP (CUDA then Apple MPS then CPU autodetect, no API key), and write .npy embedding shards back to the bucket."
+          },
+          {
+            "title": "Per-job FAISS vector index",
+            "description": "Build a FAISS index per job and upload it with its id map to indexes/<job>/ so any worker can reload the exact same vector space."
+          },
+          {
+            "title": "Semantic text-to-image search",
+            "description": "Embed a text query into the same OpenCLIP space, rank it against a job's index, and stream the top-k matching images straight from B2."
+          },
+          {
+            "title": "B2 as the sole store, no database",
+            "description": "Source images, embedding shards, the FAISS index, and job manifests all live in one B2 bucket over the S3-compatible API; there is no separate database."
+          },
+          {
+            "title": "Reusable file browser and upload",
+            "description": "A full-bucket file browser and a bulk upload flow land images under corpus/ so they are immediately ready to embed."
+          }
+        ],
+        "useWhen": [
+          "You want to batch-embed an image corpus with on-device OpenCLIP and search it by text, with the create-job to run to search flow working end to end.",
+          "You need source images, .npy embedding shards, and the FAISS index all stored durably in a single B2 bucket with no database to operate.",
+          "You want to bulk-upload images and turn them straight into an embedding job from the UI.",
+          "You want a reproducible, key-free reference you can run from a clean clone, since the default LAION OpenCLIP weights are ungated."
+        ],
+        "avoidWhen": [
+          "You need a managed vector database or hosted SaaS; this has no user accounts, authentication, tenant isolation, or billing.",
+          "You are indexing billions of vectors and need a tuned approximate index; this favors an exact FAISS IndexFlatIP at demo scale.",
+          "You want a one-click serverless deploy; torch and FAISS do not run on Vercel serverless, so you self-host the FastAPI service and own its operations, capacity, and index scaling.",
+          "You want interactive single-image product search rather than batch corpus embedding; the clip-visual-product-search sample fits that better."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects on the repository's GitHub Issues; this sample is maintained without a service-level agreement or guaranteed support."
+        }
+      }
     }
   ]
 }
