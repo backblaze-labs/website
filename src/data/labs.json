@@ -3464,8 +3464,16 @@
       "title": "OpenCLIP Batch Embeddings",
       "tagline": "Batch-embed image corpora with local OpenCLIP and search them on B2.",
       "description": "Batch-embed large image corpora with on-device OpenCLIP into a per-job FAISS vector index for text-to-image semantic search. Source images, .npy embedding shards, and the index all live on Backblaze B2 over the S3-compatible API, with no database and no external inference key.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "type": "sample",
+      "tags": [
+        "openclip",
+        "embeddings",
+        "faiss",
+        "semantic-search",
+        "vector-search",
+        "image-embeddings"
+      ],
       "languages": ["typescript", "python", "javascript"],
       "url": "https://github.com/backblaze-b2-samples/openclip-batch-embeddings",
       "repo": "backblaze-b2-samples/openclip-batch-embeddings",
