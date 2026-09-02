@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 18,
+    "forks": 19,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 14,
+    "openIssues": 15,
     "stars": 24,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-08-28T10:31:01.160Z"
+    "fetchedAt": "2026-09-02T07:09:30.257Z"
   },
   "b2-action": {
     "archived": false,
@@ -325,15 +325,15 @@
   },
   "b2-mcp": {
     "archived": false,
-    "description": "MCP server for Backblaze B2 Cloud Storage: a focused, safe 40-tool surface (17 native B2 SDK, 19 S3 data-plane, 4 analytics) for any MCP-compatible AI client.",
+    "description": "MCP server for Backblaze B2 Cloud Storage: a focused, safe 40-tool surface (17 native B2 SDK, 19 S3 data-plane, 4 analytics) for any MCP-compatible AI client, currently incubating in Backblaze-Labs",
     "forks": 2,
     "lang": null,
     "license": "MIT",
-    "openIssues": 21,
-    "stars": 1,
-    "updated": "2026-09-01T05:55:08Z",
+    "openIssues": 19,
+    "stars": 2,
+    "updated": "2026-09-02T06:39:28Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-09-01T07:08:14.804Z"
+    "fetchedAt": "2026-09-02T07:09:30.720Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -509,11 +509,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": null,
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 1,
-    "updated": "2026-08-18T04:42:52Z",
+    "updated": "2026-09-02T03:26:07Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-08-22T07:12:55.393Z"
+    "fetchedAt": "2026-09-02T07:09:30.257Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -533,11 +533,11 @@
     "forks": 3826,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 602,
-    "stars": 16631,
-    "updated": "2026-09-01T07:01:11Z",
+    "openIssues": 600,
+    "stars": 16633,
+    "updated": "2026-09-02T07:08:28Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-09-01T07:08:14.491Z"
+    "fetchedAt": "2026-09-02T07:09:30.258Z"
   },
   "data-encryption": {
     "archived": false,
@@ -774,10 +774,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 69,
-    "stars": 558,
+    "stars": 557,
     "updated": "2026-08-20T05:53:43Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-09-01T07:08:14.491Z"
+    "fetchedAt": "2026-09-02T07:09:30.258Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -977,11 +977,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 2,
-    "updated": "2026-08-18T15:16:53Z",
+    "updated": "2026-09-02T02:09:24Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-08-19T07:16:07.933Z"
+    "fetchedAt": "2026-09-02T07:09:30.257Z"
   },
   "lama-batch-inpainting": {
     "archived": false,
@@ -1039,21 +1039,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 0,
-    "updated": "2026-08-21T13:36:33Z",
+    "updated": "2026-09-01T15:36:19Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-08-22T07:12:55.773Z"
+    "fetchedAt": "2026-09-02T07:09:30.526Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6240,
+    "forks": 6247,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2054,
-    "stars": 27759,
-    "updated": "2026-09-01T07:00:08Z",
+    "openIssues": 2050,
+    "stars": 27770,
+    "updated": "2026-09-02T06:43:59Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-09-01T07:08:14.491Z"
+    "fetchedAt": "2026-09-02T07:09:30.258Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1199,6 +1199,18 @@
     "repo": "backblaze-b2-samples/openclaw-b2-sync-backup",
     "fetchedAt": "2026-07-08T15:31:51.975Z"
   },
+  "openclip-batch-embeddings": {
+    "archived": false,
+    "description": "Batch-embed image corpora with local OpenCLIP into a FAISS vector index for semantic text-to-image search, storing the source images, .npy embedding shards, and the index on Backblaze B2 via the S3-compatible API. Key-free on-device inference (CPU/GPU); B2 is the only store, no database. A Backblaze B2 sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-09-01T19:10:23Z",
+    "repo": "backblaze-b2-samples/openclip-batch-embeddings",
+    "fetchedAt": "2026-09-02T07:09:30.638Z"
+  },
   "opendronemap-photogrammetry-pipeline": {
     "archived": false,
     "description": "Full-stack OpenDroneMap photogrammetry pipeline that turns overlapping drone photos into orthomosaics, DEMs, point clouds, and textured 3D meshes, storing both inputs and far-larger outputs on Backblaze B2 via the S3-compatible API — a sample app for surveying, agriculture, and GIS teams.",
@@ -1267,9 +1279,9 @@
     "license": null,
     "openIssues": 10,
     "stars": 1,
-    "updated": "2026-08-04T14:57:15Z",
+    "updated": "2026-09-02T04:48:18Z",
     "repo": "backblaze-b2-samples/b2-pixeltable-multimodal-data",
-    "fetchedAt": "2026-08-05T09:31:34.172Z"
+    "fetchedAt": "2026-09-02T07:09:30.257Z"
   },
   "prompt-showdown": {
     "archived": false,
@@ -1349,11 +1361,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 33,
+    "openIssues": 28,
     "stars": 8,
-    "updated": "2026-09-01T05:35:03Z",
+    "updated": "2026-09-01T18:49:34Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-09-01T07:08:14.491Z"
+    "fetchedAt": "2026-09-02T07:09:30.257Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
