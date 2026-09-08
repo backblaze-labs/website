@@ -134,14 +134,14 @@
   "ai-saas-starter-kit": {
     "archived": false,
     "description": "Production-ready AI SaaS starter kit: a Next.js 16 + FastAPI monorepo with Supabase auth, Stripe billing, text-to-image AI generation (NVIDIA NIM flux.1-dev), an admin console, and a Backblaze B2 file manager — an MIT-licensed, agent-optimized template that skips auth, billing, and storage boilerplate.",
-    "forks": 2,
+    "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 0,
-    "stars": 12,
+    "stars": 14,
     "updated": "2026-09-03T02:17:42Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-09-04T07:07:35.089Z"
+    "fetchedAt": "2026-09-08T07:07:44.184Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 15,
+    "forks": 16,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 13,
     "stars": 4,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-09-05T07:06:51.957Z"
+    "fetchedAt": "2026-09-08T07:07:44.217Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -254,14 +254,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 11,
+    "forks": 12,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 8,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-09-03T07:08:25.378Z"
+    "fetchedAt": "2026-09-08T07:07:44.217Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -306,10 +306,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 18,
-    "stars": 26,
+    "stars": 27,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-09-06T07:07:06.118Z"
+    "fetchedAt": "2026-09-08T07:07:44.217Z"
   },
   "b2-action": {
     "archived": false,
@@ -319,9 +319,9 @@
     "license": "MIT",
     "openIssues": 61,
     "stars": 7,
-    "updated": "2026-08-31T23:38:24Z",
+    "updated": "2026-09-07T23:40:13Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-09-01T07:08:14.491Z"
+    "fetchedAt": "2026-09-08T07:07:44.216Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 18,
+    "openIssues": 16,
     "stars": 9,
-    "updated": "2026-09-04T18:55:48Z",
+    "updated": "2026-09-08T02:52:16Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-09-05T07:06:52.404Z"
+    "fetchedAt": "2026-09-08T07:07:44.602Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -530,14 +530,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3825,
+    "forks": 3826,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 596,
-    "stars": 16648,
-    "updated": "2026-09-04T16:22:34Z",
+    "stars": 16662,
+    "updated": "2026-09-07T21:48:11Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-09-06T07:07:06.120Z"
+    "fetchedAt": "2026-09-08T07:07:44.217Z"
   },
   "data-encryption": {
     "archived": false,
@@ -774,10 +774,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 64,
-    "stars": 558,
+    "stars": 559,
     "updated": "2026-09-04T21:43:50Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-09-05T07:06:51.966Z"
+    "fetchedAt": "2026-09-08T07:07:44.217Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -917,11 +917,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 4,
-    "updated": "2026-08-18T04:52:50Z",
+    "updated": "2026-09-07T02:42:45Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-08-19T07:16:07.926Z"
+    "fetchedAt": "2026-09-08T07:07:44.216Z"
   },
   "image-to-3d-asset-library": {
     "archived": false,
@@ -929,11 +929,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 10,
     "stars": 0,
-    "updated": "2026-09-02T23:15:51Z",
+    "updated": "2026-09-07T02:17:27Z",
     "repo": "backblaze-b2-samples/image-to-3d-asset-library",
-    "fetchedAt": "2026-09-03T07:08:25.769Z"
+    "fetchedAt": "2026-09-08T07:07:44.371Z"
   },
   "img2dataset-webdataset-object-storage": {
     "archived": false,
@@ -1046,14 +1046,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6257,
+    "forks": 6265,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2073,
-    "stars": 27824,
-    "updated": "2026-09-06T07:00:13Z",
+    "openIssues": 2082,
+    "stars": 27851,
+    "updated": "2026-09-08T06:31:40Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-09-06T07:07:06.120Z"
+    "fetchedAt": "2026-09-08T07:07:44.217Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1145,11 +1145,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 0,
+    "openIssues": 10,
     "stars": 0,
-    "updated": "2026-09-02T23:12:20Z",
+    "updated": "2026-09-07T03:17:21Z",
     "repo": "backblaze-b2-samples/nnunet-3d-medical-image-segmentation",
-    "fetchedAt": "2026-09-03T07:08:25.831Z"
+    "fetchedAt": "2026-09-08T07:07:44.551Z"
   },
   "nudenet-video-moderation": {
     "archived": false,
@@ -1182,10 +1182,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 10,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-08-05T23:15:04Z",
     "repo": "backblaze-b2-samples/open3d-point-cloud-pipeline",
-    "fetchedAt": "2026-08-07T08:09:43.938Z"
+    "fetchedAt": "2026-09-08T07:07:44.358Z"
   },
   "openclaw-b2-sync-backup": {
     "archived": false,
@@ -1361,11 +1361,11 @@
     "forks": 2,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 28,
+    "openIssues": 29,
     "stars": 8,
-    "updated": "2026-09-01T18:49:34Z",
+    "updated": "2026-09-07T11:10:15Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-09-02T07:09:30.257Z"
+    "fetchedAt": "2026-09-08T07:07:44.207Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
@@ -1505,11 +1505,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 0,
-    "updated": "2026-09-03T02:18:37Z",
+    "updated": "2026-09-07T21:40:20Z",
     "repo": "backblaze-b2-samples/webdataset-streaming-pytorch-training",
-    "fetchedAt": "2026-09-03T07:08:25.677Z"
+    "fetchedAt": "2026-09-08T07:07:44.407Z"
   },
   "whisper-dataset-builder": {
     "archived": false,
