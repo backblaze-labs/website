@@ -3604,6 +3604,20 @@
           "support": "Report defects on the repository's GitHub Issues; this sample is maintained without a service-level agreement or guaranteed support."
         }
       }
+    },
+    {
+      "id": "github",
+      "title": ".github",
+      "tagline": "Organization Profile",
+      "description": "Organization Profile",
+      "categories": ["developer-tools"],
+      "type": "tool",
+      "languages": ["javascript"],
+      "tags": ["b2"],
+      "repo": "backblaze-labs/.github",
+      "url": "https://github.com/backblaze-labs/.github",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
