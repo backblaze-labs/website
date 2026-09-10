@@ -3624,7 +3624,7 @@
       "title": "Data-Juicer Multimodal Curation",
       "tagline": "Multimodal training-data curation on B2, powered by Data-Juicer",
       "description": "A local, B2-backed control plane for multimodal training-data curation built on Data-Juicer. Author recipes — composable operator chains for dedup, length/quality filters, and resolution/aspect checks — then run them on-device: the app streams raw shards from Backblaze B2, cleans them locally, and writes the refined dataset plus per-operator stats back to B2 over the S3-compatible API.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["data-pipelines"],
       "type": "sample",
       "tags": [
         "data-juicer",
