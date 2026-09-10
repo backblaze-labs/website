@@ -3618,6 +3618,146 @@
       "url": "https://github.com/backblaze-labs/.github",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "data-juicer-multimodal-curation",
+      "title": "Data-Juicer Multimodal Curation",
+      "tagline": "Multimodal training-data curation on B2, powered by Data-Juicer",
+      "description": "A local, B2-backed control plane for multimodal training-data curation built on Data-Juicer. Author recipes — composable operator chains for dedup, length/quality filters, and resolution/aspect checks — then run them on-device: the app streams raw shards from Backblaze B2, cleans them locally, and writes the refined dataset plus per-operator stats back to B2 over the S3-compatible API.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "data-juicer",
+        "multimodal",
+        "dataset-curation",
+        "data-preprocessing",
+        "training-data",
+        "foundation-models",
+        "mlops",
+        "s3-compatible"
+      ],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/data-juicer-multimodal-curation",
+      "repo": "backblaze-b2-samples/data-juicer-multimodal-curation",
+      "detail": {
+        "metaDescription": "Local, B2-backed control plane for multimodal training-data curation: author Data-Juicer recipes, run them on-device, and stream raw and refined datasets over B2's S3 API.",
+        "audience": "AI dataset and MLOps engineers who keep multimodal foundation-model corpora (image-text, video, audio, text) in Backblaze B2 and want reproducible, on-device cleaning driven from a local machine.",
+        "ctaLabel": "View the sample",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and curation UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and interface primitives"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching and cache"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API and configuration validation"
+          },
+          {
+            "name": "Data-Juicer (py-data-juicer)",
+            "role": "The multimodal curation engine, run in an isolated subprocess"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for raw, refined, stats, and recipe YAML"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/data-juicer-multimodal-curation-1.webp",
+            "alt": "Dashboard with curation metrics, B2 storage split, and recent runs",
+            "caption": "The dashboard shows curation metrics — recipes, runs, pass and dedup ratios — alongside the raw-vs-refined B2 storage split and the most recent runs.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/data-juicer-multimodal-curation-2.webp",
+            "alt": "Recipes library listing Data-Juicer operator chains stored as YAML in B2",
+            "caption": "The recipe library — every Data-Juicer operator chain, stored as YAML in B2, ready to run, view, or delete.",
+            "width": 1600,
+            "height": 4646
+          },
+          {
+            "src": "/screenshots/data-juicer-multimodal-curation-3.webp",
+            "alt": "Recipe detail showing the YAML operator chain and per-operator run stats",
+            "caption": "A recipe's full YAML operator chain next to its runs, each broken down to per-operator kept and filtered counts.",
+            "width": 1600,
+            "height": 2224
+          },
+          {
+            "src": "/screenshots/data-juicer-multimodal-curation-4.webp",
+            "alt": "Runs history with kept vs filtered counts and per-operator stats",
+            "caption": "Curation-run history read back from B2 stats/, with samples kept vs filtered, pass rate, dedup ratio, and a per-operator table.",
+            "width": 1600,
+            "height": 2037
+          },
+          {
+            "src": "/screenshots/data-juicer-multimodal-curation-5.webp",
+            "alt": "Datasets browser showing raw image-text corpus with previews and sizes",
+            "caption": "A modality-aware browse of the app's own raw / refined / stats / configs prefixes, with image previews and object sizes.",
+            "width": 1600,
+            "height": 1176
+          }
+        ],
+        "ogImage": {
+          "src": "/og/data-juicer-multimodal-curation.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Curation recipes",
+            "description": "Author and manage Data-Juicer operator chains — dedup, length and quality filters, resolution and aspect checks — with full CRUD and a run UI. Each recipe is stored as YAML in B2 configs/."
+          },
+          {
+            "title": "On-device curation runs",
+            "description": "Run a recipe over raw shards streamed from B2: operators apply locally (CPU by default, auto-detecting CUDA then Apple MPS then CPU), and the refined dataset plus per-operator stats are written back to B2 refined/ and stats/."
+          },
+          {
+            "title": "Runs history and dashboard",
+            "description": "Review every curation pass with kept-vs-filtered counts and dedup ratios per operator, and a dashboard that aggregates raw-vs-refined storage, samples processed, and pass rates."
+          },
+          {
+            "title": "Datasets library",
+            "description": "Browse the app's own raw / refined / stats / configs prefixes in a modality-aware view with image previews and object sizes."
+          },
+          {
+            "title": "Full-stack, agent-ready scaffolding",
+            "description": "A full-bucket file explorer, drag-and-drop upload, a layered FastAPI backend, structural tests, and agent-first docs come out of the box, all backed by a single B2 storage layer over the S3-compatible API."
+          }
+        ],
+        "useWhen": [
+          "You keep multimodal foundation-model corpora (image-text, video, audio, text) in Backblaze B2 and want to clean them with reproducible, versioned operator chains.",
+          "You want to run Data-Juicer curation on your own machine — CPU by default — instead of standing up a managed cloud ETL service or a second cloud key.",
+          "You need to review each pass: kept-vs-filtered counts, dedup ratios, and per-operator stats, with refined shards and stats accumulating back in B2.",
+          "You want a full-stack, agent-ready reference (Next.js + FastAPI) to adapt into your own dataset-curation product."
+        ],
+        "avoidWhen": [
+          "You need a hosted, multi-tenant curation SaaS or managed hosting — this runs locally and ships no hosting or SLA.",
+          "You need a distributed cluster job runner — it runs one curation pass at a time on a single machine.",
+          "You need built-in authentication, tenant isolation, or compliance controls — the app ships none, and a deployed API is unauthenticated and bucket-wide.",
+          "You only need generic file upload and browsing without curation — the Vibe Coding Starter Kit is the lighter base this sample is built on."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects through the repository's GitHub Issues; this is an open-source sample maintained by Backblaze with no service-level agreement."
+        }
+      }
     }
   ]
 }
