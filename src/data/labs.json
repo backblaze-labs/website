@@ -3764,7 +3764,7 @@
       "title": "Nextflow Genomics Object Storage",
       "tagline": "Nextflow genomics pipelines with Backblaze B2 as the S3 data lake.",
       "description": "Run real Nextflow genomics pipelines with Backblaze B2 as the S3-compatible object storage data lake — ingest FASTQ, launch runs, and browse QC, alignment, and variant results published back to B2 through a Next.js + FastAPI control plane.",
-      "categories": ["data-pipelines", "infra"],
+      "categories": ["data-pipelines"],
       "type": "sample",
       "tags": ["nextflow", "genomics", "bioinformatics", "data-lake", "fastq", "s3-compatible"],
       "languages": ["typescript", "python", "javascript"],
