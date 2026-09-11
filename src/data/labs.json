@@ -3888,6 +3888,130 @@
           "support": "Report bugs and request features on the repository's GitHub Issues; this is a Backblaze-maintained sample provided as-is with no service-level agreement."
         }
       }
+    },
+    {
+      "id": "roboflow-inference-frame-archive",
+      "title": "Roboflow Frame Archive",
+      "tagline": "Edge Roboflow Inference frame + prediction archive on Backblaze B2.",
+      "description": "A full-stack sample (Next.js 16 + FastAPI) that runs Roboflow Inference on-device over a source clip and archives every flagged frame — the JPEG, its prediction JSON, and a per-run Parquet summary — to Backblaze B2 over the S3-compatible API.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "tags": [
+        "computer-vision",
+        "object-detection",
+        "edge-ai",
+        "roboflow",
+        "parquet",
+        "object-storage",
+        "cloudstorage",
+        "s3-compatible",
+        "fastapi",
+        "nextjs"
+      ],
+      "type": "sample",
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/roboflow-inference-frame-archive",
+      "repo": "backblaze-b2-samples/roboflow-inference-frame-archive",
+      "detail": {
+        "metaDescription": "Run Roboflow Inference locally on each frame and archive every flagged frame — JPEG, prediction JSON, and a Parquet summary — to Backblaze B2 over the S3-compatible API.",
+        "audience": "Edge computer-vision teams who want a working reference for archiving detection output — flagged frames, predictions, and summaries — to durable object storage over the S3-compatible API.",
+        "capabilities": [
+          {
+            "title": "Configure edge cameras",
+            "description": "Full create / read / edit / delete / run lifecycle for edge cameras — set the detection model, confidence threshold, and source clip."
+          },
+          {
+            "title": "Local Roboflow Inference runs",
+            "description": "Run a detection pass over a source clip on-device (CUDA → CPU auto-detect) with live run status; no cloud inference and no Roboflow account required."
+          },
+          {
+            "title": "Detections gallery",
+            "description": "A sample-scoped gallery of flagged frames with bounding boxes overlaid, filterable by camera, class, and date."
+          },
+          {
+            "title": "Archive dashboard",
+            "description": "Frames archived, detections by class, ingest volume, and active cameras — read from the per-run Parquet roll-ups."
+          },
+          {
+            "title": "Reusable B2 scaffolding",
+            "description": "A full-bucket Files explorer and direct-to-B2 Upload for bringing your own footage."
+          }
+        ],
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Frontend — Tailwind v4, shadcn/ui, Recharts, TanStack Query"
+          },
+          {
+            "name": "FastAPI (Python 3.12+)",
+            "role": "Backend API — boto3, Pydantic v2, layered architecture"
+          },
+          {
+            "name": "Roboflow Inference + onnxruntime",
+            "role": "On-device detection engine (opencv-python-headless, pyarrow)"
+          },
+          {
+            "name": "Backblaze B2",
+            "role": "S3-compatible object storage — the single durable sink for every stream"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "Monorepo tooling for the web + API packages"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/roboflow-inference-frame-archive-1.webp",
+            "alt": "Dashboard with frames archived, detections, ingest volume, active cameras, an ingest chart, and a detection breakdown by class",
+            "caption": "Archive metrics — frames archived, detections, ingest volume, active cameras — with a per-day ingest chart and a detections-by-class breakdown from the Parquet roll-ups.",
+            "width": 1600,
+            "height": 1457
+          },
+          {
+            "src": "/screenshots/roboflow-inference-frame-archive-2.webp",
+            "alt": "Cameras grid of edge cameras, each card showing model, confidence threshold, source, and run/edit/delete controls",
+            "caption": "The edge-camera fleet — each card shows its detection model, confidence threshold, and source clip alongside run, edit, and delete controls.",
+            "width": 1600,
+            "height": 1496
+          },
+          {
+            "src": "/screenshots/roboflow-inference-frame-archive-3.webp",
+            "alt": "Camera detail view with latest-run stats and an inline gallery of flagged frames with detection boxes",
+            "caption": "One camera's latest-run stats (frames processed, flagged, detections, bytes archived) and its inline archive of flagged frames with bounding boxes overlaid.",
+            "width": 1600,
+            "height": 4743
+          },
+          {
+            "src": "/screenshots/roboflow-inference-frame-archive-4.webp",
+            "alt": "Detections gallery of flagged frames with bounding boxes, each labeled with class, confidence, and source camera",
+            "caption": "The sample-scoped gallery of every flagged frame with detection boxes drawn on-device, filterable by camera, class, and date.",
+            "width": 1600,
+            "height": 6279
+          }
+        ],
+        "ogImage": {
+          "src": "/og/roboflow-inference-frame-archive.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "useWhen": [
+          "You want a working reference for archiving edge computer-vision output — frames, predictions, and summaries — to object storage over the S3-compatible API.",
+          "You want a UI to configure cameras, run local Roboflow Inference detection passes, and browse the resulting frame archive with bounding boxes overlaid.",
+          "You want a dependable scaffold with strict architecture, contract checks, and tests rather than a blank prototype."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted product, a managed camera fleet, or a production surveillance system — this ships none of those.",
+          "You need user accounts, authentication, or tenant isolation — the sample is single-tenant and unauthenticated by default.",
+          "You need GPU-accelerated or Apple-MPS inference — onnxruntime has no Apple-MPS execution provider, so detection runs on CPU on Apple Silicon."
+        ],
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects through the repository's GitHub Issues; this sample is maintained on a best-effort basis and is not covered by any Backblaze service level agreement."
+        }
+      }
     }
   ]
 }
