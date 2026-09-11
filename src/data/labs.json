@@ -3894,7 +3894,7 @@
       "title": "Roboflow Frame Archive",
       "tagline": "Edge Roboflow Inference frame + prediction archive on Backblaze B2.",
       "description": "A full-stack sample (Next.js 16 + FastAPI) that runs Roboflow Inference on-device over a source clip and archives every flagged frame — the JPEG, its prediction JSON, and a per-run Parquet summary — to Backblaze B2 over the S3-compatible API.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "tags": [
         "computer-vision",
         "object-detection",
