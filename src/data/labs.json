@@ -3758,6 +3758,136 @@
           "support": "Report defects through the repository's GitHub Issues; this is an open-source sample maintained by Backblaze with no service-level agreement."
         }
       }
+    },
+    {
+      "id": "nextflow-genomics-object-storage",
+      "title": "Nextflow Genomics Object Storage",
+      "tagline": "Nextflow genomics pipelines with Backblaze B2 as the S3 data lake.",
+      "description": "Run real Nextflow genomics pipelines with Backblaze B2 as the S3-compatible object storage data lake — ingest FASTQ, launch runs, and browse QC, alignment, and variant results published back to B2 through a Next.js + FastAPI control plane.",
+      "categories": ["data-pipelines", "infra"],
+      "type": "sample",
+      "tags": ["nextflow", "genomics", "bioinformatics", "data-lake", "fastq", "s3-compatible"],
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/nextflow-genomics-object-storage",
+      "icon": "flow",
+      "featured": false,
+      "repo": "backblaze-b2-samples/nextflow-genomics-object-storage",
+      "detail": {
+        "metaDescription": "Run real Nextflow genomics pipelines with Backblaze B2 as the S3-compatible data lake — ingest FASTQ, launch runs, and browse QC, alignment, and variant results on B2.",
+        "audience": "Bioinformatics engineers and platform teams who run Nextflow pipelines and want object storage as the data lake for genomics inputs and published results.",
+        "ctaLabel": "View on GitHub",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Run control-plane UI with Tailwind v4 and shadcn/ui"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching, caching, and retry"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API with startup config validation"
+          },
+          {
+            "name": "Nextflow (DSL2) + Java 17+",
+            "role": "Genomics pipeline execution engine"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for inputs and results"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/nextflow-genomics-object-storage-1.webp",
+            "alt": "Dashboard showing run totals, B2 storage-by-stage, and recent runs.",
+            "caption": "The dashboard shows run totals, how bytes split across the B2 data-lake stages, and the most recent genomics runs.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/nextflow-genomics-object-storage-2.webp",
+            "alt": "Runs list of genomics pipeline runs with status and profile.",
+            "caption": "The Runs view lists every Nextflow pipeline run with its pipeline, execution profile, status, and creation time.",
+            "width": 1600,
+            "height": 2297
+          },
+          {
+            "src": "/screenshots/nextflow-genomics-object-storage-3.webp",
+            "alt": "Run detail with the Nextflow command and downloadable result artifacts.",
+            "caption": "Run detail shows a single run's B2 storage footprint, the exact Nextflow command it ran, and the QC, alignment, variant, and counts artifacts published back to B2.",
+            "width": 1600,
+            "height": 1091
+          },
+          {
+            "src": "/screenshots/nextflow-genomics-object-storage-4.webp",
+            "alt": "Upload page for ingesting FASTQ reads and samplesheets to B2.",
+            "caption": "The Upload page drag-and-drops FASTQ reads and samplesheets straight to the B2 inputs/ prefix through presigned direct-to-B2 upload.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/nextflow-genomics-object-storage-5.webp",
+            "alt": "New pipeline run dialog for choosing pipeline, profile, and samplesheet.",
+            "caption": "The New run dialog picks a pipeline, execution profile, and samplesheet, then launches a run whose inputs stage from B2 and whose results publish back to B2.",
+            "width": 1600,
+            "height": 2297
+          }
+        ],
+        "ogImage": {
+          "src": "/og/nextflow-genomics-object-storage.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Run control plane",
+            "description": "Create, launch, monitor, and delete genomics pipeline runs from a Next.js interface, watching each run's status and logs as it executes."
+          },
+          {
+            "title": "Real Nextflow orchestration on B2",
+            "description": "Launch a genuine Nextflow DSL2 run that stages inputs from Backblaze B2 and publishes its results back to B2 over the S3-compatible API — not a substitute engine."
+          },
+          {
+            "title": "Genomics ingest to B2",
+            "description": "Drag-and-drop FASTQ reads and samplesheets straight into the B2 inputs/ prefix through presigned direct-to-B2 upload."
+          },
+          {
+            "title": "Results and bucket explorer",
+            "description": "Browse and download a run's QC, alignment, variant, and counts artifacts in a scoped Results explorer, alongside a full bucket file browser."
+          },
+          {
+            "title": "Data-lake dashboard",
+            "description": "See runs by status, published result artifacts, and how storage splits across the inputs, runs, work, and results stages of the B2 data lake."
+          }
+        ],
+        "useWhen": [
+          "You want a working example of running real Nextflow pipelines with Backblaze B2 as the S3-compatible data lake for inputs and published results.",
+          "You want to ingest FASTQ and samplesheets to B2, launch a run, and watch its status and logs from a control-plane UI.",
+          "You want to browse and download a run's QC, alignment, variant, and counts artifacts published back to B2.",
+          "You are adapting a reference scaffold for your own bioinformatics workflow and will supply your own bucket, region, and application key."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted genomics platform with managed compute, a job scheduler, or reference-genome management — the bundled pipeline is a synthetic-data toy for demonstrating the storage path.",
+          "You need user accounts, authentication, tenant isolation, or billing — the deployed API is unauthenticated and bucket-wide.",
+          "You want to edit a launched run in place — a run is an immutable execution record, so use Clone to new run to start a fresh run with the same configuration.",
+          "You need to process real human genomic data — the sample handles only synthetic reads and none of the privacy or consent obligations that real sequence data carries.",
+          "You only need generic file uploads and object-storage browsing without a pipeline engine — a simpler storage starter such as the Vibe Coding Starter Kit is a closer fit."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report bugs and request features on the repository's GitHub Issues; this is a Backblaze-maintained sample provided as-is with no service-level agreement."
+        }
+      }
     }
   ]
 }
