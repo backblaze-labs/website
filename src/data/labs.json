@@ -4012,6 +4012,163 @@
           "support": "Report defects through the repository's GitHub Issues; this sample is maintained on a best-effort basis and is not covered by any Backblaze service level agreement."
         }
       }
+    },
+    {
+      "id": "clay-geospatial-embeddings",
+      "title": "Clay Geospatial Embeddings",
+      "tagline": "Local Clay foundation-model embeddings over satellite imagery on B2.",
+      "description": "Run the Clay geospatial foundation model locally over satellite/aerial imagery in Backblaze B2, write the embeddings back to B2, and search the archive for similar scenes with k-NN — with B2 credentials only and no second API key.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": [
+        "clay",
+        "geospatial",
+        "embeddings",
+        "satellite-imagery",
+        "similarity-search",
+        "remote-sensing"
+      ],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/clay-geospatial-embeddings",
+      "repo": "backblaze-b2-samples/clay-geospatial-embeddings",
+      "detail": {
+        "metaDescription": "Run the Clay geospatial foundation model locally over satellite imagery in Backblaze B2, write embeddings back to B2, and search for similar scenes with k-NN.",
+        "audience": "Geospatial AI teams — climate-tech, agricultural analytics, and government remote sensing — who need rich semantic embeddings over large imagery archives for change detection, land-cover classification, and scene retrieval.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16",
+            "role": "Web app (App Router)"
+          },
+          {
+            "name": "React + TypeScript",
+            "role": "Frontend UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design system"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Data fetching"
+          },
+          {
+            "name": "FastAPI (Python 3.12)",
+            "role": "Backend API"
+          },
+          {
+            "name": "Clay v1.5 foundation model",
+            "role": "Geospatial embeddings engine"
+          },
+          {
+            "name": "PyTorch",
+            "role": "Local model runtime (CUDA / Apple MPS / CPU)"
+          },
+          {
+            "name": "rasterio",
+            "role": "GeoTIFF reading & metadata"
+          },
+          {
+            "name": "usearch",
+            "role": "k-NN similarity index"
+          },
+          {
+            "name": "boto3",
+            "role": "S3-compatible B2 client"
+          },
+          {
+            "name": "Backblaze B2",
+            "role": "Object storage for imagery, embeddings & job records"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/clay-geospatial-embeddings-1.webp",
+            "alt": "Dashboard with archive stats, upload-activity chart, and recent jobs",
+            "caption": "B2 archive overview with object, storage, and ingest stats, a 7-day upload-activity chart, and recent embedding jobs.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/clay-geospatial-embeddings-2.webp",
+            "alt": "Embedding Jobs list showing status, sensor, and tile counts",
+            "caption": "Every Clay embedding job listed with its status, sensor preset, tile count, and creation time.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/clay-geospatial-embeddings-3.webp",
+            "alt": "Job detail showing configuration and per-tile embeddings",
+            "caption": "One job's run summary, full configuration, and the per-tile embedding artifacts written to B2.",
+            "width": 1600,
+            "height": 1079
+          },
+          {
+            "src": "/screenshots/clay-geospatial-embeddings-4.webp",
+            "alt": "Imagery Library gallery of GeoTIFF tiles with geospatial metadata",
+            "caption": "A scoped GeoTIFF gallery over imagery/ with PNG thumbnails and parsed geospatial metadata (CRS, bounds, bands, GSD).",
+            "width": 1600,
+            "height": 1742
+          },
+          {
+            "src": "/screenshots/clay-geospatial-embeddings-5.webp",
+            "alt": "Similarity Search results ranked by similarity score",
+            "caption": "Pick a tile, embed it with Clay, and retrieve the nearest scenes from the B2 embedding index, ranked by similarity score.",
+            "width": 1600,
+            "height": 1223
+          }
+        ],
+        "ogImage": {
+          "src": "/og/clay-geospatial-embeddings.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Embedding Jobs",
+            "description": "Create, run, edit, and delete named jobs that embed a set of B2 imagery tiles with Clay. Records persist as JSON in B2 — no database."
+          },
+          {
+            "title": "Local Clay embeddings",
+            "description": "Clay's own foundation model runs on-device (autodetect CUDA to Apple MPS to CPU) and writes .npy embeddings back to B2, using local compute only."
+          },
+          {
+            "title": "Imagery Library",
+            "description": "A scoped GeoTIFF gallery over the imagery/ prefix with PNG thumbnails and parsed geospatial metadata (CRS, bounds, bands, GSD)."
+          },
+          {
+            "title": "Similarity search",
+            "description": "Pick a tile, embed it, and retrieve the nearest scenes with a usearch k-NN index over the embeddings stored in B2."
+          },
+          {
+            "title": "Full-bucket file browser + direct upload",
+            "description": "The reusable B2 scaffolding kept from the starter kit — browse the whole bucket and upload straight to B2."
+          },
+          {
+            "title": "Layered FastAPI backend",
+            "description": "A strict types to config to repo to service to runtime architecture with structural tests and agent-optimized docs."
+          }
+        ],
+        "useWhen": [
+          "You want to embed a satellite/aerial imagery archive with a real geospatial foundation model running on your own hardware.",
+          "You want every artifact — imagery, tiles, embeddings, and job records — kept in your own B2 bucket over the S3-compatible API.",
+          "You need scene-similarity retrieval (k-NN) over the embeddings you generate.",
+          "You want a dependable, tested scaffold to start from instead of a blank prototype."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted product — there's no managed hosting, user accounts, authentication, tenant isolation, or billing.",
+          "You expect production imagery out of the box — the synthetic seed set is a reproducible demo; production archives are your own.",
+          "You need published-fidelity Clay inputs — the per-band normalization presets are reflectance-scale approximations; swap in claymodel's own metadata for production.",
+          "Your imagery isn't geospatial — for general image corpora, OpenCLIP Batch Embeddings is a closer fit."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Community support only via the repository's GitHub Issues — no SLA is provided for the sample software."
+        }
+      }
     }
   ]
 }
