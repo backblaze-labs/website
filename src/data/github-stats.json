@@ -254,14 +254,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 12,
+    "forks": 13,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 10,
+    "openIssues": 11,
     "stars": 8,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-09-08T07:07:44.217Z"
+    "fetchedAt": "2026-09-14T07:17:23.592Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 23,
+    "forks": 24,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 19,
+    "openIssues": 20,
     "stars": 27,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-09-13T07:06:52.350Z"
+    "fetchedAt": "2026-09-14T07:17:23.592Z"
   },
   "b2-action": {
     "archived": false,
@@ -317,11 +317,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 52,
+    "openIssues": 53,
     "stars": 7,
     "updated": "2026-09-09T03:05:39Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-09-10T07:07:44.407Z"
+    "fetchedAt": "2026-09-14T07:17:23.581Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 5,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 8,
-    "stars": 33,
-    "updated": "2026-09-09T17:08:01Z",
+    "openIssues": 9,
+    "stars": 34,
+    "updated": "2026-09-14T01:28:10Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-09-13T07:06:53.246Z"
+    "fetchedAt": "2026-09-14T07:17:24.346Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -530,14 +530,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3837,
+    "forks": 3840,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 593,
-    "stars": 16692,
-    "updated": "2026-09-12T16:56:05Z",
+    "openIssues": 596,
+    "stars": 16701,
+    "updated": "2026-09-14T06:59:58Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-09-13T07:06:52.373Z"
+    "fetchedAt": "2026-09-14T07:17:23.592Z"
   },
   "data-encryption": {
     "archived": false,
@@ -786,10 +786,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 65,
-    "stars": 558,
+    "stars": 556,
     "updated": "2026-09-10T05:44:57Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-09-13T07:06:52.373Z"
+    "fetchedAt": "2026-09-14T07:17:23.592Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1070,14 +1070,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6294,
+    "forks": 6299,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2094,
-    "stars": 27933,
-    "updated": "2026-09-13T04:51:09Z",
+    "openIssues": 2091,
+    "stars": 27939,
+    "updated": "2026-09-14T06:47:09Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-09-13T07:06:52.373Z"
+    "fetchedAt": "2026-09-14T07:17:23.592Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
