@@ -4169,6 +4169,136 @@
           "support": "Community support only via the repository's GitHub Issues — no SLA is provided for the sample software."
         }
       }
+    },
+    {
+      "id": "kiss-icp-lidar-archive",
+      "title": "KISS-ICP LiDAR Archive",
+      "tagline": "Ingest LiDAR scans, run KISS-ICP SLAM, and archive it all to B2.",
+      "description": "A full-stack Next.js + FastAPI sample for robotics and autonomous-vehicle teams running continuous LiDAR SLAM. It ingests scan frames, runs the real open-source KISS-ICP engine (CPU-only) for odometry and incremental mapping, and archives raw scans, per-batch odometry, .ply map snapshots, and the session trajectory to Backblaze B2 over the S3-compatible API — a cheap, growing archive for offline analysis and model retraining.",
+      "categories": ["data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "lidar",
+        "slam",
+        "kiss-icp",
+        "odometry",
+        "point-cloud",
+        "robotics",
+        "autonomous-vehicles",
+        "s3-compatible"
+      ],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/kiss-icp-lidar-archive",
+      "repo": "backblaze-b2-samples/kiss-icp-lidar-archive",
+      "detail": {
+        "metaDescription": "Full-stack Next.js + FastAPI sample that ingests LiDAR scans, runs the real KISS-ICP SLAM engine on the backend, and archives odometry, maps, and trajectories to Backblaze B2.",
+        "audience": "Robotics and autonomous-vehicle teams running continuous LiDAR SLAM who need a cheap, S3-compatible archive for scans, odometry, map snapshots, and trajectories.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application, dashboard, and session UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "Recharts + TanStack Query",
+            "role": "Trajectory/metrics charts and client-side data fetching"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Layered, typed Python API and startup config validation"
+          },
+          {
+            "name": "KISS-ICP + NumPy",
+            "role": "Real CPU-only LiDAR odometry and incremental mapping engine"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for scans, maps, and trajectories"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "capabilities": [
+          {
+            "title": "LiDAR session lifecycle",
+            "description": "Create, run, browse, edit, and delete SLAM runs, persisted as B2 objects with no database."
+          },
+          {
+            "title": "Real KISS-ICP SLAM",
+            "description": "The real open-source engine computes per-frame odometry and an incremental voxel-hash point-cloud map, CPU-only with no GPU."
+          },
+          {
+            "title": "Synthetic scan generator",
+            "description": "Overlapping synthetic LiDAR frames along a known ground-truth path let the whole demo run with only B2 credentials — no sensor required."
+          },
+          {
+            "title": "Everything archived to B2",
+            "description": "Raw scans, per-batch odometry, .ply map snapshots, and the full session trajectory are streamed to Backblaze B2 over the S3-compatible API."
+          },
+          {
+            "title": "Trajectory and archive explorers",
+            "description": "A 2D trajectory plot, a session-scoped archive explorer, and a full-bucket File Explorer for previewing, downloading, and deleting objects."
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/kiss-icp-lidar-archive-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with LiDAR SLAM metrics, scan-frames chart, and recent sessions",
+            "caption": "SLAM archive metrics — sessions, scan frames, scan data in B2, maps, trajectory distance — with a frames-per-session chart and recent sessions."
+          },
+          {
+            "src": "/screenshots/kiss-icp-lidar-archive-2.webp",
+            "width": 1600,
+            "height": 1017,
+            "alt": "Sessions list of LiDAR SLAM runs",
+            "caption": "Every LiDAR SLAM run with its robot, scene, frame count, trajectory distance, and status."
+          },
+          {
+            "src": "/screenshots/kiss-icp-lidar-archive-3.webp",
+            "width": 1600,
+            "height": 1024,
+            "alt": "Session detail with trajectory plot and B2 session archive",
+            "caption": "Per-run metrics, the KISS-ICP recovered path against synthetic ground truth, and the B2-archived scans, maps, odometry, and trajectory."
+          },
+          {
+            "src": "/screenshots/kiss-icp-lidar-archive-4.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Upload page with drag-and-drop file area",
+            "caption": "Drag-and-drop files straight into the B2 bucket over the S3-compatible API."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/kiss-icp-lidar-archive.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "useWhen": [
+          "You run continuous LiDAR SLAM and want a cheap, S3-compatible archive for scans, odometry, map snapshots, and trajectories you can query offline.",
+          "You want a working example of the real KISS-ICP engine running CPU-only on the backend, with no GPU and no second API key.",
+          "You want to see Backblaze B2 as the storage layer for a high-rate, data-heavy robotics pipeline, end to end."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted SaaS product with user accounts, authentication, tenant isolation, or billing — none are included.",
+          "You need a real sensor driver — the input is a synthetic scan generator, not hardware ingest.",
+          "You plan to run heavy CPU SLAM on serverless functions — the KISS-ICP Run suits local dev or a long-lived container, not Vercel functions."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects through the repository's GitHub Issues; this sample is provided as-is with no service-level agreement (SLA)."
+        }
+      }
     }
   ]
 }
