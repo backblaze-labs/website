@@ -4299,6 +4299,143 @@
           "support": "Report defects through the repository's GitHub Issues; this sample is provided as-is with no service-level agreement (SLA)."
         }
       }
+    },
+    {
+      "id": "carla-sensor-data-lake",
+      "title": "CARLA Sensor Data Lake",
+      "tagline": "Synthetic multi-sensor driving datasets on Backblaze B2.",
+      "description": "Turn the open-source CARLA simulator into a synthetic autonomous-driving data lake on Backblaze B2: define scenarios, capture multi-sensor episodes (camera, LiDAR, depth, segmentation, telemetry), and browse and serve the datasets straight from B2.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "python",
+        "typescript",
+        "carla",
+        "autonomous-driving",
+        "lidar",
+        "computer-vision",
+        "data-lake",
+        "s3-compatible"
+      ],
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/carla-sensor-data-lake",
+      "repo": "backblaze-b2-samples/carla-sensor-data-lake",
+      "detail": {
+        "metaDescription": "Synthetic autonomous-driving data lake on Backblaze B2: generate multi-sensor CARLA datasets (camera, LiDAR, depth, segmentation) and browse and serve them from object storage.",
+        "audience": "Autonomous-vehicle researchers, perception-model engineers, and robotics/sim teams who need scalable synthetic sensor datasets on cheap object storage.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web UI"
+          },
+          {
+            "name": "Tailwind v4, shadcn/ui, Recharts, TanStack Query",
+            "role": "Design system and charts"
+          },
+          {
+            "name": "FastAPI + Pydantic v2 (Python 3.12+)",
+            "role": "Backend API"
+          },
+          {
+            "name": "boto3 over the S3-compatible API",
+            "role": "B2 storage access"
+          },
+          {
+            "name": "CARLA 0.9.x",
+            "role": "Driving simulator (optional, user-hosted)"
+          },
+          {
+            "name": "PyTorch",
+            "role": "DataLoader training example (optional)"
+          },
+          {
+            "name": "Backblaze B2",
+            "role": "Object storage — the data lake"
+          }
+        ],
+        "capabilities": [
+          {
+            "title": "Scenarios",
+            "description": "Create, edit, delete, and run reusable CARLA capture configs (town, weather, traffic, sensor rig), stored as JSON in B2."
+          },
+          {
+            "title": "Simulation runner",
+            "description": "Drives the real CARLA server in synchronous mode and streams multi-sensor frames to B2 as they are captured."
+          },
+          {
+            "title": "Episode explorer",
+            "description": "Per-episode metadata and bounding-box annotations with a B2-prefix-scoped sensor-frame browser and presigned-URL preview."
+          },
+          {
+            "title": "Dataset serving",
+            "description": "Presigned-URL frame serving plus a standalone PyTorch DataLoader example that streams straight from B2."
+          },
+          {
+            "title": "Data-lake dashboard",
+            "description": "Episodes, frames, storage footprint, frames-by-sensor, episodes-by-weather/town, and 7-day ingest throughput."
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/carla-sensor-data-lake-1.webp",
+            "width": 1600,
+            "height": 1073,
+            "alt": "Dashboard with episode, frame, storage, and scenario metrics and ingest charts",
+            "caption": "Dashboard — episode, sensor-frame, storage, and scenario counts, a 7-day ingest-throughput chart, and frames-by-sensor / weather / town breakdowns."
+          },
+          {
+            "src": "/screenshots/carla-sensor-data-lake-2.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Scenarios list of reusable CARLA capture configs",
+            "caption": "Scenarios — the reusable CARLA capture configs (town, weather, traffic, FPS, frame count, sensor rig) that drive every capture."
+          },
+          {
+            "src": "/screenshots/carla-sensor-data-lake-3.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Scenario detail showing capture config and captured episodes",
+            "caption": "Scenario detail — a scenario's full capture config plus the episodes captured from it, with Run / Edit / Delete actions."
+          },
+          {
+            "src": "/screenshots/carla-sensor-data-lake-4.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Episodes list of captured multi-sensor datasets",
+            "caption": "Episodes — captured multi-sensor driving datasets in the lake, with scenario, town/weather, frame count, size, source, and status."
+          },
+          {
+            "src": "/screenshots/carla-sensor-data-lake-5.webp",
+            "width": 1600,
+            "height": 1852,
+            "alt": "Episode detail with metadata, dataset serving, annotations, and sensor-frame browser",
+            "caption": "Episode detail — per-episode metadata and frames-by-sensor, the PyTorch DataLoader serving command, bounding-box annotations, and a B2-scoped sensor-frame browser."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/carla-sensor-data-lake.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "useWhen": [
+          "You need scalable synthetic multi-sensor driving datasets on cheap object storage.",
+          "You want to manage, browse, and serve datasets already in B2 from any host — no GPU or CARLA server required.",
+          "You want to stream frames straight into a PyTorch DataLoader via short-lived presigned URLs."
+        ],
+        "avoidWhen": [
+          "You need a hosted, multi-tenant SaaS — the API is unauthenticated and bucket-wide by design.",
+          "You want to capture real episodes without a supported Linux/GPU host running a CARLA server (the carla wheel is Linux/Windows, CPython 3.10 and earlier).",
+          "You want a managed training pipeline — the PyTorch DataLoader ships as a standalone example, not an orchestrated trainer."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects via the repository's GitHub Issues; this sample is maintained on a best-effort basis and carries no SLA."
+        }
+      }
     }
   ]
 }
