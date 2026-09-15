@@ -4305,7 +4305,7 @@
       "title": "CARLA Sensor Data Lake",
       "tagline": "Synthetic multi-sensor driving datasets on Backblaze B2.",
       "description": "Turn the open-source CARLA simulator into a synthetic autonomous-driving data lake on Backblaze B2: define scenarios, capture multi-sensor episodes (camera, LiDAR, depth, segmentation, telemetry), and browse and serve the datasets straight from B2.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "type": "sample",
       "tags": [
         "python",
