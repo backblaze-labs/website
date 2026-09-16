@@ -4444,6 +4444,16 @@
       "description": "Open-source full-stack sample (Next.js 16 + FastAPI) that rolls out reinforcement-learning policies in MuJoCo Playground, renders each episode to video, and streams the video plus per-step state, action and reward arrays and a summary JSON to Backblaze B2 for behavioral-cloning and offline policy analysis.",
       "categories": ["ai-ml", "data-pipelines"],
       "type": "sample",
+      "tags": [
+        "mujoco",
+        "reinforcement-learning",
+        "robotics",
+        "dataset",
+        "imitation-learning",
+        "behavioral-cloning",
+        "jax",
+        "object-storage"
+      ],
       "languages": ["typescript", "python", "javascript"],
       "url": "https://github.com/backblaze-b2-samples/mujoco-rollout-dataset",
       "repo": "backblaze-b2-samples/mujoco-rollout-dataset",
