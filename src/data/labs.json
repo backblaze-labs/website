@@ -4579,7 +4579,7 @@
       "title": "TotalSegmentator Batch Pipeline",
       "tagline": "Segment 100+ anatomical structures into B2, at PACS scale.",
       "description": "Batch medical-imaging pipeline that ingests raw 3D CT/MRI volumes to Backblaze B2, runs TotalSegmentator locally to produce multi-label masks over 100+ anatomical structures plus per-structure volumetric statistics, and writes the masks and stats back to a B2 derived prefix — with B2 as the sole storage layer. Next.js 16 + FastAPI over the B2 S3-compatible API.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["data-pipelines"],
       "type": "sample",
       "tags": [
         "python",
