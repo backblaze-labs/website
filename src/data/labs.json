@@ -4573,6 +4573,146 @@
           "support": "Report repository defects and feature requests through the GitHub Issues page; this is an unsupported open-source sample with no service-level agreement."
         }
       }
+    },
+    {
+      "id": "totalsegmentator-batch-pipeline",
+      "title": "TotalSegmentator Batch Pipeline",
+      "tagline": "Segment 100+ anatomical structures into B2, at PACS scale.",
+      "description": "Batch medical-imaging pipeline that ingests raw 3D CT/MRI volumes to Backblaze B2, runs TotalSegmentator locally to produce multi-label masks over 100+ anatomical structures plus per-structure volumetric statistics, and writes the masks and stats back to a B2 derived prefix — with B2 as the sole storage layer. Next.js 16 + FastAPI over the B2 S3-compatible API.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "python",
+        "typescript",
+        "medical-imaging",
+        "totalsegmentator",
+        "ct-scan",
+        "mri",
+        "nifti",
+        "segmentation"
+      ],
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/totalsegmentator-batch-pipeline",
+      "repo": "backblaze-b2-samples/totalsegmentator-batch-pipeline",
+      "detail": {
+        "metaDescription": "Batch pipeline that ingests 3D CT/MRI volumes to Backblaze B2, runs TotalSegmentator locally for 100+ anatomical masks plus per-structure volumetrics, all stored on B2.",
+        "audience": "Radiologists, medical-AI researchers and clinical data teams building a scalable segmented imaging dataset with Backblaze B2 as the sole storage layer.",
+        "license": {
+          "name": "MIT",
+          "url": "https://github.com/backblaze-b2-samples/totalsegmentator-batch-pipeline/blob/main/LICENSE"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Dashboard frontend"
+          },
+          {
+            "name": "Tailwind v4 + shadcn/ui",
+            "role": "UI components and design tokens"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Data fetching, caching and cache invalidation"
+          },
+          {
+            "name": "Recharts",
+            "role": "Write-amplification and stats charts"
+          },
+          {
+            "name": "FastAPI (Python 3.12+)",
+            "role": "Backend API with a strict layered architecture"
+          },
+          {
+            "name": "boto3 + Pydantic v2",
+            "role": "B2 S3-compatible access and validation"
+          },
+          {
+            "name": "TotalSegmentator, PyTorch, nnU-Net v2, nibabel",
+            "role": "Optional on-device segmentation engine"
+          },
+          {
+            "name": "Backblaze B2 (S3-compatible)",
+            "role": "Sole storage layer"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/totalsegmentator-batch-pipeline-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with write amplification, studies processed, structures segmented and a source vs derived bytes chart",
+            "caption": "Dashboard — write-amplification ratio, studies processed, structures segmented and derived-on-B2 totals, with a source-vs-derived bytes chart."
+          },
+          {
+            "src": "/screenshots/totalsegmentator-batch-pipeline-2.webp",
+            "width": 1600,
+            "height": 1639,
+            "alt": "Studies library table listing CT and MRI studies with modality, status, structure count and sizes",
+            "caption": "Studies — the full CT/MRI study library, each row showing modality, task, status, structure count and source-to-derived sizes under the B2 studies/ prefix."
+          },
+          {
+            "src": "/screenshots/totalsegmentator-batch-pipeline-3.webp",
+            "width": 1600,
+            "height": 3039,
+            "alt": "Study detail view with artifacts and a per-structure volumetrics table of volume, voxels and Hounsfield stats",
+            "caption": "Study detail — per-study artifacts (source volume and segmentation mask on B2) plus the full per-structure volumetrics table."
+          },
+          {
+            "src": "/screenshots/totalsegmentator-batch-pipeline-4.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Bulk volume ingest page with a drag-and-drop area for NIfTI volumes",
+            "caption": "Bulk Volume Ingest — drag-and-drop upload of raw NIfTI CT/MRI volumes straight to the B2 source prefix."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/totalsegmentator-batch-pipeline.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Study Library",
+            "description": "Browse, create, edit, delete and segment CT/MRI studies."
+          },
+          {
+            "title": "Segmentation",
+            "description": "Run TotalSegmentator locally to produce a 100+ structure multi-label mask."
+          },
+          {
+            "title": "Volumetric Stats",
+            "description": "Per-structure volume (mL), bounding box and CT Hounsfield stats as JSON."
+          },
+          {
+            "title": "Dashboard",
+            "description": "Studies processed, structures segmented, and source-to-derived write amplification."
+          },
+          {
+            "title": "Bulk Volume Ingest",
+            "description": "Drag-and-drop bulk upload of NIfTI volumes to the B2 source prefix."
+          },
+          {
+            "title": "Bucket Explorer",
+            "description": "Full-bucket browse, preview, download and delete."
+          }
+        ],
+        "useWhen": [
+          "You want a working batch pipeline that ingests raw CT/MRI volumes and segments 100+ anatomical structures with B2 as the only storage layer.",
+          "You need per-structure volumetric statistics — volume, bounding box and CT Hounsfield stats — written back to B2 alongside each mask.",
+          "You want to demonstrate the write-amplification storage pattern at PACS scale, where each source volume yields comparable-size derived data.",
+          "You are starting a medical-imaging app and want the scaffolding, storage wiring and agent-facing docs already done."
+        ],
+        "avoidWhen": [
+          "You need clinical diagnosis or plan to feed it real, identifiable patient data — it has no authentication, tenant isolation or PHI handling and expects synthetic phantoms or de-identified volumes.",
+          "You need the bulk segment action scoped per batch or per user — 'Segment all pending' is account-wide and unscoped, built for a single-user local demo rather than shared or multi-user deployments.",
+          "You need high-throughput parallel inference — segmentation runs are serialized one at a time to avoid heavy-ML contention.",
+          "You cannot install the optional ML extension (TotalSegmentator, PyTorch) on a CPU or CUDA host — the core install runs everything except the segmentation step."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Community sample with no SLA; report problems via the repository's GitHub issues at https://github.com/backblaze-b2-samples/totalsegmentator-batch-pipeline/issues."
+        }
+      }
     }
   ]
 }
