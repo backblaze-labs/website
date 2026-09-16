@@ -4436,6 +4436,143 @@
           "support": "Report defects via the repository's GitHub Issues; this sample is maintained on a best-effort basis and carries no SLA."
         }
       }
+    },
+    {
+      "id": "mujoco-rollout-dataset",
+      "title": "MuJoCo Rollout Dataset",
+      "tagline": "Roll out RL policies in MuJoCo, stream the episode dataset to B2.",
+      "description": "Open-source full-stack sample (Next.js 16 + FastAPI) that rolls out reinforcement-learning policies in MuJoCo Playground, renders each episode to video, and streams the video plus per-step state, action and reward arrays and a summary JSON to Backblaze B2 for behavioral-cloning and offline policy analysis.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "tags": [
+        "mujoco",
+        "reinforcement-learning",
+        "robotics",
+        "dataset",
+        "imitation-learning",
+        "behavioral-cloning",
+        "jax",
+        "object-storage"
+      ],
+      "languages": ["typescript", "python", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/mujoco-rollout-dataset",
+      "repo": "backblaze-b2-samples/mujoco-rollout-dataset",
+      "detail": {
+        "metaDescription": "Open-source Next.js and FastAPI sample that rolls out RL policies in MuJoCo Playground and streams episode video, trajectory arrays and summary JSON to Backblaze B2.",
+        "audience": "Robotics and reinforcement-learning developers, and AI coding agents, who want to generate rollout datasets from MuJoCo Playground and keep the video, trajectory arrays and summaries in their own B2 bucket.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Dashboard, Rollouts, Dataset and Bucket Explorer UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query + Recharts",
+            "role": "Client data fetching, caching, and charts"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed Python API with a strict layered architecture"
+          },
+          {
+            "name": "MuJoCo Playground (mujoco + mujoco-mjx + jax) + imageio",
+            "role": "Policy rollout, physics simulation and MP4 rendering engine"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for video, arrays and summaries"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/mujoco-rollout-dataset-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with rollout stats, cumulative reward, B2 storage, episodes chart and recent rollouts",
+            "caption": "The dashboard shows rollout and episode totals, cumulative reward, B2 storage used, a 7-day episodes-rendered chart, and a recent-rollouts table."
+          },
+          {
+            "src": "/screenshots/mujoco-rollout-dataset-2.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Rollouts list showing configured jobs with environment, episode progress, reward and status",
+            "caption": "Every configured rollout job with its environment, episode progress, reward, run status and creation time."
+          },
+          {
+            "src": "/screenshots/mujoco-rollout-dataset-3.webp",
+            "width": 1600,
+            "height": 1042,
+            "alt": "Rollout detail with configuration panel and rendered CartPole episodes with trajectory downloads",
+            "caption": "A single job's full configuration alongside each rendered episode: inline MP4 playback plus per-episode reward and downloadable state/action/reward arrays and summary JSON."
+          },
+          {
+            "src": "/screenshots/mujoco-rollout-dataset-4.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dataset explorer playing rendered episodes with trajectory-array downloads via presigned B2 URLs",
+            "caption": "Browse a rollout's rendered episodes, play each one inline and download its trajectory arrays, all served by presigned B2 URLs."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/mujoco-rollout-dataset.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Rollout configuration",
+            "description": "Create, edit, list and delete rollout jobs with their environment, episode count, resolution, camera and policy."
+          },
+          {
+            "title": "Policy rollout and rendering",
+            "description": "MuJoCo Playground rolls out a policy, records per-step state, action and reward, and renders each episode to MP4 — running locally on CPU by default."
+          },
+          {
+            "title": "B2 dataset write",
+            "description": "Per episode, the MP4 plus state/action/reward .npy arrays and a summary JSON are streamed to Backblaze B2 through the S3-compatible API."
+          },
+          {
+            "title": "Dataset explorer",
+            "description": "Browse rollouts and episodes, play rendered video inline, and download trajectory arrays via presigned URLs."
+          },
+          {
+            "title": "Bucket explorer",
+            "description": "Browse the full B2 bucket: list, preview, download and delete objects."
+          },
+          {
+            "title": "Dashboard and observability",
+            "description": "Rollout and episode stats, cumulative reward and storage used, plus structured JSON logging, a health B2 connectivity check and a metrics endpoint."
+          }
+        ],
+        "useWhen": [
+          "You want to generate reinforcement-learning rollout datasets from MuJoCo Playground and keep the video, trajectory arrays and summaries in your own B2 bucket.",
+          "You need a working full-stack pattern (Next.js + FastAPI + boto3) for any local ML producer that streams large artifacts to object storage.",
+          "You want to browse and play rendered episodes and download per-step arrays through presigned B2 URLs.",
+          "You plan to extend the sample with an AI coding agent and value explicit repository context and architecture boundaries enforced by structural tests."
+        ],
+        "avoidWhen": [
+          "You need a supported product, guaranteed maintenance, or a service-level agreement.",
+          "You expect the rollout engine to run on serverless — MuJoCo Playground is a native JAX/MJX stack, so a hosted deploy configures and browses rollouts while you run the render engine locally or on a self-hosted API.",
+          "You need production authentication, multi-tenancy, or billing to work without further engineering; the deployed API is unauthenticated and bucket-wide.",
+          "You only need generic B2 file browsing without an ML producer — a simpler sample such as the vibe-coding-starter-kit is a better fit."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report repository defects and feature requests through the GitHub Issues page; this is an unsupported open-source sample with no service-level agreement."
+        }
+      }
     }
   ]
 }
