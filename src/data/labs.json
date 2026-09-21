@@ -4713,6 +4713,154 @@
           "support": "Community sample with no SLA; report problems via the repository's GitHub issues at https://github.com/backblaze-b2-samples/totalsegmentator-batch-pipeline/issues."
         }
       }
+    },
+    {
+      "id": "rosbag2-cloud-offload",
+      "title": "Rosbag2 Cloud Offload",
+      "tagline": "Stream ROS 2 rosbag2 recordings off the robot into Backblaze B2.",
+      "description": "Full-stack sample (Next.js 16 + FastAPI) that streams ROS 2 rosbag2 recordings off the robot into Backblaze B2 over the S3-compatible API, describes each session from rosbag2's own metadata, and catalogs every session in Parquet so any bag is searchable and replayable with ros2 bag play from a presigned URL.",
+      "categories": ["data-pipelines", "developer-tools"],
+      "type": "sample",
+      "tags": [
+        "robotics",
+        "ros2",
+        "rosbag2",
+        "parquet",
+        "presigned-url",
+        "object-storage",
+        "s3-compatible",
+        "sample-app"
+      ],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/rosbag2-cloud-offload",
+      "repo": "backblaze-b2-samples/rosbag2-cloud-offload",
+      "detail": {
+        "metaDescription": "Evaluate Rosbag2 Cloud Offload, an open source Next.js and FastAPI sample that streams ROS 2 rosbag2 recordings into Backblaze B2 and catalogs them in Parquet for replay.",
+        "audience": "Developers and AI coding agents running a ROS 2 robot or vehicle program who need durable, queryable off-machine storage for the bag splits rosbag2 writes on every run.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query",
+            "role": "Client-side data fetching, caching, and cache invalidation"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed, layered Python API with boundary validation"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage access, contained in the repo layer"
+          },
+          {
+            "name": "pyarrow",
+            "role": "Parquet session catalog"
+          },
+          {
+            "name": "rosbag2",
+            "role": "Bag describe engine (ros2 bag info when present, else metadata.yaml)"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/rosbag2-cloud-offload-1.webp",
+            "alt": "Offload dashboard with fleet metrics and recent sessions",
+            "caption": "The Offload Dashboard shows fleet-wide metrics — sessions, robots, objects in bucket, storage used — with a recent-sessions table.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/rosbag2-cloud-offload-2.webp",
+            "alt": "Offload page with target-session selector",
+            "caption": "The Offload page picks a target session and streams closed rosbag2 splits straight into bags/<robot>/<session>/ on B2.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/rosbag2-cloud-offload-3.webp",
+            "alt": "Session catalog listing all offloaded recordings",
+            "caption": "The Session Catalog lists every offloaded recording with distro, topic count, split count, size, and compression per session.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/rosbag2-cloud-offload-4.webp",
+            "alt": "Catalog filtered to a single robot's sessions",
+            "caption": "Catalog Search filters the catalog by robot, session, ROS distro, or topic.",
+            "width": 1600,
+            "height": 1000
+          },
+          {
+            "src": "/screenshots/rosbag2-cloud-offload-5.webp",
+            "alt": "Session detail with describe output, splits, and replay",
+            "caption": "Session Detail expands one session: rosbag2 describe (topics, messages, duration), the split files, and presigned-URL replay.",
+            "width": 1600,
+            "height": 1461
+          }
+        ],
+        "ogImage": {
+          "src": "/og/rosbag2-cloud-offload.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Continuous bag offload",
+            "description": "Presigned-PUT each closed rosbag2 split into bags/<robot>/<session>/ while recording continues; the local copy is deleted only after a head_object confirms the object landed in B2."
+          },
+          {
+            "title": "Session catalog and search",
+            "description": "Every session rolls into a Parquet catalog keyed by robot, date, topic set, and ROS distro, searchable by robot, session, distro, or topic."
+          },
+          {
+            "title": "Bag describe from rosbag2 metadata",
+            "description": "Uses ros2 bag info when a ROS 2 environment is present, otherwise parses rosbag2's own metadata.yaml — never a third-party bag reader — and records topics, messages, duration, and compression."
+          },
+          {
+            "title": "Replay via presigned URL",
+            "description": "A presigned GET manifest streams a session's splits so it can be replayed with ros2 bag play directly against B2."
+          },
+          {
+            "title": "Full-bucket explorer",
+            "description": "Browse every object across the bags/ and catalog/ namespaces from the app."
+          },
+          {
+            "title": "Offload dashboard",
+            "description": "Offload volume, session count, and compression-ratio statistics computed over the bags/ prefix."
+          }
+        ],
+        "useWhen": [
+          "You run a ROS 2 robot or vehicle and need durable, queryable off-machine storage for the bag splits rosbag2 writes on every run.",
+          "You want each offloaded session described from rosbag2's own metadata and rolled into a searchable Parquet catalog.",
+          "You need a presigned B2 URL to replay a recording with ros2 bag play.",
+          "You want a production-minded full-stack sample to clone and extend, with a strict layered architecture, contract checks, and tests."
+        ],
+        "avoidWhen": [
+          "You need a complete hosted fleet-data platform or a drop-in production service rather than a sample to adapt.",
+          "You need managed hosting, user accounts, authentication, tenant isolation, billing, or retention management out of the box — the API is unauthenticated and bucket-wide.",
+          "You want the app to run ros2 bag record for you; recording happens on the robot, and this app owns everything after a split closes.",
+          "Your app is a generic file-upload dashboard with no robotics or rosbag2 specifics — the Vibe Coding Starter Kit is the closer starting point."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects and feature requests through the repository's GitHub Issues; it carries no SLA and no guaranteed support."
+        }
+      }
     }
   ]
 }
