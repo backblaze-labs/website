@@ -4719,7 +4719,7 @@
       "title": "Rosbag2 Cloud Offload",
       "tagline": "Stream ROS 2 rosbag2 recordings off the robot into Backblaze B2.",
       "description": "Full-stack sample (Next.js 16 + FastAPI) that streams ROS 2 rosbag2 recordings off the robot into Backblaze B2 over the S3-compatible API, describes each session from rosbag2's own metadata, and catalogs every session in Parquet so any bag is searchable and replayable with ros2 bag play from a presigned URL.",
-      "categories": ["data-pipelines", "developer-tools"],
+      "categories": ["data-pipelines"],
       "type": "sample",
       "tags": [
         "robotics",
