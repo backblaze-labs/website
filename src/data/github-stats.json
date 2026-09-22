@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 17,
+    "forks": 18,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 14,
+    "openIssues": 15,
     "stars": 6,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-09-20T07:07:41.841Z"
+    "fetchedAt": "2026-09-22T07:09:30.308Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -305,11 +305,11 @@
     "forks": 25,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 21,
+    "openIssues": 22,
     "stars": 28,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-09-21T07:19:07.470Z"
+    "fetchedAt": "2026-09-22T07:09:30.308Z"
   },
   "b2-action": {
     "archived": false,
@@ -317,11 +317,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 56,
+    "openIssues": 63,
     "stars": 7,
-    "updated": "2026-09-14T23:38:13Z",
+    "updated": "2026-09-21T23:38:22Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-09-15T07:09:12.015Z"
+    "fetchedAt": "2026-09-22T07:09:30.307Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -389,11 +389,11 @@
     "forks": 0,
     "lang": null,
     "license": "MIT",
-    "openIssues": 10,
+    "openIssues": 11,
     "stars": 0,
-    "updated": "2026-09-15T17:14:37Z",
+    "updated": "2026-09-22T06:45:53Z",
     "repo": "backblaze-b2-samples/carla-sensor-data-lake",
-    "fetchedAt": "2026-09-16T07:09:08.795Z"
+    "fetchedAt": "2026-09-22T07:09:31.249Z"
   },
   "clam-wsi-feature-extraction": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3871,
+    "forks": 3878,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 594,
-    "stars": 16759,
-    "updated": "2026-09-21T06:26:51Z",
+    "openIssues": 598,
+    "stars": 16768,
+    "updated": "2026-09-22T04:53:20Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-09-21T07:19:07.347Z"
+    "fetchedAt": "2026-09-22T07:09:30.308Z"
   },
   "data-encryption": {
     "archived": false,
@@ -809,11 +809,11 @@
     "forks": 24,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 55,
+    "openIssues": 42,
     "stars": 552,
-    "updated": "2026-09-18T03:33:07Z",
+    "updated": "2026-09-22T04:45:15Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-09-20T07:07:42.013Z"
+    "fetchedAt": "2026-09-22T07:09:30.308Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1106,14 +1106,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6331,
+    "forks": 6337,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2116,
-    "stars": 28065,
-    "updated": "2026-09-21T07:14:23Z",
+    "openIssues": 2131,
+    "stars": 28090,
+    "updated": "2026-09-22T06:11:24Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-09-21T07:19:07.500Z"
+    "fetchedAt": "2026-09-22T07:09:30.308Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1439,6 +1439,18 @@
     "repo": "backblaze-b2-samples/roboflow-inference-frame-archive",
     "fetchedAt": "2026-09-12T07:06:47.276Z"
   },
+  "rosbag2-cloud-offload": {
+    "archived": false,
+    "description": "Full-stack sample app that streams ROS 2 rosbag2 recordings off the robot into Backblaze B2 (S3-compatible), describes each session from rosbag2's own metadata, and catalogs them in Parquet so any bag is searchable and replayable with `ros2 bag play` from a presigned URL. Next.js 16 + FastAPI, one-click Vercel deploy.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-09-21T18:32:21Z",
+    "repo": "backblaze-b2-samples/rosbag2-cloud-offload",
+    "fetchedAt": "2026-09-22T07:09:31.293Z"
+  },
   "sam2-mask-dataset-builder": {
     "archived": false,
     "description": "Turn a raw media archive on Backblaze B2 into a versioned segmentation dataset. Drop click/box prompts, run Meta's Segment Anything 2 (SAM 2) locally to mask images and propagate across video, and write COCO RLE, mask PNGs, and cut-outs back to B2 — no second API key.",
@@ -1459,9 +1471,9 @@
     "license": "MIT",
     "openIssues": 30,
     "stars": 8,
-    "updated": "2026-09-14T11:09:31Z",
+    "updated": "2026-09-21T11:08:58Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-09-15T07:09:12.015Z"
+    "fetchedAt": "2026-09-22T07:09:30.307Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
