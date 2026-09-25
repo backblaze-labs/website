@@ -242,14 +242,14 @@
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 9,
+    "forks": 10,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 5,
+    "openIssues": 6,
     "stars": 7,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-09-21T07:19:07.476Z"
+    "fetchedAt": "2026-09-25T07:10:55.461Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -318,10 +318,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 63,
-    "stars": 7,
+    "stars": 8,
     "updated": "2026-09-21T23:38:22Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-09-22T07:09:30.307Z"
+    "fetchedAt": "2026-09-25T07:10:55.447Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -330,10 +330,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 18,
-    "stars": 36,
+    "stars": 37,
     "updated": "2026-09-20T18:41:17Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-09-24T07:10:19.336Z"
+    "fetchedAt": "2026-09-25T07:10:56.231Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3883,
+    "forks": 3886,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 590,
-    "stars": 16782,
-    "updated": "2026-09-24T06:41:20Z",
+    "openIssues": 595,
+    "stars": 16791,
+    "updated": "2026-09-25T05:14:18Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-09-24T07:10:19.137Z"
+    "fetchedAt": "2026-09-25T07:10:55.461Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1106,14 +1106,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6350,
+    "forks": 6355,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2143,
-    "stars": 28119,
-    "updated": "2026-09-24T07:04:57Z",
+    "openIssues": 2144,
+    "stars": 28130,
+    "updated": "2026-09-25T07:07:30Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-09-24T07:10:19.330Z"
+    "fetchedAt": "2026-09-25T07:10:55.461Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1470,10 +1470,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 34,
-    "stars": 8,
+    "stars": 9,
     "updated": "2026-09-23T20:35:51Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-09-24T07:10:19.336Z"
+    "fetchedAt": "2026-09-25T07:10:55.447Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
