@@ -254,14 +254,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 13,
+    "forks": 15,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 10,
+    "openIssues": 12,
     "stars": 9,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-09-18T07:08:26.963Z"
+    "fetchedAt": "2026-09-28T07:25:53.223Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 25,
+    "forks": 26,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 22,
+    "openIssues": 23,
     "stars": 29,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-09-26T07:07:10.007Z"
+    "fetchedAt": "2026-09-28T07:25:53.331Z"
   },
   "b2-action": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 6,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 18,
-    "stars": 37,
-    "updated": "2026-09-20T18:41:17Z",
+    "openIssues": 19,
+    "stars": 38,
+    "updated": "2026-09-27T18:38:00Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-09-25T07:10:56.231Z"
+    "fetchedAt": "2026-09-28T07:25:53.264Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "Computer Vision Annotation Tool (CVAT) is a leading platform for building high-quality visual datasets for vision AI. It offers open-source, cloud, and enterprise products, as well as labeling services, for image, video, and 3D annotation with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3887,
+    "forks": 3885,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 600,
-    "stars": 16800,
-    "updated": "2026-09-26T19:50:38Z",
+    "stars": 16806,
+    "updated": "2026-09-28T06:51:31Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-09-27T07:08:37.309Z"
+    "fetchedAt": "2026-09-28T07:25:53.308Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1106,14 +1106,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6371,
+    "forks": 6378,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2138,
-    "stars": 28147,
-    "updated": "2026-09-27T05:38:42Z",
+    "openIssues": 2140,
+    "stars": 28156,
+    "updated": "2026-09-28T02:58:39Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-09-27T07:08:37.309Z"
+    "fetchedAt": "2026-09-28T07:25:53.114Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
