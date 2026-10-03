@@ -254,14 +254,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 16,
+    "forks": 17,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 13,
+    "openIssues": 14,
     "stars": 9,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-09-30T07:14:59.153Z"
+    "fetchedAt": "2026-10-03T07:15:14.066Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -306,10 +306,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 25,
-    "stars": 30,
+    "stars": 31,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-10-02T07:13:52.864Z"
+    "fetchedAt": "2026-10-03T07:15:14.066Z"
   },
   "b2-action": {
     "archived": false,
@@ -343,9 +343,9 @@
     "license": "MIT",
     "openIssues": 62,
     "stars": 3,
-    "updated": "2026-09-29T07:13:14Z",
+    "updated": "2026-10-03T02:24:33Z",
     "repo": "backblaze-labs/b2-vscode",
-    "fetchedAt": "2026-09-29T07:15:00.880Z"
+    "fetchedAt": "2026-10-03T07:15:14.067Z"
   },
   "birdnet-passive-acoustic-monitoring": {
     "archived": false,
@@ -557,11 +557,11 @@
     "forks": 3892,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 595,
-    "stars": 16846,
-    "updated": "2026-10-01T18:46:56Z",
+    "openIssues": 592,
+    "stars": 16852,
+    "updated": "2026-10-02T14:22:55Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-02T07:13:51.900Z"
+    "fetchedAt": "2026-10-03T07:15:14.068Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1109,11 +1109,11 @@
     "forks": 6415,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2145,
-    "stars": 28223,
-    "updated": "2026-10-02T07:10:41Z",
+    "openIssues": 2153,
+    "stars": 28240,
+    "updated": "2026-10-03T07:07:35Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-02T07:13:52.471Z"
+    "fetchedAt": "2026-10-03T07:15:14.070Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1471,9 +1471,9 @@
     "license": "MIT",
     "openIssues": 35,
     "stars": 9,
-    "updated": "2026-10-01T18:48:10Z",
+    "updated": "2026-10-02T07:32:39Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-10-02T07:13:52.833Z"
+    "fetchedAt": "2026-10-03T07:15:14.047Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
