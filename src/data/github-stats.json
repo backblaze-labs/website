@@ -174,10 +174,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 2,
-    "stars": 2,
+    "stars": 1,
     "updated": "2026-09-29T08:20:24Z",
     "repo": "backblaze-b2-samples/ai-video-upscaler-restore",
-    "fetchedAt": "2026-09-30T07:14:59.152Z"
+    "fetchedAt": "2026-10-06T07:14:57.414Z"
   },
   "aider-b2-backup": {
     "archived": false,
@@ -234,10 +234,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 19,
-    "stars": 7,
+    "stars": 8,
     "updated": "2026-06-17T14:23:14Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-10-05T07:29:05.224Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -257,11 +257,11 @@
     "forks": 18,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 15,
+    "openIssues": 16,
     "stars": 9,
     "updated": "2026-06-17T14:23:12Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-10-05T07:29:05.224Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 28,
+    "forks": 29,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 25,
+    "openIssues": 26,
     "stars": 33,
     "updated": "2026-06-17T14:23:13Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-10-05T07:29:05.224Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "b2-action": {
     "archived": false,
@@ -319,9 +319,9 @@
     "license": "MIT",
     "openIssues": 64,
     "stars": 8,
-    "updated": "2026-09-28T23:36:11Z",
+    "updated": "2026-10-05T23:36:52Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-09-29T07:15:00.876Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 6,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 20,
+    "openIssues": 22,
     "stars": 41,
-    "updated": "2026-10-04T18:37:16Z",
+    "updated": "2026-10-06T05:08:42Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-10-05T07:29:06.389Z"
+    "fetchedAt": "2026-10-06T07:14:58.270Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -557,11 +557,11 @@
     "forks": 3894,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 584,
-    "stars": 16859,
-    "updated": "2026-10-05T05:39:04Z",
+    "openIssues": 579,
+    "stars": 16860,
+    "updated": "2026-10-06T07:02:27Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-05T07:29:05.228Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "data-encryption": {
     "archived": false,
@@ -965,11 +965,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 0,
     "stars": 4,
-    "updated": "2026-09-13T05:48:06Z",
+    "updated": "2026-10-06T03:24:21Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-09-13T07:06:52.350Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "image-to-3d-asset-library": {
     "archived": false,
@@ -1109,11 +1109,11 @@
     "forks": 6424,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2163,
-    "stars": 28262,
-    "updated": "2026-10-05T07:01:43Z",
+    "openIssues": 2171,
+    "stars": 28278,
+    "updated": "2026-10-06T06:34:48Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-05T07:29:05.228Z"
+    "fetchedAt": "2026-10-06T07:14:57.413Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1471,9 +1471,9 @@
     "license": "MIT",
     "openIssues": 36,
     "stars": 9,
-    "updated": "2026-10-04T18:54:01Z",
+    "updated": "2026-10-05T11:10:52Z",
     "repo": "backblaze-labs/b2-sdk-typescript",
-    "fetchedAt": "2026-10-05T07:29:05.220Z"
+    "fetchedAt": "2026-10-06T07:14:57.412Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
