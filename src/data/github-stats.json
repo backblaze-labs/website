@@ -149,11 +149,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 5,
-    "updated": "2026-09-14T14:53:14Z",
+    "updated": "2026-10-09T08:57:21Z",
     "repo": "backblaze-b2-samples/ai-shorts-generator",
-    "fetchedAt": "2026-09-15T07:09:12.083Z"
+    "fetchedAt": "2026-10-10T07:11:40.277Z"
   },
   "ai-sticker-pack-generator": {
     "archived": false,
@@ -161,11 +161,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 1,
-    "updated": "2026-09-11T07:06:18Z",
+    "updated": "2026-10-09T14:00:01Z",
     "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
-    "fetchedAt": "2026-09-11T07:08:06.982Z"
+    "fetchedAt": "2026-10-10T07:11:40.016Z"
   },
   "ai-video-upscaler-restore": {
     "archived": false,
@@ -211,9 +211,9 @@
     "license": "MIT",
     "openIssues": 4,
     "stars": 0,
-    "updated": "2026-10-08T07:31:41Z",
+    "updated": "2026-10-09T07:26:34Z",
     "repo": "backblaze-b2-samples/arxiv-insight-briefs-nvidia-nemotron",
-    "fetchedAt": "2026-10-09T07:17:30.868Z"
+    "fetchedAt": "2026-10-10T07:11:40.148Z"
   },
   "audiosr-batch": {
     "archived": false,
@@ -254,14 +254,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 18,
+    "forks": 19,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 14,
+    "openIssues": 15,
     "stars": 9,
     "updated": "2026-10-07T17:42:51Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-10-08T07:17:33.687Z"
+    "fetchedAt": "2026-10-10T07:11:40.228Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 31,
+    "forks": 32,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 26,
-    "stars": 34,
+    "openIssues": 27,
+    "stars": 35,
     "updated": "2026-10-07T17:42:59Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-10-08T07:17:33.687Z"
+    "fetchedAt": "2026-10-10T07:11:40.192Z"
   },
   "b2-action": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 6,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 32,
+    "openIssues": 31,
     "stars": 42,
-    "updated": "2026-10-09T02:37:57Z",
+    "updated": "2026-10-10T05:30:11Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-10-09T07:17:30.242Z"
+    "fetchedAt": "2026-10-10T07:11:40.708Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3946,
+    "forks": 3948,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 570,
-    "stars": 16884,
-    "updated": "2026-10-09T06:05:37Z",
+    "openIssues": 569,
+    "stars": 16893,
+    "updated": "2026-10-09T13:10:36Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-09T07:17:30.647Z"
+    "fetchedAt": "2026-10-10T07:11:40.148Z"
   },
   "data-encryption": {
     "archived": false,
@@ -821,11 +821,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 6,
-    "updated": "2026-09-11T05:54:57Z",
+    "updated": "2026-10-09T12:21:24Z",
     "repo": "backblaze-labs/genblaze-gen-media-multi-provider-sample",
-    "fetchedAt": "2026-09-11T07:08:06.977Z"
+    "fetchedAt": "2026-10-10T07:11:40.148Z"
   },
   "genblaze-gmicloud": {
     "archived": false,
@@ -1099,21 +1099,21 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
-    "updated": "2026-09-18T16:16:36Z",
+    "updated": "2026-10-09T19:49:19Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-09-19T07:07:06.894Z"
+    "fetchedAt": "2026-10-10T07:11:40.655Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6435,
+    "forks": 6437,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2190,
-    "stars": 28318,
-    "updated": "2026-10-09T07:14:46Z",
+    "openIssues": 2191,
+    "stars": 28333,
+    "updated": "2026-10-10T06:30:23Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-09T07:17:30.921Z"
+    "fetchedAt": "2026-10-10T07:11:40.256Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1303,9 +1303,9 @@
     "license": "MIT",
     "openIssues": 17,
     "stars": 0,
-    "updated": "2026-10-07T10:00:44Z",
+    "updated": "2026-10-09T09:21:12Z",
     "repo": "backblaze-b2-samples/opendronemap-photogrammetry-pipeline",
-    "fetchedAt": "2026-10-08T07:17:33.974Z"
+    "fetchedAt": "2026-10-10T07:11:40.638Z"
   },
   "openhands-b2-backup": {
     "archived": false,
@@ -1373,11 +1373,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 5,
     "stars": 0,
-    "updated": "2026-10-08T11:07:37Z",
+    "updated": "2026-10-09T07:50:47Z",
     "repo": "backblaze-b2-samples/prompt-showdown",
-    "fetchedAt": "2026-10-09T07:17:30.729Z"
+    "fetchedAt": "2026-10-10T07:11:40.227Z"
   },
   "qwen-video-chapters": {
     "archived": false,
@@ -1495,9 +1495,9 @@
     "license": "MIT",
     "openIssues": 2,
     "stars": 0,
-    "updated": "2026-10-08T09:16:37Z",
+    "updated": "2026-10-09T07:43:25Z",
     "repo": "backblaze-b2-samples/supervision-sports-highlights",
-    "fetchedAt": "2026-10-09T07:17:30.889Z"
+    "fetchedAt": "2026-10-10T07:11:40.148Z"
   },
   "titiler-cog-map-tiles": {
     "archived": false,
