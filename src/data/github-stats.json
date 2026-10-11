@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 22,
+    "forks": 23,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 14,
+    "openIssues": 15,
     "stars": 8,
     "updated": "2026-10-07T17:42:36Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-10-09T07:17:30.355Z"
+    "fetchedAt": "2026-10-11T07:12:51.938Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -246,10 +246,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 6,
-    "stars": 7,
+    "stars": 8,
     "updated": "2026-10-07T17:42:40Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-10-08T07:17:33.686Z"
+    "fetchedAt": "2026-10-11T07:12:51.911Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 32,
+    "forks": 31,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 27,
+    "openIssues": 26,
     "stars": 35,
     "updated": "2026-10-07T17:42:59Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-10-10T07:11:40.192Z"
+    "fetchedAt": "2026-10-11T07:12:51.911Z"
   },
   "b2-action": {
     "archived": false,
@@ -326,14 +326,14 @@
   "b2-mcp": {
     "archived": false,
     "description": "MCP server for Backblaze B2 Cloud Storage: a focused, safe 40-tool surface (17 native B2 SDK, 19 S3 data-plane, 4 analytics) for any MCP-compatible AI client, currently incubating in Backblaze-Labs",
-    "forks": 6,
+    "forks": 7,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 31,
-    "stars": 42,
-    "updated": "2026-10-10T05:30:11Z",
+    "stars": 43,
+    "updated": "2026-10-11T06:16:03Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-10-10T07:11:40.708Z"
+    "fetchedAt": "2026-10-11T07:12:52.907Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -558,10 +558,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 569,
-    "stars": 16893,
+    "stars": 16898,
     "updated": "2026-10-09T13:10:36Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-10T07:11:40.148Z"
+    "fetchedAt": "2026-10-11T07:12:51.938Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1099,21 +1099,21 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
-    "updated": "2026-10-09T19:49:19Z",
+    "updated": "2026-10-10T12:14:56Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-10-10T07:11:40.655Z"
+    "fetchedAt": "2026-10-11T07:12:53.190Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6437,
+    "forks": 6441,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2191,
-    "stars": 28333,
-    "updated": "2026-10-10T06:30:23Z",
+    "openIssues": 2190,
+    "stars": 28338,
+    "updated": "2026-10-11T07:12:17Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-10T07:11:40.256Z"
+    "fetchedAt": "2026-10-11T07:12:51.938Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
