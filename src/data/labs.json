@@ -85,6 +85,10 @@
     {
       "id": "integration",
       "label": "Integration"
+    },
+    {
+      "id": "reference-architecture",
+      "label": "Reference architecture"
     }
   ],
   "languages": [
@@ -4859,6 +4863,121 @@
         "maturity": {
           "status": "Sample · unsupported",
           "support": "Report defects and feature requests through the repository's GitHub Issues; it carries no SLA and no guaranteed support."
+        }
+      }
+    },
+    {
+      "id": "voice-ai-reference-architectures",
+      "title": "B2 Reference Architectures for Voice and Speech AI",
+      "tagline": "Voice and speech AI data on Backblaze B2: datasets, audio, agent sessions.",
+      "description": "Reference architectures for storing, versioning and delivering voice and speech AI data on Backblaze B2: training datasets, generated and dubbed audio, and voice agent session recordings. Each architecture has a data flow, an object layout, security and retention rules, B2 configuration templates, and the places where B2 does not belong. The repository also includes three example applications in Python.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "reference-architecture",
+      "tags": [
+        "ai-datasets",
+        "backblaze-b2",
+        "livekit",
+        "reference-architecture",
+        "s3-compatible",
+        "speech-ai",
+        "speech-recognition",
+        "text-to-speech",
+        "voice-agents",
+        "voice-ai"
+      ],
+      "languages": ["python", "typescript"],
+      "url": "https://github.com/backblaze-b2-samples/b2-voice-ai-reference-architectures",
+      "repo": "backblaze-b2-samples/b2-voice-ai-reference-architectures",
+      "detail": {
+        "metaDescription": "Reference architectures for speech datasets, generated audio and voice agent session archives on Backblaze B2, with templates, schemas and example applications.",
+        "audience": "ML engineers, data engineers, speech and audio researchers, and platform engineers who keep voice data on Backblaze B2 or are deciding whether B2 belongs in a voice AI design.",
+        "ctaLabel": "View the repository",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Backblaze B2 S3-compatible API",
+            "role": "Object storage for recordings, dataset releases, candidates, deliveries and manifests"
+          },
+          {
+            "name": "Python 3.10+ with boto3",
+            "role": "Examples, catalog tooling and the three example applications"
+          },
+          {
+            "name": "TypeScript with the AWS SDK for JavaScript",
+            "role": "Presigned URLs, multipart upload with resume, object versions and Event Notifications verification"
+          },
+          {
+            "name": "JSON Schema",
+            "role": "Contracts for session, generation job, consent, dataset line, release and delivery manifests"
+          },
+          {
+            "name": "moto",
+            "role": "Emulated S3 server used by the tests, so they need no B2 account"
+          },
+          {
+            "name": "LiveKit Egress",
+            "role": "Output template that records voice agent sessions to B2"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/voice-ai-reference-architectures-1.webp",
+            "alt": "Overview of the three architectures: what each one keeps in the incoming, work, releases and protected B2 zones, what stays outside B2, and the parts of a voice AI system that B2 is not in the path of.",
+            "caption": "The three architectures, the B2 zones each one uses, and what stays outside B2.",
+            "width": 1600,
+            "height": 900
+          }
+        ],
+        "ogImage": {
+          "src": "/og/voice-ai-reference-architectures.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Voice training data lifecycle",
+            "description": "Collect speech with consent, validate it on signed Event Notifications, review transcripts and publish immutable dataset releases that NeMo, Lhotse, WebDataset, Hugging Face Datasets and MosaicML Streaming can read."
+          },
+          {
+            "title": "Batch voice generation and dubbing",
+            "description": "Give dubbing, synthesis and transcription providers presigned GET URLs, keep every output as an expiring candidate, and promote reviewed outputs to immutable deliveries with lineage."
+          },
+          {
+            "title": "Voice agent session archive",
+            "description": "Archive finished sessions from LiveKit Egress or a session adapter, record an evaluation result per session, and retain each session by class under Object Lock."
+          },
+          {
+            "title": "B2 configuration as templates",
+            "description": "CORS, lifecycle, Event Notifications, Object Lock, replication and encryption ship as templates, with scoped application key commands and a provisioning plan that prints commands and runs nothing by default."
+          },
+          {
+            "title": "Explicit boundaries",
+            "description": "Each architecture lists where B2 does not fit: real-time audio transport, low-latency session state, queues, models, orchestration and training caches stay in the systems built for them."
+          },
+          {
+            "title": "Three example applications",
+            "description": "Python command-line tools for dataset ingest, generation artifacts and session archives implement the architectures and run their tests against an emulated S3 server."
+          }
+        ],
+        "useWhen": [
+          "You keep finished voice data such as recordings, datasets, generated audio and transcripts that must outlive the systems that produced it.",
+          "You need consent records tied to each clip or session, retention per class, and versioned releases that training or delivery can cite exactly.",
+          "Your voice platform or providers run elsewhere and you want one storage layer they read from or that your application copies into.",
+          "You want schemas, configuration templates and tested examples to adapt for your own deployment."
+        ],
+        "avoidWhen": [
+          "You need B2 in the real-time audio path of a live conversation; the architectures keep it out of that path.",
+          "You need a supported product or a service-level agreement.",
+          "You need isolation between tenants; the layouts assume a single organization and do not define per-tenant buckets or keys.",
+          "You need per-object retention, bucket configuration, Event Notification delivery or a provider integration to be proven against a live account: the opt-in live checks cover storage operations only, and those parts are checked against documentation or an emulator, or for shape.",
+          "You expect a ready-to-run service: the example applications are small command-line tools, and the generation example uses synthetic placeholder audio with no provider adapter."
+        ],
+        "maturity": {
+          "status": "Reference architecture, unsupported",
+          "support": "All three architectures are marked source-reviewed-and-automated-tests in the catalog: provider and platform behavior was checked against documentation or source on the dates stated in each one, and the tests run in CI against an emulated S3 server. Each application also has an opt-in live check, not part of CI, that was run once on 2026-10-16 against a real B2 test bucket. It confirmed authentication and the endpoint derived from the region, put, get, head and list, presigned PUT and GET, server-side copy, manifest write order, delete, a multipart upload resumed after an interruption, and presigned URL expiry. Not validated live: per-object retention and release, bucket configuration (lifecycle, CORS, Event Notification, replication and encryption templates are checked for shape only), Event Notification delivery, LiveKit Egress, the named providers and platforms, and isolation between tenants. This is open source with no service-level agreement; open an issue on the repository for questions."
         }
       }
     }
