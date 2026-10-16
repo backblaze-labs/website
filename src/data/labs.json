@@ -4972,11 +4972,12 @@
           "You need B2 in the real-time audio path of a live conversation; the architectures keep it out of that path.",
           "You need a supported product or a service-level agreement.",
           "You need isolation between tenants; the layouts assume a single organization and do not define per-tenant buckets or keys.",
+          "You need per-object retention, bucket configuration, Event Notification delivery or a provider integration to be proven against a live account: the opt-in live checks cover storage operations only, and those parts are checked against documentation or an emulator, or for shape.",
           "You expect a ready-to-run service: the example applications are small command-line tools, and the generation example uses synthetic placeholder audio with no provider adapter."
         ],
         "maturity": {
           "status": "Reference architecture, unsupported",
-          "support": "All three architectures are marked source-reviewed-and-automated-tests in the catalog: provider and platform behavior was checked against documentation or source on the dates stated in each one, and the tests run against an emulated S3 server. Nothing has been run against a live B2 account or against the named providers. This is open source with no service-level agreement; open an issue on the repository for questions."
+          "support": "All three architectures are marked source-reviewed-and-automated-tests in the catalog: provider and platform behavior was checked against documentation or source on the dates stated in each one, and the tests run in CI against an emulated S3 server. Each application also has an opt-in live check, not part of CI, that was run once on 2026-10-16 against a real B2 test bucket. It confirmed authentication and the endpoint derived from the region, put, get, head and list, presigned PUT and GET, server-side copy, manifest write order, delete, a multipart upload resumed after an interruption, and presigned URL expiry. Not validated live: per-object retention and release, bucket configuration (lifecycle, CORS, Event Notification, replication and encryption templates are checked for shape only), Event Notification delivery, LiveKit Egress, the named providers and platforms, and isolation between tenants. This is open source with no service-level agreement; open an issue on the repository for questions."
         }
       }
     }
