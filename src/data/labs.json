@@ -4871,7 +4871,7 @@
       "title": "B2 Reference Architectures for Voice and Speech AI",
       "tagline": "Voice and speech AI data on Backblaze B2: datasets, audio, agent sessions.",
       "description": "Reference architectures for storing, versioning and delivering voice and speech AI data on Backblaze B2: training datasets, generated and dubbed audio, and voice agent session recordings. Each architecture has a data flow, an object layout, security and retention rules, B2 configuration templates, and the places where B2 does not belong. The repository also includes three example applications in Python.",
-      "categories": ["ai-ml", "data-pipelines"],
+      "categories": ["ai-ml"],
       "type": "reference-architecture",
       "tags": [
         "ai-datasets",
