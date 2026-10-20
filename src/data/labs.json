@@ -812,20 +812,6 @@
       "languages": ["typescript", "python", "javascript"]
     },
     {
-      "id": "sdk-typescript",
-      "title": "TypeScript SDK",
-      "tagline": "Backblaze-maintained TypeScript & JavaScript SDK for B2 Cloud Storage.",
-      "description": "Backblaze-maintained TypeScript and JavaScript SDK for B2 Cloud Storage, currently incubating in Backblaze-Labs",
-      "categories": ["developer-tools"],
-      "type": "sdk",
-      "tags": ["b2", "javascript", "sdk", "sdk-js", "typescript"],
-      "repo": "backblaze-labs/b2-sdk-typescript",
-      "url": "https://github.com/backblaze-labs/b2-sdk-typescript",
-      "icon": "wrench",
-      "featured": false,
-      "languages": ["typescript", "javascript"]
-    },
-    {
       "id": "ai-headshot-studio",
       "title": "AI Headshot Studio",
       "tagline": "Fine-tune a likeness LoRA from selfies and render headshots, stored on B2.",
