@@ -53,11 +53,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 7,
     "stars": 1,
-    "updated": "2026-10-20T04:56:11Z",
+    "updated": "2026-10-21T15:55:56Z",
     "repo": "backblaze-b2-samples/ai-avatar-video-generator",
-    "fetchedAt": "2026-10-20T07:12:00.471Z"
+    "fetchedAt": "2026-10-22T07:13:48.940Z"
   },
   "ai-headshot-studio": {
     "archived": false,
@@ -377,11 +377,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 8,
     "stars": 0,
-    "updated": "2026-10-21T03:16:45Z",
+    "updated": "2026-10-21T13:40:14Z",
     "repo": "backblaze-b2-samples/bytetrack-dataset-builder",
-    "fetchedAt": "2026-10-21T07:13:40.248Z"
+    "fetchedAt": "2026-10-22T07:13:48.808Z"
   },
   "carla-sensor-data-lake": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3975,
+    "forks": 3976,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 585,
-    "stars": 16969,
-    "updated": "2026-10-20T18:38:59Z",
+    "stars": 16974,
+    "updated": "2026-10-22T07:13:10Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-21T07:13:40.247Z"
+    "fetchedAt": "2026-10-22T07:13:48.187Z"
   },
   "data-encryption": {
     "archived": false,
@@ -665,11 +665,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 6,
+    "openIssues": 7,
     "stars": 1,
-    "updated": "2026-10-20T04:48:14Z",
+    "updated": "2026-10-21T14:21:14Z",
     "repo": "backblaze-b2-samples/depth-anything-v2-dataset",
-    "fetchedAt": "2026-10-20T07:12:00.514Z"
+    "fetchedAt": "2026-10-22T07:13:48.768Z"
   },
   "docling-rag-ingestion": {
     "archived": false,
@@ -677,11 +677,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 18,
+    "openIssues": 19,
     "stars": 5,
-    "updated": "2026-10-20T04:48:45Z",
+    "updated": "2026-10-21T14:25:25Z",
     "repo": "backblaze-b2-samples/docling-rag-ingestion",
-    "fetchedAt": "2026-10-20T07:12:00.700Z"
+    "fetchedAt": "2026-10-22T07:13:48.744Z"
   },
   "docs-to-podcast": {
     "archived": false,
@@ -701,11 +701,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 8,
+    "openIssues": 9,
     "stars": 0,
-    "updated": "2026-10-21T03:07:23Z",
+    "updated": "2026-10-21T10:10:47Z",
     "repo": "backblaze-b2-samples/donut-receipt-parser",
-    "fetchedAt": "2026-10-21T07:13:40.293Z"
+    "fetchedAt": "2026-10-22T07:13:48.611Z"
   },
   "dspy-compiled-program-versioning": {
     "archived": false,
@@ -811,9 +811,9 @@
     "license": "MIT",
     "openIssues": 48,
     "stars": 549,
-    "updated": "2026-10-15T05:51:34Z",
+    "updated": "2026-10-22T05:44:09Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-10-20T13:36:52.274Z"
+    "fetchedAt": "2026-10-22T07:13:49.050Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1073,11 +1073,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 0,
-    "updated": "2026-10-19T21:27:20Z",
+    "updated": "2026-10-21T13:32:43Z",
     "repo": "backblaze-b2-samples/lerobot-b2-streaming",
-    "fetchedAt": "2026-10-20T07:12:00.470Z"
+    "fetchedAt": "2026-10-22T07:13:48.768Z"
   },
   "lora-training-studio": {
     "archived": false,
@@ -1106,14 +1106,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6492,
+    "forks": 6498,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2214,
-    "stars": 28474,
-    "updated": "2026-10-21T07:03:33Z",
+    "openIssues": 2211,
+    "stars": 28484,
+    "updated": "2026-10-22T07:03:58Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-21T07:13:40.247Z"
+    "fetchedAt": "2026-10-22T07:13:48.991Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1145,11 +1145,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 17,
+    "openIssues": 19,
     "stars": 0,
-    "updated": "2026-10-19T21:57:54Z",
+    "updated": "2026-10-21T09:49:45Z",
     "repo": "backblaze-b2-samples/mmpose-video-keypoint-extraction",
-    "fetchedAt": "2026-10-20T07:12:01.399Z"
+    "fetchedAt": "2026-10-22T07:13:48.916Z"
   },
   "monai-dicom-segmentation": {
     "archived": false,
@@ -1229,11 +1229,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 18,
+    "openIssues": 19,
     "stars": 0,
-    "updated": "2026-10-21T06:53:31Z",
+    "updated": "2026-10-21T08:22:01Z",
     "repo": "backblaze-b2-samples/nnunet-3d-medical-image-segmentation",
-    "fetchedAt": "2026-10-21T07:13:41.224Z"
+    "fetchedAt": "2026-10-22T07:13:48.827Z"
   },
   "nudenet-video-moderation": {
     "archived": false,
@@ -1421,11 +1421,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 8,
     "stars": 0,
-    "updated": "2026-10-21T06:57:27Z",
+    "updated": "2026-10-21T08:39:06Z",
     "repo": "backblaze-b2-samples/rife-frame-interpolation-pipeline",
-    "fetchedAt": "2026-10-21T07:13:40.189Z"
+    "fetchedAt": "2026-10-22T07:13:49.020Z"
   },
   "roboflow-inference-frame-archive": {
     "archived": false,
@@ -1577,11 +1577,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 8,
     "stars": 0,
-    "updated": "2026-10-19T21:10:26Z",
+    "updated": "2026-10-21T08:30:23Z",
     "repo": "backblaze-b2-samples/video-to-insights-nvidia-parakeet-llama",
-    "fetchedAt": "2026-10-20T07:12:00.471Z"
+    "fetchedAt": "2026-10-22T07:13:48.696Z"
   },
   "videohash-deduplication": {
     "archived": false,
@@ -1589,11 +1589,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 9,
     "stars": 1,
-    "updated": "2026-10-21T03:45:40Z",
+    "updated": "2026-10-21T16:15:59Z",
     "repo": "backblaze-b2-samples/videohash-deduplication",
-    "fetchedAt": "2026-10-21T07:13:40.248Z"
+    "fetchedAt": "2026-10-22T07:13:49.094Z"
   },
   "voice-ai-reference-architectures": {
     "archived": false,
@@ -1613,11 +1613,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 6,
     "stars": 0,
-    "updated": "2026-10-21T04:01:10Z",
+    "updated": "2026-10-21T08:37:01Z",
     "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
-    "fetchedAt": "2026-10-21T07:13:40.190Z"
+    "fetchedAt": "2026-10-22T07:13:48.910Z"
   },
   "webdataset-streaming-pytorch-training": {
     "archived": false,
@@ -1637,11 +1637,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 8,
     "stars": 0,
-    "updated": "2026-10-21T03:21:43Z",
+    "updated": "2026-10-21T09:46:36Z",
     "repo": "backblaze-b2-samples/whisper-dataset-builder",
-    "fetchedAt": "2026-10-21T07:13:40.248Z"
+    "fetchedAt": "2026-10-22T07:13:48.321Z"
   },
   "whisper-subtitle-pipeline": {
     "archived": false,
