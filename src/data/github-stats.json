@@ -125,11 +125,11 @@
     "forks": 3,
     "lang": "Jupyter Notebook",
     "license": "MIT",
-    "openIssues": 5,
+    "openIssues": 6,
     "stars": 12,
-    "updated": "2026-08-18T08:23:56Z",
+    "updated": "2026-10-24T00:30:12Z",
     "repo": "backblaze-b2-samples/ai-rag-examples",
-    "fetchedAt": "2026-08-20T07:17:21.129Z"
+    "fetchedAt": "2026-10-24T07:07:39.950Z"
   },
   "ai-saas-starter-kit": {
     "archived": false,
@@ -230,26 +230,26 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 28,
+    "forks": 29,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 20,
+    "openIssues": 21,
     "stars": 10,
     "updated": "2026-10-07T17:42:36Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-10-19T07:24:11.153Z"
+    "fetchedAt": "2026-10-24T07:07:40.116Z"
   },
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 11,
+    "forks": 12,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 6,
+    "openIssues": 7,
     "stars": 9,
     "updated": "2026-10-07T17:42:40Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-10-14T07:11:37.272Z"
+    "fetchedAt": "2026-10-24T07:07:40.141Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -414,10 +414,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 4,
-    "stars": 42,
+    "stars": 43,
     "updated": "2026-10-14T20:06:51Z",
     "repo": "backblaze-labs/claude-skill-b2-cloud-storage",
-    "fetchedAt": "2026-10-15T07:11:51.819Z"
+    "fetchedAt": "2026-10-24T07:07:40.098Z"
   },
   "clay-geospatial-embeddings": {
     "archived": false,
@@ -533,11 +533,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": null,
-    "openIssues": 18,
+    "openIssues": 19,
     "stars": 1,
-    "updated": "2026-10-21T05:20:45Z",
+    "updated": "2026-10-23T19:57:40Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-10-21T07:13:40.190Z"
+    "fetchedAt": "2026-10-24T07:07:40.170Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3979,
+    "forks": 3981,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 589,
-    "stars": 16981,
-    "updated": "2026-10-23T06:23:04Z",
+    "openIssues": 594,
+    "stars": 16987,
+    "updated": "2026-10-23T23:50:53Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-23T07:13:01.629Z"
+    "fetchedAt": "2026-10-24T07:07:40.152Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1106,14 +1106,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6502,
+    "forks": 6513,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2212,
-    "stars": 28507,
-    "updated": "2026-10-23T06:48:13Z",
+    "openIssues": 2219,
+    "stars": 28512,
+    "updated": "2026-10-24T05:48:45Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-23T07:13:01.629Z"
+    "fetchedAt": "2026-10-24T07:07:40.040Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1241,11 +1241,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 8,
+    "openIssues": 9,
     "stars": 0,
-    "updated": "2026-10-19T21:36:30Z",
+    "updated": "2026-10-23T18:36:25Z",
     "repo": "backblaze-b2-samples/nudenet-video-moderation",
-    "fetchedAt": "2026-10-20T07:12:00.470Z"
+    "fetchedAt": "2026-10-24T07:07:40.107Z"
   },
   "nuscenes-sensor-data-lake": {
     "archived": false,
@@ -1325,11 +1325,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 9,
+    "openIssues": 10,
     "stars": 0,
-    "updated": "2026-10-19T19:48:16Z",
+    "updated": "2026-10-23T19:12:31Z",
     "repo": "backblaze-b2-samples/paddleocr-document-archive",
-    "fetchedAt": "2026-10-20T07:12:00.514Z"
+    "fetchedAt": "2026-10-24T07:07:40.011Z"
   },
   "panns-audioset-tagging": {
     "archived": false,
@@ -1385,11 +1385,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 10,
+    "openIssues": 11,
     "stars": 0,
-    "updated": "2026-10-19T19:24:46Z",
+    "updated": "2026-10-23T19:09:18Z",
     "repo": "backblaze-b2-samples/qwen-video-chapters",
-    "fetchedAt": "2026-10-20T07:12:00.470Z"
+    "fetchedAt": "2026-10-24T07:07:40.198Z"
   },
   "rembg-product-background-removal": {
     "archived": false,
@@ -1603,9 +1603,9 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 5,
-    "updated": "2026-10-16T13:38:41Z",
+    "updated": "2026-10-23T15:05:59Z",
     "repo": "backblaze-b2-samples/b2-voice-ai-reference-architectures",
-    "fetchedAt": "2026-10-17T07:06:47.473Z"
+    "fetchedAt": "2026-10-24T07:07:39.950Z"
   },
   "voice-memo-ai-second-brain": {
     "archived": false,
