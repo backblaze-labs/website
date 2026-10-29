@@ -91,9 +91,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
-    "updated": "2026-09-14T14:53:10Z",
+    "updated": "2026-10-29T01:09:39Z",
     "repo": "backblaze-b2-samples/ai-moodboard-generator",
-    "fetchedAt": "2026-09-15T07:09:12.014Z"
+    "fetchedAt": "2026-10-29T07:06:05.654Z"
   },
   "ai-music-studio": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 37,
+    "forks": 39,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 32,
+    "openIssues": 34,
     "stars": 36,
     "updated": "2026-10-07T17:42:59Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-10-28T07:06:30.389Z"
+    "fetchedAt": "2026-10-29T07:06:05.677Z"
   },
   "b2-action": {
     "archived": false,
@@ -326,14 +326,14 @@
   "b2-mcp": {
     "archived": false,
     "description": "MCP server for Backblaze B2 Cloud Storage: a focused, safe 40-tool surface (17 native B2 SDK, 19 S3 data-plane, 4 analytics) for any MCP-compatible AI client, currently incubating in Backblaze-Labs",
-    "forks": 7,
+    "forks": 8,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 38,
     "stars": 46,
-    "updated": "2026-10-28T03:46:59Z",
+    "updated": "2026-10-28T14:20:50Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-10-28T07:06:31.623Z"
+    "fetchedAt": "2026-10-29T07:06:05.920Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -425,11 +425,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 17,
+    "openIssues": 18,
     "stars": 0,
-    "updated": "2026-10-21T03:59:32Z",
+    "updated": "2026-10-28T17:55:36Z",
     "repo": "backblaze-b2-samples/clay-geospatial-embeddings",
-    "fetchedAt": "2026-10-21T07:13:41.390Z"
+    "fetchedAt": "2026-10-29T07:06:05.848Z"
   },
   "cline-b2-backup": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 3984,
+    "forks": 4013,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 591,
-    "stars": 17022,
-    "updated": "2026-10-28T06:51:03Z",
+    "openIssues": 587,
+    "stars": 17028,
+    "updated": "2026-10-29T06:11:49Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-10-28T07:06:30.437Z"
+    "fetchedAt": "2026-10-29T07:06:05.677Z"
   },
   "data-encryption": {
     "archived": false,
@@ -581,11 +581,11 @@
     "forks": 0,
     "lang": null,
     "license": "MIT",
-    "openIssues": 17,
+    "openIssues": 18,
     "stars": 0,
-    "updated": "2026-10-21T03:38:26Z",
+    "updated": "2026-10-28T16:21:02Z",
     "repo": "backblaze-b2-samples/data-juicer-multimodal-curation",
-    "fetchedAt": "2026-10-21T07:13:41.408Z"
+    "fetchedAt": "2026-10-29T07:06:06.067Z"
   },
   "datacomp-image-text-filtering": {
     "archived": false,
@@ -797,11 +797,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 7,
+    "openIssues": 8,
     "stars": 0,
-    "updated": "2026-10-21T06:08:28Z",
+    "updated": "2026-10-28T13:59:18Z",
     "repo": "backblaze-b2-samples/frigate-nvr-archive",
-    "fetchedAt": "2026-10-21T07:13:40.190Z"
+    "fetchedAt": "2026-10-29T07:06:05.654Z"
   },
   "genblaze": {
     "archived": false,
@@ -811,9 +811,9 @@
     "license": "MIT",
     "openIssues": 49,
     "stars": 550,
-    "updated": "2026-10-22T05:44:09Z",
+    "updated": "2026-10-29T05:45:04Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-10-28T07:06:30.437Z"
+    "fetchedAt": "2026-10-29T07:06:05.677Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1099,21 +1099,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 3,
-    "updated": "2026-10-27T20:28:33Z",
+    "updated": "2026-10-28T15:27:24Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-10-28T07:06:31.504Z"
+    "fetchedAt": "2026-10-29T07:06:05.737Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6540,
+    "forks": 6543,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2233,
-    "stars": 28562,
-    "updated": "2026-10-28T07:02:55Z",
+    "openIssues": 2226,
+    "stars": 28582,
+    "updated": "2026-10-29T07:05:38Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-10-28T07:06:30.437Z"
+    "fetchedAt": "2026-10-29T07:06:05.677Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1554,10 +1554,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 18,
-    "stars": 16,
+    "stars": 17,
     "updated": "2026-10-15T19:00:27Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-10-16T07:10:40.739Z"
+    "fetchedAt": "2026-10-29T07:06:05.670Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -1675,9 +1675,9 @@
     "license": "MIT",
     "openIssues": 1,
     "stars": 0,
-    "updated": "2026-09-14T14:54:32Z",
+    "updated": "2026-10-29T01:09:09Z",
     "repo": "backblaze-b2-samples/whisperx-diarized-archive",
-    "fetchedAt": "2026-09-15T07:09:12.063Z"
+    "fetchedAt": "2026-10-29T07:06:05.654Z"
   },
   "yolo-drone-footage-detection": {
     "archived": false,
