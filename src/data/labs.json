@@ -4974,6 +4974,17 @@
       "description": "Full-stack sample (Next.js 16 + FastAPI) that bulk-ingests black-and-white scans to Backblaze B2, colorizes them in batches with DDColor running locally at original resolution, and writes colorized outputs, side-by-side comparisons, and a per-run manifest CSV back to B2 next to the untouched originals.",
       "categories": ["ai-ml"],
       "type": "sample",
+      "tags": [
+        "ddcolor",
+        "image-colorization",
+        "photo-restoration",
+        "computer-vision",
+        "pytorch",
+        "batch-processing",
+        "object-storage",
+        "s3-compatible",
+        "sample-app"
+      ],
       "languages": ["typescript", "python"],
       "url": "https://github.com/backblaze-b2-samples/ddcolor-photo-colorization",
       "repo": "backblaze-b2-samples/ddcolor-photo-colorization",
