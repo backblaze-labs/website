@@ -254,14 +254,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 20,
+    "forks": 21,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 16,
+    "openIssues": 17,
     "stars": 10,
     "updated": "2026-10-07T17:42:51Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-11-04T07:05:28.367Z"
+    "fetchedAt": "2026-11-05T07:05:20.609Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -302,14 +302,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 42,
+    "forks": 44,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 38,
+    "openIssues": 40,
     "stars": 37,
     "updated": "2026-10-07T17:42:59Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-04T07:05:28.367Z"
+    "fetchedAt": "2026-11-05T07:05:20.867Z"
   },
   "b2-action": {
     "archived": false,
@@ -318,10 +318,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 75,
-    "stars": 8,
+    "stars": 9,
     "updated": "2026-11-02T23:37:39Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-11-04T07:05:28.366Z"
+    "fetchedAt": "2026-11-05T07:05:20.841Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -331,9 +331,9 @@
     "license": "MIT",
     "openIssues": 49,
     "stars": 47,
-    "updated": "2026-11-03T15:31:06Z",
+    "updated": "2026-11-04T22:06:28Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-11-04T07:05:28.684Z"
+    "fetchedAt": "2026-11-05T07:05:20.843Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -401,11 +401,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 24,
+    "openIssues": 25,
     "stars": 0,
-    "updated": "2026-11-01T13:09:07Z",
+    "updated": "2026-11-05T06:42:32Z",
     "repo": "backblaze-b2-samples/clam-wsi-feature-extraction",
-    "fetchedAt": "2026-11-02T07:06:00.806Z"
+    "fetchedAt": "2026-11-05T07:05:20.786Z"
   },
   "claude-skill-b2": {
     "archived": false,
@@ -485,11 +485,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 23,
+    "openIssues": 24,
     "stars": 0,
-    "updated": "2026-11-01T13:08:10Z",
+    "updated": "2026-11-05T06:41:32Z",
     "repo": "backblaze-b2-samples/colmap-gaussian-splatting-pipeline",
-    "fetchedAt": "2026-11-02T07:06:00.806Z"
+    "fetchedAt": "2026-11-05T07:05:20.736Z"
   },
   "colmap-photogrammetry-archive": {
     "archived": false,
@@ -497,11 +497,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 23,
+    "openIssues": 24,
     "stars": 0,
-    "updated": "2026-11-01T13:18:53Z",
+    "updated": "2026-11-05T00:35:07Z",
     "repo": "backblaze-b2-samples/colmap-photogrammetry-archive",
-    "fetchedAt": "2026-11-02T07:06:00.982Z"
+    "fetchedAt": "2026-11-05T07:05:20.606Z"
   },
   "colpali-pdf-search": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4039,
+    "forks": 4040,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 595,
-    "stars": 17067,
-    "updated": "2026-11-04T06:43:47Z",
+    "stars": 17074,
+    "updated": "2026-11-04T12:33:35Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-04T07:05:28.367Z"
+    "fetchedAt": "2026-11-05T07:05:20.658Z"
   },
   "data-encryption": {
     "archived": false,
@@ -810,10 +810,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 49,
-    "stars": 551,
-    "updated": "2026-10-31T05:42:46Z",
+    "stars": 550,
+    "updated": "2026-11-05T05:45:36Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-10-31T07:04:35.028Z"
+    "fetchedAt": "2026-11-05T07:05:20.812Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -893,11 +893,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 16,
+    "openIssues": 17,
     "stars": 0,
-    "updated": "2026-11-04T06:44:52Z",
+    "updated": "2026-11-04T09:29:06Z",
     "repo": "backblaze-b2-samples/gpt-realtime-whisper-live-transcript-redactor",
-    "fetchedAt": "2026-11-04T07:05:28.366Z"
+    "fetchedAt": "2026-11-05T07:05:20.836Z"
   },
   "hermes-b2-backup": {
     "archived": false,
@@ -953,11 +953,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 12,
+    "openIssues": 13,
     "stars": 0,
-    "updated": "2026-11-01T15:17:36Z",
+    "updated": "2026-11-05T06:47:23Z",
     "repo": "backblaze-b2-samples/ifcopenshell-bim-archive",
-    "fetchedAt": "2026-11-02T07:06:01.049Z"
+    "fetchedAt": "2026-11-05T07:05:20.897Z"
   },
   "image-generation-prompt-flow": {
     "archived": false,
@@ -1106,14 +1106,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6574,
+    "forks": 6585,
     "lang": "Python",
     "license": "Apache-2.0",
     "openIssues": 2207,
-    "stars": 28656,
-    "updated": "2026-11-04T06:50:21Z",
+    "stars": 28674,
+    "updated": "2026-11-05T06:21:29Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-04T07:05:28.367Z"
+    "fetchedAt": "2026-11-05T07:05:20.849Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1133,11 +1133,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 25,
+    "openIssues": 26,
     "stars": 0,
-    "updated": "2026-11-01T15:46:11Z",
+    "updated": "2026-11-05T00:01:30Z",
     "repo": "backblaze-b2-samples/mmdetection3d-lidar-dataset",
-    "fetchedAt": "2026-11-02T07:06:00.982Z"
+    "fetchedAt": "2026-11-05T07:05:20.772Z"
   },
   "mmpose-video-keypoint-extraction": {
     "archived": false,
@@ -1145,11 +1145,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 21,
+    "openIssues": 22,
     "stars": 0,
-    "updated": "2026-11-03T04:54:44Z",
+    "updated": "2026-11-04T12:24:59Z",
     "repo": "backblaze-b2-samples/mmpose-video-keypoint-extraction",
-    "fetchedAt": "2026-11-04T07:05:28.762Z"
+    "fetchedAt": "2026-11-05T07:05:20.869Z"
   },
   "monai-dicom-segmentation": {
     "archived": false,
@@ -1373,11 +1373,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 13,
+    "openIssues": 14,
     "stars": 0,
-    "updated": "2026-11-04T04:31:06Z",
+    "updated": "2026-11-04T07:54:20Z",
     "repo": "backblaze-b2-samples/prompt-showdown",
-    "fetchedAt": "2026-11-04T07:05:28.366Z"
+    "fetchedAt": "2026-11-05T07:05:20.780Z"
   },
   "qwen-video-chapters": {
     "archived": false,
@@ -1422,10 +1422,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 13,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-11-04T04:20:08Z",
     "repo": "backblaze-b2-samples/rife-frame-interpolation-pipeline",
-    "fetchedAt": "2026-11-04T07:05:28.366Z"
+    "fetchedAt": "2026-11-05T07:05:20.799Z"
   },
   "roboflow-inference-frame-archive": {
     "archived": false,
