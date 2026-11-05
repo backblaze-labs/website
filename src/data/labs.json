@@ -4966,6 +4966,165 @@
           "support": "All three architectures are marked source-reviewed-and-automated-tests in the catalog: provider and platform behavior was checked against documentation or source on the dates stated in each one, and the tests run in CI against an emulated S3 server. Each application also has an opt-in live check, not part of CI, that was run once on 2026-10-16 against a real B2 test bucket. It confirmed authentication and the endpoint derived from the region, put, get, head and list, presigned PUT and GET, server-side copy, manifest write order, delete, a multipart upload resumed after an interruption, and presigned URL expiry. Not validated live: per-object retention and release, bucket configuration (lifecycle, CORS, Event Notification, replication and encryption templates are checked for shape only), Event Notification delivery, LiveKit Egress, the named providers and platforms, and isolation between tenants. This is open source with no service-level agreement; open an issue on the repository for questions."
         }
       }
+    },
+    {
+      "id": "ddcolor-photo-colorization",
+      "title": "DDColor Photo Colorization",
+      "tagline": "Batch-colorize black-and-white photo archives with DDColor, stored in B2.",
+      "description": "Full-stack sample (Next.js 16 + FastAPI) that bulk-ingests black-and-white scans to Backblaze B2, colorizes them in batches with DDColor running locally at original resolution, and writes colorized outputs, side-by-side comparisons, and a per-run manifest CSV back to B2 next to the untouched originals.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": [
+        "ddcolor",
+        "image-colorization",
+        "photo-restoration",
+        "computer-vision",
+        "pytorch",
+        "batch-processing",
+        "object-storage",
+        "s3-compatible",
+        "sample-app"
+      ],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/ddcolor-photo-colorization",
+      "repo": "backblaze-b2-samples/ddcolor-photo-colorization",
+      "detail": {
+        "metaDescription": "Evaluate DDColor Photo Colorization, an open source Next.js and FastAPI sample that batch-colorizes black-and-white photo archives with DDColor and stores them in Backblaze B2.",
+        "audience": "Developers and AI coding agents building colorization workflows for digital archives, newspaper morgues, or historical-society collections that need originals kept untouched beside every derived version.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query + Recharts",
+            "role": "Client-side data fetching and dashboard charts"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed, layered Python API with a background batch worker"
+          },
+          {
+            "name": "DDColor on PyTorch",
+            "role": "Local photo colorization on CUDA, Apple MPS, or CPU (Apache-2.0 model, public Hugging Face weights)"
+          },
+          {
+            "name": "Pillow",
+            "role": "Image decoding, luminance recombination, and side-by-side comparisons"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible object storage for originals, outputs, manifests, and batch records"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/ddcolor-photo-colorization-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with write amplification, photo counts, a bytes-in-B2 chart and recent batches",
+            "caption": "The Dashboard shows write amplification, photos ingested and colorized, batches run, a bytes-in-B2 chart of originals versus derived outputs, and recent batches."
+          },
+          {
+            "src": "/screenshots/ddcolor-photo-colorization-2.webp",
+            "width": 1600,
+            "height": 2398,
+            "alt": "Batches list showing completed DDColor colorization runs",
+            "caption": "Batches lists every colorization run with its status, photo count, DDColor model and input size, derived bytes, and creation time."
+          },
+          {
+            "src": "/screenshots/ddcolor-photo-colorization-3.webp",
+            "width": 1600,
+            "height": 1612,
+            "alt": "Batch detail with progress, run settings and before/after comparison cards",
+            "caption": "Batch detail shows one run's progress, model version, output format, and byte totals, with a before/after slider per photo and a Manifest CSV download."
+          },
+          {
+            "src": "/screenshots/ddcolor-photo-colorization-4.webp",
+            "width": 1600,
+            "height": 3791,
+            "alt": "Photo Library grid of colorized historical photos",
+            "caption": "The Photo Library shows the grayscale originals, each tile with its latest colorized version and how many versions exist."
+          },
+          {
+            "src": "/screenshots/ddcolor-photo-colorization-5.webp",
+            "width": 1600,
+            "height": 1222,
+            "alt": "Photo detail sheet comparing a colorized version with the grayscale original",
+            "caption": "Photo detail compares one original against any of its colorized versions, each downloadable from B2."
+          },
+          {
+            "src": "/screenshots/ddcolor-photo-colorization-6.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Bulk Ingest drop zone for black-and-white scans",
+            "caption": "Bulk Ingest uploads black-and-white scans by drag-and-drop straight to B2 through presigned PUT URLs."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/ddcolor-photo-colorization.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Colorization batches",
+            "description": "Create, edit, delete, and run colorization batches; each run writes colorized outputs, optional side-by-side comparisons, and a per-run manifest CSV back to B2."
+          },
+          {
+            "title": "Local DDColor inference",
+            "description": "DDColor runs inside the API on CUDA, Apple MPS, or CPU, and recombines the predicted colour with the original luminance so outputs keep the scan's exact resolution."
+          },
+          {
+            "title": "Photo Library",
+            "description": "Grayscale originals with before/after views of every colorized version; originals are only ever read, never modified."
+          },
+          {
+            "title": "Bulk Ingest",
+            "description": "Drag-and-drop many scans straight to the grayscale prefix in B2 by presigned PUT."
+          },
+          {
+            "title": "Dashboard",
+            "description": "Photos ingested and colorized, derived bytes, and the write-amplification ratio of stored bytes per ingested byte."
+          },
+          {
+            "title": "Bucket Explorer",
+            "description": "Browse, preview, download, and delete any object in the bucket from the app."
+          },
+          {
+            "title": "Provenance manifests",
+            "description": "Each run's CSV records original and output keys, model id and Hugging Face revision, sizes, dimensions, duration, and per-photo status."
+          }
+        ],
+        "useWhen": [
+          "You run a digital archive or historical photo collection and want a self-hosted, reproducible batch colorization workflow.",
+          "You need originals kept untouched in object storage beside every colorized version, with a manifest per run for provenance.",
+          "You want to compare DDColor model variants on the same photos, keeping each version side by side.",
+          "You want a working reference for running an open-source vision model over objects in Backblaze B2 through the S3-compatible API."
+        ],
+        "avoidWhen": [
+          "You need photo restoration: DDColor adds plausible colour but does not repair scratches, tears, or blur, and its colours are a model's estimate, not historical fact.",
+          "You need a hosted multi-user service: the API has no authentication, user accounts, or tenant isolation and is meant for a trusted machine or private deployment.",
+          "You want a serverless deploy: DDColor's PyTorch inference and its 220 to 900 MB weights do not fit in a serverless function, so the sample runs locally or on a container host."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects and feature requests through the repository's GitHub Issues; the sample carries no SLA."
+        }
+      }
     }
   ]
 }
