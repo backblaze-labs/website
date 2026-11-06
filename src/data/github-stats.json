@@ -102,10 +102,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 8,
-    "stars": 1,
+    "stars": 0,
     "updated": "2026-11-01T07:15:04Z",
     "repo": "backblaze-b2-samples/ai-music-studio",
-    "fetchedAt": "2026-11-02T07:06:00.804Z"
+    "fetchedAt": "2026-11-06T07:05:21.873Z"
   },
   "ai-product-photo-studio": {
     "archived": false,
@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 36,
+    "forks": 37,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 29,
+    "openIssues": 30,
     "stars": 11,
     "updated": "2026-10-07T17:42:36Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-04T07:05:28.367Z"
+    "fetchedAt": "2026-11-06T07:05:21.889Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -306,10 +306,10 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 40,
-    "stars": 37,
+    "stars": 38,
     "updated": "2026-10-07T17:42:59Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-05T07:05:20.867Z"
+    "fetchedAt": "2026-11-06T07:05:21.873Z"
   },
   "b2-action": {
     "archived": false,
@@ -329,11 +329,11 @@
     "forks": 8,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 49,
+    "openIssues": 47,
     "stars": 47,
-    "updated": "2026-11-04T22:06:28Z",
+    "updated": "2026-11-05T15:05:12Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-11-05T07:05:20.843Z"
+    "fetchedAt": "2026-11-06T07:05:22.479Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4040,
+    "forks": 4041,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 595,
-    "stars": 17074,
-    "updated": "2026-11-04T12:33:35Z",
+    "openIssues": 600,
+    "stars": 17083,
+    "updated": "2026-11-06T06:44:05Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-05T07:05:20.658Z"
+    "fetchedAt": "2026-11-06T07:05:21.889Z"
   },
   "data-encryption": {
     "archived": false,
@@ -598,6 +598,18 @@
     "updated": "2026-11-03T14:07:27Z",
     "repo": "backblaze-b2-samples/datacomp-image-text-filtering",
     "fetchedAt": "2026-11-04T07:05:28.625Z"
+  },
+  "ddcolor-photo-colorization": {
+    "archived": false,
+    "description": "Batch photo colorization sample app: colorize black-and-white photo archives with DDColor (PyTorch, runs locally) and store originals, colorized outputs, before/after comparisons and manifest CSVs in Backblaze B2 via the S3-compatible API. Next.js dashboard, FastAPI backend.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-11-05T17:07:10Z",
+    "repo": "backblaze-b2-samples/ddcolor-photo-colorization",
+    "fetchedAt": "2026-11-06T07:05:22.464Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -810,10 +822,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 49,
-    "stars": 550,
+    "stars": 548,
     "updated": "2026-11-05T05:45:36Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-11-05T07:05:20.812Z"
+    "fetchedAt": "2026-11-06T07:05:21.889Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1099,21 +1111,21 @@
     "license": "MIT",
     "openIssues": 0,
     "stars": 3,
-    "updated": "2026-11-02T19:04:36Z",
+    "updated": "2026-11-05T21:45:51Z",
     "repo": "backblaze-labs/macos-meeting-notes",
-    "fetchedAt": "2026-11-04T07:05:28.610Z"
+    "fetchedAt": "2026-11-06T07:05:22.389Z"
   },
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6585,
+    "forks": 6587,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2207,
-    "stars": 28674,
-    "updated": "2026-11-05T06:21:29Z",
+    "openIssues": 2187,
+    "stars": 28696,
+    "updated": "2026-11-06T07:00:52Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-05T07:05:20.849Z"
+    "fetchedAt": "2026-11-06T07:05:21.889Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1301,11 +1313,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 23,
+    "openIssues": 24,
     "stars": 0,
-    "updated": "2026-11-01T23:55:57Z",
+    "updated": "2026-11-05T13:47:43Z",
     "repo": "backblaze-b2-samples/opendronemap-photogrammetry-pipeline",
-    "fetchedAt": "2026-11-02T07:06:01.050Z"
+    "fetchedAt": "2026-11-06T07:05:22.349Z"
   },
   "openhands-b2-backup": {
     "archived": false,
