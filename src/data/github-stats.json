@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 37,
+    "forks": 39,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 30,
     "stars": 11,
     "updated": "2026-10-07T17:42:36Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-06T07:05:21.889Z"
+    "fetchedAt": "2026-11-07T07:04:20.849Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4041,
+    "forks": 4045,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 600,
-    "stars": 17083,
-    "updated": "2026-11-06T06:44:05Z",
+    "openIssues": 596,
+    "stars": 17091,
+    "updated": "2026-11-06T21:25:53Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-06T07:05:21.889Z"
+    "fetchedAt": "2026-11-07T07:04:20.850Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1118,14 +1118,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6587,
+    "forks": 6593,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2187,
-    "stars": 28696,
-    "updated": "2026-11-06T07:00:52Z",
+    "openIssues": 2192,
+    "stars": 28709,
+    "updated": "2026-11-07T07:02:10Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-06T07:05:21.889Z"
+    "fetchedAt": "2026-11-07T07:04:20.850Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1338,10 +1338,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 13,
-    "stars": 0,
+    "stars": 1,
     "updated": "2026-11-01T18:52:14Z",
     "repo": "backblaze-b2-samples/paddleocr-document-archive",
-    "fetchedAt": "2026-11-02T07:06:00.784Z"
+    "fetchedAt": "2026-11-07T07:04:20.826Z"
   },
   "panns-audioset-tagging": {
     "archived": false,
