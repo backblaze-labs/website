@@ -230,14 +230,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 39,
+    "forks": 40,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 30,
+    "openIssues": 31,
     "stars": 11,
     "updated": "2026-10-07T17:42:36Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-07T07:04:20.849Z"
+    "fetchedAt": "2026-11-08T07:05:17.870Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4045,
+    "forks": 4047,
     "lang": "Python",
     "license": "MIT",
     "openIssues": 596,
-    "stars": 17091,
+    "stars": 17094,
     "updated": "2026-11-06T21:25:53Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-07T07:04:20.850Z"
+    "fetchedAt": "2026-11-08T07:05:17.870Z"
   },
   "data-encryption": {
     "archived": false,
@@ -890,14 +890,14 @@
   "gpt-realtime-translate-live-event-interpreter": {
     "archived": false,
     "description": "Real-time multilingual interpreter for live events on OpenAI gpt-realtime-translate — one speaker, attendees get translated audio + live captions, every event archived to Backblaze B2 (source audio, transcripts, VTT/SRT). FastAPI + Next.js B2 sample app.",
-    "forks": 0,
+    "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 13,
     "stars": 0,
     "updated": "2026-11-04T03:50:00Z",
     "repo": "backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
-    "fetchedAt": "2026-11-04T07:05:28.366Z"
+    "fetchedAt": "2026-11-08T07:05:17.869Z"
   },
   "gpt-realtime-whisper-live-transcript-redactor": {
     "archived": false,
@@ -1121,11 +1121,11 @@
     "forks": 6593,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2192,
-    "stars": 28709,
-    "updated": "2026-11-07T07:02:10Z",
+    "openIssues": 2195,
+    "stars": 28720,
+    "updated": "2026-11-08T06:21:21Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-07T07:04:20.850Z"
+    "fetchedAt": "2026-11-08T07:05:17.870Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
