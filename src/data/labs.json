@@ -5125,6 +5125,34 @@
           "support": "Report defects and feature requests through the repository's GitHub Issues; the sample carries no SLA."
         }
       }
+    },
+    {
+      "id": "aistore-b2-gr00t-robotics-training",
+      "title": "Aistore B2 Gr00t Robotics Training",
+      "tagline": "Fine-tune NVIDIA Isaac GR00T N1.7 on robot datasets stored in Backblaze B2,…",
+      "description": "Fine-tune NVIDIA Isaac GR00T N1.7 on robot datasets stored in Backblaze B2, with NVIDIA AIStore as a fast cache for dataset staging and checksum-verified checkpoint publishing.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["python"],
+      "tags": ["aistore", "backblaze", "backblaze-b2", "cloud-storage", "nvidia", "nvidia-ai"],
+      "repo": "backblaze-b2-samples/aistore-b2-gr00t-robotics-training",
+      "url": "https://github.com/backblaze-b2-samples/aistore-b2-gr00t-robotics-training",
+      "icon": "wrench",
+      "featured": false
+    },
+    {
+      "id": "aistore-b2-cosmos-video-curation",
+      "title": "Aistore B2 Cosmos Video Curation",
+      "tagline": "Curate video datasets with NVIDIA NeMo Curator and Cosmos-Embed1, reading…",
+      "description": "Curate video datasets with NVIDIA NeMo Curator and Cosmos-Embed1, reading source videos from Backblaze B2 through an NVIDIA AIStore cache and publishing checksum-verified clips and embeddings back to B2.",
+      "categories": ["developer-tools"],
+      "type": "sample",
+      "languages": ["python"],
+      "tags": ["aistore", "backblaze", "backblaze-b2", "cloud", "cloud-storage", "nvidia"],
+      "repo": "backblaze-b2-samples/aistore-b2-cosmos-video-curation",
+      "url": "https://github.com/backblaze-b2-samples/aistore-b2-cosmos-video-curation",
+      "icon": "wrench",
+      "featured": false
     }
   ]
 }
