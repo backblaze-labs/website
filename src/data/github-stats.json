@@ -230,26 +230,26 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 44,
+    "forks": 47,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 16,
+    "openIssues": 12,
     "stars": 12,
-    "updated": "2026-11-10T16:22:34Z",
+    "updated": "2026-11-11T17:46:27Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.850Z"
   },
   "awesome-audio-generation": {
     "archived": false,
     "description": "A curated list of AI audio generation APIs, SDKs, and tools including text-to-speech, speech synthesis, music generation, voice cloning, sound design, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building audio applications.",
-    "forks": 12,
+    "forks": 11,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 5,
+    "openIssues": 2,
     "stars": 10,
-    "updated": "2026-11-10T16:22:37Z",
+    "updated": "2026-11-11T17:55:43Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -257,11 +257,11 @@
     "forks": 22,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 11,
+    "openIssues": 10,
     "stars": 10,
-    "updated": "2026-11-10T16:22:39Z",
+    "updated": "2026-11-11T17:55:41Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.850Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -269,11 +269,11 @@
     "forks": 1,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 2,
     "updated": "2026-11-10T16:22:41Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.850Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -294,22 +294,22 @@
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 1,
-    "stars": 6,
+    "stars": 7,
     "updated": "2026-11-10T16:22:47Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 47,
+    "forks": 48,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 27,
+    "openIssues": 16,
     "stars": 39,
-    "updated": "2026-11-10T16:22:49Z",
+    "updated": "2026-11-11T17:55:38Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "b2-action": {
     "archived": false,
@@ -319,9 +319,9 @@
     "license": "MIT",
     "openIssues": 75,
     "stars": 9,
-    "updated": "2026-11-02T23:37:39Z",
+    "updated": "2026-11-11T20:05:20Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-11-05T07:05:20.841Z"
+    "fetchedAt": "2026-11-12T07:05:07.847Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -554,14 +554,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4058,
+    "forks": 4059,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 593,
-    "stars": 17110,
-    "updated": "2026-11-10T17:28:11Z",
+    "openIssues": 589,
+    "stars": 17120,
+    "updated": "2026-11-11T14:21:52Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.850Z"
   },
   "data-encryption": {
     "archived": false,
@@ -1118,14 +1118,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6608,
+    "forks": 6611,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2228,
-    "stars": 28755,
-    "updated": "2026-11-11T07:04:40Z",
+    "openIssues": 2224,
+    "stars": 28775,
+    "updated": "2026-11-12T07:03:07Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.850Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1529,11 +1529,11 @@
     "forks": 1,
     "lang": "HTML",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 5,
-    "updated": "2026-10-16T18:33:32Z",
+    "updated": "2026-11-12T00:05:27Z",
     "repo": "backblaze-b2-samples/b2-transformerjs-background-removal",
-    "fetchedAt": "2026-10-17T07:06:46.513Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "transformers-video-object-detection": {
     "archived": false,
@@ -1541,11 +1541,11 @@
     "forks": 2,
     "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 4,
     "stars": 2,
-    "updated": "2026-10-16T20:11:56Z",
+    "updated": "2026-11-12T00:07:43Z",
     "repo": "backblaze-b2-samples/b2-transformers-video-object-detection",
-    "fetchedAt": "2026-10-17T07:06:46.513Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "unsloth-lora-checkpoint-versioning": {
     "archived": false,
@@ -1565,11 +1565,11 @@
     "forks": 5,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 9,
+    "openIssues": 11,
     "stars": 17,
-    "updated": "2026-11-10T14:11:09Z",
+    "updated": "2026-11-11T10:34:20Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "video-semantic-search": {
     "archived": false,
@@ -1673,11 +1673,11 @@
     "forks": 1,
     "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 3,
-    "updated": "2026-10-16T17:28:15Z",
+    "updated": "2026-11-12T00:05:03Z",
     "repo": "backblaze-b2-samples/b2-whisper-transformersjs-transcriber",
-    "fetchedAt": "2026-10-17T07:06:46.513Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   },
   "whisperx-diarized-archive": {
     "archived": false,
@@ -1733,10 +1733,10 @@
     "forks": 2,
     "lang": "JavaScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 3,
     "stars": 0,
-    "updated": "2026-10-16T22:49:19Z",
+    "updated": "2026-11-12T00:10:11Z",
     "repo": "backblaze-b2-samples/b2-zeroshot-image-classifier",
-    "fetchedAt": "2026-10-17T07:06:46.513Z"
+    "fetchedAt": "2026-11-12T07:05:07.849Z"
   }
 }
