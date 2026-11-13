@@ -25,9 +25,9 @@ jobs:
       RETRIEVAL_PROBE_BASE_URL: ${{ inputs.base_url || 'https://backblazelabs.com' }}
       RETRIEVAL_PROBE_OUTPUT: artifacts/retrieval-probe/results.json
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version: "24"
           cache: "npm"
@@ -39,7 +39,7 @@ jobs:
 
       - name: Upload probe results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: retrieval-agent-probe-${{ github.run_id }}
           path: artifacts/retrieval-probe/results.json
