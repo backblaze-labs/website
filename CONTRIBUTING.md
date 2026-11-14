@@ -174,7 +174,9 @@ Run `npm run fix` locally to auto-fix lint + format.
 
 ### Pull request checklist
 
-- [ ] `npm run checks` passes locally.
+- [ ] `npm run ci` passes locally (checks, then build).
+- [ ] A changelog fragment (`npm run changelog`), or the `skip-changelog` label.
+- [ ] Testing, Risk and How to revert filled in; review follows [`REVIEW.md`](REVIEW.md) and [`docs/SDLC.md`](docs/SDLC.md).
 - [ ] If adding an integration: `id` is unique, `repo` exists, `categories` / `type` / `language` are valid IDs.
 - [ ] If touching styles: tested in **dark**, **light**, and **system** themes.
 - [ ] If touching layout: tested at 375px (mobile), 768px (tablet), 1280px (desktop).

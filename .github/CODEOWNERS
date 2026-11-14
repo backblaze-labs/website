@@ -6,3 +6,17 @@
 
 # Brand assets — only the design team should touch these.
 /public/brand/        @backblaze-labs/design
+
+# High-tier paths in REVIEW.md: always a maintainer, never the author alone.
+/.github/                    @backblaze-labs/maintainers
+/scripts/                    @backblaze-labs/maintainers
+/src/data/labs.schema.json   @backblaze-labs/maintainers
+/astro.config.mjs            @backblaze-labs/maintainers
+/package.json                @backblaze-labs/maintainers
+/.claude/                    @backblaze-labs/maintainers
+/.changie.yaml               @backblaze-labs/maintainers
+/AGENTS.md                   @backblaze-labs/maintainers
+/CLAUDE.md                   @backblaze-labs/maintainers
+/REVIEW.md                   @backblaze-labs/maintainers
+/docs/SDLC.md                @backblaze-labs/maintainers
+/docs/review-lessons.md      @backblaze-labs/maintainers
