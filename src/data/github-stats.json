@@ -91,9 +91,9 @@
     "license": "MIT",
     "openIssues": 3,
     "stars": 0,
-    "updated": "2026-11-13T19:45:43Z",
+    "updated": "2026-11-16T23:32:45Z",
     "repo": "backblaze-b2-samples/ai-moodboard-generator",
-    "fetchedAt": "2026-11-14T07:04:53.665Z"
+    "fetchedAt": "2026-11-17T07:05:23.103Z"
   },
   "ai-music-studio": {
     "archived": false,
@@ -197,11 +197,11 @@
     "forks": 0,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 6,
+    "openIssues": 7,
     "stars": 1,
-    "updated": "2026-11-14T06:04:16Z",
+    "updated": "2026-11-16T14:47:38Z",
     "repo": "backblaze-b2-samples/aistore-b2-cosmos-video-curation",
-    "fetchedAt": "2026-11-14T07:04:54.307Z"
+    "fetchedAt": "2026-11-17T07:05:23.691Z"
   },
   "aistore-b2-gr00t-robotics-training": {
     "archived": false,
@@ -211,9 +211,9 @@
     "license": "Apache-2.0",
     "openIssues": 5,
     "stars": 1,
-    "updated": "2026-11-13T12:29:09Z",
+    "updated": "2026-11-16T20:37:50Z",
     "repo": "backblaze-b2-samples/aistore-b2-gr00t-robotics-training",
-    "fetchedAt": "2026-11-14T07:04:54.290Z"
+    "fetchedAt": "2026-11-17T07:05:23.665Z"
   },
   "albumentations-dataset-augmentation": {
     "archived": false,
@@ -254,14 +254,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 53,
+    "forks": 57,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 20,
+    "openIssues": 23,
     "stars": 13,
     "updated": "2026-11-11T17:46:27Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-16T07:11:13.422Z"
+    "fetchedAt": "2026-11-17T07:05:23.112Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -326,14 +326,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 53,
+    "forks": 52,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 22,
     "stars": 42,
     "updated": "2026-11-11T17:55:38Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-16T07:11:13.422Z"
+    "fetchedAt": "2026-11-17T07:05:23.112Z"
   },
   "b2-action": {
     "archived": false,
@@ -343,9 +343,9 @@
     "license": "MIT",
     "openIssues": 73,
     "stars": 9,
-    "updated": "2026-11-13T20:02:08Z",
+    "updated": "2026-11-16T23:36:13Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-11-14T07:04:53.672Z"
+    "fetchedAt": "2026-11-17T07:05:23.111Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -415,9 +415,9 @@
     "license": "MIT",
     "openIssues": 24,
     "stars": 0,
-    "updated": "2026-11-13T19:48:32Z",
+    "updated": "2026-11-16T22:38:46Z",
     "repo": "backblaze-b2-samples/carla-sensor-data-lake",
-    "fetchedAt": "2026-11-14T07:04:54.199Z"
+    "fetchedAt": "2026-11-17T07:05:23.625Z"
   },
   "clam-wsi-feature-extraction": {
     "archived": false,
@@ -451,9 +451,9 @@
     "license": "MIT",
     "openIssues": 24,
     "stars": 0,
-    "updated": "2026-11-13T19:48:53Z",
+    "updated": "2026-11-16T22:42:47Z",
     "repo": "backblaze-b2-samples/clay-geospatial-embeddings",
-    "fetchedAt": "2026-11-14T07:04:54.244Z"
+    "fetchedAt": "2026-11-17T07:05:23.596Z"
   },
   "cline-b2-backup": {
     "archived": false,
@@ -559,9 +559,9 @@
     "license": null,
     "openIssues": 21,
     "stars": 1,
-    "updated": "2026-11-13T19:50:20Z",
+    "updated": "2026-11-16T23:32:26Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-11-14T07:04:53.671Z"
+    "fetchedAt": "2026-11-17T07:05:23.111Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -578,14 +578,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4064,
+    "forks": 4065,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 598,
-    "stars": 17143,
-    "updated": "2026-11-15T10:37:29Z",
+    "openIssues": 599,
+    "stars": 17146,
+    "updated": "2026-11-16T18:22:18Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-16T07:11:13.422Z"
+    "fetchedAt": "2026-11-17T07:05:23.112Z"
   },
   "data-encryption": {
     "archived": false,
@@ -607,9 +607,9 @@
     "license": "MIT",
     "openIssues": 24,
     "stars": 0,
-    "updated": "2026-11-13T19:50:29Z",
+    "updated": "2026-11-16T22:39:50Z",
     "repo": "backblaze-b2-samples/data-juicer-multimodal-curation",
-    "fetchedAt": "2026-11-14T07:04:54.173Z"
+    "fetchedAt": "2026-11-17T07:05:23.525Z"
   },
   "datacomp-image-text-filtering": {
     "archived": false,
@@ -629,11 +629,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 11,
+    "openIssues": 13,
     "stars": 0,
-    "updated": "2026-11-13T19:50:48Z",
+    "updated": "2026-11-16T22:55:43Z",
     "repo": "backblaze-b2-samples/ddcolor-photo-colorization",
-    "fetchedAt": "2026-11-14T07:04:54.381Z"
+    "fetchedAt": "2026-11-17T07:05:23.617Z"
   },
   "deep-research-agent-app": {
     "archived": false,
@@ -739,9 +739,9 @@
     "license": "MIT",
     "openIssues": 15,
     "stars": 0,
-    "updated": "2026-11-13T19:53:17Z",
+    "updated": "2026-11-16T23:55:09Z",
     "repo": "backblaze-b2-samples/donut-receipt-parser",
-    "fetchedAt": "2026-11-14T07:04:53.654Z"
+    "fetchedAt": "2026-11-17T07:05:23.095Z"
   },
   "dspy-compiled-program-versioning": {
     "archived": false,
@@ -763,9 +763,9 @@
     "license": "MIT",
     "openIssues": 6,
     "stars": 1,
-    "updated": "2026-11-01T16:00:28Z",
+    "updated": "2026-11-16T23:33:57Z",
     "repo": "backblaze-b2-samples/duckdb-query-in-place",
-    "fetchedAt": "2026-11-02T07:06:00.784Z"
+    "fetchedAt": "2026-11-17T07:05:23.103Z"
   },
   "eval-vault": {
     "archived": false,
@@ -835,9 +835,9 @@
     "license": "MIT",
     "openIssues": 13,
     "stars": 0,
-    "updated": "2026-11-13T19:53:06Z",
+    "updated": "2026-11-17T00:11:41Z",
     "repo": "backblaze-b2-samples/frigate-nvr-archive",
-    "fetchedAt": "2026-11-14T07:04:53.666Z"
+    "fetchedAt": "2026-11-17T07:05:23.103Z"
   },
   "genblaze": {
     "archived": false,
@@ -845,11 +845,11 @@
     "forks": 31,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 50,
-    "stars": 549,
-    "updated": "2026-11-13T12:57:39Z",
+    "openIssues": 42,
+    "stars": 550,
+    "updated": "2026-11-17T05:32:11Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-11-15T07:04:42.867Z"
+    "fetchedAt": "2026-11-17T07:05:23.112Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -919,9 +919,9 @@
     "license": "MIT",
     "openIssues": 13,
     "stars": 0,
-    "updated": "2026-11-13T12:30:06Z",
+    "updated": "2026-11-16T23:32:20Z",
     "repo": "backblaze-b2-samples/gpt-realtime-translate-live-event-interpreter",
-    "fetchedAt": "2026-11-14T07:04:53.666Z"
+    "fetchedAt": "2026-11-17T07:05:23.103Z"
   },
   "gpt-realtime-whisper-live-transcript-redactor": {
     "archived": false,
@@ -1003,9 +1003,9 @@
     "license": "MIT",
     "openIssues": 2,
     "stars": 4,
-    "updated": "2026-10-31T16:10:20Z",
+    "updated": "2026-11-17T01:18:28Z",
     "repo": "backblaze-b2-samples/image-generation-prompt-flow",
-    "fetchedAt": "2026-11-01T07:05:01.127Z"
+    "fetchedAt": "2026-11-17T07:05:23.112Z"
   },
   "image-to-3d-asset-library": {
     "archived": false,
@@ -1075,9 +1075,9 @@
     "license": "MIT",
     "openIssues": 27,
     "stars": 0,
-    "updated": "2026-11-13T19:54:28Z",
+    "updated": "2026-11-16T22:38:41Z",
     "repo": "backblaze-b2-samples/kiss-icp-lidar-archive",
-    "fetchedAt": "2026-11-14T07:04:54.218Z"
+    "fetchedAt": "2026-11-17T07:05:23.630Z"
   },
   "lama-batch-inpainting": {
     "archived": false,
@@ -1142,14 +1142,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6616,
+    "forks": 6621,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2235,
-    "stars": 28825,
-    "updated": "2026-11-16T00:34:47Z",
+    "openIssues": 2238,
+    "stars": 28844,
+    "updated": "2026-11-17T07:00:04Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-16T07:11:13.422Z"
+    "fetchedAt": "2026-11-17T07:05:23.112Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1183,9 +1183,9 @@
     "license": "MIT",
     "openIssues": 25,
     "stars": 0,
-    "updated": "2026-11-13T19:55:14Z",
+    "updated": "2026-11-16T23:10:17Z",
     "repo": "backblaze-b2-samples/mmpose-video-keypoint-extraction",
-    "fetchedAt": "2026-11-14T07:04:54.170Z"
+    "fetchedAt": "2026-11-17T07:05:23.504Z"
   },
   "monai-dicom-segmentation": {
     "archived": false,
@@ -1207,9 +1207,9 @@
     "license": "MIT",
     "openIssues": 17,
     "stars": 0,
-    "updated": "2026-11-13T19:55:33Z",
+    "updated": "2026-11-16T22:51:40Z",
     "repo": "backblaze-b2-samples/mujoco-rollout-dataset",
-    "fetchedAt": "2026-11-14T07:04:54.162Z"
+    "fetchedAt": "2026-11-17T07:05:23.647Z"
   },
   "music-tagging-search": {
     "archived": false,
@@ -1219,9 +1219,9 @@
     "license": "MIT",
     "openIssues": 4,
     "stars": 1,
-    "updated": "2026-11-13T19:55:42Z",
+    "updated": "2026-11-16T23:40:03Z",
     "repo": "backblaze-b2-samples/music-tagging-search",
-    "fetchedAt": "2026-11-14T07:04:53.663Z"
+    "fetchedAt": "2026-11-17T07:05:23.102Z"
   },
   "nemo-curator-training-data": {
     "archived": false,
@@ -1255,9 +1255,9 @@
     "license": "MIT",
     "openIssues": 26,
     "stars": 0,
-    "updated": "2026-11-13T19:56:09Z",
+    "updated": "2026-11-16T22:55:53Z",
     "repo": "backblaze-b2-samples/nextflow-genomics-object-storage",
-    "fetchedAt": "2026-11-14T07:04:54.134Z"
+    "fetchedAt": "2026-11-17T07:05:23.547Z"
   },
   "nnunet-3d-medical-image-segmentation": {
     "archived": false,
@@ -1267,9 +1267,9 @@
     "license": "MIT",
     "openIssues": 25,
     "stars": 0,
-    "updated": "2026-11-13T19:56:18Z",
+    "updated": "2026-11-16T22:32:35Z",
     "repo": "backblaze-b2-samples/nnunet-3d-medical-image-segmentation",
-    "fetchedAt": "2026-11-14T07:04:54.151Z"
+    "fetchedAt": "2026-11-17T07:05:23.507Z"
   },
   "nudenet-video-moderation": {
     "archived": false,
@@ -1327,9 +1327,9 @@
     "license": "MIT",
     "openIssues": 27,
     "stars": 0,
-    "updated": "2026-11-13T19:57:02Z",
+    "updated": "2026-11-16T22:37:09Z",
     "repo": "backblaze-b2-samples/openclip-batch-embeddings",
-    "fetchedAt": "2026-11-14T07:04:54.187Z"
+    "fetchedAt": "2026-11-17T07:05:23.477Z"
   },
   "opendronemap-photogrammetry-pipeline": {
     "archived": false,
@@ -1423,9 +1423,9 @@
     "license": "MIT",
     "openIssues": 16,
     "stars": 0,
-    "updated": "2026-11-13T19:57:57Z",
+    "updated": "2026-11-16T23:31:59Z",
     "repo": "backblaze-b2-samples/qwen-video-chapters",
-    "fetchedAt": "2026-11-14T07:04:53.662Z"
+    "fetchedAt": "2026-11-17T07:05:23.102Z"
   },
   "rembg-product-background-removal": {
     "archived": false,
@@ -1471,9 +1471,9 @@
     "license": "MIT",
     "openIssues": 28,
     "stars": 0,
-    "updated": "2026-11-13T19:58:35Z",
+    "updated": "2026-11-16T22:42:03Z",
     "repo": "backblaze-b2-samples/roboflow-inference-frame-archive",
-    "fetchedAt": "2026-11-14T07:04:54.189Z"
+    "fetchedAt": "2026-11-17T07:05:23.532Z"
   },
   "rosbag2-cloud-offload": {
     "archived": false,
@@ -1483,9 +1483,9 @@
     "license": "MIT",
     "openIssues": 15,
     "stars": 0,
-    "updated": "2026-11-13T19:58:44Z",
+    "updated": "2026-11-16T22:41:58Z",
     "repo": "backblaze-b2-samples/rosbag2-cloud-offload",
-    "fetchedAt": "2026-11-14T07:04:54.285Z"
+    "fetchedAt": "2026-11-17T07:05:23.667Z"
   },
   "sam2-mask-dataset-builder": {
     "archived": false,
@@ -1495,9 +1495,9 @@
     "license": "MIT",
     "openIssues": 3,
     "stars": 0,
-    "updated": "2026-11-13T19:58:52Z",
+    "updated": "2026-11-16T23:31:31Z",
     "repo": "backblaze-b2-samples/sam2-mask-dataset-builder",
-    "fetchedAt": "2026-11-14T07:04:53.666Z"
+    "fetchedAt": "2026-11-17T07:05:23.103Z"
   },
   "speechbrain-call-center-analytics": {
     "archived": false,
@@ -1543,9 +1543,9 @@
     "license": "MIT",
     "openIssues": 19,
     "stars": 0,
-    "updated": "2026-11-13T19:59:47Z",
+    "updated": "2026-11-16T22:38:51Z",
     "repo": "backblaze-b2-samples/totalsegmentator-batch-pipeline",
-    "fetchedAt": "2026-11-14T07:04:54.282Z"
+    "fetchedAt": "2026-11-17T07:05:23.596Z"
   },
   "transformerjs-background-removal": {
     "archived": false,
@@ -1603,9 +1603,9 @@
     "license": "MIT",
     "openIssues": 16,
     "stars": 1,
-    "updated": "2026-11-13T12:10:30Z",
+    "updated": "2026-11-16T23:31:17Z",
     "repo": "backblaze-b2-samples/video-semantic-search",
-    "fetchedAt": "2026-11-14T07:04:53.669Z"
+    "fetchedAt": "2026-11-17T07:05:23.105Z"
   },
   "video-to-insights-nvidia-parakeet-llama": {
     "archived": false,
@@ -1711,9 +1711,9 @@
     "license": "MIT",
     "openIssues": 3,
     "stars": 0,
-    "updated": "2026-11-13T20:01:11Z",
+    "updated": "2026-11-16T23:33:17Z",
     "repo": "backblaze-b2-samples/whisperx-diarized-archive",
-    "fetchedAt": "2026-11-14T07:04:53.665Z"
+    "fetchedAt": "2026-11-17T07:05:23.103Z"
   },
   "yolo-drone-footage-detection": {
     "archived": false,
