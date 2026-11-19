@@ -5153,6 +5153,163 @@
       "url": "https://github.com/backblaze-b2-samples/aistore-b2-cosmos-video-curation",
       "icon": "wrench",
       "featured": false
+    },
+    {
+      "id": "qdrant-multitenant-rag-tiering",
+      "title": "Qdrant Multitenant RAG Tiering",
+      "tagline": "Park idle tenants' Qdrant collections in B2 and restore them on query.",
+      "description": "Full-stack sample (Next.js 16 + FastAPI) for multi-tenant RAG with Qdrant: hot tenants are served from Qdrant, idle tenants' collections are parked as verified snapshots in Backblaze B2 and restored on the next query, and a benchmark measures the latency cost and the memory saved.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "tags": [
+        "qdrant",
+        "vector-database",
+        "rag",
+        "retrieval-augmented-generation",
+        "multi-tenancy",
+        "storage-tiering",
+        "snapshots",
+        "fastapi",
+        "nextjs",
+        "s3-compatible",
+        "sample-app"
+      ],
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/qdrant-multitenant-rag-tiering",
+      "repo": "backblaze-b2-samples/qdrant-multitenant-rag-tiering",
+      "detail": {
+        "metaDescription": "Multi-tenant RAG with Qdrant and Backblaze B2: park idle tenants' collections as verified B2 snapshots, restore on query, and measure the latency cost.",
+        "audience": "Developers and AI coding agents running retrieval for many customers, most of them idle most of the time, who want to keep vector memory only for tenants that query and justify a parking threshold with measured restore cost.",
+        "ctaLabel": "Use this template",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web application and dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and reusable interface primitives"
+          },
+          {
+            "name": "TanStack Query + Recharts",
+            "role": "Client-side data fetching and latency and footprint charts"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Typed, layered Python 3.12 API with the park and restore state machine"
+          },
+          {
+            "name": "Qdrant v1.20.2 + qdrant-client",
+            "role": "Hot tier: one collection per tenant, snapshotted and restored through Qdrant's snapshot API"
+          },
+          {
+            "name": "fastembed (BAAI/bge-small-en-v1.5)",
+            "role": "Local CPU embeddings, 384 dimensions, about 67 MB, no external AI calls"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible durable tier: multipart snapshot uploads, manifests, corpora, and benchmark reports"
+          },
+          {
+            "name": "pnpm workspaces + Docker Compose",
+            "role": "Monorepo workflow and a three-container local stack"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/qdrant-multitenant-rag-tiering-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with hot and parked tenant counts, vector memory in use and freed, and bytes in B2",
+            "caption": "The Dashboard shows hot, parked and empty tenant counts, vector memory in use and freed, snapshot and corpus bytes in B2, a per-tenant vector footprint chart and the latest latency reports."
+          },
+          {
+            "src": "/screenshots/qdrant-multitenant-rag-tiering-2.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Tenants table with hot and parked states, points, vector memory and snapshot sizes",
+            "caption": "Tenants lists every tenant with its hot or parked state, points, documents, vector memory in Qdrant (or memory freed) and snapshot size in B2, plus seed, tiering sweep and prune controls."
+          },
+          {
+            "src": "/screenshots/qdrant-multitenant-rag-tiering-3.webp",
+            "width": 1600,
+            "height": 1232,
+            "alt": "Tenant detail answering a query after restoring the parked collection from B2",
+            "caption": "A query to a parked tenant restores its collection from B2 first, reports the download and load time, then returns the ranked chunks."
+          },
+          {
+            "src": "/screenshots/qdrant-multitenant-rag-tiering-4.webp",
+            "width": 1600,
+            "height": 1283,
+            "alt": "Latency reports page with the benchmark form and the list of stored runs",
+            "caption": "Latency reports: pick up to six tenants and run a benchmark that parks and restores each one, with every past run listed from its report.json in B2."
+          },
+          {
+            "src": "/screenshots/qdrant-multitenant-rag-tiering-5.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Latency report with warm, restore and post-restore latency charts and the figures table",
+            "caption": "One run's warm, restore and post-restore latency per tenant, the memory freed by parking, and the full figures table with a result-match check."
+          },
+          {
+            "src": "/screenshots/qdrant-multitenant-rag-tiering-6.webp",
+            "width": 1600,
+            "height": 2631,
+            "alt": "Library of the app's B2 objects grouped by tenant into corpus, snapshots and reports",
+            "caption": "The Library shows everything the app wrote to B2, grouped by tenant into corpus files, collection snapshots with their latest.json manifest, and latency reports."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/qdrant-multitenant-rag-tiering.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Tenants",
+            "description": "Create tenants from text or Markdown files, or seed demo tenants; each gets its own Qdrant collection, with its source corpus stored in B2."
+          },
+          {
+            "title": "Tiering with verify-before-drop",
+            "description": "An idle policy or a manual Park now snapshots the collection, streams it to B2 with a multipart upload, writes the manifest last, verifies size and sha256 in B2, and only then drops the collection."
+          },
+          {
+            "title": "Restore on query",
+            "description": "The first query to a parked tenant restores its snapshot from B2 into any Qdrant node, including an empty one, checks the hash and point count, and reports the restore cost."
+          },
+          {
+            "title": "Latency report",
+            "description": "Benchmark warm, restore, first-query and post-restore latency plus memory freed for selected tenants, stored as report.json in B2 with a result-match check."
+          },
+          {
+            "title": "Dashboard",
+            "description": "Hot, parked and empty counts, vector memory in use and freed, bytes in B2, a per-tenant footprint chart and recent reports."
+          },
+          {
+            "title": "Library and Bucket Explorer",
+            "description": "Browse the app's own objects under rag/ grouped by tenant and kind, or the whole bucket with preview, download and delete streamed through the API."
+          }
+        ],
+        "useWhen": [
+          "You run retrieval for many customers with one Qdrant collection per tenant and most tenants are idle most of the time.",
+          "You want idle tenants' vector memory freed while their collections stay recoverable as verified snapshots in Backblaze B2.",
+          "You need measured warm latency, restore time and post-restore latency to choose a parking threshold on numbers rather than guesses.",
+          "You want a worked example of streaming large artifacts to B2 safely: multipart upload, manifest last, verify before delete."
+        ],
+        "avoidWhen": [
+          "You need a hosted multi-user service: the API has no authentication or tenant-scoped access, and its per-tenant locks assume one API process per Qdrant node.",
+          "You run Qdrant clusters with replicated shards or payload-based multitenancy inside a single collection; neither is covered.",
+          "Your tenants are so large that a restore takes minutes, or you want a serverless deploy: the sample needs a Qdrant node and a CPU embedding model, so it runs with Docker Compose."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report defects and feature requests through the repository's GitHub Issues; the sample carries no SLA."
+        }
+      }
     }
   ]
 }
