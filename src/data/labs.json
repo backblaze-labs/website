@@ -5310,6 +5310,196 @@
           "support": "Report defects and feature requests through the repository's GitHub Issues; the sample carries no SLA."
         }
       }
+    },
+    {
+      "id": "anomalib-defect-inspection-archive",
+      "title": "Anomalib Defect Inspection Archive",
+      "tagline": "Keep every inspected part image, heatmap and model version in B2.",
+      "description": "Inspection-line archive (Next.js 16 + FastAPI) that stores every part image in Backblaze B2, scores it with Anomalib PatchCore, keeps the heatmap and score with the model version behind it, routes high scores to operator review, and retrains new model versions from adjudicated images read back from B2.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/anomalib-defect-inspection-archive",
+      "tags": [
+        "anomalib",
+        "anomaly-detection",
+        "patchcore",
+        "visual-inspection",
+        "defect-detection",
+        "industrial-inspection",
+        "computer-vision",
+        "pytorch",
+        "quality-control",
+        "sample-app"
+      ],
+      "repo": "backblaze-b2-samples/anomalib-defect-inspection-archive",
+      "detail": {
+        "metaDescription": "Open source inspection archive sample: Anomalib PatchCore scores part images, with every image, heatmap and model version kept in Backblaze B2 and traceable by serial.",
+        "audience": "Developers and AI coding agents who want a working, traceable visual-inspection pipeline to study or adapt: part images and derived artifacts on object storage, an open source anomaly model, and an operator review loop.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui",
+            "role": "Design tokens and interface primitives"
+          },
+          {
+            "name": "TanStack Query + Recharts",
+            "role": "Data fetching and dashboard charts"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Layered Python API (Python 3.12+)"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible storage for images, heatmaps, scores, labels and models"
+          },
+          {
+            "name": "pyarrow",
+            "role": "Parquet score files stored next to the images they describe"
+          },
+          {
+            "name": "Anomalib 2.7.0 PatchCore (PyTorch)",
+            "role": "Local anomaly scoring and retraining, optional ML extra"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "TypeScript and Python monorepo workflow"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-1.webp",
+            "width": 1600,
+            "height": 1181,
+            "alt": "Dashboard with inspection metrics, parts-per-day chart and archive bytes in B2",
+            "caption": "Parts inspected, parts above threshold, review backlog, verdicts and model versions, with archive bytes in B2 by kind."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-2.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Capture form for storing and scoring a part image",
+            "caption": "Pick a line, enter a part serial and drop an image; it is stored in B2 and scored by the line's active PatchCore model."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-3.webp",
+            "width": 1600,
+            "height": 1108,
+            "alt": "Review queue with a captured candle image, its anomaly heatmap and the verdict form",
+            "caption": "Parts at or above the threshold wait here, with the image beside its anomaly heatmap and a pass or fail verdict form."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-4.webp",
+            "width": 1600,
+            "height": 1202,
+            "alt": "Lines page listing inspection lines and their active model versions",
+            "caption": "Every inspection line with its description, active model version and last update."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-5.webp",
+            "width": 1600,
+            "height": 1304,
+            "alt": "Line detail with part counts, score distribution and today's parts",
+            "caption": "Per-line counts, the PatchCore score distribution, and the day's parts with status, score, threshold and model version."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-6.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Model versions table with activation controls and the train-new-version form",
+            "caption": "PatchCore versions trained from images read back from B2, with AUROC and threshold, plus the form to train a new version."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-7.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Model version detail with configuration, metrics and the training-set manifest",
+            "caption": "One version's configuration, metrics and the training-set manifest of B2 images with their ETags."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-8.webp",
+            "width": 1600,
+            "height": 1004,
+            "alt": "Trace view of a failed part with image, heatmap, score history and verdict history",
+            "caption": "A part serial opened to its image, heatmap, score history and verdict history, with controls to change the verdict or re-score."
+          },
+          {
+            "src": "/screenshots/anomalib-defect-inspection-archive-9.webp",
+            "width": 1600,
+            "height": 2130,
+            "alt": "Inspection archive grid of part images paired with their heatmaps",
+            "caption": "Every image and heatmap a line has written to B2, paired by capture date, with tabs for scores, labels and models."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/anomalib-defect-inspection-archive.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Dashboard",
+            "description": "Parts inspected, parts above threshold, review backlog, verdicts and model versions, a parts-per-day chart and archive bytes in B2 by kind."
+          },
+          {
+            "title": "Capture and scoring",
+            "description": "Store each part image in B2 under its line and date, then score it with the line's active Anomalib PatchCore model. The score, threshold, model version and heatmap are kept with it."
+          },
+          {
+            "title": "Review queue",
+            "description": "Parts at or above the threshold wait for an operator, oldest first, with the image beside its heatmap and a pass or fail verdict form."
+          },
+          {
+            "title": "Lines",
+            "description": "Create inspection lines and choose the active model version for each."
+          },
+          {
+            "title": "Line detail",
+            "description": "Per-line counts, the PatchCore score distribution and the day's parts with status, score, threshold and model version."
+          },
+          {
+            "title": "Retraining and model versions",
+            "description": "Train a new PatchCore version from images read back from B2, stored with its checkpoint, AUROC, threshold and a manifest of every image key and ETag, then activate it."
+          },
+          {
+            "title": "Trace",
+            "description": "Open a part serial to see its image, heatmaps, score history, verdict history and the model version behind each score."
+          },
+          {
+            "title": "Inspection archive",
+            "description": "Browse the images, heatmaps, scores, labels and models a line has written to B2, by line and date."
+          },
+          {
+            "title": "Bucket Explorer",
+            "description": "Browse, preview and download any object in the bucket."
+          }
+        ],
+        "useWhen": [
+          "You want a traceable visual-inspection example that keeps images, heatmaps, scores and model versions together on S3-compatible object storage.",
+          "You want to see an open source anomaly model (Anomalib PatchCore) retrained from adjudicated images read back from the same bucket.",
+          "You want an operator review loop, from threshold routing to a recorded pass or fail verdict, that runs on a laptop CPU, with CUDA or Apple MPS optional.",
+          "You plan to extend it with an AI coding agent and value explicit repository docs and enforced layering."
+        ],
+        "avoidWhen": [
+          "You need camera or PLC integration, line-rate throughput guarantees, or compliance with a quality standard; none of these are claimed.",
+          "You need authentication, user accounts or tenant isolation: anyone who can reach the API can capture, review and train.",
+          "You need to delete inspection records from the interface; the archive deliberately has no user-facing delete for them.",
+          "You need scoring and training in a serverless deployment; PyTorch training and a model checkpoint do not fit a serverless function, and a Railway deployment returns 503 for scoring until the ML extra is added to its build.",
+          "You need a supported product or a service-level agreement."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Backblaze maintains this open-source sample to help developers get started with B2; report defects and requests through the repository's GitHub Issues. It has no service-level agreement (SLA) and no guaranteed support."
+        }
+      }
     }
   ]
 }
