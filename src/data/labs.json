@@ -5500,6 +5500,168 @@
           "support": "Backblaze maintains this open-source sample to help developers get started with B2; report defects and requests through the repository's GitHub Issues. It has no service-level agreement (SLA) and no guaranteed support."
         }
       }
+    },
+    {
+      "id": "livekit-voice-agent-recording-retention",
+      "title": "LiveKit Agent Session Archive",
+      "tagline": "Record LiveKit voice-agent sessions to B2 and keep them by class.",
+      "description": "Voice-agent session archive (Next.js 16 + FastAPI) where LiveKit Egress records each session straight to Backblaze B2 through the S3-compatible API, signed webhooks keep a per-session manifest current, faster-whisper transcribes and scores the recording locally, and a retention job keeps or removes sessions by class.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/livekit-voice-agent-recording-retention",
+      "tags": [
+        "livekit",
+        "livekit-agents",
+        "livekit-egress",
+        "voice-agent",
+        "voice-ai",
+        "call-recording",
+        "data-retention",
+        "faster-whisper",
+        "speech-to-text",
+        "sample-app"
+      ],
+      "repo": "backblaze-b2-samples/livekit-voice-agent-recording-retention",
+      "detail": {
+        "metaDescription": "Open source LiveKit sample: Egress records voice-agent sessions straight to Backblaze B2, with manifests, local transcripts, evaluation and retention by class.",
+        "audience": "AI engineers running LiveKit Agents who want recordings, transcripts and evaluation results in one durable, inexpensive, S3-compatible store with a retention story, and AI coding agents extending the repository.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui + TanStack Query",
+            "role": "Design tokens, interface primitives and data fetching"
+          },
+          {
+            "name": "livekit-client",
+            "role": "Join a session room from the browser with a microphone"
+          },
+          {
+            "name": "LiveKit server + Egress + Redis (Docker Compose)",
+            "role": "Rooms, media and audio-only recording uploaded straight to B2"
+          },
+          {
+            "name": "LiveKit Agents",
+            "role": "Scripted test agent that speaks in each room"
+          },
+          {
+            "name": "FastAPI (Python 3.12) + livekit-api",
+            "role": "REST API, signed webhook receiver and retention job"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible storage for recordings, manifests, transcripts, evaluations and reports"
+          },
+          {
+            "name": "faster-whisper (tiny.en)",
+            "role": "Local CPU transcription, no hosted speech provider"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/livekit-voice-agent-recording-retention-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dashboard with session, recording and evaluation metrics",
+            "caption": "Sessions, recorded minutes and bytes, passed evaluations, the last retention run, sessions by class and status, and recent sessions."
+          },
+          {
+            "src": "/screenshots/livekit-voice-agent-recording-retention-2.webp",
+            "width": 1600,
+            "height": 1410,
+            "alt": "Sessions list read from manifests under sessions/ in B2",
+            "caption": "Every session under sessions/ in the bucket with its script, class, status, duration, size and word error rate."
+          },
+          {
+            "src": "/screenshots/livekit-voice-agent-recording-retention-3.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Session detail with the Egress recording, retention class and transcript",
+            "caption": "The Egress recording played from B2, its key and SHA-256, the class and retention date, and the faster-whisper transcript."
+          },
+          {
+            "src": "/screenshots/livekit-voice-agent-recording-retention-4.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Session evaluation tab with WER and expected-phrase result",
+            "caption": "The pass or fail verdict with word error rate against the script and the expected phrases heard."
+          },
+          {
+            "src": "/screenshots/livekit-voice-agent-recording-retention-5.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "New session form with script, class and mode",
+            "caption": "Pick a script, session class and mode, then start a LiveKit room that Egress records straight to B2."
+          },
+          {
+            "src": "/screenshots/livekit-voice-agent-recording-retention-6.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Retention page with policy by class, run controls and reports in B2",
+            "caption": "The keep period per class, a dry-run or real retention run, and the daily reports stored in B2."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/livekit-voice-agent-recording-retention.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Session recording",
+            "description": "Create a room, dispatch the scripted test agent, and have LiveKit Egress record the session straight to B2 with its own S3-compatible uploader. The API never re-uploads a recording."
+          },
+          {
+            "title": "Session library",
+            "description": "Browse sessions under sessions/, play recordings from B2, edit a session's class or label, reprocess or delete it."
+          },
+          {
+            "title": "Webhook manifests",
+            "description": "Signed LiveKit webhooks are verified, deduplicated and stored as evidence, and keep each session's manifest current with the recording's location, size, duration and SHA-256."
+          },
+          {
+            "title": "Transcription and evaluation",
+            "description": "A local faster-whisper transcript plus a deterministic evaluation: word error rate against the script and an expected-phrase check."
+          },
+          {
+            "title": "Retention by class",
+            "description": "Keep or remove sessions by class (debug, standard, training, hold), deleting every object version so the bytes are gone, and write a per-day report to B2. Manifests and webhook evidence stay."
+          },
+          {
+            "title": "File browser",
+            "description": "List, preview, download and delete any object in the bucket."
+          },
+          {
+            "title": "Dashboard",
+            "description": "Sessions by class and status, recorded minutes and bytes, passed evaluations and the last retention run."
+          }
+        ],
+        "useWhen": [
+          "You run LiveKit Agents and need every session's recording, transcript and evaluation in one place you can query, keep and delete by policy.",
+          "You want LiveKit Egress to write straight to S3-compatible storage, with a working, tested configuration for B2.",
+          "You want a starting point for regression-testing an agent: the same script on every run, scored the same way.",
+          "You want to preview retention with a dry run as of any date before applying it."
+        ],
+        "avoidWhen": [
+          "You need a production agent, telephony or call-center integration; the agent here is a scripted test fixture.",
+          "You need compliance guarantees such as legal hold, consent capture or PII redaction; retention here is a cost and hygiene policy, not a compliance control.",
+          "You want hosted speech-to-text or LLM evaluation; this sample is local only on purpose.",
+          "You need authentication: the API is a local demo and anyone who can reach it can create and delete sessions.",
+          "You need a serverless deployment; it runs as Docker Compose with long-lived LiveKit, Egress and Redis containers.",
+          "You want an overview of voice AI storage patterns rather than one working app; see b2-voice-ai-reference-architectures."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Backblaze maintains this open-source sample to help developers get started with B2; report defects and requests through the repository's GitHub Issues. It has no service-level agreement (SLA) and no guaranteed support."
+        }
+      }
     }
   ]
 }
