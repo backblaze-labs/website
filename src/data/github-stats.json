@@ -6,10 +6,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 22,
-    "stars": 3,
+    "stars": 4,
     "updated": "2026-11-13T19:45:24Z",
     "repo": "backblaze-b2-samples/4d-gaussian-splatting-volumetric-capture",
-    "fetchedAt": "2026-11-14T07:04:54.094Z"
+    "fetchedAt": "2026-11-20T07:05:34.999Z"
   },
   "agent-backup-core": {
     "archived": false,
@@ -227,6 +227,18 @@
     "repo": "backblaze-b2-samples/albumentations-dataset-augmentation",
     "fetchedAt": "2026-11-19T07:05:35.522Z"
   },
+  "anomalib-defect-inspection-archive": {
+    "archived": false,
+    "description": "Defect inspection archive sample app: store every part image, Anomalib PatchCore anomaly heatmap, score and model version in Backblaze B2, route defects to operator review, and retrain from labeled images. FastAPI + Next.js",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-11-19T15:12:40Z",
+    "repo": "backblaze-b2-samples/anomalib-defect-inspection-archive",
+    "fetchedAt": "2026-11-20T07:05:35.526Z"
+  },
   "arxiv-insight-briefs-nvidia-nemotron": {
     "archived": false,
     "description": "arXiv research briefing pipeline that routes natural language queries to relevant papers, caches PDFs in Backblaze B2, extracts key sections with PyMuPDF, and generates citation-backed insight briefs using NVIDIA Nemotron.",
@@ -254,14 +266,14 @@
   "awesome-agent-infrastructure": {
     "archived": false,
     "description": "A curated list of AI agent infrastructure: memory stores, vector databases, execution sandboxes, MCP servers, tool registries, observability, and evaluation tools for building and running autonomous agents.",
-    "forks": 58,
+    "forks": 59,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 25,
+    "openIssues": 4,
     "stars": 14,
-    "updated": "2026-11-11T17:46:27Z",
+    "updated": "2026-11-20T00:25:35Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-19T07:05:35.523Z"
+    "fetchedAt": "2026-11-20T07:05:34.879Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -269,11 +281,11 @@
     "forks": 14,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 5,
+    "openIssues": 2,
     "stars": 11,
-    "updated": "2026-11-11T17:55:43Z",
+    "updated": "2026-11-20T00:25:53Z",
     "repo": "backblaze-labs/awesome-audio-generation",
-    "fetchedAt": "2026-11-18T07:05:38.405Z"
+    "fetchedAt": "2026-11-20T07:05:34.879Z"
   },
   "awesome-image-generation": {
     "archived": false,
@@ -281,11 +293,11 @@
     "forks": 25,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 13,
+    "openIssues": 5,
     "stars": 10,
-    "updated": "2026-11-11T17:55:41Z",
+    "updated": "2026-11-20T00:25:48Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-11-18T07:05:38.282Z"
+    "fetchedAt": "2026-11-20T07:05:34.879Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -295,9 +307,9 @@
     "license": "CC0-1.0",
     "openIssues": 0,
     "stars": 2,
-    "updated": "2026-11-10T16:22:41Z",
+    "updated": "2026-11-20T00:26:03Z",
     "repo": "backblaze-labs/awesome-ml-data-pipelines",
-    "fetchedAt": "2026-11-12T07:05:07.850Z"
+    "fetchedAt": "2026-11-20T07:05:34.879Z"
   },
   "awesome-multimodal-data": {
     "archived": false,
@@ -305,11 +317,11 @@
     "forks": 0,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 3,
-    "updated": "2026-11-10T16:22:44Z",
+    "updated": "2026-11-20T00:54:23Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-11-11T07:05:14.697Z"
+    "fetchedAt": "2026-11-20T07:05:34.879Z"
   },
   "awesome-physical-ai": {
     "archived": false,
@@ -317,23 +329,23 @@
     "forks": 3,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 0,
     "stars": 7,
-    "updated": "2026-11-10T16:22:47Z",
+    "updated": "2026-11-20T00:25:58Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-11-12T07:05:07.849Z"
+    "fetchedAt": "2026-11-20T07:05:34.864Z"
   },
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 53,
+    "forks": 54,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 22,
-    "stars": 44,
-    "updated": "2026-11-11T17:55:38Z",
+    "openIssues": 7,
+    "stars": 45,
+    "updated": "2026-11-20T00:25:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-19T07:05:35.523Z"
+    "fetchedAt": "2026-11-20T07:05:34.879Z"
   },
   "b2-action": {
     "archived": false,
@@ -354,10 +366,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 60,
-    "stars": 47,
-    "updated": "2026-11-18T23:27:14Z",
+    "stars": 48,
+    "updated": "2026-11-20T05:59:07Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-11-19T07:05:36.090Z"
+    "fetchedAt": "2026-11-20T07:05:35.256Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -578,14 +590,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4065,
+    "forks": 4066,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 601,
-    "stars": 17166,
-    "updated": "2026-11-18T16:13:45Z",
+    "openIssues": 606,
+    "stars": 17176,
+    "updated": "2026-11-19T18:32:10Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-19T07:05:35.545Z"
+    "fetchedAt": "2026-11-20T07:05:34.880Z"
   },
   "data-encryption": {
     "archived": false,
@@ -846,10 +858,10 @@
     "lang": "Python",
     "license": "MIT",
     "openIssues": 28,
-    "stars": 549,
+    "stars": 548,
     "updated": "2026-11-19T05:56:38Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-11-19T07:05:35.545Z"
+    "fetchedAt": "2026-11-20T07:05:34.880Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1115,6 +1127,18 @@
     "repo": "backblaze-b2-samples/lerobot-b2-streaming",
     "fetchedAt": "2026-11-14T07:04:53.655Z"
   },
+  "livekit-voice-agent-recording-retention": {
+    "archived": false,
+    "description": "LiveKit voice agent recording and retention on Backblaze B2. LiveKit Egress writes session recordings straight to B2 via the S3-compatible API, signed webhooks keep a per-session manifest with faster-whisper transcript and evaluation, and a retention job keeps or deletes sessions by class. Next.js + FastAPI sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 12,
+    "stars": 0,
+    "updated": "2026-11-19T16:51:50Z",
+    "repo": "backblaze-b2-samples/livekit-voice-agent-recording-retention",
+    "fetchedAt": "2026-11-20T07:05:35.568Z"
+  },
   "lora-training-studio": {
     "archived": false,
     "description": "Browser-based LoRA fine-tuning studio for Stable Diffusion: upload images, caption, train, and download the .safetensors — every artifact (dataset, captions, checkpoints, samples, LoRA) versioned on Backblaze B2.",
@@ -1142,14 +1166,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6627,
+    "forks": 6640,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2245,
-    "stars": 28877,
-    "updated": "2026-11-19T05:31:39Z",
+    "openIssues": 2252,
+    "stars": 28904,
+    "updated": "2026-11-20T07:03:26Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-19T07:05:35.545Z"
+    "fetchedAt": "2026-11-20T07:05:34.880Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1414,6 +1438,18 @@
     "updated": "2026-11-18T10:58:26Z",
     "repo": "backblaze-b2-samples/prompt-showdown",
     "fetchedAt": "2026-11-19T07:05:35.522Z"
+  },
+  "qdrant-multitenant-rag-tiering": {
+    "archived": false,
+    "description": "Multi-tenant RAG with Qdrant and Backblaze B2: park idle tenants' vector collections as verified snapshots in B2, restore them on the next query, and benchmark the latency cost and memory saved. FastAPI and Next.js sample app.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 11,
+    "stars": 0,
+    "updated": "2026-11-17T15:16:02Z",
+    "repo": "backblaze-b2-samples/qdrant-multitenant-rag-tiering",
+    "fetchedAt": "2026-11-20T07:05:35.534Z"
   },
   "qwen-video-chapters": {
     "archived": false,
