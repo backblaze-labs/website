@@ -31,7 +31,13 @@
     "spellcheck": "cspell --no-progress --no-must-find-files",
     "checks": "npm run lint && npm run format:check && npm run typecheck && npm run validate && npm run docs:lint && npm run spellcheck",
     "fix": "biome check --write . && npm run typecheck && npm run validate",
-    "prepare": "simple-git-hooks || true"
+    "prepare": "simple-git-hooks || true",
+    "ci": "npm run checks && npm run build",
+    "changelog": "changie new",
+    "changelog:batch": "changie batch auto",
+    "changelog:merge": "changie merge",
+    "changelog:check": "node scripts/check-changelog.mjs",
+    "review:metrics": "node scripts/review-metrics.mjs"
   },
   "simple-git-hooks": {
     "pre-commit": "npm run checks"
@@ -53,6 +59,7 @@
     "@types/node": "^26.1.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
+    "changie": "1.24.0",
     "cspell": "^10.0.1",
     "markdownlint-cli2": "^0.23.0",
     "sharp": "^0.35.3",
