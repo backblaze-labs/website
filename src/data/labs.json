@@ -5803,6 +5803,164 @@
           "support": "Report repository defects through GitHub Issues on the repository; it is provided as a sample with no SLA."
         }
       }
+    },
+    {
+      "id": "diffusers-multi-tenant-lora-serving",
+      "title": "Diffusers Multi-Tenant LoRA Serving",
+      "tagline": "Serve every tenant's LoRA adapters from B2 on one shared SDXL model.",
+      "description": "Multi-tenant LoRA serving sample (Next.js 16 + FastAPI) that keeps every tenant's Diffusers LoRA adapters in Backblaze B2 through the S3-compatible API and loads them per request onto one shared SDXL base model, using stateless GPU workers, presigned fetches, verified caches and tenant isolation.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/diffusers-multi-tenant-lora-serving",
+      "tags": [
+        "diffusers",
+        "lora",
+        "sdxl",
+        "multi-tenant",
+        "model-serving",
+        "text-to-image",
+        "generative-ai",
+        "sample-app"
+      ],
+      "repo": "backblaze-b2-samples/diffusers-multi-tenant-lora-serving",
+      "detail": {
+        "metaDescription": "Open source sample: serve many tenants' LoRA adapters from Backblaze B2 on one shared SDXL base model, with stateless workers and per-request tenant isolation.",
+        "audience": "Developers serving image generation to many customers from a pool of shared GPU workers, where each customer brings their own LoRA styles, and AI coding agents extending the repository.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui + TanStack Query + Recharts",
+            "role": "Design tokens, interface primitives, data fetching and timing charts"
+          },
+          {
+            "name": "FastAPI (Python 3.12) + SQLite",
+            "role": "Dispatcher: adapter registry, tenant-scoped resolution, leased job queue and presigned URLs"
+          },
+          {
+            "name": "PyTorch + Diffusers + PEFT",
+            "role": "Stateless GPU workers that load and unload LoRA adapters on one SDXL base model"
+          },
+          {
+            "name": "boto3 (S3-compatible API)",
+            "role": "Backblaze B2 storage for adapters, manifests, outputs and reports"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "Monorepo for the web app, API, worker and shared types"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-1.webp",
+            "width": 1600,
+            "height": 1010,
+            "alt": "Dashboard with tenant, adapter, job, worker and cache-hit metrics, a load versus generate time chart and recent jobs",
+            "caption": "Tenants, adapter versions in B2, jobs, workers online and cache hit rate, with fetch, load, generate and unload timings and recent jobs per tenant."
+          },
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-2.webp",
+            "width": 1600,
+            "height": 1271,
+            "alt": "Adapter registry listing each tenant's LoRA adapters with version, scale, license and size",
+            "caption": "Every tenant's LoRA adapters in B2, with current version, scale, license and size, plus publish actions."
+          },
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-3.webp",
+            "width": 1600,
+            "height": 1660,
+            "alt": "Papercut adapter detail for tenant globex with generate form, versions, manifest entry and recent jobs",
+            "caption": "One tenant's adapter with a tenant-scoped generate form, immutable checksummed versions, its B2 manifest entry and recent jobs."
+          },
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-4.webp",
+            "width": 1600,
+            "height": 1386,
+            "alt": "Generate page with tenant, adapter and version pickers and a compare adapters form",
+            "caption": "Generate as a tenant through one of its adapters, try the tenant isolation check, or compare adapters on the same prompt and seed."
+          },
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-5.webp",
+            "width": 1600,
+            "height": 1427,
+            "alt": "Runs list with run IDs, creation times, job counts, states and adapters.json reports",
+            "caption": "Jobs grouped by run, each with its adapters.json timing report written to B2."
+          },
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-6.webp",
+            "width": 1600,
+            "height": 1216,
+            "alt": "Run detail showing a papercut fox image generated for globex with checksum, cache and timing data",
+            "caption": "The generated image labelled with its tenant and adapter, the verified sha256, cache hit, unload result and the run's timing report."
+          },
+          {
+            "src": "/screenshots/diffusers-multi-tenant-lora-serving-7.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Library outputs tab with a grid of generated images labelled by tenant and run",
+            "caption": "Everything the app wrote under its B2 prefix, here the generated outputs labelled by tenant and run."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/diffusers-multi-tenant-lora-serving.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Adapter registry",
+            "description": "Publish, version, edit, verify and delete tenant LoRA adapters, with the weight written first and the tenant manifest rewritten last."
+          },
+          {
+            "title": "Tenant-scoped serving",
+            "description": "Every request resolves through the requesting tenant's own manifest; another tenant's adapter is rejected before any job or URL exists."
+          },
+          {
+            "title": "Credential-free workers",
+            "description": "Workers receive a short-lived presigned URL for exactly one adapter, verify its sha256 into a tenant-scoped cache, load it, generate and unload it."
+          },
+          {
+            "title": "Worker recovery",
+            "description": "Jobs carry a lease and a fixed seed, so a killed worker's job is re-rendered by another worker and the late result is rejected."
+          },
+          {
+            "title": "Generate and compare",
+            "description": "Generate per tenant and adapter, or compare adapters on the same prompt and seed."
+          },
+          {
+            "title": "Runs and timing reports",
+            "description": "Jobs grouped by run, with an adapters.json report in B2 recording fetch, load, generate and unload times and cache hits."
+          },
+          {
+            "title": "Library and bucket explorer",
+            "description": "Browse adapters, outputs and reports under the app prefix, and preview or download any object in the bucket."
+          }
+        ],
+        "useWhen": [
+          "You serve image generation to many customers from shared GPU workers and each customer brings their own LoRA adapters.",
+          "You want one base model in memory and adapters fetched on demand from object storage, verified by checksum and cached per tenant.",
+          "You need a hard guarantee that a request can only load its own tenant's adapter, with cross-tenant requests rejected before work is queued.",
+          "You want GPU workers that hold no storage credentials and can be added, replaced or killed without losing jobs."
+        ],
+        "avoidWhen": [
+          "You need authentication: the tenant in a request is trusted as given, so production needs an authenticating gateway in front.",
+          "You need a training pipeline, a general model-hub cache, a ComfyUI integration, an autoscaler or a GPU scheduler.",
+          "You need several dispatchers: one dispatcher owns manifest writes and the SQLite queue, so scaling it out needs a shared queue and lock.",
+          "You want a hosted or serverless deployment: workers need a local NVIDIA GPU or Apple silicon, and there is no one-click deploy.",
+          "You only need to sync a Hugging Face model cache with B2: see hf-cache-sync."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report repository defects through GitHub Issues on the repository; it is provided as a sample with no SLA."
+        }
+      }
     }
   ]
 }
