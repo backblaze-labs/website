@@ -5662,6 +5662,147 @@
           "support": "Backblaze maintains this open-source sample to help developers get started with B2; report defects and requests through the repository's GitHub Issues. It has no service-level agreement (SLA) and no guaranteed support."
         }
       }
+    },
+    {
+      "id": "wan-video-generation-archive",
+      "title": "Wan Video Generation Archive",
+      "tagline": "Generate Wan videos on one GPU and keep every clip in B2.",
+      "description": "Video generation archive (Next.js 16 + FastAPI) that generates short clips with Wan2.2 TI2V-5B on one GPU, stores each in Backblaze B2 through the S3-compatible API with its prompt, seed, pinned model revision and license in a per-project manifest, archives clips by age and shares them through expiring presigned links.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/wan-video-generation-archive",
+      "tags": [
+        "wan2-2",
+        "text-to-video",
+        "video-generation",
+        "generative-ai",
+        "diffusers",
+        "reproducibility",
+        "ai-generated-content",
+        "sample-app"
+      ],
+      "repo": "backblaze-b2-samples/wan-video-generation-archive",
+      "detail": {
+        "metaDescription": "Open source sample: generate short videos with Wan2.2 on one GPU and keep every clip in Backblaze B2 with its prompt, seed and model revision, archived by age.",
+        "audience": "Developers running an open video model on their own GPU who need every generated clip to stay traceable, archived and shareable as it ages, and AI coding agents extending the repository.",
+        "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/license/mit"
+        },
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Web dashboard UI"
+          },
+          {
+            "name": "Tailwind CSS v4 + shadcn/ui + TanStack Query",
+            "role": "Design tokens, interface primitives and data fetching"
+          },
+          {
+            "name": "FastAPI (Python 3.12)",
+            "role": "REST API, generation jobs, age job and share links"
+          },
+          {
+            "name": "Diffusers + PyTorch",
+            "role": "Wan2.2 TI2V-5B text-to-video at a pinned model revision"
+          },
+          {
+            "name": "imageio-ffmpeg",
+            "role": "MP4 encoding with AI-generated container tags"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible storage for clips, settings sidecars and per-project manifests"
+          },
+          {
+            "name": "pnpm workspaces",
+            "role": "Monorepo for the web app, API and shared types"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/wan-video-generation-archive-1.webp",
+            "width": 1600,
+            "height": 4088,
+            "alt": "Clip library with recent and archived Wan clips, each labelled AI-generated with its project and seed",
+            "caption": "Every generated clip, recent or archived, with its prompt, seed, tier and AI-generated label, filterable by project and tier."
+          },
+          {
+            "src": "/screenshots/wan-video-generation-archive-2.webp",
+            "width": 1600,
+            "height": 1511,
+            "alt": "Clip detail page playing an archived sailboat clip above its full manifest entry",
+            "caption": "Play one clip, share it by expiring link or regenerate it, and read its full manifest entry: seed, pinned model revision, license, checksum and B2 keys."
+          },
+          {
+            "src": "/screenshots/wan-video-generation-archive-3.webp",
+            "width": 1600,
+            "height": 1151,
+            "alt": "Generate form with prompt, project and Wan model settings",
+            "caption": "Queue a text-to-video job on a pinned Wan model, with resolution, frames, steps and seed suggested for the machine."
+          },
+          {
+            "src": "/screenshots/wan-video-generation-archive-4.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Archive age job form with project, age threshold and dry-run toggle",
+            "caption": "Move clips older than N days from the recent tier to the archive prefix, with a dry-run preview that respects live share links."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/wan-video-generation-archive.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Clip generation",
+            "description": "Wan2.2 text-to-video on one GPU, with every clip labelled AI-generated in its object metadata, its MP4 tags and its manifest line."
+          },
+          {
+            "title": "Clip library",
+            "description": "Browse clips by project and tier, with each manifest entry alongside the video."
+          },
+          {
+            "title": "Prompt-and-seed manifest",
+            "description": "A per-project JSONL file records the prompt, seed, model revision, license and SHA-256 checksum for each clip."
+          },
+          {
+            "title": "Archive age job",
+            "description": "Copy older clips to the archive prefix inside the bucket, verify size and checksum, rewrite the manifest key, then remove the recent copy."
+          },
+          {
+            "title": "Expiring share links",
+            "description": "Presigned links from one minute to seven days play a recent or archived clip in any browser without making the bucket public."
+          },
+          {
+            "title": "Regenerate from manifest",
+            "description": "Re-run a clip from its recorded prompt, seed and pinned model revision."
+          },
+          {
+            "title": "Bucket explorer",
+            "description": "Browse, preview and download every object in the bucket, with metadata extraction for images and documents."
+          }
+        ],
+        "useWhen": [
+          "You run an open video model on your own GPU and need every output traced to its prompt, seed and exact model revision.",
+          "You want generated clips archived by age inside one bucket, without moving bytes back through the GPU host.",
+          "You want to share a clip by an expiring signed link while the bucket stays private.",
+          "You want a working reference for the generation-output lifecycle that you can clone, point at your bucket and extend."
+        ],
+        "avoidWhen": [
+          "You need a hosted video service: there are no user accounts, authentication or tenant isolation, and the API is unauthenticated and bucket-wide.",
+          "You need batch scheduling, multi-GPU support, transcoding, streaming or image-conditioned video: jobs run one at a time in the API process and are lost on restart, and generation is text-to-video only.",
+          "You cannot provide a CUDA GPU with 24 GB or more of VRAM for the default model: smaller GPUs can run the 1.3B development model, and CPU is impractically slow.",
+          "You want to edit a clip's prompt, seed or model after the fact: those fields are its provenance, so a changed setting creates a new clip instead.",
+          "You need the same lifecycle for images: see flux-b2-generation-output-lifecycle."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report repository defects through GitHub Issues on the repository; it is provided as a sample with no SLA."
+        }
+      }
     }
   ]
 }
