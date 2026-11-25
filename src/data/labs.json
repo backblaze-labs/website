@@ -5672,6 +5672,16 @@
       "type": "sample",
       "languages": ["typescript", "python"],
       "url": "https://github.com/backblaze-b2-samples/wan-video-generation-archive",
+      "tags": [
+        "wan2-2",
+        "text-to-video",
+        "video-generation",
+        "generative-ai",
+        "diffusers",
+        "reproducibility",
+        "ai-generated-content",
+        "sample-app"
+      ],
       "repo": "backblaze-b2-samples/wan-video-generation-archive",
       "detail": {
         "metaDescription": "Open source sample: generate short videos with Wan2.2 on one GPU and keep every clip in Backblaze B2 with its prompt, seed and model revision, archived by age.",
