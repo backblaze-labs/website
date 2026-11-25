@@ -5961,6 +5961,127 @@
           "support": "Report repository defects through GitHub Issues on the repository; it is provided as a sample with no SLA."
         }
       }
+    },
+    {
+      "id": "label-studio-prelabeling-dataset-versioning",
+      "title": "Label Studio Prelabeling Dataset Versioning",
+      "tagline": "Pre-label, correct and release datasets with Label Studio on B2.",
+      "description": "Connects Label Studio to Backblaze B2 as source and target storage, pre-labels tasks with a local model, and exports versioned, verified dataset releases back to the same bucket.",
+      "categories": ["ai-ml", "data-pipelines"],
+      "type": "sample",
+      "languages": ["python", "typescript", "javascript"],
+      "url": "https://github.com/backblaze-b2-samples/label-studio-prelabeling-dataset-versioning",
+      "tags": [
+        "label-studio",
+        "pre-labeling",
+        "dataset-versioning",
+        "computer-vision",
+        "backblaze-b2"
+      ],
+      "icon": "tag",
+      "repo": "backblaze-b2-samples/label-studio-prelabeling-dataset-versioning",
+      "detail": {
+        "metaDescription": "Pre-label images with local RT-DETR, correct annotations in Label Studio, and export versioned COCO datasets with checksum manifests to Backblaze B2.",
+        "audience": "Data providers and physical AI teams who run Label Studio and need versioned, auditable training data releases.",
+        "license": {
+          "name": "MIT",
+          "url": "https://github.com/backblaze-b2-samples/label-studio-prelabeling-dataset-versioning/blob/main/LICENSE"
+        },
+        "techStack": [
+          {
+            "name": "Next.js and React",
+            "role": "Project dashboard and dataset library"
+          },
+          {
+            "name": "FastAPI",
+            "role": "Workflow API and local model backend"
+          },
+          {
+            "name": "Label Studio",
+            "role": "Image annotation with native S3 source and target storage"
+          },
+          {
+            "name": "RT-DETR R18",
+            "role": "Local object detection for pre-labels"
+          },
+          {
+            "name": "Backblaze B2",
+            "role": "S3-compatible storage for images, predictions, annotations and releases"
+          },
+          {
+            "name": "Docker Compose",
+            "role": "Local Label Studio and model services"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/label-studio-prelabeling-dataset-versioning-1.webp",
+            "width": 1600,
+            "height": 1111,
+            "alt": "Dashboard showing projects, annotation progress and recent dataset releases",
+            "caption": "Track projects, annotation progress and recent dataset releases stored on Backblaze B2."
+          },
+          {
+            "src": "/screenshots/label-studio-prelabeling-dataset-versioning-2.webp",
+            "width": 1600,
+            "height": 1111,
+            "alt": "Labeling project with eight annotated tasks and a completed release",
+            "caption": "Sync images, run local pre-labels, correct annotations and cut a versioned release."
+          },
+          {
+            "src": "/screenshots/label-studio-prelabeling-dataset-versioning-3.webp",
+            "width": 1600,
+            "height": 1111,
+            "alt": "COCO dataset release with eight images and 59 corrected bounding boxes",
+            "caption": "Inspect immutable COCO releases and re-verify their images, annotations and manifests."
+          },
+          {
+            "src": "/screenshots/label-studio-prelabeling-dataset-versioning-4.webp",
+            "width": 1600,
+            "height": 1111,
+            "alt": "Dataset library listing source images and their annotation status",
+            "caption": "Browse raw images, model suggestions, annotations and release files for each project."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/label-studio-prelabeling-dataset-versioning.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Labeling projects",
+            "description": "Connect source images and finished annotations to the same storage layer."
+          },
+          {
+            "title": "Local pre-labels",
+            "description": "Run RT-DETR with configurable confidence and label filters before correcting results in Label Studio."
+          },
+          {
+            "title": "Versioned dataset releases",
+            "description": "Export immutable COCO releases with checksum manifests and reject incomplete annotations."
+          },
+          {
+            "title": "Dataset library",
+            "description": "Browse source images, model suggestions, annotations and release files by project."
+          }
+        ],
+        "useWhen": [
+          "You run Label Studio and want raw images, model suggestions, annotations and releases in one bucket you control.",
+          "You need to correct model suggestions before exporting a COCO training dataset.",
+          "You want dataset releases you can rebuild and audit later from manifests and checksums."
+        ],
+        "avoidWhen": [
+          "You run a multi-user labeling team that needs SSO, roles or review queues: this sample runs a single local admin.",
+          "You need to host Label Studio for others: the sample is local-only by design.",
+          "You need active learning or model training: both are out of scope.",
+          "You cannot run Docker and a local object detection model."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report problems through the GitHub repository issues; this sample has no support SLA."
+        }
+      }
     }
   ]
 }
