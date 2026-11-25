@@ -269,11 +269,11 @@
     "forks": 69,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 16,
+    "openIssues": 17,
     "stars": 15,
     "updated": "2026-11-20T00:25:35Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-24T07:05:04.061Z"
+    "fetchedAt": "2026-11-25T07:05:47.396Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -338,14 +338,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 60,
+    "forks": 63,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 14,
+    "openIssues": 16,
     "stars": 46,
     "updated": "2026-11-20T00:25:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-24T07:05:04.061Z"
+    "fetchedAt": "2026-11-25T07:05:47.396Z"
   },
   "b2-action": {
     "archived": false,
@@ -353,11 +353,11 @@
     "forks": 3,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 76,
+    "openIssues": 62,
     "stars": 9,
-    "updated": "2026-11-23T23:36:33Z",
+    "updated": "2026-11-24T14:24:54Z",
     "repo": "backblaze-labs/b2-action",
-    "fetchedAt": "2026-11-24T07:05:04.056Z"
+    "fetchedAt": "2026-11-25T07:05:47.395Z"
   },
   "b2-mcp": {
     "archived": false,
@@ -365,11 +365,11 @@
     "forks": 8,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 81,
+    "openIssues": 82,
     "stars": 48,
-    "updated": "2026-11-24T03:13:56Z",
+    "updated": "2026-11-25T05:13:45Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-11-24T07:05:04.227Z"
+    "fetchedAt": "2026-11-25T07:05:47.531Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -569,11 +569,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": null,
-    "openIssues": 21,
+    "openIssues": 20,
     "stars": 1,
-    "updated": "2026-11-16T23:32:26Z",
+    "updated": "2026-11-24T22:10:36Z",
     "repo": "backblaze-b2-samples/comic-storyboard-b2",
-    "fetchedAt": "2026-11-17T07:05:23.111Z"
+    "fetchedAt": "2026-11-25T07:05:47.395Z"
   },
   "continue-b2-backup": {
     "archived": false,
@@ -590,14 +590,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4085,
+    "forks": 4088,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 602,
-    "stars": 17198,
-    "updated": "2026-11-23T21:23:01Z",
+    "openIssues": 604,
+    "stars": 17205,
+    "updated": "2026-11-24T17:36:06Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-24T07:05:04.061Z"
+    "fetchedAt": "2026-11-25T07:05:47.396Z"
   },
   "data-encryption": {
     "archived": false,
@@ -845,11 +845,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 13,
+    "openIssues": 17,
     "stars": 0,
-    "updated": "2026-11-18T12:40:11Z",
+    "updated": "2026-11-24T22:11:14Z",
     "repo": "backblaze-b2-samples/frigate-nvr-archive",
-    "fetchedAt": "2026-11-19T07:05:35.522Z"
+    "fetchedAt": "2026-11-25T07:05:47.385Z"
   },
   "genblaze": {
     "archived": false,
@@ -1166,14 +1166,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6648,
+    "forks": 6654,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2245,
-    "stars": 28946,
-    "updated": "2026-11-24T06:49:59Z",
+    "openIssues": 2246,
+    "stars": 28957,
+    "updated": "2026-11-25T07:00:22Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-24T07:05:04.061Z"
+    "fetchedAt": "2026-11-25T07:05:47.396Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1193,11 +1193,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 26,
+    "openIssues": 25,
     "stars": 0,
-    "updated": "2026-11-13T19:55:05Z",
+    "updated": "2026-11-24T16:14:58Z",
     "repo": "backblaze-b2-samples/mmdetection3d-lidar-dataset",
-    "fetchedAt": "2026-11-14T07:04:54.095Z"
+    "fetchedAt": "2026-11-25T07:05:47.514Z"
   },
   "mmpose-video-keypoint-extraction": {
     "archived": false,
@@ -1241,11 +1241,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 4,
+    "openIssues": 3,
     "stars": 1,
-    "updated": "2026-11-16T23:40:03Z",
+    "updated": "2026-11-24T22:47:58Z",
     "repo": "backblaze-b2-samples/music-tagging-search",
-    "fetchedAt": "2026-11-17T07:05:23.102Z"
+    "fetchedAt": "2026-11-25T07:05:47.382Z"
   },
   "nemo-curator-training-data": {
     "archived": false,
@@ -1301,11 +1301,11 @@
     "forks": 1,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 16,
+    "openIssues": 19,
     "stars": 0,
-    "updated": "2026-11-18T10:59:21Z",
+    "updated": "2026-11-24T22:44:44Z",
     "repo": "backblaze-b2-samples/nudenet-video-moderation",
-    "fetchedAt": "2026-11-19T07:05:35.522Z"
+    "fetchedAt": "2026-11-25T07:05:47.376Z"
   },
   "nuscenes-sensor-data-lake": {
     "archived": false,
@@ -1690,6 +1690,18 @@
     "updated": "2026-11-21T06:02:53Z",
     "repo": "backblaze-b2-samples/voice-memo-ai-second-brain",
     "fetchedAt": "2026-11-21T07:04:40.007Z"
+  },
+  "wan-video-generation-archive": {
+    "archived": false,
+    "description": "Sample app: generate AI videos with Wan2.2 TI2V-5B on one GPU and archive every clip in Backblaze B2 with its prompt, seed, model revision and license, plus age-based archiving and expiring share links. FastAPI + Next.js.",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-11-25T00:27:55Z",
+    "repo": "backblaze-b2-samples/wan-video-generation-archive",
+    "fetchedAt": "2026-11-25T07:05:47.856Z"
   },
   "webdataset-streaming-pytorch-training": {
     "archived": false,
