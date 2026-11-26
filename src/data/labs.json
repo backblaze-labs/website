@@ -107,6 +107,14 @@
     {
       "id": "markdown",
       "label": "Markdown"
+    },
+    {
+      "id": "go",
+      "label": "Go"
+    },
+    {
+      "id": "java",
+      "label": "Java"
     }
   ],
   "integrations": [
