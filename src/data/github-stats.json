@@ -269,11 +269,11 @@
     "forks": 69,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 17,
+    "openIssues": 18,
     "stars": 15,
     "updated": "2026-11-20T00:25:35Z",
     "repo": "backblaze-labs/awesome-agent-infrastructure",
-    "fetchedAt": "2026-11-25T07:05:47.396Z"
+    "fetchedAt": "2026-11-26T07:05:24.983Z"
   },
   "awesome-audio-generation": {
     "archived": false,
@@ -290,14 +290,14 @@
   "awesome-image-generation": {
     "archived": false,
     "description": "A curated list of AI image generation APIs, SDKs, and tools including text-to-image, image editing, diffusion models, generative art systems, and multimodal AI platforms. Covers commercial services, open source models with APIs, and scalable infrastructure for developers building visual applications.",
-    "forks": 27,
+    "forks": 28,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 8,
+    "openIssues": 9,
     "stars": 10,
     "updated": "2026-11-20T00:25:48Z",
     "repo": "backblaze-labs/awesome-image-generation",
-    "fetchedAt": "2026-11-24T07:05:04.061Z"
+    "fetchedAt": "2026-11-26T07:05:24.983Z"
   },
   "awesome-ml-data-pipelines": {
     "archived": false,
@@ -338,14 +338,14 @@
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 63,
+    "forks": 64,
     "lang": null,
     "license": "CC0-1.0",
     "openIssues": 16,
-    "stars": 46,
+    "stars": 47,
     "updated": "2026-11-20T00:25:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-25T07:05:47.396Z"
+    "fetchedAt": "2026-11-26T07:05:24.983Z"
   },
   "b2-action": {
     "archived": false,
@@ -365,11 +365,11 @@
     "forks": 8,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 82,
+    "openIssues": 50,
     "stars": 48,
-    "updated": "2026-11-25T05:13:45Z",
+    "updated": "2026-11-26T07:04:32Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-11-25T07:05:47.531Z"
+    "fetchedAt": "2026-11-26T07:05:25.152Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -590,14 +590,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4088,
+    "forks": 4089,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 604,
-    "stars": 17205,
-    "updated": "2026-11-24T17:36:06Z",
+    "openIssues": 606,
+    "stars": 17210,
+    "updated": "2026-11-25T17:22:53Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-25T07:05:47.396Z"
+    "fetchedAt": "2026-11-26T07:05:24.990Z"
   },
   "data-encryption": {
     "archived": false,
@@ -718,6 +718,18 @@
     "updated": "2026-11-13T19:51:33Z",
     "repo": "backblaze-b2-samples/depth-anything-v2-dataset",
     "fetchedAt": "2026-11-14T07:04:53.653Z"
+  },
+  "diffusers-multi-tenant-lora-serving": {
+    "archived": false,
+    "description": "Multi-tenant LoRA serving for Hugging Face Diffusers (SDXL): keep every tenant's LoRA adapters in Backblaze B2 and load them per request onto one shared base model, using stateless GPU workers, presigned fetches and tenant isolation. FastAPI and Next.js sample app",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-11-23T19:23:37Z",
+    "repo": "backblaze-b2-samples/diffusers-multi-tenant-lora-serving",
+    "fetchedAt": "2026-11-26T07:05:25.493Z"
   },
   "docling-rag-ingestion": {
     "archived": false,
@@ -854,14 +866,14 @@
   "genblaze": {
     "archived": false,
     "description": "Genblaze is an open source Python SDK for orchestrating generative AI media pipelines across video, audio, and image providers with built in provenance for every output.",
-    "forks": 31,
+    "forks": 32,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 28,
+    "openIssues": 29,
     "stars": 547,
-    "updated": "2026-11-19T05:56:38Z",
+    "updated": "2026-11-26T05:43:49Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-11-24T07:05:04.061Z"
+    "fetchedAt": "2026-11-26T07:05:24.984Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -1091,6 +1103,18 @@
     "repo": "backblaze-b2-samples/kiss-icp-lidar-archive",
     "fetchedAt": "2026-11-17T07:05:23.630Z"
   },
+  "label-studio-prelabeling-dataset-versioning": {
+    "archived": false,
+    "description": "Label Studio pre-labeling and dataset versioning on Backblaze B2: auto-label images with a local RT-DETR object detector, correct them in Label Studio, and cut immutable, verified COCO dataset releases with a sha256 manifest in one S3-compatible bucket. Next.js + FastAPI sample app",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 10,
+    "stars": 0,
+    "updated": "2026-11-25T17:30:10Z",
+    "repo": "backblaze-b2-samples/label-studio-prelabeling-dataset-versioning",
+    "fetchedAt": "2026-11-26T07:05:25.453Z"
+  },
   "lama-batch-inpainting": {
     "archived": false,
     "description": "Batch image inpainting with the LaMa model, run locally at $0 inference cost — erase watermarks and unwanted objects from large image collections and store the results in Backblaze B2 (S3-compatible). Next.js + FastAPI sample app.",
@@ -1166,14 +1190,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6654,
+    "forks": 6661,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2246,
-    "stars": 28957,
-    "updated": "2026-11-25T07:00:22Z",
+    "openIssues": 2256,
+    "stars": 28974,
+    "updated": "2026-11-26T07:01:20Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-25T07:05:47.396Z"
+    "fetchedAt": "2026-11-26T07:05:24.990Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1625,11 +1649,11 @@
     "forks": 5,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 11,
+    "openIssues": 9,
     "stars": 17,
-    "updated": "2026-11-13T20:00:05Z",
+    "updated": "2026-11-26T04:47:56Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-11-19T07:05:35.523Z"
+    "fetchedAt": "2026-11-26T07:05:24.974Z"
   },
   "video-semantic-search": {
     "archived": false,
