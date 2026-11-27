@@ -6090,6 +6090,152 @@
           "support": "Report problems through the GitHub repository issues; this sample has no support SLA."
         }
       }
+    },
+    {
+      "id": "ai-video-dubbing-voice-clone-lip-sync",
+      "title": "AI Video Dubbing Voice Clone Lip Sync",
+      "tagline": "Dub videos with open models and consented voice clones on B2.",
+      "description": "Dubs a source video into several languages with open models (Whisper, MADLAD-400, OpenVoice V2 with MeloTTS, MuseTalk 1.5), cloning a voice only from a consented reference sample, and keeps every stage output and language variant in Backblaze B2 under one job with a manifest.",
+      "categories": ["ai-ml"],
+      "type": "sample",
+      "languages": ["typescript", "python"],
+      "url": "https://github.com/backblaze-b2-samples/ai-video-dubbing-voice-clone-lip-sync",
+      "tags": [
+        "video-dubbing",
+        "voice-cloning",
+        "lip-sync",
+        "whisper",
+        "openvoice",
+        "musetalk",
+        "backblaze-b2"
+      ],
+      "repo": "backblaze-b2-samples/ai-video-dubbing-voice-clone-lip-sync",
+      "detail": {
+        "metaDescription": "Dub a video into several languages with open models (Whisper, MADLAD-400, OpenVoice V2, MuseTalk), cloning only a consented voice, with every stage kept in Backblaze B2.",
+        "audience": "Localization and media engineers who dub their own video libraries with open models on a single GPU and must keep every intermediate traceable.",
+        "license": {
+          "name": "MIT (code only; model weights keep their own licenses)",
+          "url": "https://github.com/backblaze-b2-samples/ai-video-dubbing-voice-clone-lip-sync/blob/main/LICENSE"
+        },
+        "ogImage": {
+          "src": "/og/ai-video-dubbing-voice-clone-lip-sync.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "screenshots": [
+          {
+            "src": "/screenshots/ai-video-dubbing-voice-clone-lip-sync-1.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Dubbing jobs library with video, speaker, languages, status and stage progress",
+            "caption": "Every dubbing job with its consented speaker, target languages, status and stage progress."
+          },
+          {
+            "src": "/screenshots/ai-video-dubbing-voice-clone-lip-sync-2.webp",
+            "width": 1600,
+            "height": 1732,
+            "alt": "Dubbing job detail with the lip-synced Spanish variant playing, side-by-side transcript and translation, and the stage table",
+            "caption": "The lip-synced variant player, the timed transcript beside an editable translation, and every stage with its model revision, license and checksum."
+          },
+          {
+            "src": "/screenshots/ai-video-dubbing-voice-clone-lip-sync-3.webp",
+            "width": 1600,
+            "height": 1278,
+            "alt": "New dubbing job form with source upload, consented speaker, target languages and translator choice",
+            "caption": "Upload a source video straight to B2, pick a consented speaker, the target languages and the translator."
+          },
+          {
+            "src": "/screenshots/ai-video-dubbing-voice-clone-lip-sync-4.webp",
+            "width": 1600,
+            "height": 1729,
+            "alt": "Speakers page listing consent records and a form to add a consented speaker",
+            "caption": "Consent records with their reference samples, revocation, and a form to add a consented speaker."
+          },
+          {
+            "src": "/screenshots/ai-video-dubbing-voice-clone-lip-sync-5.webp",
+            "width": 1600,
+            "height": 1700,
+            "alt": "Variants page grouping AI-dubbed language variants by video with review link buttons",
+            "caption": "Every AI-dubbed language variant grouped by video, with presigned review links."
+          }
+        ],
+        "capabilities": [
+          {
+            "title": "Dubbing jobs",
+            "description": "Transcribe with Whisper, translate with MADLAD-400 or M2M100, voice with MeloTTS and OpenVoice V2, and lip-sync with MuseTalk 1.5, per target language."
+          },
+          {
+            "title": "Consented speakers",
+            "description": "A voice is cloned only from a reference sample stored with a written consent record, checked before a job is queued and again before any voice model loads. Revoking blocks future cloning."
+          },
+          {
+            "title": "Job manifest",
+            "description": "A per-video record in B2 of every stage output with its SHA-256, the model and pinned revision that produced it, its license and the consent record behind the voice."
+          },
+          {
+            "title": "Translation edit and re-render",
+            "description": "Fix a translated segment and re-render only that language; Run / Resume skips any stage whose stored output still matches its checksum."
+          },
+          {
+            "title": "Variants and review links",
+            "description": "Browse AI-dubbed variants, each labelled in object metadata, MP4 tags and the manifest, and share presigned review links instead of a public bucket."
+          },
+          {
+            "title": "Bucket explorer",
+            "description": "Browse, preview and download every object in the bucket, with metadata extraction and checksums."
+          }
+        ],
+        "techStack": [
+          {
+            "name": "Next.js 16 + React 19",
+            "role": "Dashboard UI with Tailwind v4, shadcn/ui and TanStack Query"
+          },
+          {
+            "name": "FastAPI + Pydantic v2",
+            "role": "Layered Python API"
+          },
+          {
+            "name": "boto3 + Backblaze B2",
+            "role": "S3-compatible storage for sources, stage outputs, variants and manifests"
+          },
+          {
+            "name": "Whisper large-v3-turbo",
+            "role": "Transcription with segment timestamps"
+          },
+          {
+            "name": "MADLAD-400 3B / M2M100 1.2B",
+            "role": "Segment translation"
+          },
+          {
+            "name": "MeloTTS + OpenVoice V2",
+            "role": "Speech synthesis and tone color conversion to the consented voice"
+          },
+          {
+            "name": "MuseTalk 1.5 + MediaPipe",
+            "role": "Lip sync with a lower-face blend mask"
+          },
+          {
+            "name": "PyTorch + imageio-ffmpeg",
+            "role": "Model runtime and bundled ffmpeg"
+          }
+        ],
+        "useWhen": [
+          "You want to dub a single-speaker video into other languages in the speaker's own consented voice, with lip sync, on hardware you control.",
+          "You need every transcript, translation, audio track and variant stored with checksums and model provenance so one language can be fixed and re-rendered later.",
+          "You want reviewers to see AI-dubbed variants through presigned links rather than a public bucket."
+        ],
+        "avoidWhen": [
+          "Your videos have several speakers: diarization is out of scope and the sample dubs one speaker per video.",
+          "You have no CUDA GPU or Apple-silicon Mac: on CPU only, variants are audio-only dubs by default.",
+          "You prefer hosted voice and dubbing providers: see Genblaze for that route with B2 storage.",
+          "You need authentication or a public multi-user deployment: the API is meant to run on a private host.",
+          "You need consent records to be edited or deleted: they are revoked, never rewritten, so earlier variants keep their provenance."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Report problems through the GitHub repository issues; this sample has no support SLA."
+        }
+      }
     }
   ]
 }
