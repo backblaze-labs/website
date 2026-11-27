@@ -134,14 +134,14 @@
   "ai-saas-starter-kit": {
     "archived": false,
     "description": "Production-ready AI SaaS starter kit: a Next.js 16 + FastAPI monorepo with Supabase auth, Stripe billing, text-to-image AI generation (NVIDIA NIM flux.1-dev), an admin console, and a Backblaze B2 file manager — an MIT-licensed, agent-optimized template that skips auth, billing, and storage boilerplate.",
-    "forks": 6,
+    "forks": 7,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 3,
+    "openIssues": 4,
     "stars": 19,
     "updated": "2026-11-13T20:01:59Z",
     "repo": "backblaze-labs/ai-saas-starter-kit",
-    "fetchedAt": "2026-11-14T07:04:53.654Z"
+    "fetchedAt": "2026-11-27T07:05:33.316Z"
   },
   "ai-shorts-generator": {
     "archived": false,
@@ -166,6 +166,18 @@
     "updated": "2026-11-21T06:04:01Z",
     "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
     "fetchedAt": "2026-11-21T07:04:40.006Z"
+  },
+  "ai-video-dubbing-voice-clone-lip-sync": {
+    "archived": false,
+    "description": "AI video dubbing sample with voice cloning and lip sync on open models (Whisper, MADLAD-400, OpenVoice V2, MuseTalk): dub a video into multiple languages from a consented voice sample and store every stage output and language variant in Backblaze B2 via the S3-compatible API",
+    "forks": 0,
+    "lang": "TypeScript",
+    "license": "MIT",
+    "openIssues": 16,
+    "stars": 0,
+    "updated": "2026-11-27T02:40:17Z",
+    "repo": "backblaze-b2-samples/ai-video-dubbing-voice-clone-lip-sync",
+    "fetchedAt": "2026-11-27T07:05:33.805Z"
   },
   "ai-video-upscaler-restore": {
     "archived": false,
@@ -314,38 +326,38 @@
   "awesome-multimodal-data": {
     "archived": false,
     "description": "A curated list of multimodal AI datasets and data infrastructure: video, image, audio, 3D, and robotics data, with formats, loaders, versioning, and labeling tools for large-scale training.",
-    "forks": 0,
+    "forks": 1,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 1,
+    "openIssues": 2,
     "stars": 3,
     "updated": "2026-11-20T00:54:23Z",
     "repo": "backblaze-labs/awesome-multimodal-data",
-    "fetchedAt": "2026-11-20T07:05:34.879Z"
+    "fetchedAt": "2026-11-27T07:05:33.326Z"
   },
   "awesome-physical-ai": {
     "archived": false,
     "description": "A curated list of physical AI tools: robotics foundation models, world models, simulators, teleoperation, sim-to-real, and embodied AI datasets for robot learning and autonomous systems.",
-    "forks": 3,
+    "forks": 4,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 0,
+    "openIssues": 1,
     "stars": 7,
     "updated": "2026-11-20T00:25:58Z",
     "repo": "backblaze-labs/awesome-physical-ai",
-    "fetchedAt": "2026-11-20T07:05:34.864Z"
+    "fetchedAt": "2026-11-27T07:05:33.326Z"
   },
   "awesome-video-generation": {
     "archived": false,
     "description": "A curated list of AI video generation APIs, SDKs, and tools including text-to-video, video editing, multimodal generation, diffusion models, and generative AI platforms. Covers commercial services, open source models with APIs, and production-ready infrastructure for developers building video applications.",
-    "forks": 64,
+    "forks": 68,
     "lang": null,
     "license": "CC0-1.0",
-    "openIssues": 16,
+    "openIssues": 21,
     "stars": 47,
     "updated": "2026-11-20T00:25:40Z",
     "repo": "backblaze-labs/awesome-video-generation",
-    "fetchedAt": "2026-11-26T07:05:24.983Z"
+    "fetchedAt": "2026-11-27T07:05:33.326Z"
   },
   "b2-action": {
     "archived": false,
@@ -365,11 +377,11 @@
     "forks": 8,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 50,
+    "openIssues": 51,
     "stars": 48,
-    "updated": "2026-11-26T07:04:32Z",
+    "updated": "2026-11-27T06:52:29Z",
     "repo": "backblaze-labs/b2-mcp",
-    "fetchedAt": "2026-11-26T07:05:25.152Z"
+    "fetchedAt": "2026-11-27T07:05:33.478Z"
   },
   "b2-vscode": {
     "archived": false,
@@ -590,14 +602,14 @@
   "cvat": {
     "archived": false,
     "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
-    "forks": 4089,
+    "forks": 4090,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 606,
-    "stars": 17210,
-    "updated": "2026-11-25T17:22:53Z",
+    "openIssues": 615,
+    "stars": 17213,
+    "updated": "2026-11-26T19:17:30Z",
     "repo": "cvat-ai/cvat",
-    "fetchedAt": "2026-11-26T07:05:24.990Z"
+    "fetchedAt": "2026-11-27T07:05:33.327Z"
   },
   "data-encryption": {
     "archived": false,
@@ -869,11 +881,11 @@
     "forks": 32,
     "lang": "Python",
     "license": "MIT",
-    "openIssues": 29,
-    "stars": 547,
+    "openIssues": 31,
+    "stars": 546,
     "updated": "2026-11-26T05:43:49Z",
     "repo": "backblaze-labs/genblaze",
-    "fetchedAt": "2026-11-26T07:05:24.984Z"
+    "fetchedAt": "2026-11-27T07:05:33.327Z"
   },
   "genblaze-gen-media-multi-provider-sample": {
     "archived": false,
@@ -966,10 +978,10 @@
     "lang": "TypeScript",
     "license": "MIT",
     "openIssues": 1,
-    "stars": 1,
+    "stars": 2,
     "updated": "2026-10-18T15:56:27Z",
     "repo": "backblaze-labs/hermes-b2-backup",
-    "fetchedAt": "2026-11-22T07:04:55.822Z"
+    "fetchedAt": "2026-11-27T07:05:33.320Z"
   },
   "hf-cache-sync": {
     "archived": false,
@@ -1085,11 +1097,11 @@
     "forks": 0,
     "lang": "TypeScript",
     "license": "MIT",
-    "openIssues": 2,
+    "openIssues": 1,
     "stars": 2,
-    "updated": "2026-11-13T20:04:57Z",
+    "updated": "2026-11-26T15:17:47Z",
     "repo": "backblaze-labs/jupyterlab-b2",
-    "fetchedAt": "2026-11-14T07:04:53.687Z"
+    "fetchedAt": "2026-11-27T07:05:33.327Z"
   },
   "kiss-icp-lidar-archive": {
     "archived": false,
@@ -1190,14 +1202,14 @@
   "mlflow": {
     "archived": false,
     "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-    "forks": 6661,
+    "forks": 6667,
     "lang": "Python",
     "license": "Apache-2.0",
-    "openIssues": 2256,
-    "stars": 28974,
-    "updated": "2026-11-26T07:01:20Z",
+    "openIssues": 2272,
+    "stars": 28987,
+    "updated": "2026-11-27T06:51:18Z",
     "repo": "mlflow/mlflow",
-    "fetchedAt": "2026-11-26T07:05:24.990Z"
+    "fetchedAt": "2026-11-27T07:05:33.327Z"
   },
   "mmaction2-action-dataset-builder": {
     "archived": false,
@@ -1651,9 +1663,9 @@
     "license": "MIT",
     "openIssues": 9,
     "stars": 17,
-    "updated": "2026-11-26T04:47:56Z",
+    "updated": "2026-11-27T05:22:49Z",
     "repo": "backblaze-b2-samples/vibe-coding-starter-kit",
-    "fetchedAt": "2026-11-26T07:05:24.974Z"
+    "fetchedAt": "2026-11-27T07:05:33.325Z"
   },
   "video-semantic-search": {
     "archived": false,
