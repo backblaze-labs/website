@@ -6236,6 +6236,105 @@
           "support": "Report problems through the GitHub repository issues; this sample has no support SLA."
         }
       }
+    },
+    {
+      "id": "far-region-bulk-ingest",
+      "title": "Far Region Bulk Ingest",
+      "tagline": "Verified batch ingest to B2 with rclone, manifests and reports.",
+      "description": "A Python CLI that wraps rclone to move capture batches from many sites into Backblaze B2 over unstable links, with a checksum manifest, rerunnable copy, rclone check, manifest comparison, transfer report and a verified marker for every batch.",
+      "categories": ["data-pipelines"],
+      "type": "sample",
+      "languages": ["python"],
+      "url": "https://github.com/backblaze-b2-samples/b2-far-region-bulk-ingest",
+      "tags": [
+        "rclone",
+        "data-ingestion",
+        "checksum-verification",
+        "s3-compatible",
+        "backblaze-b2"
+      ],
+      "repo": "backblaze-b2-samples/b2-far-region-bulk-ingest",
+      "detail": {
+        "metaDescription": "Verified batch ingest to Backblaze B2 with rclone: checksum manifests, rerunnable copy, rclone check, transfer reports and verified markers over the S3-compatible API.",
+        "audience": "Teams that collect video, lidar and telemetry at several sites and push it over slow or unreliable links into one B2 training corpus, and need proof of what arrived before downstream jobs run.",
+        "license": {
+          "name": "MIT",
+          "url": "https://github.com/backblaze-b2-samples/b2-far-region-bulk-ingest/blob/main/LICENSE"
+        },
+        "techStack": [
+          {
+            "name": "Python 3.11+",
+            "role": "CLI that orchestrates each batch"
+          },
+          {
+            "name": "rclone",
+            "role": "Pinned transfer engine for rclone copy --checksum and rclone check"
+          },
+          {
+            "name": "boto3",
+            "role": "Manifests, reports, verified markers, destination inspection and payload readback over the S3-compatible API"
+          },
+          {
+            "name": "Backblaze B2",
+            "role": "S3-compatible storage for batches, manifests, reports and verified markers"
+          },
+          {
+            "name": "moto",
+            "role": "Local S3 emulator for the offline test suite, used behind the link shaper"
+          }
+        ],
+        "screenshots": [
+          {
+            "src": "/screenshots/far-region-bulk-ingest-1.webp",
+            "width": 1600,
+            "height": 432,
+            "alt": "Terminal output of make demo showing the transfer report with every batch verified and a single round-trip success line",
+            "caption": "The demo runs several sites and batches through the link shaper, interrupts and reruns them, and prints the transfer report ending in one round-trip line."
+          }
+        ],
+        "ogImage": {
+          "src": "/og/far-region-bulk-ingest.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "capabilities": [
+          {
+            "title": "Checksum manifest per batch",
+            "description": "Hashes every source file (size, SHA-256, MD5) and writes a manifest to B2 before anything is copied, so a rerun can refuse source files that changed."
+          },
+          {
+            "title": "Rerunnable copy",
+            "description": "Runs rclone copy --checksum, so a rerun after an interruption uploads only what is missing and never duplicates a file."
+          },
+          {
+            "title": "Two independent checks",
+            "description": "Compares source and destination with rclone check, then compares the destination with the manifest through boto3, using the multipart MD5 from object metadata rather than the multipart ETag."
+          },
+          {
+            "title": "Transfer report and verified marker",
+            "description": "Writes a report listing every file, its verification state, attempts and retries, and writes the verified marker only after both checks pass. Source files are never moved or deleted."
+          },
+          {
+            "title": "Offline tests and a realistic demo",
+            "description": "make test runs against a local S3 emulator behind a link shaper with no B2 credentials. make demo runs the real flow on B2 with latency, a bandwidth cap and dropped connections, then reads one ingested payload back and compares its SHA-256."
+          }
+        ],
+        "useWhen": [
+          "Many capture sites push batches into one training corpus, each under its own site prefix.",
+          "Links are slow, far from the bucket's region or drop out, and transfers must survive reruns.",
+          "Downstream jobs need a manifest, a report and a marker as evidence of what arrived before they start.",
+          "Your team already uses rclone and wants to keep it as the transfer engine."
+        ],
+        "avoidWhen": [
+          "You need continuous directory mirroring: rclone sync or b2 sync fit better, since ingest never deletes destination batch files.",
+          "You need to delete source data after upload, replicate across regions or migrate from another provider: these are out of scope.",
+          "You want transfer tuning or throughput numbers: the sample makes no speed claims."
+        ],
+        "maturity": {
+          "status": "Sample · unsupported",
+          "support": "Open an issue on the GitHub repository; there is no SLA."
+        }
+      }
     }
   ]
 }
