@@ -167,18 +167,6 @@
     "repo": "backblaze-b2-samples/ai-sticker-pack-generator",
     "fetchedAt": "2026-11-21T07:04:40.006Z"
   },
-  "ai-video-dubbing-voice-clone-lip-sync": {
-    "archived": false,
-    "description": "AI video dubbing sample with voice cloning and lip sync on open models (Whisper, MADLAD-400, OpenVoice V2, MuseTalk): dub a video into multiple languages from a consented voice sample and store every stage output and language variant in Backblaze B2 via the S3-compatible API",
-    "forks": 0,
-    "lang": "TypeScript",
-    "license": "MIT",
-    "openIssues": 16,
-    "stars": 0,
-    "updated": "2026-11-27T02:40:17Z",
-    "repo": "backblaze-b2-samples/ai-video-dubbing-voice-clone-lip-sync",
-    "fetchedAt": "2026-11-27T07:05:33.805Z"
-  },
   "ai-video-upscaler-restore": {
     "archived": false,
     "description": "AI video & image upscaler and restorer: run Real-ESRGAN 4×/8× super-resolution and optional GFPGAN face restoration locally, storing degraded sources and restored outputs side by side on Backblaze B2. Next.js + FastAPI sample app with a before/after browser and no database — the B2 bucket is the system of record.",
