@@ -1,0 +1,27 @@
+name: Changelog
+
+# Requires a changie fragment on PRs that change source. Dependabot PRs and PRs
+# labeled `skip-changelog` are exempt. Mirrors the cross-repo changelog check.
+#
+# Dependabot guard (same as ci.yml): any new pull_request-triggered workflow MUST
+# keep both the actor and PR-author clauses, or dependabot PRs start spending CI.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  changelog:
+    if: ${{ github.actor != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot[bot]' && !contains(github.event.pull_request.labels.*.name, 'skip-changelog') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Require a changelog fragment
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: node scripts/check-changelog.mjs
